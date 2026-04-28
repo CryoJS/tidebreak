@@ -1,9 +1,14 @@
 ﻿// NOTE Open MGCB Pipeline Tool: dotnet mgcb-editor ./Content/Content.mgcb
 
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Camera;
+using GameUtility;
 
 namespace Tidebreak;
 
@@ -28,29 +33,45 @@ public class Game1 : Game
     private const int RIGHT_DIRECTION = 1;
 
     // Set the starting game state to be the menu state
-    int gameState = MENU;
+    private int gameState = MENU;
+
+    // Create variables for file IO
+    private static StreamReader inFile;
+    private static StreamWriter outFile;
 
     // Create input objects (mouse and keyboard)
-    KeyboardState kb;
-    KeyboardState prevKb;
+    private KeyboardState kb;
+    private KeyboardState prevKb;
 
-    MouseState mouse;
-    MouseState prevMouse;
+    private MouseState mouse;
+    private MouseState prevMouse;
+
+    // Create viewport camera
+    Cam2D camera;
 
     // Create variables to store the screen dimensions
-    int screenWidth;
-    int screenHeight;
+    private int screenWidth;
+    private int screenHeight;
 
     // Create variables for the tile size and amount of tiles in rows and cols (dimensions) on the screen
-    int tileSpanX = 14;
-    int tileSpanY = 8;
-    int tileSize = 16;
+    private int tileSpanX = 14;
+    private int tileSpanY = 8;
+    private int tileSize = 16;
 
     // Create a variable for pixel art scale
-    int pixelScale = 8; // This value gets closest to full HD 1920x1080
+    private int pixelScale = 8; // This value gets closest to full HD 1920x1080
 
     // Create variable for target fps (240 since frame rate is important for platformer games)
-    int targetFPS = 240;
+    private int targetFPS = 240;
+
+    // Store all saved maps
+    private List<Map> maps = new List<Map>();
+    private int currentMap = 0;
+
+    // Store basic player data
+    Texture2D playerImg;
+    Rectangle playerRec;
+    Vector2 playerPos;
 
     public Game1()
     {
@@ -86,7 +107,14 @@ public class Game1 : Game
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-        // TODO: use this.Content to load your game content here
+        // Load all tile textures
+        for (int i = 0; i < Tile.TYPE_AMOUNT; i++)
+        {
+            Tile.tileTextures[i] = Content.Load<Texture2D>($"Images/Sprites/Tiles/Tile{i}");
+        }
+
+        // Load in all maps
+        LoadMaps();
     }
 
     protected override void Update(GameTime gameTime)
@@ -99,15 +127,81 @@ public class Game1 : Game
         prevMouse = mouse;
         mouse = Mouse.GetState();
 
+        // Perform update logic based on the current game state
+        switch (gameState)
+        {
+            case MENU:
+                break;
+
+            case SELECT_MAP:
+                break;
+
+            case CREATE_MAP:
+                break;
+
+            case EDIT_MAP:
+                break;
+
+            case PLAY_MAP:
+                maps[currentMap].Update();
+                break;
+
+            case END_MAP:
+                break;
+        }
+
         base.Update(gameTime);
     }
 
     protected override void Draw(GameTime gameTime)
     {
-        GraphicsDevice.Clear(Color.CornflowerBlue);
+        GraphicsDevice.Clear(Color.Black);
 
-        // TODO: Add your drawing code here
+        // Perform update logic based on the current game state
+        switch (gameState)
+        {
+            case MENU:
+                break;
+
+            case SELECT_MAP:
+                break;
+
+            case CREATE_MAP:
+                break;
+
+            case EDIT_MAP:
+                break;
+
+            case PLAY_MAP:
+                GraphicsDevice.Clear(Color.CornflowerBlue);
+                maps[currentMap].Draw(_spriteBatch);
+                break;
+
+            case END_MAP:
+                break;
+        }
 
         base.Draw(gameTime);
+    }
+
+    private void LoadMaps()
+    {
+        // Try to load maps, if failed, load defaults
+        try
+        {
+            // Load the file
+            inFile = new StreamReader("SavedMaps.txt");
+
+            // Load maps until none left
+            while (!inFile.EndOfStream)
+            {
+                maps.Add(new Map());
+                maps.Last().Load(inFile);
+            }
+        }
+        catch
+        {
+            // TODO load locked/default maps
+        }
     }
 }

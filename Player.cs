@@ -38,7 +38,7 @@ class Player
     // Store player animation constants
     private const int FRAME_DURATION = 100; // Duration of each animation frame in milliseconds
     private const int ANIM_SIZE = 128; // Pixel size (player is in the center of a 128x128 frame)
-    private const int PLAYER_WIDTH = 20; // Actual width of the player sprite (for collisions)
+    private const int PLAYER_WIDTH = 10; // Actual width of the player sprite (for collisions)
     private const int PLAYER_HEIGHT = 30; // Actual height of the player sprite (for collisions)
     private const int TILE_CHECK_SIZE = 2; // Farthest # of tiles away from player to check for collisions
 
@@ -54,6 +54,10 @@ class Player
     public Vector2 pos = new Vector2(0, 0);
     private Vector2 vel = new Vector2(0, 0); // Per second
     SpriteEffects direction = Animation.FLIP_NONE;
+
+    // Store player swim data
+    bool inWater;
+    int oxygen = 100;
 
     // Store player animation data
     private Texture2D idleImg;
@@ -95,7 +99,7 @@ class Player
         // Create player animations
         idleAnim = new Animation(idleImg, 10, 1, 10, 0, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 10 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, true, "PlayerIdle");
         runAnim = new Animation(runImg, 10, 1, 10, 0, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 10 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, true, "PlayerRun");
-        landAnim = new Animation(landImg, 7, 1, 7, 0, Animation.NO_IDLE, 1, 7 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, false, "PlayerLand");
+        landAnim = new Animation(landImg, 5, 1, 5, 0, Animation.NO_IDLE, 1, 5 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, false, "PlayerLand");
         jumpAnim = new Animation(jumpImg, 6, 1, 6, 0, Animation.NO_IDLE, 1, 6 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, false, "PlayerJump");
         fallAnim = new Animation(fallImg, 3, 1, 3, 0, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 3 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, true, "PlayerFall");
         slideAnim = new Animation(slideImg, 8, 1, 8, 0, Animation.NO_IDLE, 1, 8 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, false, "PlayerSlide");
@@ -210,6 +214,9 @@ class Player
             SetState(PlayerState.Jumping);
         }
 
+        // Check if player wants to slide, airdive, or swim down
+        // TODO
+
         // Update the player's position with velocity
         pos.X += vel.X * (float)gameTime.ElapsedGameTime.TotalSeconds;
         pos.Y += vel.Y * (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -230,12 +237,13 @@ class Player
         Rectangle right = new Rectangle((int)(rec.X + 0.5 * rec.Width), (int)(rec.Y + 0.25 * rec.Width), (int)(0.5 * rec.Width), (int)(0.5 * rec.Height));
 
         // Get the current tile of the map the player is on
-        int tileX = (int)(pos.X / (Game1.TILE_SIZE * Game1.PIXEL_SCALE));
-        int tileY = (int)(pos.Y / (Game1.TILE_SIZE * Game1.PIXEL_SCALE));
+        int tileX = rec.Center.X / (Game1.TILE_SIZE * Game1.PIXEL_SCALE);
+        int tileY = rec.Center.Y / (Game1.TILE_SIZE * Game1.PIXEL_SCALE);
 
         // Set the player to not be on the ground unless collision checks conclude otherwise
         isGrounded = false;
 
+        // Check for platform collisions within a certain radius of the player
         for (int x = Math.Max(0, tileX - TILE_CHECK_SIZE); x <= Math.Min(map.sizeX - 1, tileX + TILE_CHECK_SIZE); x++)
         {
             for (int y = Math.Max(0, tileY - TILE_CHECK_SIZE); y <= Math.Min(map.sizeY - 1, tileY + TILE_CHECK_SIZE); y++)

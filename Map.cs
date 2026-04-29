@@ -15,8 +15,8 @@ class Map // TODO All documentation for methods
     private bool locked;
 
     // Store map behaviour information
-    public int sizeX { get; private set; } = 0;
-    public int sizeY { get; private set; } = 0;
+    public int sizeX { get; private set; }
+    public int sizeY { get; private set; }
     private int startTileCnt = 0;
     private Vector2 startPos;
 
@@ -66,9 +66,9 @@ class Map // TODO All documentation for methods
     public void Draw(SpriteBatch spriteBatch)
     {
         // Draw each tile, background tile first, then foreground tile
-        for (int x = 0; x < tiles.GetLength(0); x++)
+        for (int x = 0; x < sizeX; x++)
         {
-            for (int y = 0; y < tiles.GetLength(1); y++)
+            for (int y = 0; y < sizeY; y++)
             {
                 bgTiles[x, y].Draw(spriteBatch);
                 tiles[x, y].Draw(spriteBatch);
@@ -104,35 +104,30 @@ class Map // TODO All documentation for methods
         bgTiles = new Tile[sizeX, sizeY];
 
         // Load in map tiles
-        for (int y = 0; y < tiles.GetLength(0); y++)
+        for (int y = 0; y < sizeY; y++)
         {
             line = inFile.ReadLine().Split(' ');
 
-            for (int x = 0; x < tiles.GetLength(1); x++)
+            for (int x = 0; x < sizeX; x++)
             {
                 tiles[x, y] = new Tile(x, y, Convert.ToInt32(line[x]));
 
                 if (tiles[x, y].type == Tile.START)
                 {
-                    startPos = new Vector2((x + 0.5f) * Game1.TILE_SIZE * Game1.PIXEL_SCALE, (y + 0.5f) * Game1.TILE_SIZE * Game1.PIXEL_SCALE);
+                    startPos = new Vector2(x * Game1.TILE_SIZE * Game1.PIXEL_SCALE, y * Game1.TILE_SIZE * Game1.PIXEL_SCALE);
                 }
             }
         }
 
         // Load in map tiles (bg)
-        for (int y = 0; y < tiles.GetLength(0); y++)
+        for (int y = 0; y < sizeY; y++)
         {
             line = inFile.ReadLine().Split(' ');
 
-            for (int x = 0; x < tiles.GetLength(1); x++)
+            for (int x = 0; x < sizeX; x++)
             {
                 bgTiles[x, y] = new Tile(x, y, Convert.ToInt32(line[x]));
             }
         }
-    }
-
-    public void Collisions(Player player)
-    {
-
     }
 }

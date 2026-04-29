@@ -7,7 +7,6 @@ using System.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Camera;
 using GameUtility;
 
 namespace Tidebreak;
@@ -29,8 +28,16 @@ public class Game1 : Game
     private const int END_MAP = 5;
 
     // Create constants for direction (negative is left, positive is right)
-    private const int LEFT_DIRECTION = -1;
-    private const int RIGHT_DIRECTION = 1;
+    public const int LEFT_DIRECTION = -1;
+    public const int RIGHT_DIRECTION = 1;
+
+    // Create game display constants
+    public const int TILE_SPAN_X = 14;     // Tiles spanning horizontally
+    public const int TILE_SPAN_Y = 8;      // Tiles spanning vertically
+    public const int TILE_SIZE = 16;       // Pixel size of each tile (before scaling)
+
+    public const int PIXEL_SCALE = 8;      // This scale value gets closest to full HD 1920x1080
+    public const int TARGET_FPS = 240;     // Target high frame rate, important for platformer games
 
     // Set the starting game state to be the menu state
     private int gameState = MENU;
@@ -46,32 +53,20 @@ public class Game1 : Game
     private MouseState mouse;
     private MouseState prevMouse;
 
-    // Create viewport camera
+    // Create viewport camera and store settings
     Cam2D camera;
+    float cameraZoom = 0.5f;
 
     // Create variables to store the screen dimensions
     private int screenWidth;
     private int screenHeight;
 
-    // Create variables for the tile size and amount of tiles in rows and cols (dimensions) on the screen
-    private int tileSpanX = 14;
-    private int tileSpanY = 8;
-    private int tileSize = 16;
-
-    // Create a variable for pixel art scale
-    private int pixelScale = 8; // This value gets closest to full HD 1920x1080
-
-    // Create variable for target fps (240 since frame rate is important for platformer games)
-    private int targetFPS = 240;
-
     // Store all saved maps
     private List<Map> maps = new List<Map>();
     private int currentMap = 0;
 
-    // Store basic player data
-    Texture2D playerImg;
-    Rectangle playerRec;
-    Vector2 playerPos;
+    // Store player
+    private Player player;
 
     public Game1()
     {
@@ -83,15 +78,15 @@ public class Game1 : Game
     protected override void Initialize()
     {
         // Set the preferred resolution
-        _graphics.PreferredBackBufferWidth = tileSpanX * tileSize * pixelScale;
-        _graphics.PreferredBackBufferHeight = tileSpanY * tileSize * pixelScale;
+        _graphics.PreferredBackBufferWidth = TILE_SPAN_X * TILE_SIZE * PIXEL_SCALE;
+        _graphics.PreferredBackBufferHeight = TILE_SPAN_Y * TILE_SIZE * PIXEL_SCALE;
 
         Console.WriteLine("Initializing game with resolution: " + _graphics.PreferredBackBufferWidth + "x" + _graphics.PreferredBackBufferHeight);
 
         // Set game FPS to target FPS, turn off VSync, and try to ensure equal frame time
         _graphics.SynchronizeWithVerticalRetrace = false;
         IsFixedTimeStep = true;
-        TargetElapsedTime = TimeSpan.FromMilliseconds(1000.0f / targetFPS);
+        TargetElapsedTime = TimeSpan.FromMilliseconds(1000.0f / TARGET_FPS);
 
         // Apply new resolution changes
         _graphics.ApplyChanges();
@@ -113,6 +108,13 @@ public class Game1 : Game
             Tile.tileTextures[i] = Content.Load<Texture2D>($"Images/Sprites/Tiles/Tile{i}");
         }
 
+        // Create player (load player textures and animations)
+        player = new Player(Content); // REVIEW can i load content in a method?
+
+        // Initialize the camera object
+        camera = new Cam2D(GraphicsDevice.Viewport);
+        camera.SetZoom(cameraZoom);
+
         // Load in all maps
         LoadMaps();
     }
@@ -131,6 +133,8 @@ public class Game1 : Game
         switch (gameState)
         {
             case MENU:
+                maps[currentMap].Start(player);
+                gameState = PLAY_MAP;
                 break;
 
             case SELECT_MAP:
@@ -144,6 +148,7 @@ public class Game1 : Game
 
             case PLAY_MAP:
                 maps[currentMap].Update();
+                player.Update(gameTime, kb, prevKb, camera, maps[currentMap]);
                 break;
 
             case END_MAP:
@@ -173,8 +178,13 @@ public class Game1 : Game
                 break;
 
             case PLAY_MAP:
-                GraphicsDevice.Clear(Color.CornflowerBlue);
+                GraphicsDevice.Clear(Color.CornflowerBlue); // TODO let maps have bg color (+ documentation)
+                cameraSpriteBatchBegin();
+
                 maps[currentMap].Draw(_spriteBatch);
+                player.Draw(_spriteBatch);
+
+                _spriteBatch.End();
                 break;
 
             case END_MAP:
@@ -182,6 +192,11 @@ public class Game1 : Game
         }
 
         base.Draw(gameTime);
+    }
+
+    private void cameraSpriteBatchBegin()
+    {
+        _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, camera.GetTransformation());
     }
 
     private void LoadMaps()

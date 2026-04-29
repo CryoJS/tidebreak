@@ -1,7 +1,9 @@
 using System;
 using System.IO;
+using System.Numerics;
 using System.Timers;
 using Microsoft.Xna.Framework.Graphics;
+using Tidebreak;
 
 class Map // TODO All documentation for methods
 {
@@ -13,73 +15,76 @@ class Map // TODO All documentation for methods
     private bool locked;
 
     // Store map behaviour information
-    private int tileCnt = 0;
+    public int sizeX { get; private set; } = 0;
+    public int sizeY { get; private set; } = 0;
     private int startTileCnt = 0;
-    
+    private Vector2 startPos;
+
     private float floodSpeed = 0.1f; // Water spread speed (tiles per second)
     private Timer floodTimer; // Current timer for water spread
 
     // Store tiles in the map
-    private Tile[,] tiles;
+    public Tile[,] tiles { get; private set; }
     private Tile[,] bgTiles;
 
-    public Map() {}
+    public Map() { }
 
-    public Map(string name, float difficulty, int mapSize, bool locked = false)
+    public Map(string name, float difficulty, int sizeX, int sizeY, bool locked = false)
     {
-        // Initialize map information and create tile arrays
+        // Initialize map information
         this.name = name;
         this.difficulty = difficulty;
         creationDate = DateTime.Now;
         modifiedDate = DateTime.Now;
         this.locked = locked;
 
-        tiles = new Tile[mapSize, mapSize];
-        bgTiles = new Tile[mapSize, mapSize];
+        // Create tile arrays
+        tiles = new Tile[sizeX, sizeY];
+        bgTiles = new Tile[sizeX, sizeY];
 
         // Setup all tiles (starting as empty)
-        for (int r = 0; r < tiles.GetLength(0); r++)
+        for (int x = 0; x < tiles.GetLength(0); x++)
         {
-            for (int c = 0; c < tiles.GetLength(1); c++)
+            for (int y = 0; y < tiles.GetLength(1); y++)
             {
-                tiles[r, c] = new Tile();
-                bgTiles[r, c] = new Tile();
+                tiles[x, y] = new Tile(x, y);
+                bgTiles[x, y] = new Tile(x, y);
             }
         }
     }
 
-    public void Start()
+    public void Start(Player player)
     {
-        // TODO idek
+        player.pos = startPos;
     }
 
     public void Update()
     {
-        
+
     }
 
     public void Draw(SpriteBatch spriteBatch)
     {
         // Draw each tile, background tile first, then foreground tile
-        for (int r = 0; r < tiles.GetLength(0); r++)
+        for (int x = 0; x < tiles.GetLength(0); x++)
         {
-            for (int c = 0; c < tiles.GetLength(1); c++)
+            for (int y = 0; y < tiles.GetLength(1); y++)
             {
-                bgTiles[r, c].Draw(spriteBatch);
-                tiles[r, c].Draw(spriteBatch);
+                bgTiles[x, y].Draw(spriteBatch);
+                tiles[x, y].Draw(spriteBatch);
             }
         }
     }
 
     public void Save(StreamWriter outFile)
     {
-        
+
     }
 
     public void Load(StreamReader inFile)
     {
         // Create a variable for storing lines
-        string [] line;
+        string[] line;
 
         // Load core map information
         name = inFile.ReadLine();
@@ -89,30 +94,45 @@ class Map // TODO All documentation for methods
         locked = Convert.ToBoolean(inFile.ReadLine());
 
         // Load map behaviour information
-        tileCnt = Convert.ToInt32(inFile.ReadLine());
+        sizeX = Convert.ToInt32(inFile.ReadLine());
+        sizeY = Convert.ToInt32(inFile.ReadLine());
         startTileCnt = Convert.ToInt32(inFile.ReadLine());
         floodSpeed = Convert.ToSingle(inFile.ReadLine());
 
+        // Create tile arrays
+        tiles = new Tile[sizeX, sizeY];
+        bgTiles = new Tile[sizeX, sizeY];
+
         // Load in map tiles
-        for (int r = 0; r < tiles.GetLength(0); r++)
+        for (int y = 0; y < tiles.GetLength(0); y++)
         {
             line = inFile.ReadLine().Split(' ');
 
-            for (int c = 0; c < tiles.GetLength(1); c++)
+            for (int x = 0; x < tiles.GetLength(1); x++)
             {
-                tiles[r, c] = new Tile(Convert.ToInt32(line[c]));
+                tiles[x, y] = new Tile(x, y, Convert.ToInt32(line[x]));
+
+                if (tiles[x, y].type == Tile.START)
+                {
+                    startPos = new Vector2((x + 0.5f) * Game1.TILE_SIZE * Game1.PIXEL_SCALE, (y + 0.5f) * Game1.TILE_SIZE * Game1.PIXEL_SCALE);
+                }
             }
         }
 
         // Load in map tiles (bg)
-        for (int r = 0; r < tiles.GetLength(0); r++)
+        for (int y = 0; y < tiles.GetLength(0); y++)
         {
             line = inFile.ReadLine().Split(' ');
 
-            for (int c = 0; c < tiles.GetLength(1); c++)
+            for (int x = 0; x < tiles.GetLength(1); x++)
             {
-                bgTiles[r, c] = new Tile(Convert.ToInt32(line[c]));
+                bgTiles[x, y] = new Tile(x, y, Convert.ToInt32(line[x]));
             }
         }
+    }
+
+    public void Collisions(Player player)
+    {
+
     }
 }

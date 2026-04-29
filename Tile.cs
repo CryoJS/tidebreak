@@ -1,10 +1,12 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Tidebreak;
 
 class Tile
 {
     // Create constants for tile types
     public const int TYPE_AMOUNT = 24;
+    public const int PLATFORM_TYPE_AMOUNT = 13;
 
     public const int EMPTY = -1;
     public const int WATER = 0;
@@ -19,34 +21,33 @@ class Tile
     public const int PIKE = 9;
     public const int CRATE = 10;
     public const int LEAF = 11;
+    public const int TRUNK = 12;
+    public const int LADDER = 13;
 
-    public const int SIGN = 12;
-    public const int LEFT_SIGN = 13;
-    public const int RIGHT_SIGN = 14;
-    public const int FERN = 15;
-    public const int CACTUS = 16;
-    public const int TREE = 17;
-    public const int TRUNK = 18;
+    public const int SIGN = 14;
+    public const int LEFT_SIGN = 15;
+    public const int RIGHT_SIGN = 16;
+    public const int FERN = 17;
+    public const int CACTUS = 18;
+    public const int TREE = 19;
 
     // Create constants for special tile types
-    public const int START = 19;
-    public const int END = 20;
-    public const int BUTTON = 21;
-    public const int PRESSED_BUTTON = 22;
-    public const int LADDER = 23;
+    public const int START = 20;
+    public const int END = 21;
+    public const int BUTTON = 22;
+    public const int PRESSED_BUTTON = 23;
 
-    // Store graphic information
+    // Store all tile textures
     public static Texture2D[] tileTextures = new Texture2D[TYPE_AMOUNT];
 
-    private int type;
-    private int posX;
-    private int posY;
+    // Store tile information
+    public int type {get; set;} // REVIEW not sure why property are useful instead of using public fields
+    public Rectangle rec {get;}
 
     public Tile(int posX, int posY, int type = EMPTY)
     {
         this.type = type;
-        this.posX = posX;
-        this.posY = posY;
+        rec = new Rectangle(posX * Game1.TILE_SIZE * Game1.PIXEL_SCALE, posY * Game1.TILE_SIZE * Game1.PIXEL_SCALE, Game1.TILE_SIZE * Game1.PIXEL_SCALE, Game1.TILE_SIZE * Game1.PIXEL_SCALE);
     }
 
     public void Draw(SpriteBatch _spriteBatch, bool editing = false)
@@ -54,7 +55,7 @@ class Tile
         // Draw the tile if it can be drawn and should be visible
         if (type != EMPTY && (editing || (type != START && type != END)))
         {
-            _spriteBatch.Draw(tileTextures[type], new Vector2(posX, posY), Color.White);
+            _spriteBatch.Draw(tileTextures[type], rec, Color.White);
         }
     }
 }

@@ -13,6 +13,7 @@
     <File>C:/Users/cryoj/Desktop/ICS/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroLand.png</File>
     <File>C:/Users/cryoj/Desktop/ICS/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroRun.png</File>
     <File>C:/Users/cryoj/Desktop/ICS/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroSlide.png</File>
+    <File>C:/Users/cryoj/Desktop/ICS/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroSwim.png</File>
     <File>C:/Users/cryoj/Desktop/ICS/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroWallJump.png</File>
     <File>C:/Users/cryoj/Desktop/ICS/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile0.png</File>
     <File>C:/Users/cryoj/Desktop/ICS/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile1.png</File>
@@ -49,6 +50,7 @@
     <File>Images/Sprites/Player/HeroLand</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
+    <File>Images/Sprites/Player/HeroSwim</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

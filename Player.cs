@@ -55,16 +55,17 @@ class Player
     private Vector2 vel = new Vector2(0, 0); // Per second
     SpriteEffects direction = Animation.FLIP_NONE;
 
-    // Store player swim data
+    // Store player swim data // TODO
     bool inWater;
     int oxygen = 100;
 
     // Store player animation data
     private Texture2D idleImg;
     private Texture2D runImg;
-    private Texture2D landImg; // TODO not added yet
+    private Texture2D landImg;
     private Texture2D jumpImg;
     private Texture2D fallImg;
+    private Texture2D swimImg;
     private Texture2D slideImg;
     private Texture2D wallJumpImg;
     private Texture2D climbImg;
@@ -76,6 +77,7 @@ class Player
     private Animation landAnim;
     private Animation jumpAnim;
     private Animation fallAnim;
+    private Animation swimAnim;
     private Animation slideAnim;
     private Animation wallJumpAnim;
     private Animation climbAnim;
@@ -90,6 +92,7 @@ class Player
         landImg = content.Load<Texture2D>("Images/Sprites/Player/HeroLand");
         jumpImg = content.Load<Texture2D>("Images/Sprites/Player/HeroJump");
         fallImg = content.Load<Texture2D>("Images/Sprites/Player/HeroFall");
+        swimImg = content.Load<Texture2D>("Images/Sprites/Player/HeroSwim");
         slideImg = content.Load<Texture2D>("Images/Sprites/Player/HeroSlide");
         wallJumpImg = content.Load<Texture2D>("Images/Sprites/Player/HeroWallJump");
         climbImg = content.Load<Texture2D>("Images/Sprites/Player/HeroClimb");
@@ -102,6 +105,7 @@ class Player
         landAnim = new Animation(landImg, 5, 1, 5, 0, Animation.NO_IDLE, 1, 5 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, false, "PlayerLand");
         jumpAnim = new Animation(jumpImg, 6, 1, 6, 0, Animation.NO_IDLE, 1, 6 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, false, "PlayerJump");
         fallAnim = new Animation(fallImg, 3, 1, 3, 0, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 3 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, true, "PlayerFall");
+        swimAnim = new Animation(swimImg, 6, 1, 6, 0, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 6 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, true, "PlayerSwim");
         slideAnim = new Animation(slideImg, 8, 1, 8, 0, Animation.NO_IDLE, 1, 8 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, false, "PlayerSlide");
         wallJumpAnim = new Animation(wallJumpImg, 4, 1, 4, 0, Animation.NO_IDLE, 1, 4 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, false, "PlayerWallJump");
         climbAnim = new Animation(climbImg, 4, 1, 4, 0, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 4 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, true, "PlayerClimb");
@@ -182,11 +186,11 @@ class Player
         // Move the player left or right based on player input
         moveInput = 0;
 
-        if (kb.IsKeyDown(Keys.A))
+        if (kb.IsKeyDown(Keys.A) || kb.IsKeyDown(Keys.Left))
         {
             moveInput = -1;
         }
-        else if (kb.IsKeyDown(Keys.D))
+        else if (kb.IsKeyDown(Keys.D) || kb.IsKeyDown(Keys.Right))
         {
             moveInput = 1;
         }
@@ -200,8 +204,8 @@ class Player
         vel.X = MathHelper.Clamp(vel.X, -MAX_SPEED, MAX_SPEED);
         vel.Y = MathHelper.Clamp(vel.Y, -MAX_FALL_SPEED, MAX_FALL_SPEED);
 
-        // If the player presses W (new key press) to jump, and is on the grounded, update their speed to move up and play jump animation
-        if (isGrounded && (kb.IsKeyDown(Keys.W) || kb.IsKeyDown(Keys.Space)))
+        // If the player presses a jump key, and is on the grounded, update their speed to move up and play jump animation
+        if (isGrounded && (kb.IsKeyDown(Keys.W) || kb.IsKeyDown(Keys.Up) || kb.IsKeyDown(Keys.Space)))
         {
             // Since the player jumped, they are no longer grounded
             isGrounded = false;

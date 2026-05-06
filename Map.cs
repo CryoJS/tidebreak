@@ -60,7 +60,7 @@ class Map // TODO All documentation for methods
 
     public void Update()
     {
-
+        // TODO
     }
 
     public void Draw(SpriteBatch spriteBatch)
@@ -78,7 +78,7 @@ class Map // TODO All documentation for methods
 
     public void Save(StreamWriter outFile)
     {
-
+        // TODO
     }
 
     public void Load(StreamReader inFile)

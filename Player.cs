@@ -33,6 +33,7 @@ class Player
     private const float ZIPLINE_SPEED = 700f;
 
     private const float RUN_THRESHOLD = 50f;
+    private const float FALL_THRESHOLD = 0.9f * MAX_FALL_SPEED;
     private const float COYOTE_MAX = 0.1f; // seconds
     private const float SLIDE_MAX = 3f; // seconds
 
@@ -107,7 +108,7 @@ class Player
         idleAnim = new Animation(idleImg, 10, 1, 10, 0, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 10 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, true, "PlayerIdle");
         runAnim = new Animation(runImg, 10, 1, 10, 0, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 10 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, true, "PlayerRun");
         landAnim = new Animation(landImg, 5, 1, 5, 0, Animation.NO_IDLE, 1, 5 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, false, "PlayerLand");
-        jumpAnim = new Animation(jumpImg, 6, 1, 6, 0, Animation.NO_IDLE, 1, 6 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, false, "PlayerJump");
+        jumpAnim = new Animation(jumpImg, 6, 1, 6, 0, 5, 1, 6 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, false, "PlayerJump");
         fallAnim = new Animation(fallImg, 3, 1, 3, 0, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 3 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, true, "PlayerFall");
         swimAnim = new Animation(swimImg, 6, 1, 6, 0, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 6 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, true, "PlayerSwim");
         slideAnim = new Animation(slideImg, 8, 1, 8, 0, Animation.NO_IDLE, 1, 8 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, false, "PlayerSlide");
@@ -207,7 +208,7 @@ class Player
         // Clamp the speeds to make sure the player does not exceed their max speed
         vel.X = MathHelper.Clamp(vel.X, -MAX_SPEED, MAX_SPEED);
         vel.Y = MathHelper.Clamp(vel.Y, -MAX_FALL_SPEED, MAX_FALL_SPEED);
-        
+
         // Change player movement depending on swimming or not
         if (inWater)
         {
@@ -244,12 +245,9 @@ class Player
             else if ((kb.IsKeyDown(Keys.S) && !prevKb.IsKeyDown(Keys.S)) || (kb.IsKeyDown(Keys.Down) && !prevKb.IsKeyDown(Keys.Down)))
             {
                 // Update the player's velocity, making them air dive
-                vel.Y = -JUMP_VELOCITY;
+                vel.Y = MAX_FALL_SPEED;
             }
         }
-
-        // Check if player wants to slide, airdive, or swim down
-        // TODO
 
         // Update the player's position with velocity
         pos.X += vel.X * (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -267,12 +265,15 @@ class Player
         // Set up player collision direction / body part collision rectangles
         Rectangle top = new Rectangle((int)(rec.X + 0.2 * rec.Width), rec.Y, (int)(0.6 * rec.Width), (int)(0.25 * rec.Height));
         Rectangle bottom = new Rectangle((int)(rec.X + 0.15 * rec.Width), (int)(rec.Y + 0.75 * rec.Height), (int)(0.7 * rec.Width), (int)(0.25 * rec.Height));
-        Rectangle left = new Rectangle(rec.X, (int)(rec.Y + 0.25 * rec.Width), (int)(0.5 * rec.Width), (int)(0.5 * rec.Height));
-        Rectangle right = new Rectangle((int)(rec.X + 0.5 * rec.Width), (int)(rec.Y + 0.25 * rec.Width), (int)(0.5 * rec.Width), (int)(0.5 * rec.Height));
+        Rectangle left = new Rectangle(rec.X, (int)(rec.Y + 0.05 * rec.Height), (int)(0.5 * rec.Width), (int)(0.9 * rec.Height));
+        Rectangle right = new Rectangle((int)(rec.X + 0.5 * rec.Width), (int)(rec.Y + 0.05 * rec.Height), (int)(0.5 * rec.Width), (int)(0.9 * rec.Height));
 
-        // Get the current tile of the map the player is on
+        // Get the current tile of the map the player is on, and create variables for storing tile type and recs
         int tileX = rec.Center.X / (Game1.TILE_SIZE * Game1.PIXEL_SCALE);
         int tileY = rec.Center.Y / (Game1.TILE_SIZE * Game1.PIXEL_SCALE);
+
+        int tileType;
+        Rectangle tileRec;
 
         // Set the player to not be on the ground unless collision checks conclude otherwise
         isGrounded = false;
@@ -282,8 +283,8 @@ class Player
         {
             for (int y = Math.Max(0, tileY - TILE_CHECK_SIZE); y <= Math.Min(map.sizeY - 1, tileY + TILE_CHECK_SIZE); y++)
             {
-                int tileType = map.tiles[x, y].type;
-                Rectangle tileRec = map.tiles[x, y].rec;
+                tileType = map.tiles[x, y].type;
+                tileRec = map.tiles[x, y].rec;
 
                 // Check if any collision occurred with a collidable tile
                 if (1 <= tileType && tileType <= Tile.PLATFORM_TYPE_AMOUNT && rec.Intersects(tileRec))
@@ -322,6 +323,19 @@ class Player
             }
         }
 
+        // Perform tile collision checks with player (for the tile the player is at) (if tile exists)
+        if (0 <= tileX && tileX < map.sizeX && 0 <= tileY && tileY < map.sizeY)
+        {
+            tileType = map.tiles[tileX, tileY].type;
+
+            switch (tileType)
+            {
+                case Tile.WATER:
+                    inWater = true;
+                    break;
+            }
+        }
+
         // Let player be grounded for a short time frame even after not detecting ground collision
         if (isGrounded)
         {
@@ -354,7 +368,7 @@ class Player
             {
                 SetState(PlayerState.Jumping);
             }
-            else
+            else if (vel.Y >= FALL_THRESHOLD)
             {
                 SetState(PlayerState.Falling);
             }

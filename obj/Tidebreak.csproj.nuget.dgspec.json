@@ -1,37 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\cryoj\\Desktop\\ICS\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj": {}
+    "/workspaces/ISC-grade-12/Assignments/FinalProject/Tidebreak/Tidebreak.csproj": {}
   },
   "projects": {
-    "c:\\Users\\cryoj\\Desktop\\ICS\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj": {
+    "/workspaces/ISC-grade-12/Assignments/FinalProject/Tidebreak/Tidebreak.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\cryoj\\Desktop\\ICS\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj",
+        "projectUniqueName": "/workspaces/ISC-grade-12/Assignments/FinalProject/Tidebreak/Tidebreak.csproj",
         "projectName": "Tidebreak",
-        "projectPath": "c:\\Users\\cryoj\\Desktop\\ICS\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj",
-        "packagesPath": "C:\\Users\\cryoj\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\cryoj\\Desktop\\ICS\\Assignments\\FinalProject\\Tidebreak\\obj\\",
+        "projectPath": "/workspaces/ISC-grade-12/Assignments/FinalProject/Tidebreak/Tidebreak.csproj",
+        "packagesPath": "/home/codespace/.nuget/packages/",
+        "outputPath": "/workspaces/ISC-grade-12/Assignments/FinalProject/Tidebreak/obj/",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\cryoj\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/home/codespace/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net8.0"
+          "net9.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net8.0": {
-            "targetAlias": "net8.0",
+          "net9.0": {
+            "targetAlias": "net9.0",
             "projectReferences": {}
           }
         },
@@ -48,8 +41,8 @@
         "SdkAnalysisLevel": "10.0.100"
       },
       "frameworks": {
-        "net8.0": {
-          "targetAlias": "net8.0",
+        "net9.0": {
+          "targetAlias": "net9.0",
           "dependencies": {
             "MonoGame.Content.Builder.Task": {
               "target": "Package",
@@ -74,19 +67,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.23, 8.0.23]"
+              "version": "[9.0.11, 9.0.11]"
             },
             {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[8.0.23, 8.0.23]"
+              "name": "Microsoft.NETCore.App.Host.linux-x64",
+              "version": "[9.0.11, 9.0.11]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.23, 8.0.23]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.23, 8.0.23]"
+              "version": "[9.0.11, 9.0.11]"
             }
           ],
           "frameworkReferences": {
@@ -94,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

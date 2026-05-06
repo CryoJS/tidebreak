@@ -42,7 +42,7 @@ class Tile
     public static Texture2D[] tileTextures = new Texture2D[TYPE_AMOUNT];
 
     // Store tile information
-    public int type { get; set; } // REVIEW not sure why property are useful instead of using public fields
+    public int type { get; set; }
     public Rectangle rec { get; }
 
     public Tile(int posX, int posY, int type = EMPTY)

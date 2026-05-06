@@ -19,7 +19,7 @@ public class Game1 : Game
     // Create random object
     public static Random rng = new Random();
 
-    // Create game state constants
+    // Create game state constants //TODO Change to enum
     private const int MENU = 0;
     private const int SELECT_MAP = 1;
     private const int CREATE_MAP = 2;
@@ -109,7 +109,7 @@ public class Game1 : Game
         }
 
         // Create player (load player textures and animations)
-        player = new Player(Content); // REVIEW can i load content in a method?
+        player = new Player(Content);
 
         // Initialize the camera object
         camera = new Cam2D(GraphicsDevice.Viewport);

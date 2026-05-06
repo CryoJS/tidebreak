@@ -9,7 +9,7 @@ using Tidebreak;
 
 class Player
 {
-    // Store possible player states // REVIEW are enums allowed?
+    // Store possible player states
     private enum PlayerState
     {
         Idle,
@@ -24,7 +24,7 @@ class Player
         Dead
     }
 
-    // Store player physics constants
+    // Store player physics constants (pixels/seconds)
     private const float GRAVITY = 8000f;
     private const float MAX_SPEED = 700f;
     private const float JUMP_VELOCITY = -2500f;
@@ -34,21 +34,25 @@ class Player
 
     private const float RUN_THRESHOLD = 50f;
     private const float COYOTE_MAX = 0.1f; // seconds
+    private const float SLIDE_MAX = 3f; // seconds
 
     // Store player animation constants
     private const int FRAME_DURATION = 100; // Duration of each animation frame in milliseconds
-    private const int ANIM_SIZE = 128; // Pixel size (player is in the center of a 128x128 frame)
-    private const int PLAYER_WIDTH = 10; // Actual width of the player sprite (for collisions)
-    private const int PLAYER_HEIGHT = 30; // Actual height of the player sprite (for collisions)
-    private const int TILE_CHECK_SIZE = 2; // Farthest # of tiles away from player to check for collisions
+    private const int ANIM_SIZE = 128;      // Pixel size (player is in the center of a 128x128 frame)
+    private const int PLAYER_WIDTH = 10;    // Actual width of the player sprite (for collisions)
+    private const int PLAYER_HEIGHT = 30;   // Actual height of the player sprite (for collisions)
+    private const int TILE_CHECK_SIZE = 2;  // Farthest # of tiles away from player to check for collisions
 
-    // Store basic player data
+    // Store player movement data
     private PlayerState state = PlayerState.Idle;
     private PlayerState prevState = PlayerState.Idle;
 
     int moveInput;
     bool isGrounded = false;
-    float coyoteTime = 0; // seconds
+    float coyoteTime = 0;
+
+    bool isSliding = false;
+    float slideTime = 0;
 
     private Rectangle rec = new Rectangle(0, 0, PLAYER_WIDTH * Game1.PIXEL_SCALE, PLAYER_HEIGHT * Game1.PIXEL_SCALE);
     public Vector2 pos = new Vector2(0, 0);
@@ -203,19 +207,45 @@ class Player
         // Clamp the speeds to make sure the player does not exceed their max speed
         vel.X = MathHelper.Clamp(vel.X, -MAX_SPEED, MAX_SPEED);
         vel.Y = MathHelper.Clamp(vel.Y, -MAX_FALL_SPEED, MAX_FALL_SPEED);
-
-        // If the player presses a jump key, and is on the grounded, update their speed to move up and play jump animation
-        if (isGrounded && (kb.IsKeyDown(Keys.W) || kb.IsKeyDown(Keys.Up) || kb.IsKeyDown(Keys.Space)))
+        
+        // Change player movement depending on swimming or not
+        if (inWater)
         {
-            // Since the player jumped, they are no longer grounded
-            isGrounded = false;
-            coyoteTime = -1;
+            // TODO swim
+        }
+        else
+        {
+            // If the player presses a jump key, and is on the grounded, update their speed to move up and play jump animation
+            if (isGrounded && (kb.IsKeyDown(Keys.W) || kb.IsKeyDown(Keys.Up) || kb.IsKeyDown(Keys.Space)))
+            {
+                // Since the player jumped, they are no longer grounded
+                isGrounded = false;
+                coyoteTime = -1;
 
-            // Update the player's speed, making them jump less when in water
-            vel.Y = JUMP_VELOCITY;
+                // Update the player's velocity, making them jump
+                vel.Y = JUMP_VELOCITY;
 
-            // Play jump animation
-            SetState(PlayerState.Jumping);
+                // Play jump animation
+                SetState(PlayerState.Jumping);
+            }
+
+            // Set player as assumed to not be sliding
+            isSliding = false;
+
+            // Slide or airdive if the player presses the button to, depending on if the player is on the ground or not
+            if (isGrounded)
+            {
+                // If the player is holding slide key while on ground, he is sliding
+                if (kb.IsKeyDown(Keys.S) || kb.IsKeyDown(Keys.Down))
+                {
+                    isSliding = true;
+                }
+            }
+            else if ((kb.IsKeyDown(Keys.S) && !prevKb.IsKeyDown(Keys.S)) || (kb.IsKeyDown(Keys.Down) && !prevKb.IsKeyDown(Keys.Down)))
+            {
+                // Update the player's velocity, making them air dive
+                vel.Y = -JUMP_VELOCITY;
+            }
         }
 
         // Check if player wants to slide, airdive, or swim down

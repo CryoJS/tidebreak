@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Tidebreak")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+cf86a0ae9cf846f6251f883066afb6bafa5fe07e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b80406ffc1a9c97d1c18019ccd37156608e27f6b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Tidebreak")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Tidebreak")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

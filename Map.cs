@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using System.IO;
 using System.Numerics;
 using System.Timers;
@@ -55,7 +56,7 @@ class Map // TODO All documentation for methods
 
     public void Start(Player player)
     {
-        player.pos = startPos;
+        player.CenterPos(startPos);
     }
 
     public void Update()

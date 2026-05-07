@@ -64,6 +64,7 @@ class Player
 
     // Store player swim data // TODO
     bool inWater;
+    bool prevInWater;
     int oxygen = 100;
 
     // Store player animation data
@@ -230,7 +231,7 @@ class Player
             if (!isGrounded) vel.Y += GRAVITY * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
             // If the player presses a jump key, and is on the grounded, update their speed to move up and play jump animation
-            if (isGrounded && (kb.IsKeyDown(Keys.W) || kb.IsKeyDown(Keys.Up) || kb.IsKeyDown(Keys.Space)))
+            if ((isGrounded || prevInWater) && (kb.IsKeyDown(Keys.W) || kb.IsKeyDown(Keys.Up) || kb.IsKeyDown(Keys.Space)))
             {
                 // Since the player jumped, they are no longer grounded
                 isGrounded = false;
@@ -292,8 +293,10 @@ class Player
         int tileType;
         Rectangle tileRec;
 
-        // Set the player to not be on the ground unless collision checks conclude otherwise
+        // Set the player to not be on the ground and in water unless collision checks conclude otherwise
         isGrounded = false;
+        prevInWater = inWater;
+        inWater = false;
 
         // Check for platform collisions within a certain radius of the player
         for (int x = Math.Max(0, tileX - TILE_CHECK_SIZE); x <= Math.Min(map.sizeX - 1, tileX + TILE_CHECK_SIZE); x++)
@@ -376,15 +379,14 @@ class Player
         {
             direction = Animation.FLIP_HORIZONTAL;
         }
-
-        // If the player is in water, they are in the swimming animation no matter what
+        
+        // Check if state needs to be changed
         if (inWater)
         {
+            // If the player is in water, they are in the swimming animation no matter what
             SetState(PlayerState.Swimming);
         }
-
-        // Check if state needs to be changed
-        if (!isGrounded)
+        else if (!isGrounded)
         {
             // If airborne, check if fall or jump animation should be playing
             if (vel.Y < 0)

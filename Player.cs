@@ -17,6 +17,7 @@ class Player
         Landing,
         Jumping,
         Falling,
+        Swimming,
         Sliding,
         Latching,
         Climbing,
@@ -29,6 +30,7 @@ class Player
     private const float MAX_SPEED = 700f;
     private const float JUMP_VELOCITY = -2500f;
     private const float MAX_FALL_SPEED = 3000f;
+    private const float WATER_RESISTANCE = 1000f;
     private const float WALL_JUMP_VELOCITY = 50f;
     private const float ZIPLINE_SPEED = 700f;
 
@@ -136,6 +138,9 @@ class Player
 
             case PlayerState.Falling:
                 return fallAnim;
+            
+            case PlayerState.Swimming:
+                return swimAnim;
 
             case PlayerState.Sliding:
                 return slideAnim;
@@ -202,20 +207,28 @@ class Player
 
         vel.X = moveInput * MAX_SPEED;
 
-        // Update the player's speed by player's fall speed when airborne
-        if (!isGrounded) vel.Y += GRAVITY * (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-        // Clamp the speeds to make sure the player does not exceed their max speed
-        vel.X = MathHelper.Clamp(vel.X, -MAX_SPEED, MAX_SPEED);
-        vel.Y = MathHelper.Clamp(vel.Y, -MAX_FALL_SPEED, MAX_FALL_SPEED);
-
         // Change player movement depending on swimming or not
         if (inWater)
         {
-            // TODO swim
+            // Slow player down by water resistance
+            vel.X = vel.X - Math.Sign(vel.X) * Math.Min(Math.Abs(vel.X), WATER_RESISTANCE * (float)gameTime.ElapsedGameTime.TotalSeconds);
+            vel.Y = vel.Y - Math.Sign(vel.Y) * Math.Min(Math.Abs(vel.Y), WATER_RESISTANCE * (float)gameTime.ElapsedGameTime.TotalSeconds);
+
+            // Swim up or swim down instead of jump/dive
+            if (kb.IsKeyDown(Keys.W) || kb.IsKeyDown(Keys.Up))
+            {
+                vel.Y = -MAX_SPEED;
+            }
+            else if (kb.IsKeyDown(Keys.S) || kb.IsKeyDown(Keys.Down))
+            {
+                vel.Y = MAX_SPEED;
+            }
         }
         else
         {
+            // Update the player's speed by player's fall speed when airborne
+            if (!isGrounded) vel.Y += GRAVITY * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
             // If the player presses a jump key, and is on the grounded, update their speed to move up and play jump animation
             if (isGrounded && (kb.IsKeyDown(Keys.W) || kb.IsKeyDown(Keys.Up) || kb.IsKeyDown(Keys.Space)))
             {
@@ -248,6 +261,10 @@ class Player
                 vel.Y = MAX_FALL_SPEED;
             }
         }
+
+        // Clamp the speeds to make sure the player does not exceed their max speed
+        vel.X = MathHelper.Clamp(vel.X, -MAX_SPEED, MAX_SPEED);
+        vel.Y = MathHelper.Clamp(vel.Y, -MAX_FALL_SPEED, MAX_FALL_SPEED);
 
         // Update the player's position with velocity
         pos.X += vel.X * (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -358,6 +375,12 @@ class Player
         else if (vel.X < 0)
         {
             direction = Animation.FLIP_HORIZONTAL;
+        }
+
+        // If the player is in water, they are in the swimming animation no matter what
+        if (inWater)
+        {
+            SetState(PlayerState.Swimming);
         }
 
         // Check if state needs to be changed

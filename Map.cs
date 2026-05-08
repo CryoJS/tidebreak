@@ -30,8 +30,8 @@ class Map // TODO All documentation for methods
     private Tile[,] bgTiles;
 
     // Store ziplines in the map
-    int ziplineCnt = 0;
-    List<Zipline> ziplines;
+    private int ziplineCnt = 0;
+    public List<Zipline> ziplines { get; private set; }
 
     public Map() { }
 
@@ -136,20 +136,16 @@ class Map // TODO All documentation for methods
                 else if (tiles[x, y].type >= Tile.ZIPLINE)
                 {
                     // Create variables to easily access zipline indexes and properties
-                    int id = tiles[x, y].type - Tile.ZIPLINE;
-                    bool isStart = (id & 1) == (Tile.ZIPLINE & 1);
-
-                    // Compress start and end pairs into one zipline
-                    id /= 2;
+                    int id = Zipline.FindId(tiles[x, y].type);
 
                     // Create a new zipline if there is none
                     if (ziplines[id] == null)
                     {
-                        ziplines[id] = new Zipline(gd);
+                        ziplines[id] = new Zipline();
                     }
-                    
+
                     // Set the zipline's start and end tile, depending on if this tile is the start or end
-                    if (isStart)
+                    if (Zipline.IsStart(tiles[x, y].type))
                     {
                         ziplines[id].start = tiles[x, y];
                     }
@@ -170,6 +166,12 @@ class Map // TODO All documentation for methods
             {
                 bgTiles[x, y] = new Tile(x, y, Convert.ToInt32(line[x]));
             }
+        }
+
+        // Load all zipline shapes
+        foreach (Zipline zipline in ziplines)
+        {
+            zipline.Load(gd);
         }
     }
 }

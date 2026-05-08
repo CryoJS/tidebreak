@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Data;
 using GameUtility;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -15,6 +13,7 @@ class Player
     private const float MAX_SPEED = 100000f;
     private const float RUN_SPEED = 700f;
     private const float SWIM_SPEED = WATER_RESISTANCE + RUN_SPEED;
+    private const float ZIPLINE_SPEED = 1200f;
     private const float JUMP_VELOCITY = -2500f;
     private const float MAX_FALL_SPEED = 3000f;
     private const float AIR_RESISTANCE = 13000f;
@@ -54,17 +53,20 @@ class Player
 
     // Store player movement data
     private PlayerState state = PlayerState.Idle;
-    private Rectangle rec = new Rectangle(0, 0, PLAYER_WIDTH * Game1.PIXEL_SCALE, PLAYER_HEIGHT * Game1.PIXEL_SCALE);
-    public Vector2 pos = new Vector2(0, 0);
+    public Rectangle rec = new Rectangle(0, 0, PLAYER_WIDTH * Game1.PIXEL_SCALE, PLAYER_HEIGHT * Game1.PIXEL_SCALE);
+    private Vector2 pos = new Vector2(0, 0); // REVIEW can i make these public? making property is annoying cuz cant set rec.X or vel
     public Vector2 prevPos;
 
-    private Vector2 vel = new Vector2(0, 0); // Per second
+    public Vector2 vel = new Vector2(0, 0); // Per second //REVIEW see above
     SpriteEffects direction = Animation.FLIP_NONE;
     int moveInput;
     float coyoteTime = 0;
 
     bool isGrounded = false;
     bool isLatching = false;
+    bool onZipline = false;
+    Zipline curZipline;
+
     bool inWater = false;
     bool prevInWater = false;
     bool isSliding = false;
@@ -211,6 +213,13 @@ class Player
 
     private void MoveChecks(GameTime gameTime, KeyboardState kb, KeyboardState prevKb)
     {
+        // If player is hanging on a zipline, move on zipline
+        if (onZipline)
+        {
+            curZipline.MovePlayer(this, ZIPLINE_SPEED);
+            return;
+        }
+
         // If player is latched, their only action is to jump off
         if (isLatching)
         {
@@ -368,7 +377,7 @@ class Player
         rec.Y = (int)pos.Y;
     }
 
-    private void LoadCollisionRects()
+    private void LoadCollisionRecs()
     {
         // Set up player collision direction / body part collision rectangles
         top = new Rectangle((int)(rec.X + 0.2 * rec.Width), rec.Y, (int)(0.6 * rec.Width), (int)(0.25 * rec.Height));
@@ -380,7 +389,7 @@ class Player
     private void CheckCollisions(GameTime gameTime, Map map)
     {
         // Load rectangles for checking collisions
-        LoadCollisionRects();
+        LoadCollisionRecs();
 
         // Get the current tile of the map the player is on, and create variables for storing tile type and recs
         int tileX = rec.Center.X / (Game1.TILE_SIZE * Game1.PIXEL_SCALE);
@@ -394,75 +403,78 @@ class Player
         prevInWater = inWater;
         inWater = false;
 
-        // Check for platform collisions within a certain radius of the player
-        for (int x = Math.Max(0, tileX - TILE_CHECK_SIZE); x <= Math.Min(map.sizeX - 1, tileX + TILE_CHECK_SIZE); x++)
+        // Check for platform collisions within a certain radius of the player (if not on zipline)
+        if (!onZipline)
         {
-            for (int y = Math.Max(0, tileY - TILE_CHECK_SIZE); y <= Math.Min(map.sizeY - 1, tileY + TILE_CHECK_SIZE); y++)
+            for (int x = Math.Max(0, tileX - TILE_CHECK_SIZE); x <= Math.Min(map.sizeX - 1, tileX + TILE_CHECK_SIZE); x++)
             {
-                if (map.tiles[x, y] == null) continue;
-                tileType = map.tiles[x, y].type;
-                tileRec = map.tiles[x, y].rec;
-
-                // Check if any collision occurred with a collidable tile
-                if (1 <= tileType && (tileType <= Tile.PLATFORM_TYPE_AMOUNT || tileType == Tile.WALL_JUMP) && rec.Intersects(tileRec))
+                for (int y = Math.Max(0, tileY - TILE_CHECK_SIZE); y <= Math.Min(map.sizeY - 1, tileY + TILE_CHECK_SIZE); y++)
                 {
-                    // Check if player collides up or down
-                    if (tileRec.Intersects(top))
-                    {
-                        // If the player just exited sliding, keep them in sliding as there is a platform preventing them from standing up
-                        if (isPrevSliding && !isSliding)
-                        {
-                            // Put player back in sliding, don't allow them to move until they press slide again
-                            OffsetPosInState(isSliding, isSliding = true, SLIDE_OFFSET); // REVIEW am i allowed to put this in argument
-                            pos = prevPos;
+                    if (map.tiles[x, y] == null) continue;
+                    tileType = map.tiles[x, y].type;
+                    tileRec = map.tiles[x, y].rec;
 
-                            UpdateRec();
-                            LoadCollisionRects();
-                        }
-                        else
+                    // Check if any collision occurred with a collidable tile
+                    if (1 <= tileType && (tileType <= Tile.PLATFORM_TYPE_AMOUNT || tileType == Tile.WALL_JUMP) && rec.Intersects(tileRec))
+                    {
+                        // Check if player collides up or down
+                        if (tileRec.Intersects(top))
                         {
-                            // Set the player right below the platform, let upwards speed be blocked by the ceiling, letting gravity take over
-                            pos.Y = tileRec.Bottom + 1;
+                            // If the player just exited sliding, keep them in sliding as there is a platform preventing them from standing up
+                            if (isPrevSliding && !isSliding)
+                            {
+                                // Put player back in sliding, don't allow them to move until they press slide again
+                                OffsetPosInState(isSliding, isSliding = true, SLIDE_OFFSET); // REVIEW am i allowed to put this in argument
+                                pos = prevPos;
+
+                                UpdateRec();
+                                LoadCollisionRecs();
+                            }
+                            else
+                            {
+                                // Set the player right below the platform, let upwards speed be blocked by the ceiling, letting gravity take over
+                                pos.Y = tileRec.Bottom + 1;
+                                vel.Y = 0;
+                            }
+                        }
+                        else if (tileRec.Intersects(bottom))
+                        {
+                            // Set the player right above the platform, let downwards speed be blocked by the floor
+                            pos.Y = tileRec.Top - rec.Height + 1;
                             vel.Y = 0;
+
+                            // Update grounded status
+                            isGrounded = true;
                         }
-                    }
-                    else if (tileRec.Intersects(bottom))
-                    {
-                        // Set the player right above the platform, let downwards speed be blocked by the floor
-                        pos.Y = tileRec.Top - rec.Height + 1;
-                        vel.Y = 0;
 
-                        // Update grounded status
-                        isGrounded = true;
-                    }
-
-                    // Check if player collides left or right
-                    if (tileRec.Intersects(left))
-                    {
-                        // Set the player right to the right of the platform, let leftwards speed be blocked by the floor
-                        pos.X = tileRec.Right + 1;
-                        vel.X = 0;
-
-                        // If the player hits a wall jump, latch onto it
-                        if (tileType == Tile.WALL_JUMP && tileRec.Contains(new Vector2(rec.Left, rec.Center.Y)))
+                        // Check if player collides left or right
+                        if (tileRec.Intersects(left))
                         {
-                            isLatching = true;
-                            moveInput = 1;
-                            direction = SpriteEffects.None;
+                            // Set the player right to the right of the platform, let leftwards speed be blocked by the floor
+                            pos.X = tileRec.Right + 1;
+                            vel.X = 0;
+
+                            // If the player hits a wall jump, latch onto it
+                            if (tileType == Tile.WALL_JUMP && tileRec.Contains(new Vector2(rec.Left, rec.Center.Y)))
+                            {
+                                isLatching = true;
+                                moveInput = 1;
+                                direction = SpriteEffects.None;
+                            }
                         }
-                    }
-                    else if (tileRec.Intersects(right))
-                    {
-                        // Set the player right to the left of the platform, let rightwards speed be blocked by the floor
-                        pos.X = tileRec.Left - rec.Width;
-                        vel.X = 0;
-
-                        // If the player hits a wall jump, latch onto it
-                        if (tileType == Tile.WALL_JUMP && tileRec.Contains(new Vector2(rec.Right, rec.Center.Y)))
+                        else if (tileRec.Intersects(right))
                         {
-                            isLatching = true;
-                            moveInput = -1;
-                            direction = SpriteEffects.FlipHorizontally;
+                            // Set the player right to the left of the platform, let rightwards speed be blocked by the floor
+                            pos.X = tileRec.Left - rec.Width;
+                            vel.X = 0;
+
+                            // If the player hits a wall jump, latch onto it
+                            if (tileType == Tile.WALL_JUMP && tileRec.Contains(new Vector2(rec.Right, rec.Center.Y)))
+                            {
+                                isLatching = true;
+                                moveInput = -1;
+                                direction = SpriteEffects.FlipHorizontally;
+                            }
                         }
                     }
                 }
@@ -481,11 +493,21 @@ class Player
         {
             tileType = map.tiles[tileX, tileY].type;
 
-            switch (tileType)
+            if (tileType == Tile.WATER)
             {
-                case Tile.WATER:
-                    inWater = true;
-                    break;
+                inWater = true;
+            }
+            else if (tileType >= Tile.ZIPLINE)
+            {
+                if (Zipline.IsStart(tileType))
+                {
+                    onZipline = true;
+                    curZipline = map.ziplines[Zipline.FindId(tileType)];
+                }
+                else if (onZipline && curZipline.end.type == tileType)
+                {
+                    onZipline = false;
+                }
             }
         }
 
@@ -503,13 +525,14 @@ class Player
 
     private void UpdateAnimations(GameTime gameTime)
     {
-        // Play latching animation when needed, flip sprite based on player movement direction if the player is not latching
+        // Play latching animation when needed
         if (isLatching)
         {
             SetState(PlayerState.Latching);
         }
         else
         {
+            // Flip sprite based on player movement direction if the player is not latching
             if (vel.X > 0)
             {
                 direction = Animation.FLIP_NONE;
@@ -521,14 +544,19 @@ class Player
         }
 
         // Check if state needs to be changed
-        if (inWater)
+        if (onZipline)
+        {
+            // If the player is on a zipline, play zipline hanging animation
+            SetState(PlayerState.Hanging);
+        }
+        else if (inWater)
         {
             // If the player is in water, they are in the swimming animation no matter what
             SetState(PlayerState.Swimming);
         }
         else if (!isGrounded)
         {
-            // If airborne, check latching or if fall or jump animation should be playing
+            // If airborne, check latching or if fall or jump animation should be playing (or default to idle)
             if (!isLatching)
             {
                 if (vel.Y < 0)

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>c:/Users/cryoj/Desktop/ICS/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroWallJump.png</SourceFile>
-  <SourceTime>2026-04-29T08:43:57.5125531-04:00</SourceTime>
+  <SourceTime>2026-05-07T20:44:59.7059161-04:00</SourceTime>
   <DestFile>c:/Users/cryoj/Desktop/ICS/Assignments/FinalProject/Tidebreak/Content/bin/DesktopGL/Content/Images/Sprites/Player/HeroWallJump.xnb</DestFile>
-  <DestTime>2026-05-07T15:46:31.3467086-04:00</DestTime>
+  <DestTime>2026-05-07T20:45:31.874197-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2025-06-02T06:31:02-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

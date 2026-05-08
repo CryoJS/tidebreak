@@ -349,6 +349,18 @@
 /processorParam:TextureFormat=Color
 /build:Images/Sprites/Tiles/Tile23.png
 
+#begin Images/Sprites/Tiles/Tile24.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Tile24.png;Images/Sprites/Tiles/Tile24
+
 #begin Images/Sprites/Tiles/Tile3.png
 /importer:TextureImporter
 /processor:TextureProcessor

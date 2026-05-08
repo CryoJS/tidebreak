@@ -211,3 +211,4 @@ d:\ISC-grade-12\ISC-grade-12\Assignments\FinalProject\Tidebreak\obj\Debug\net8.0
 d:\ISC-grade-12\ISC-grade-12\Assignments\FinalProject\Tidebreak\obj\Debug\net8.0\Tidebreak.pdb
 d:\ISC-grade-12\ISC-grade-12\Assignments\FinalProject\Tidebreak\obj\Debug\net8.0\Tidebreak.genruntimeconfig.cache
 d:\ISC-grade-12\ISC-grade-12\Assignments\FinalProject\Tidebreak\obj\Debug\net8.0\ref\Tidebreak.dll
+c:\Users\cryoj\Desktop\ICS\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Images\Sprites\Tiles\Tile24.xnb

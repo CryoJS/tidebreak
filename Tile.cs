@@ -6,7 +6,7 @@ using Tidebreak;
 class Tile
 {
     // Create constants for tile types
-    public const int TYPE_AMOUNT = 24;
+    public const int TYPE_AMOUNT = 25;
     public const int PLATFORM_TYPE_AMOUNT = 13;
 
     public const int EMPTY = -1;
@@ -37,6 +37,8 @@ class Tile
     public const int END = 21;
     public const int BUTTON = 22;
     public const int PRESSED_BUTTON = 23;
+    public const int WALL_JUMP = 24;
+    public const int ZIPLINE = 50; // Zipline start and end tiles are from here and onwards in pairs, i.e. {(50, 51), (52, 53), ...}
 
     // Store all tile textures
     public static Texture2D[] tileTextures = new Texture2D[TYPE_AMOUNT];

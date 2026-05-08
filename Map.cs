@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Numerics;
@@ -27,6 +28,10 @@ class Map // TODO All documentation for methods
     // Store tiles in the map
     public Tile[,] tiles { get; private set; }
     private Tile[,] bgTiles;
+
+    // Store ziplines in the map
+    int ziplineCnt = 0;
+    List<Zipline> ziplines;
 
     public Map() { }
 
@@ -75,6 +80,12 @@ class Map // TODO All documentation for methods
                 tiles[x, y].Draw(spriteBatch);
             }
         }
+
+        // Draw all the ziplines
+        foreach (Zipline zipline in ziplines)
+        {
+            zipline.Draw(spriteBatch);
+        }
     }
 
     public void Save(StreamWriter outFile)
@@ -82,7 +93,7 @@ class Map // TODO All documentation for methods
         // TODO
     }
 
-    public void Load(StreamReader inFile)
+    public void Load(StreamReader inFile, GraphicsDevice gd)
     {
         // Create a variable for storing lines
         string[] line;
@@ -98,11 +109,15 @@ class Map // TODO All documentation for methods
         sizeX = Convert.ToInt32(inFile.ReadLine());
         sizeY = Convert.ToInt32(inFile.ReadLine());
         startTileCnt = Convert.ToInt32(inFile.ReadLine());
+        ziplineCnt = Convert.ToInt32(inFile.ReadLine());
         floodSpeed = Convert.ToSingle(inFile.ReadLine());
 
         // Create tile arrays
         tiles = new Tile[sizeX, sizeY];
         bgTiles = new Tile[sizeX, sizeY];
+
+        // Create the list to store ziplines
+        ziplines = new List<Zipline>(new Zipline[ziplineCnt]);
 
         // Load in map tiles
         for (int y = 0; y < sizeY; y++)
@@ -113,9 +128,35 @@ class Map // TODO All documentation for methods
             {
                 tiles[x, y] = new Tile(x, y, Convert.ToInt32(line[x]));
 
+                // Keep track of special tiles
                 if (tiles[x, y].type == Tile.START)
                 {
                     startPos = new Vector2(x * Game1.TILE_SIZE * Game1.PIXEL_SCALE, y * Game1.TILE_SIZE * Game1.PIXEL_SCALE);
+                }
+                else if (tiles[x, y].type >= Tile.ZIPLINE)
+                {
+                    // Create variables to easily access zipline indexes and properties
+                    int id = tiles[x, y].type - Tile.ZIPLINE;
+                    bool isStart = (id & 1) == (Tile.ZIPLINE & 1);
+
+                    // Compress start and end pairs into one zipline
+                    id /= 2;
+
+                    // Create a new zipline if there is none
+                    if (ziplines[id] == null)
+                    {
+                        ziplines[id] = new Zipline(gd);
+                    }
+                    
+                    // Set the zipline's start and end tile, depending on if this tile is the start or end
+                    if (isStart)
+                    {
+                        ziplines[id].start = tiles[x, y];
+                    }
+                    else
+                    {
+                        ziplines[id].end = tiles[x, y];
+                    }
                 }
             }
         }

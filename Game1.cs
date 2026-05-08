@@ -211,7 +211,7 @@ public class Game1 : Game
             while (!inFile.EndOfStream)
             {
                 maps.Add(new Map());
-                maps.Last().Load(inFile);
+                maps.Last().Load(inFile, _graphics.GraphicsDevice);
             }
         }
         catch

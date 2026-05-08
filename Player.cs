@@ -399,6 +399,7 @@ class Player
         {
             for (int y = Math.Max(0, tileY - TILE_CHECK_SIZE); y <= Math.Min(map.sizeY - 1, tileY + TILE_CHECK_SIZE); y++)
             {
+                if (map.tiles[x, y] == null) continue;
                 tileType = map.tiles[x, y].type;
                 tileRec = map.tiles[x, y].rec;
 
@@ -450,14 +451,14 @@ class Player
                             direction = SpriteEffects.None;
                         }
                     }
-                    else if (tileRec.Intersects(right) && tileRec.Contains(new Vector2(rec.Right, rec.Center.Y)))
+                    else if (tileRec.Intersects(right))
                     {
                         // Set the player right to the left of the platform, let rightwards speed be blocked by the floor
                         pos.X = tileRec.Left - rec.Width;
                         vel.X = 0;
 
                         // If the player hits a wall jump, latch onto it
-                        if (tileType == Tile.WALL_JUMP)
+                        if (tileType == Tile.WALL_JUMP && tileRec.Contains(new Vector2(rec.Right, rec.Center.Y)))
                         {
                             isLatching = true;
                             moveInput = -1;

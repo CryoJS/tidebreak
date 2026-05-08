@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\cryoj\\Desktop\\ICS\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj": {}
+    "d:\\ISC-grade-12\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj": {}
   },
   "projects": {
-    "c:\\Users\\cryoj\\Desktop\\ICS\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj": {
+    "d:\\ISC-grade-12\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\cryoj\\Desktop\\ICS\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj",
+        "projectUniqueName": "d:\\ISC-grade-12\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj",
         "projectName": "Tidebreak",
-        "projectPath": "c:\\Users\\cryoj\\Desktop\\ICS\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj",
-        "packagesPath": "C:\\Users\\cryoj\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\cryoj\\Desktop\\ICS\\Assignments\\FinalProject\\Tidebreak\\obj\\",
+        "projectPath": "d:\\ISC-grade-12\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj",
+        "packagesPath": "C:\\Users\\350702866\\.nuget\\packages\\",
+        "outputPath": "d:\\ISC-grade-12\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\cryoj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\350702866\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

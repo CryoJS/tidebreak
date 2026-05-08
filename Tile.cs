@@ -56,7 +56,7 @@ class Tile
     public void Draw(SpriteBatch _spriteBatch, bool editing = false)
     {
         // Draw the tile if it can be drawn and should be visible
-        if (type != EMPTY && (editing || (type != START && type != END)))
+        if (type != EMPTY && (editing || (type != START && type != END)) && (type < ZIPLINE))
         {
             _spriteBatch.Draw(tileTextures[type], rec, Color.White);
         }

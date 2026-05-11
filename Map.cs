@@ -10,11 +10,12 @@ using Tidebreak;
 class Map // TODO All documentation for methods
 {
     // Store core map information
-    private string name;
-    private float difficulty;
-    private DateTime creationDate;
+    public string name { get; private set; }
+    public string author { get; private set; }
+    public float difficulty { get; private set; }
+    private DateTime creationDate; // FIXME might not add these yet
     private DateTime modifiedDate;
-    private bool locked;
+    public bool locked {get; private set; }
 
     // Store map behaviour information
     public int sizeX { get; private set; }
@@ -35,10 +36,11 @@ class Map // TODO All documentation for methods
 
     public Map() { }
 
-    public Map(string name, float difficulty, int sizeX, int sizeY, bool locked = false)
+    public Map(string name, string author, float difficulty, int sizeX, int sizeY, bool locked = false)
     {
         // Initialize map information
         this.name = name;
+        this.author = author;
         this.difficulty = difficulty;
         creationDate = DateTime.Now;
         modifiedDate = DateTime.Now;
@@ -100,6 +102,7 @@ class Map // TODO All documentation for methods
 
         // Load core map information
         name = inFile.ReadLine();
+        author = inFile.ReadLine();
         difficulty = Convert.ToSingle(inFile.ReadLine());
         creationDate = Convert.ToDateTime(inFile.ReadLine());
         modifiedDate = Convert.ToDateTime(inFile.ReadLine());

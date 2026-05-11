@@ -1,32 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\cryoj\\Desktop\\ICS\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj": {}
+    "c:\\Users\\Vast\\Desktop\\Projects\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj": {}
   },
   "projects": {
-    "c:\\Users\\cryoj\\Desktop\\ICS\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj": {
+    "c:\\Users\\Vast\\Desktop\\Projects\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\cryoj\\Desktop\\ICS\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj",
+        "projectUniqueName": "c:\\Users\\Vast\\Desktop\\Projects\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj",
         "projectName": "Tidebreak",
-        "projectPath": "c:\\Users\\cryoj\\Desktop\\ICS\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj",
-        "packagesPath": "C:\\Users\\cryoj\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\cryoj\\Desktop\\ICS\\Assignments\\FinalProject\\Tidebreak\\obj\\",
+        "projectPath": "c:\\Users\\Vast\\Desktop\\Projects\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj",
+        "packagesPath": "C:\\Users\\Vast\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\Vast\\Desktop\\Projects\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\cryoj\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Vast\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,12 +38,20 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "Gum.Expressions": {
+              "target": "Package",
+              "version": "[2026.5.8.1, )"
+            },
+            "Gum.MonoGame": {
+              "target": "Package",
+              "version": "[2026.5.8.1, )"
+            },
             "MonoGame.Content.Builder.Task": {
               "target": "Package",
               "version": "[3.8.*, )"
@@ -71,30 +72,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.23, 8.0.23]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[8.0.23, 8.0.23]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.23, 8.0.23]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.23, 8.0.23]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

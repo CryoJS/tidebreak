@@ -14,11 +14,12 @@ class Player
     private const float RUN_SPEED = 700f;
     private const float SWIM_SPEED = WATER_RESISTANCE + RUN_SPEED;
     private const float ZIPLINE_SPEED = 1200f;
-    private const float JUMP_VELOCITY = -2500f;
+    private const float JUMP_SPEED = -2500f;
+    private const float DIVE_SPEED = 3000f;
     private const float MAX_FALL_SPEED = 3000f;
     private const float AIR_RESISTANCE = 13000f;
     private const float WATER_RESISTANCE = 1000f;
-    private const float WALL_JUMP_VELOCITY = 3200f;
+    private const float WALL_JUMP_SPEED = 3200f;
 
     private const float RUN_THRESHOLD = 50f;
     private const float FALL_THRESHOLD = 0.9f * MAX_FALL_SPEED;
@@ -226,8 +227,8 @@ class Player
             // If player jumps, launch off the wall jump
             if ((kb.IsKeyDown(Keys.W) && !prevKb.IsKeyDown(Keys.W)) || (kb.IsKeyDown(Keys.Up) && !prevKb.IsKeyDown(Keys.Up)) || (kb.IsKeyDown(Keys.Space) && !prevKb.IsKeyDown(Keys.Space)))
             {
-                vel.X = moveInput * WALL_JUMP_VELOCITY;
-                vel.Y = JUMP_VELOCITY;
+                vel.X = moveInput * WALL_JUMP_SPEED;
+                vel.Y = JUMP_SPEED;
 
                 isLatching = false;
             }
@@ -297,7 +298,10 @@ class Player
         }
 
         // Update the player's speed by player's fall speed when airborne
-        if (!isGrounded) vel.Y += GRAVITY * (float)gameTime.ElapsedGameTime.TotalSeconds;
+        if (!isGrounded && vel.Y < MAX_FALL_SPEED) 
+        {
+            vel.Y = Math.Min(MAX_FALL_SPEED, vel.Y + GRAVITY * (float)gameTime.ElapsedGameTime.TotalSeconds);
+        }
 
         // Slow player down by air resistance
         vel.X = vel.X - Math.Sign(vel.X) * Math.Min(Math.Abs(vel.X), AIR_RESISTANCE * (float)gameTime.ElapsedGameTime.TotalSeconds);
@@ -310,7 +314,7 @@ class Player
             coyoteTime = -1;
 
             // Update the player's velocity, making them jump
-            vel.Y = JUMP_VELOCITY;
+            vel.Y = JUMP_SPEED;
 
             // Play jump animation
             SetState(PlayerState.Jumping);
@@ -332,7 +336,7 @@ class Player
         else if ((kb.IsKeyDown(Keys.S) && !prevKb.IsKeyDown(Keys.S)) || (kb.IsKeyDown(Keys.Down) && !prevKb.IsKeyDown(Keys.Down)))
         {
             // Update the player's velocity, making them air dive
-            vel.Y = MAX_FALL_SPEED;
+            vel.Y = DIVE_SPEED;
         }
     }
 
@@ -343,7 +347,7 @@ class Player
 
         // Clamp the speeds to make sure the player does not exceed their max speed
         vel.X = MathHelper.Clamp(vel.X, -MAX_SPEED, MAX_SPEED);
-        vel.Y = MathHelper.Clamp(vel.Y, -MAX_SPEED, MAX_FALL_SPEED);
+        vel.Y = MathHelper.Clamp(vel.Y, -MAX_SPEED, MAX_SPEED);
 
         // Update the player's position with velocity
         pos.X += vel.X * (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -493,16 +497,26 @@ class Player
         {
             tileType = map.tiles[tileX, tileY].type;
 
+            // Check each special tile
             if (tileType == Tile.WATER)
             {
+                // Player is in water
                 inWater = true;
             }
             else if (tileType >= Tile.ZIPLINE)
             {
+                // Player either enters or exits zipline
                 if (Zipline.IsStart(tileType))
                 {
-                    onZipline = true;
-                    curZipline = map.ziplines[Zipline.FindId(tileType)];
+                    // Only put player on this zipline if not already on a zipline
+                    if (!onZipline)
+                    {
+                        onZipline = true;
+                        curZipline = map.ziplines[Zipline.FindId(tileType)];
+
+                        // Center player at zipline
+                        CenterPos(map.tiles[tileX, tileY].rec.Center.ToVector2());
+                    }
                 }
                 else if (onZipline && curZipline.end.type == tileType)
                 {

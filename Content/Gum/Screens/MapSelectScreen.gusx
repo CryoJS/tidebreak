@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScreenSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>MapSelectScreen</Name>
+  <State>
+    <Name>Default</Name>
+    <Variable Type="float?" Name="FrameBG.CustomFrameTextureCoordinateWidth" SetsValue="true" />
+    <Variable Type="bool" Name="FrameBG.ExposeChildrenEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="float" Name="FrameBG.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-200</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="FrameBG.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="bool" Name="FrameBG.IsTilingMiddleSections" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable IsFile="true" Type="string" Name="FrameBG.SourceFile" SetsValue="true">
+      <Value xsi:type="xsd:string">UI Assets\FrameBG.png</Value>
+    </Variable>
+    <Variable Type="TextureAddress" Name="FrameBG.TextureAddress" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG.TextureHeight" SetsValue="true">
+      <Value xsi:type="xsd:int">64</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG.TextureLeft" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG.TextureTop" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG.TextureWidth" SetsValue="true">
+      <Value xsi:type="xsd:int">64</Value>
+    </Variable>
+    <Variable Type="bool" Name="FrameBG.Visible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="float" Name="FrameBG.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-200</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="FrameBG.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="bool" Name="FrameBG.Wrap" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="float" Name="FrameBG.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="FrameBG.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="FrameBG.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="FrameBG.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="FrameBG.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="FrameBG.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable IsFont="true" Type="string" Name="H1.Font" SetsValue="true">
+      <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini.ttf</Value>
+    </Variable>
+    <Variable Type="int" Name="H1.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">80</Value>
+    </Variable>
+    <Variable Type="float" Name="H1.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="H1.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="H1.HorizontalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="bool" Name="H1.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="int" Name="H1.OutlineThickness" SetsValue="true">
+      <Value xsi:type="xsd:int">10</Value>
+    </Variable>
+    <Variable Type="string" Name="H1.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">FrameBG</Value>
+    </Variable>
+    <Variable Type="string" Name="H1.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">Maps</Value>
+    </Variable>
+    <Variable Type="bool" Name="H1.UseFontSmoothing" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="H1.VerticalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="H1.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="H1.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="float" Name="H1.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="H1.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="H1.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="H1.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">10</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="H1.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="H1.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="float" Name="Height" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="bool" Name="MapList.ClipsChildren" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="float" Name="MapList.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-156</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="MapList.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="string" Name="MapList.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">FrameBG</Value>
+    </Variable>
+    <Variable Type="bool" Name="MapList.Visible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="float" Name="MapList.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-60</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="MapList.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="float" Name="MapList.X" SetsValue="true">
+      <Value xsi:type="xsd:float">30</Value>
+    </Variable>
+    <Variable Type="float" Name="MapList.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">120</Value>
+    </Variable>
+    <Variable Type="string" Name="ReturnBtn.Parent" SetsValue="true" />
+    <Variable Type="string" Name="ReturnBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">RETURN</Value>
+    </Variable>
+    <Variable Type="float" Name="ReturnBtn.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">296.66666</Value>
+    </Variable>
+    <Variable Type="float" Name="ReturnBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">133.33333</Value>
+    </Variable>
+    <Variable Type="float" Name="ReturnBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">126</Value>
+    </Variable>
+    <Variable Type="string" Name="tidebreakbg.Parent" SetsValue="true" />
+    <Variable IsFile="true" Type="string" Name="tidebreakbg.SourceFile" SetsValue="true">
+      <Value xsi:type="xsd:string">tidebreakbg.jpg</Value>
+    </Variable>
+    <Variable Type="float" Name="tidebreakbg.X" SetsValue="true">
+      <Value xsi:type="xsd:float">-114</Value>
+    </Variable>
+    <Variable Type="float" Name="tidebreakbg.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">-28</Value>
+    </Variable>
+    <Variable Type="float" Name="Width" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="float" Name="X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+  </State>
+  <Instance Name="tidebreakbg" BaseType="Sprite" />
+  <Instance Name="MapList" BaseType="Controls/ListBox" />
+  <Instance Name="H1" BaseType="Text" />
+  <Instance Name="FrameBG" BaseType="NineSlice" />
+  <Instance Name="ReturnBtn" BaseType="Controls/ButtonStandard" />
+  <Behaviors />
+</ScreenSave>

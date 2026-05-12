@@ -11,8 +11,8 @@ namespace Tidebreak.Screens
             PlayBtn.Click += (_, _) =>
             {
                 // Change screen
-                var newScreen = new MapSelectScreen();
-                this.RemoveFromRoot();
+                MapSelectScreen newScreen = new MapSelectScreen();
+                GumService.Default.Root.Children.Clear();
                 newScreen.AddToRoot();
 
                 // Change gamestate

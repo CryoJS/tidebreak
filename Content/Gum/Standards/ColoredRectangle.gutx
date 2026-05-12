@@ -206,13 +206,13 @@
     <State>
       <Name>PrimaryDark</Name>
       <Variable Type="int" Name="Blue" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">180</Value>
+        <Value xsi:type="xsd:int">156</Value>
       </Variable>
       <Variable Type="int" Name="Green" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">180</Value>
+        <Value xsi:type="xsd:int">97</Value>
       </Variable>
       <Variable Type="int" Name="Red" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">180</Value>
+        <Value xsi:type="xsd:int">80</Value>
       </Variable>
       <VariableList xsi:type="VariableListSaveOfString">
         <Type>string</Type>
@@ -230,13 +230,13 @@
     <State>
       <Name>Primary</Name>
       <Variable Type="int" Name="Blue" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">218</Value>
+        <Value xsi:type="xsd:int">188</Value>
       </Variable>
       <Variable Type="int" Name="Green" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">218</Value>
+        <Value xsi:type="xsd:int">124</Value>
       </Variable>
       <Variable Type="int" Name="Red" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">218</Value>
+        <Value xsi:type="xsd:int">106</Value>
       </Variable>
       <VariableList xsi:type="VariableListSaveOfString">
         <Type>string</Type>
@@ -254,13 +254,13 @@
     <State>
       <Name>PrimaryLight</Name>
       <Variable Type="int" Name="Blue" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">255</Value>
+        <Value xsi:type="xsd:int">213</Value>
       </Variable>
       <Variable Type="int" Name="Green" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">255</Value>
+        <Value xsi:type="xsd:int">154</Value>
       </Variable>
       <Variable Type="int" Name="Red" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">255</Value>
+        <Value xsi:type="xsd:int">137</Value>
       </Variable>
       <VariableList xsi:type="VariableListSaveOfString">
         <Type>string</Type>
@@ -350,13 +350,13 @@
     <State>
       <Name>Accent</Name>
       <Variable Type="int" Name="Blue" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">138</Value>
+        <Value xsi:type="xsd:int">234</Value>
       </Variable>
       <Variable Type="int" Name="Green" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">48</Value>
+        <Value xsi:type="xsd:int">93</Value>
       </Variable>
       <Variable Type="int" Name="Red" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">140</Value>
+        <Value xsi:type="xsd:int">60</Value>
       </Variable>
       <VariableList xsi:type="VariableListSaveOfString">
         <Type>string</Type>

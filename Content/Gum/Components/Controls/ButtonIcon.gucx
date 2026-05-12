@@ -14,8 +14,29 @@
       <Value xsi:type="xsd:int">2</Value>
     </Variable>
     <Variable Type="string" Name="Background.Parent" SetsValue="true" />
+    <Variable IsFile="true" Type="string" Name="Background.SourceFile" SetsValue="true">
+      <Value xsi:type="xsd:string">UI Assets\Btn.png</Value>
+    </Variable>
     <Variable Type="StyleCategory" Name="Background.StyleCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Bordered</Value>
+    </Variable>
+    <Variable Type="TextureAddress" Name="Background.TextureAddress" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="int" Name="Background.TextureHeight" SetsValue="true">
+      <Value xsi:type="xsd:int">15</Value>
+    </Variable>
+    <Variable Type="int" Name="Background.TextureLeft" SetsValue="true">
+      <Value xsi:type="xsd:int">64</Value>
+    </Variable>
+    <Variable Type="int" Name="Background.TextureTop" SetsValue="true">
+      <Value xsi:type="xsd:int">16</Value>
+    </Variable>
+    <Variable Type="int" Name="Background.TextureWidth" SetsValue="true">
+      <Value xsi:type="xsd:int">15</Value>
+    </Variable>
+    <Variable Type="bool" Name="Background.Visible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
     </Variable>
     <Variable Type="float" Name="Background.Width" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
@@ -71,7 +92,7 @@
       <Value xsi:type="xsd:int">5</Value>
     </Variable>
     <Variable Type="float" Name="Height" SetsValue="true">
-      <Value xsi:type="xsd:float">32</Value>
+      <Value xsi:type="xsd:float">64</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
@@ -82,7 +103,12 @@
     <Variable Type="DimensionUnitType" Name="Icon.HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
     </Variable>
-    <Variable Type="IconCategory" Name="Icon.IconCategoryState" ExposedAsName="IconCategory" SetsValue="false" />
+    <Variable Type="IconCategory" Name="Icon.IconCategoryState" ExposedAsName="IconCategory" SetsValue="true">
+      <Value xsi:type="xsd:string">Enter</Value>
+    </Variable>
+    <Variable Type="bool" Name="Icon.Visible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
     <Variable Type="float" Name="Icon.Width" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
     </Variable>
@@ -103,10 +129,16 @@
     </Variable>
     <Variable Type="State" Name="State" Category="States and Visibility" SetsValue="true" />
     <Variable Type="float" Name="Width" SetsValue="true">
-      <Value xsi:type="xsd:float">32</Value>
+      <Value xsi:type="xsd:float">64</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="WidthUnits" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="X" SetsValue="true">
+      <Value xsi:type="xsd:float">20</Value>
+    </Variable>
+    <Variable Type="float" Name="Y" SetsValue="true">
+      <Value xsi:type="xsd:float">20</Value>
     </Variable>
   </State>
   <Category>

@@ -44,7 +44,7 @@
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
     <Variable Type="float" Name="AuthorText.X" SetsValue="true">
-      <Value xsi:type="xsd:float">270</Value>
+      <Value xsi:type="xsd:float">350</Value>
     </Variable>
     <Variable Type="HorizontalAlignment" Name="AuthorText.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
@@ -150,7 +150,7 @@
       <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="float" Name="DifficultyText.X" SetsValue="true">
-      <Value xsi:type="xsd:float">-20</Value>
+      <Value xsi:type="xsd:float">70</Value>
     </Variable>
     <Variable Type="HorizontalAlignment" Name="DifficultyText.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
@@ -229,6 +229,21 @@
     </Variable>
     <Variable Type="float" Name="Height" SetsValue="true">
       <Value xsi:type="xsd:float">140</Value>
+    </Variable>
+    <Variable Type="float" Name="IconLargeInstance.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-80</Value>
+    </Variable>
+    <Variable Type="IconCategory" Name="IconLargeInstance.IconCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Star</Value>
+    </Variable>
+    <Variable Type="float" Name="IconLargeInstance.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-80</Value>
+    </Variable>
+    <Variable Type="float" Name="IconLargeInstance.X" SetsValue="true">
+      <Value xsi:type="xsd:float">20</Value>
+    </Variable>
+    <Variable Type="float" Name="IconLargeInstance.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">20</Value>
     </Variable>
     <Variable Type="float" Name="Options.Height" SetsValue="true">
       <Value xsi:type="xsd:float">-0</Value>
@@ -336,7 +351,7 @@
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
     <Variable Type="float" Name="TitleText.X" SetsValue="true">
-      <Value xsi:type="xsd:float">270</Value>
+      <Value xsi:type="xsd:float">350</Value>
     </Variable>
     <Variable Type="HorizontalAlignment" Name="TitleText.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
@@ -363,6 +378,7 @@
   <Instance Name="TitleText" BaseType="Text" />
   <Instance Name="AuthorText" BaseType="Text" />
   <Instance Name="DifficultyText" BaseType="Text" />
+  <Instance Name="IconLargeInstance" BaseType="Elements/IconLarge" />
   <Instance Name="Options" BaseType="Container" />
   <Instance Name="FocusedIndicator" BaseType="NineSlice" />
   <Behaviors />

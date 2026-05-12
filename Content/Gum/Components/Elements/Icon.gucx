@@ -15,10 +15,10 @@
       <Value xsi:type="xsd:string">White</Value>
     </Variable>
     <Variable Type="float" Name="IconSprite.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">100</Value>
+      <Value xsi:type="xsd:float">80</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="IconSprite.HeightUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">3</Value>
+      <Value xsi:type="xsd:int">5</Value>
     </Variable>
     <Variable IsFile="true" Type="string" Name="IconSprite.SourceFile" SetsValue="true">
       <Value xsi:type="xsd:string">UISpriteSheet.png</Value>
@@ -39,10 +39,10 @@
       <Value xsi:type="xsd:int">32</Value>
     </Variable>
     <Variable Type="float" Name="IconSprite.Width" SetsValue="true">
-      <Value xsi:type="xsd:float">100</Value>
+      <Value xsi:type="xsd:float">80</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="IconSprite.WidthUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">3</Value>
+      <Value xsi:type="xsd:int">5</Value>
     </Variable>
     <Variable Type="HorizontalAlignment" Name="IconSprite.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>

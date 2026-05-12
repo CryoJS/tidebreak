@@ -8,6 +8,8 @@ using MonoGameGum;
 using MonoGameGum.GueDeriving;
 using RenderingLibrary.Graphics;
 using System.Linq;
+using Tidebreak.Components.Controls;
+using Tidebreak.Components.Elements;
 namespace Tidebreak.Screens;
 partial class PlayScreen : global::Gum.Forms.Controls.FrameworkElement
 {
@@ -36,6 +38,14 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
             return gue;
         });
     }
+    public TextRuntime TimeText { get; protected set; }
+    public Icon TimeTextIcon { get; protected set; }
+    public IconSmall BestTimeTextIcon { get; protected set; }
+    public ButtonIcon PauseBtn { get; protected set; }
+    public TextRuntime NameText { get; protected set; }
+    public PercentBarIcon OxygenBar { get; protected set; }
+    public TextRuntime BestTimeText { get; protected set; }
+    public ContainerRuntime TopCenterContainer { get; protected set; }
 
     public PlayScreen(InteractiveGue visual) : base(visual)
     {
@@ -49,6 +59,14 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     protected override void ReactToVisualChanged()
     {
         base.ReactToVisualChanged();
+        TimeText = this.Visual?.GetGraphicalUiElementByName("TimeText") as global::MonoGameGum.GueDeriving.TextRuntime;
+        TimeTextIcon = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Icon>(this.Visual,"TimeTextIcon");
+        BestTimeTextIcon = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<IconSmall>(this.Visual,"BestTimeTextIcon");
+        PauseBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonIcon>(this.Visual,"PauseBtn");
+        NameText = this.Visual?.GetGraphicalUiElementByName("NameText") as global::MonoGameGum.GueDeriving.TextRuntime;
+        OxygenBar = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<PercentBarIcon>(this.Visual,"OxygenBar");
+        BestTimeText = this.Visual?.GetGraphicalUiElementByName("BestTimeText") as global::MonoGameGum.GueDeriving.TextRuntime;
+        TopCenterContainer = this.Visual?.GetGraphicalUiElementByName("TopCenterContainer") as global::MonoGameGum.GueDeriving.ContainerRuntime;
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code

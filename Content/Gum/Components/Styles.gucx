@@ -5,16 +5,16 @@
   <State>
     <Name>Default</Name>
     <Variable Type="int" Name="Accent.Blue" SetsValue="true">
-      <Value xsi:type="xsd:int">138</Value>
+      <Value xsi:type="xsd:int">234</Value>
     </Variable>
     <Variable Type="int" Name="Accent.Green" SetsValue="true">
-      <Value xsi:type="xsd:int">48</Value>
+      <Value xsi:type="xsd:int">93</Value>
     </Variable>
     <Variable Type="string" Name="Accent.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">Colors</Value>
     </Variable>
     <Variable Type="int" Name="Accent.Red" SetsValue="true">
-      <Value xsi:type="xsd:int">140</Value>
+      <Value xsi:type="xsd:int">60</Value>
     </Variable>
     <Variable Type="int" Name="Black.Blue" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
@@ -221,40 +221,40 @@
       <Value xsi:type="xsd:boolean">false</Value>
     </Variable>
     <Variable Type="int" Name="Primary.Blue" SetsValue="true">
-      <Value xsi:type="xsd:int">218</Value>
+      <Value xsi:type="xsd:int">188</Value>
     </Variable>
     <Variable Type="int" Name="Primary.Green" SetsValue="true">
-      <Value xsi:type="xsd:int">218</Value>
+      <Value xsi:type="xsd:int">124</Value>
     </Variable>
     <Variable Type="string" Name="Primary.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">Colors</Value>
     </Variable>
     <Variable Type="int" Name="Primary.Red" SetsValue="true">
-      <Value xsi:type="xsd:int">218</Value>
+      <Value xsi:type="xsd:int">106</Value>
     </Variable>
     <Variable Type="int" Name="PrimaryDark.Blue" SetsValue="true">
-      <Value xsi:type="xsd:int">180</Value>
+      <Value xsi:type="xsd:int">156</Value>
     </Variable>
     <Variable Type="int" Name="PrimaryDark.Green" SetsValue="true">
-      <Value xsi:type="xsd:int">180</Value>
+      <Value xsi:type="xsd:int">97</Value>
     </Variable>
     <Variable Type="string" Name="PrimaryDark.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">Colors</Value>
     </Variable>
     <Variable Type="int" Name="PrimaryDark.Red" SetsValue="true">
-      <Value xsi:type="xsd:int">180</Value>
+      <Value xsi:type="xsd:int">80</Value>
     </Variable>
     <Variable Type="int" Name="PrimaryLight.Blue" SetsValue="true">
-      <Value xsi:type="xsd:int">255</Value>
+      <Value xsi:type="xsd:int">213</Value>
     </Variable>
     <Variable Type="int" Name="PrimaryLight.Green" SetsValue="true">
-      <Value xsi:type="xsd:int">255</Value>
+      <Value xsi:type="xsd:int">154</Value>
     </Variable>
     <Variable Type="string" Name="PrimaryLight.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">Colors</Value>
     </Variable>
     <Variable Type="int" Name="PrimaryLight.Red" SetsValue="true">
-      <Value xsi:type="xsd:int">255</Value>
+      <Value xsi:type="xsd:int">137</Value>
     </Variable>
     <Variable IsFont="true" Type="string" Name="Small.Font" SetsValue="true">
       <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini Square Mono.ttf</Value>

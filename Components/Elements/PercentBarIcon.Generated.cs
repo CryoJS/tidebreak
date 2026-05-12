@@ -65,8 +65,8 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         }
     }
     public NineSliceRuntime Background { get; protected set; }
-    public Icon IconInstance { get; protected set; }
     public NineSliceRuntime BarContainer { get; protected set; }
+    public Icon IconInstance { get; protected set; }
     public NineSliceRuntime Bar { get; protected set; }
     public CautionLines CautionLinesInstance { get; protected set; }
     public VerticalLines VerticalLinesInstance { get; protected set; }
@@ -98,8 +98,8 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     {
         base.ReactToVisualChanged();
         Background = this.Visual?.GetGraphicalUiElementByName("Background") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
-        IconInstance = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Icon>(this.Visual,"IconInstance");
         BarContainer = this.Visual?.GetGraphicalUiElementByName("BarContainer") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
+        IconInstance = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Icon>(this.Visual,"IconInstance");
         Bar = this.Visual?.GetGraphicalUiElementByName("Bar") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
         CautionLinesInstance = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<CautionLines>(this.Visual,"CautionLinesInstance");
         VerticalLinesInstance = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<VerticalLines>(this.Visual,"VerticalLinesInstance");

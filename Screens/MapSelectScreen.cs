@@ -9,28 +9,16 @@ namespace Tidebreak.Screens
         // Store default scroll speed
         private const int DEFAULT_SCROLL_SPEED = 50;
 
-        partial void CustomInitialize()
+        partial void CustomInitialize() // REVIEW do i need to add documentation for custum initialize functions that are used for ui screens
         {
             // Increase scroll speed (its sooo slow by default)
             MapList.VerticalScrollBarInstance.SmallChange = DEFAULT_SCROLL_SPEED;
 
-            // Send player back to menu
-            ReturnBtn.Click += (_, _) =>
-            {
-                // Change screen
-                var newScreen = new TitleScreen();
-                this.RemoveFromRoot();
-                newScreen.AddToRoot();
-
-                // Change gamestate
-                Game1.gameState = Game1.MENU;
-            };
-
             // Load all maps into map UI
-            foreach (var map in Game1.maps)
+            foreach (Map map in Game1.maps)
             {
-                // Create new map entry
-                var row = new MapRow();
+                // Create new map row entry
+                MapRow row = new MapRow();
 
                 // Update text in each row with the map info
                 row.TitleText.Text = map.name;
@@ -41,8 +29,8 @@ namespace Tidebreak.Screens
                 row.PlayBtn.Click += (_, _) =>
                 {
                     // Change screen
-                    var newScreen = new PlayScreen();
-                    this.RemoveFromRoot();
+                    PlayScreen newScreen = new PlayScreen();
+                    GumService.Default.Root.Children.Clear();
                     newScreen.AddToRoot();
 
                     // Change gamestate (and map)
@@ -50,15 +38,15 @@ namespace Tidebreak.Screens
                     Game1.gameState = Game1.PLAY_MAP;
 
                     // Load map
-                    Game1.maps[Game1.currentMap].Start(Game1.player);
+                    Game1.maps[Game1.currentMap].Start(Game1.player, Game1.camera);
                 };
 
                 // Add button click behaviour: edit the map
                 row.EditBtn.Click += (_, _) =>
                 {
                     // Change screen
-                    var newScreen = new EditScreen();
-                    this.RemoveFromRoot();
+                    EditScreen newScreen = new EditScreen();
+                    GumService.Default.Root.Children.Clear();
                     newScreen.AddToRoot();
 
                     // Change gamestate (and map)
@@ -69,6 +57,12 @@ namespace Tidebreak.Screens
                 // Add finalized map row into list of maps
                 MapList.InnerPanelInstance.Children.Add(row.Visual);
             }
+
+            // Send player back to menu
+            ReturnBtn.Click += (_, _) =>
+            {
+                Game1.ReturnToMenu();
+            };
         }
     }
 }

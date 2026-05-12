@@ -7,8 +7,14 @@
     <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">DarkGray</Value>
     </Variable>
+    <Variable IsFile="true" Type="string" Name="Background.SourceFile" SetsValue="true">
+      <Value xsi:type="xsd:string">UI Assets\FrameBG.png</Value>
+    </Variable>
     <Variable Type="StyleCategory" Name="Background.StyleCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Bordered</Value>
+    </Variable>
+    <Variable Type="TextureAddress" Name="Background.TextureAddress" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="ColorCategory" Name="Bar.ColorCategoryState" ExposedAsName="BarColor" SetsValue="true">
       <Value xsi:type="xsd:string">Primary</Value>
@@ -16,8 +22,26 @@
     <Variable Type="string" Name="Bar.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">BarContainer</Value>
     </Variable>
+    <Variable IsFile="true" Type="string" Name="Bar.SourceFile" SetsValue="true">
+      <Value xsi:type="xsd:string">UI Assets\FrameBG.png</Value>
+    </Variable>
     <Variable Type="StyleCategory" Name="Bar.StyleCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Solid</Value>
+    </Variable>
+    <Variable Type="TextureAddress" Name="Bar.TextureAddress" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="int" Name="Bar.TextureHeight" SetsValue="true">
+      <Value xsi:type="xsd:int">46</Value>
+    </Variable>
+    <Variable Type="int" Name="Bar.TextureLeft" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="int" Name="Bar.TextureTop" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="int" Name="Bar.TextureWidth" SetsValue="true">
+      <Value xsi:type="xsd:int">52</Value>
     </Variable>
     <Variable Type="float" Name="Bar.Width" ExposedAsName="BarPercent" SetsValue="true">
       <Value xsi:type="xsd:float">25</Value>
@@ -31,17 +55,23 @@
     <Variable Type="PositionUnitType" Name="Bar.XUnits" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
     </Variable>
+    <Variable Type="Blend" Name="BarContainer.Blend" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
     <Variable Type="ColorCategory" Name="BarContainer.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Black</Value>
     </Variable>
     <Variable Type="float" Name="BarContainer.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">-4</Value>
+      <Value xsi:type="xsd:float">50</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="BarContainer.HeightUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">2</Value>
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="StyleCategory" Name="BarContainer.StyleCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Solid</Value>
+    </Variable>
+    <Variable Type="bool" Name="BarContainer.Visible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
     </Variable>
     <Variable Type="float" Name="BarContainer.Width" SetsValue="true">
       <Value xsi:type="xsd:float">-4</Value>
@@ -49,11 +79,17 @@
     <Variable Type="DimensionUnitType" Name="BarContainer.WidthUnits" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
     </Variable>
+    <Variable Type="float" Name="BarContainer.X" SetsValue="true">
+      <Value xsi:type="xsd:float">3</Value>
+    </Variable>
     <Variable Type="HorizontalAlignment" Name="BarContainer.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
     <Variable Type="PositionUnitType" Name="BarContainer.XUnits" SetsValue="true">
       <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="BarContainer.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">-3.5</Value>
     </Variable>
     <Variable Type="VerticalAlignment" Name="BarContainer.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
@@ -87,7 +123,7 @@
       <Value xsi:type="xsd:int">2</Value>
     </Variable>
     <Variable Type="float" Name="Height" SetsValue="true">
-      <Value xsi:type="xsd:float">16</Value>
+      <Value xsi:type="xsd:float">65</Value>
     </Variable>
     <Variable Type="State" Name="State" Category="States and Visibility" SetsValue="true" />
     <Variable Type="float" Name="VerticalLinesInstance.Height" SetsValue="true">
@@ -115,7 +151,7 @@
       <Value xsi:type="xsd:int">2</Value>
     </Variable>
     <Variable Type="float" Name="Width" SetsValue="true">
-      <Value xsi:type="xsd:float">128</Value>
+      <Value xsi:type="xsd:float">411</Value>
     </Variable>
   </State>
   <Category>

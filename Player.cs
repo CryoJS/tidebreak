@@ -36,6 +36,10 @@ class Player
     private const float SLIDE_OFFSET = (1 - HEIGHT_SHRINK_FACTOR) * TRUE_HEIGHT;
     private const int TILE_CHECK_SIZE = 2;  // Farthest # of tiles away from player to check for collisions
 
+    // Store player attribute constants
+    public const int MAX_OXYGEN = 100;
+    private const float INHALE_SPEED = 30f;
+
     // Store possible player animation states
     private enum PlayerState
     {
@@ -55,26 +59,29 @@ class Player
     // Store player movement data
     private PlayerState state = PlayerState.Idle;
     public Rectangle rec = new Rectangle(0, 0, PLAYER_WIDTH * Game1.PIXEL_SCALE, PLAYER_HEIGHT * Game1.PIXEL_SCALE);
-    private Vector2 pos = new Vector2(0, 0); // REVIEW can i make these public? making property is annoying cuz cant set rec.X or vel
+    public Vector2 pos = new Vector2(0, 0);
     public Vector2 prevPos;
 
-    public Vector2 vel = new Vector2(0, 0); // Per second //REVIEW see above
-    SpriteEffects direction = Animation.FLIP_NONE;
-    int moveInput;
-    float coyoteTime = 0;
+    public Vector2 vel = new Vector2(0, 0); // Per second
+    private SpriteEffects direction = Animation.FLIP_NONE;
+    private int moveInput;
+    private float coyoteTime = 0;
 
-    bool isGrounded = false;
-    bool isLatching = false;
-    bool onZipline = false;
-    Zipline curZipline;
+    private bool isDead;
+    public bool isGameOver { get; private set; }
+    
+    private bool isGrounded;
+    private bool isLatching;
+    private bool onZipline;
+    private Zipline curZipline;
 
-    bool inWater = false;
-    bool prevInWater = false;
-    bool isSliding = false;
-    bool isPrevSliding = false;
+    private bool inWater;
+    private bool prevInWater;
+    private bool isSliding;
+    private bool isPrevSliding;
 
     // Store player attribute data
-    float oxygen = 100;
+    public float oxygen { get; private set; } = MAX_OXYGEN;
 
     // Store player collision rectangles
     private Rectangle top;
@@ -82,30 +89,30 @@ class Player
     private Rectangle left;
     private Rectangle right;
 
-    // Store player animation data // REVIEW do i need to make these static?
-    private Texture2D idleImg;
-    private Texture2D runImg;
-    private Texture2D landImg;
-    private Texture2D jumpImg;
-    private Texture2D fallImg;
-    private Texture2D swimImg;
-    private Texture2D slideImg;
-    private Texture2D latchImg;
-    private Texture2D climbImg;
-    private Texture2D hangImg;
-    private Texture2D deathImg;
+    // Store player animation data
+    private static Texture2D idleImg;
+    private static Texture2D runImg;
+    private static Texture2D landImg;
+    private static Texture2D jumpImg;
+    private static Texture2D fallImg;
+    private static Texture2D swimImg;
+    private static Texture2D slideImg;
+    private static Texture2D latchImg;
+    private static Texture2D climbImg;
+    private static Texture2D hangImg;
+    private static Texture2D deathImg;
 
-    private Animation idleAnim;
-    private Animation runAnim;
-    private Animation landAnim;
-    private Animation jumpAnim;
-    private Animation fallAnim;
-    private Animation swimAnim;
-    private Animation slideAnim;
-    private Animation latchAnim;
-    private Animation climbAnim;
-    private Animation hangAnim;
-    private Animation deathAnim;
+    private static Animation idleAnim;
+    private static Animation runAnim;
+    private static Animation landAnim;
+    private static Animation jumpAnim;
+    private static Animation fallAnim;
+    private static Animation swimAnim;
+    private static Animation slideAnim;
+    private static Animation latchAnim;
+    private static Animation climbAnim;
+    private static Animation hangAnim;
+    private static Animation deathAnim;
 
     public Player(ContentManager content)
     {
@@ -187,19 +194,38 @@ class Player
         }
     }
 
-    public void Update(GameTime gameTime, KeyboardState kb, KeyboardState prevKb, Cam2D camera, Map map)
+    public void ResetPlayer()
     {
-        // Move player, check collisions, update keep player's rectangle updated
+        // Reset default states for safety
+        isDead = false;
+        isGameOver = false;
+        isGrounded = false;
+        isLatching = false;
+        onZipline = false;
+
+        inWater = false;
+        prevInWater = false;
+        isSliding = false;
+        isPrevSliding = false;
+
+        // Set oxygen back to max amount
+        oxygen = MAX_OXYGEN;
+    }
+
+    public void Update(GameTime gameTime, KeyboardState kb, KeyboardState prevKb, Camera camera, Map map)
+    {
+        // Move player, check collisions, update player attributes
         prevPos = pos;
         Move(gameTime, kb, prevKb);
         UpdateRec();
 
         CheckCollisions(gameTime, map);
         UpdateRec();
+        UpdateOxygen(gameTime, map);
 
         // Update animations and camera
-        UpdateAnimations(gameTime);
-        camera.LookAt(rec);
+        UpdateAnims(gameTime);
+        camera.Update(gameTime, rec);
     }
 
     public void Draw(SpriteBatch spriteBatch)
@@ -342,6 +368,9 @@ class Player
 
     private void Move(GameTime gameTime, KeyboardState kb, KeyboardState prevKb)
     {
+        // If the player is dead, do not let them move
+        if (isDead) return;
+
         // Perform movement checks
         MoveChecks(gameTime, kb, prevKb);
 
@@ -428,7 +457,7 @@ class Player
                             if (isPrevSliding && !isSliding)
                             {
                                 // Put player back in sliding, don't allow them to move until they press slide again
-                                OffsetPosInState(isSliding, isSliding = true, SLIDE_OFFSET); // REVIEW am i allowed to put this in argument
+                                OffsetPosInState(isSliding, isSliding = true, SLIDE_OFFSET);
                                 pos = prevPos;
 
                                 UpdateRec();
@@ -537,89 +566,114 @@ class Player
         }
     }
 
-    private void UpdateAnimations(GameTime gameTime)
+    private void UpdateOxygen(GameTime gameTime, Map map)
     {
+        // If in water, lose oxygen, otherwise gain oxygen
+        if (inWater)
+        {
+            oxygen -= map.oxygenSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+        }
+        else
+        {
+            oxygen = Math.Min(MAX_OXYGEN, oxygen + INHALE_SPEED * (float)gameTime.ElapsedGameTime.TotalSeconds);
+        }
+
+        // If the player runs out of oxygen, they die
+        if (oxygen < 0)
+        {
+            isDead = true;
+        }
+    }
+
+    private void UpdateAnimsChecks()
+    {
+        // Play death animation if dead, but if animation done end map
+        if (isDead)
+        {
+            if (deathAnim.IsFinished()) isGameOver = true;
+            else SetState(PlayerState.Dead);
+            return;
+        }
+
+        // Flip sprite based on player movement direction if the player is not latching
+        if (vel.X > 0) direction = Animation.FLIP_NONE;
+        else if (vel.X < 0) direction = Animation.FLIP_HORIZONTAL;
+
         // Play latching animation when needed
         if (isLatching)
         {
             SetState(PlayerState.Latching);
-        }
-        else
-        {
-            // Flip sprite based on player movement direction if the player is not latching
-            if (vel.X > 0)
-            {
-                direction = Animation.FLIP_NONE;
-            }
-            else if (vel.X < 0)
-            {
-                direction = Animation.FLIP_HORIZONTAL;
-            }
+            return;
         }
 
-        // Check if state needs to be changed
+        // If the player is on a zipline, play zipline hanging animation
         if (onZipline)
         {
-            // If the player is on a zipline, play zipline hanging animation
             SetState(PlayerState.Hanging);
+            return;
         }
-        else if (inWater)
+
+        // If the player is in water, they are in the swimming animation
+        if (inWater)
         {
-            // If the player is in water, they are in the swimming animation no matter what
             SetState(PlayerState.Swimming);
+            return;
         }
-        else if (!isGrounded)
+        
+        // If airborne, check latching or if fall or jump animation should be playing (or default to idle)
+        if (!isGrounded)
         {
-            // If airborne, check latching or if fall or jump animation should be playing (or default to idle)
             if (!isLatching)
             {
-                if (vel.Y < 0)
-                {
-                    SetState(PlayerState.Jumping);
-                }
-                else if (vel.Y >= FALL_THRESHOLD)
-                {
-                    SetState(PlayerState.Falling);
-                }
-                else if (state != PlayerState.Jumping && state != PlayerState.Running)
-                {
-                    SetState(PlayerState.Idle);
-                }
+                if (vel.Y < 0) SetState(PlayerState.Jumping);
+                else if (vel.Y >= FALL_THRESHOLD) SetState(PlayerState.Falling);
+                else if (state != PlayerState.Jumping && state != PlayerState.Running) SetState(PlayerState.Idle);
             }
+            return;
         }
-        else if (isSliding)
+        
+        // If sliding, play slide animation
+        if (isSliding)
         {
             SetState(PlayerState.Sliding);
+            return;
         }
-        else if ((state == PlayerState.Falling || state == PlayerState.Jumping) && moveInput == 0)
+        
+        // Play landing animation as we just landed only if no input
+        if ((state == PlayerState.Falling || state == PlayerState.Jumping) && moveInput == 0)
         {
-            // Play landing animation as we just landed only if no input
             SetState(PlayerState.Landing);
+            return;
         }
-        else if (state == PlayerState.Landing)
+        
+        // When the landing animation finishes, go to Idle
+        if (state == PlayerState.Landing)
         {
-            // When the landing animation finishes, go to Idle
-            if (!landAnim.IsAnimating())
-            {
-                SetState(PlayerState.Idle);
-            }
+            if (!landAnim.IsAnimating()) SetState(PlayerState.Idle);
+            return;
         }
-        else if (moveInput != 0)
+        
+        // Player is trying to move
+        if (moveInput != 0)
         {
-            // Player is trying to move
             SetState(PlayerState.Running);
+            return;
         }
-        else
-        {
-            // Otherwise idle
-            SetState(PlayerState.Idle);
-        }
+        
+        // Otherwise idle
+        SetState(PlayerState.Idle);
+    }
+
+    private void UpdateAnims(GameTime gameTime)
+    {
+        // Check which animation should be done
+        UpdateAnimsChecks();
 
         // Update the position of the animation
         GetCurAnim().TranslateTo(pos.X - (ANIM_SIZE * Game1.PIXEL_SCALE - rec.Width) / 2, pos.Y - (ANIM_SIZE * Game1.PIXEL_SCALE - rec.Height) / 2);
 
         // Update animation, unless the frame should be frozen
-        if ((inWater && Math.Abs(vel.X) + Math.Abs(vel.Y) >= RUN_THRESHOLD) || (!inWater && (!isSliding || moveInput != 0)))
+        if ((inWater && Math.Abs(vel.X) + Math.Abs(vel.Y) >= RUN_THRESHOLD) || (!inWater && (!isSliding || moveInput != 0)) || isDead)
         {
             GetCurAnim().Update(gameTime);
         }

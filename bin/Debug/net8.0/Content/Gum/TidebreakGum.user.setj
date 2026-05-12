@@ -3,8 +3,7 @@
     "ExpandedNodes": [
       "Screens",
       "Components",
-      "Components/Controls",
-      "Components/Controls/ScrollBar"
+      "Components/Elements"
     ]
   }
 }

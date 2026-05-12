@@ -1,14 +1,17 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
-using System.Numerics;
 using System.Timers;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Tidebreak;
 
 class Map // TODO All documentation for methods
 {
+    // Create constant for empty variables
+    public const int EMPTY = -1;
+    public const string MISSING_BEST_TIME = "No Best Time";
+
     // Store core map information
     public string name { get; private set; }
     public string author { get; private set; }
@@ -17,12 +20,16 @@ class Map // TODO All documentation for methods
     private DateTime modifiedDate;
     public bool locked {get; private set; }
 
+    public float time { get; private set; } = 0; // seconds
+    public float bestTime { get; private set; } = EMPTY; // seconds
+
     // Store map behaviour information
     public int sizeX { get; private set; }
     public int sizeY { get; private set; }
     private int startTileCnt = 0;
     private Vector2 startPos;
 
+    public float oxygenSpeed { get; private set; } = 10f; // Oxygen depletion amount when in water
     private float floodSpeed = 0.1f; // Water spread speed (tiles per second)
     private Timer floodTimer; // Current timer for water spread
 
@@ -36,6 +43,7 @@ class Map // TODO All documentation for methods
 
     public Map() { }
 
+    // TODO: use load map to update these parameters
     public Map(string name, string author, float difficulty, int sizeX, int sizeY, bool locked = false)
     {
         // Initialize map information
@@ -61,14 +69,25 @@ class Map // TODO All documentation for methods
         }
     }
 
-    public void Start(Player player)
+    public void Start(Player player, Camera camera)
     {
+        // Center player and camera
         player.CenterPos(startPos);
+        camera.SetPos(startPos);
+
+        // Reset player data
+        player.ResetPlayer();
+
+        // Set starting pause state to unpaused
+        Game1.paused = false;
+
+        // Reset timer
+        time = 0;
     }
 
-    public void Update()
+    public void Update(GameTime gameTime)
     {
-        // TODO
+        time += (float)gameTime.ElapsedGameTime.TotalSeconds;
     }
 
     public void Draw(SpriteBatch spriteBatch)
@@ -113,6 +132,7 @@ class Map // TODO All documentation for methods
         sizeY = Convert.ToInt32(inFile.ReadLine());
         startTileCnt = Convert.ToInt32(inFile.ReadLine());
         ziplineCnt = Convert.ToInt32(inFile.ReadLine());
+        oxygenSpeed = Convert.ToSingle(inFile.ReadLine());
         floodSpeed = Convert.ToSingle(inFile.ReadLine());
 
         // Create tile arrays

@@ -4,6 +4,9 @@
   <BaseType>Container</BaseType>
   <State>
     <Name>Default</Name>
+    <Variable Type="int" Name="Background.Alpha" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
+    </Variable>
     <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Success</Value>
     </Variable>
@@ -50,6 +53,9 @@
       <Value xsi:type="xsd:int">7</Value>
     </Variable>
     <Variable Type="ButtonCategory" Name="ButtonCategoryState" SetsValue="false" />
+    <Variable Type="int" Name="FocusedIndicator.Alpha" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
+    </Variable>
     <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Warning</Value>
     </Variable>
@@ -132,8 +138,20 @@
     <Name>ButtonCategory</Name>
     <State>
       <Name>Enabled</Name>
+      <Variable Type="int" Name="Background.Blue" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">48</Value>
+      </Variable>
       <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Success</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Green" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">167</Value>
+      </Variable>
+      <Variable Type="bool" Name="Background.IgnoredByParentSize" Category="Parent" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Red" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">62</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
@@ -141,11 +159,31 @@
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
       </Variable>
+      <VariableList xsi:type="VariableListSaveOfString">
+        <Type>string</Type>
+        <Name>Background.VariableReferences</Name>
+        <Category>References</Category>
+        <IsFile>false</IsFile>
+        <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+        <Value />
+      </VariableList>
     </State>
     <State>
       <Name>Disabled</Name>
+      <Variable Type="int" Name="Background.Blue" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">48</Value>
+      </Variable>
       <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">DarkGray</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Green" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">167</Value>
+      </Variable>
+      <Variable Type="bool" Name="Background.IgnoredByParentSize" Category="Parent" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Red" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">62</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
@@ -153,11 +191,35 @@
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Gray</Value>
       </Variable>
+      <VariableList xsi:type="VariableListSaveOfString">
+        <Type>string</Type>
+        <Name>Background.VariableReferences</Name>
+        <Category>References</Category>
+        <IsFile>false</IsFile>
+        <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+        <Value>
+          <string>Red = Components/Styles.Success.Red</string>
+          <string>Green = Components/Styles.Success.Green</string>
+          <string>Blue = Components/Styles.Success.Blue</string>
+        </Value>
+      </VariableList>
     </State>
     <State>
       <Name>Highlighted</Name>
+      <Variable Type="int" Name="Background.Blue" SetsValue="true">
+        <Value xsi:type="xsd:int">84</Value>
+      </Variable>
       <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">PrimaryLight</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Green" SetsValue="true">
+        <Value xsi:type="xsd:int">213</Value>
+      </Variable>
+      <Variable Type="bool" Name="Background.IgnoredByParentSize" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Red" SetsValue="true">
+        <Value xsi:type="xsd:int">99</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
@@ -165,11 +227,30 @@
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
       </Variable>
+      <VariableList xsi:type="VariableListSaveOfString">
+        <Type>System.Collections.Generic.List`1[System.String]</Type>
+        <Name>Background.VariableReferences</Name>
+        <IsFile>false</IsFile>
+        <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+        <Value />
+      </VariableList>
     </State>
     <State>
       <Name>Pushed</Name>
+      <Variable Type="int" Name="Background.Blue" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">23</Value>
+      </Variable>
       <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">PrimaryDark</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Green" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">132</Value>
+      </Variable>
+      <Variable Type="bool" Name="Background.IgnoredByParentSize" Category="Parent" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Red" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">36</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
@@ -177,23 +258,67 @@
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
       </Variable>
+      <VariableList xsi:type="VariableListSaveOfString">
+        <Type>string</Type>
+        <Name>Background.VariableReferences</Name>
+        <Category>References</Category>
+        <IsFile>false</IsFile>
+        <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+        <Value />
+      </VariableList>
     </State>
     <State>
       <Name>HighlightedFocused</Name>
+      <Variable Type="int" Name="Background.Blue" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">48</Value>
+      </Variable>
       <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">PrimaryLight</Value>
       </Variable>
+      <Variable Type="int" Name="Background.Green" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">167</Value>
+      </Variable>
+      <Variable Type="bool" Name="Background.IgnoredByParentSize" Category="Parent" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Red" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">62</Value>
+      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">true</Value>
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
       </Variable>
+      <VariableList xsi:type="VariableListSaveOfString">
+        <Type>string</Type>
+        <Name>Background.VariableReferences</Name>
+        <Category>References</Category>
+        <IsFile>false</IsFile>
+        <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+        <Value>
+          <string>Red = Components/Styles.Success.Red</string>
+          <string>Green = Components/Styles.Success.Green</string>
+          <string>Blue = Components/Styles.Success.Blue</string>
+        </Value>
+      </VariableList>
     </State>
     <State>
       <Name>Focused</Name>
+      <Variable Type="int" Name="Background.Blue" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">48</Value>
+      </Variable>
       <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Success</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Green" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">167</Value>
+      </Variable>
+      <Variable Type="bool" Name="Background.IgnoredByParentSize" Category="Parent" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Red" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">62</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">true</Value>
@@ -201,11 +326,35 @@
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
       </Variable>
+      <VariableList xsi:type="VariableListSaveOfString">
+        <Type>string</Type>
+        <Name>Background.VariableReferences</Name>
+        <Category>References</Category>
+        <IsFile>false</IsFile>
+        <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+        <Value>
+          <string>Red = Components/Styles.Success.Red</string>
+          <string>Green = Components/Styles.Success.Green</string>
+          <string>Blue = Components/Styles.Success.Blue</string>
+        </Value>
+      </VariableList>
     </State>
     <State>
       <Name>DisabledFocused</Name>
+      <Variable Type="int" Name="Background.Blue" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">48</Value>
+      </Variable>
       <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">DarkGray</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Green" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">167</Value>
+      </Variable>
+      <Variable Type="bool" Name="Background.IgnoredByParentSize" Category="Parent" SetsValue="true">
+        <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Red" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">62</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">true</Value>
@@ -213,6 +362,18 @@
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Gray</Value>
       </Variable>
+      <VariableList xsi:type="VariableListSaveOfString">
+        <Type>string</Type>
+        <Name>Background.VariableReferences</Name>
+        <Category>References</Category>
+        <IsFile>false</IsFile>
+        <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+        <Value>
+          <string>Red = Components/Styles.Success.Red</string>
+          <string>Green = Components/Styles.Success.Green</string>
+          <string>Blue = Components/Styles.Success.Blue</string>
+        </Value>
+      </VariableList>
     </State>
   </Category>
   <Instance Name="Background" BaseType="NineSlice" />

@@ -52,9 +52,9 @@
   <Guides />
   <ShowLocalizationInGum>true</ShowLocalizationInGum>
   <CurrentLanguageIndex>0</CurrentLanguageIndex>
-  <ScreenReference Name="DemoScreenGum" />
   <ScreenReference Name="EditScreen" />
   <ScreenReference Name="MapSelectScreen" />
+  <ScreenReference Name="PauseScreen" />
   <ScreenReference Name="PlayScreen" />
   <ScreenReference Name="TitleScreen" />
   <ComponentReference Name="Controls/ButtonClose" />
@@ -96,6 +96,8 @@
   <ComponentReference Name="Elements/DividerHorizontal" />
   <ComponentReference Name="Elements/DividerVertical" />
   <ComponentReference Name="Elements/Icon" />
+  <ComponentReference Name="Elements/IconLarge" />
+  <ComponentReference Name="Elements/IconSmall" />
   <ComponentReference Name="Elements/PercentBar" />
   <ComponentReference Name="Elements/PercentBarIcon" />
   <ComponentReference Name="Elements/VerticalLines" />

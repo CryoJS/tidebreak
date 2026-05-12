@@ -10,11 +10,9 @@ using Microsoft.Xna.Framework.Input;
 using GameUtility;
 
 using MonoGameGum;
-using Gum.Forms;
-using Gum.Forms.Controls;
-using Gum.Expressions;
-using Gum.Managers;
 using Tidebreak.Screens;
+using Gum.DataTypes;
+using System.ComponentModel.Design.Serialization;
 
 namespace Tidebreak;
 
@@ -62,20 +60,27 @@ public class Game1 : Game
     private MouseState mouse;
     private MouseState prevMouse;
 
-    // Create viewport camera and store settings
-    Cam2D camera;
-    float cameraZoom = 0.5f;
-
     // Create variables to store the screen dimensions
     private int screenWidth;
     private int screenHeight;
 
+    // Store cursor textures
+    Texture2D cursorImg;
+    Texture2D cursorPressedImg;
+
     // Store all saved maps
-    internal static List<Map> maps = new List<Map>(); // REVIEW had to use internal cuz public "need to make used classes public"
+    internal static List<Map> maps = new List<Map>();
     internal static int currentMap = 0;
 
-    // Store player
+    // Store player and player's camera
     internal static Player player;
+    internal static Camera camera;
+
+    // Store all needed screens
+    internal static PlayScreen playScreen;
+
+    // Store if the game is paused
+    internal static bool paused;
 
     public Game1()
     {
@@ -104,10 +109,12 @@ public class Game1 : Game
         screenWidth = _graphics.GraphicsDevice.Viewport.Width;
         screenHeight = _graphics.GraphicsDevice.Viewport.Height;
 
-        // REVIEW using var and doing this (just following documentation, or should i reformat, or move to load content)
+        // Hide the cursor (using custom texture)
+        IsMouseVisible = false;
+
         // Initialize GUM (UI library)
         GumUI.Initialize(this, "Gum/TidebreakGum.gumx");
-        var startingScreen = new TitleScreen();
+        TitleScreen startingScreen = new TitleScreen();
         startingScreen.AddToRoot();
 
         base.Initialize();
@@ -116,6 +123,10 @@ public class Game1 : Game
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
+
+        // Load cursor textures
+        cursorImg = Content.Load<Texture2D>($"Images/Sprites/Icons/Cursor");
+        cursorPressedImg = Content.Load<Texture2D>($"Images/Sprites/Icons/CursorPressed");
 
         // Load all tile textures
         for (int i = 0; i < Tile.TYPE_AMOUNT; i++)
@@ -127,8 +138,7 @@ public class Game1 : Game
         player = new Player(Content);
 
         // Initialize the camera object
-        camera = new Cam2D(GraphicsDevice.Viewport); // REVIEW is there auto camera smoothing? or do i have to code that myself
-        camera.SetZoom(cameraZoom);
+        camera = new Camera(GraphicsDevice.Viewport);
 
         // Load in all maps
         LoadMaps();
@@ -164,8 +174,25 @@ public class Game1 : Game
                 break;
 
             case PLAY_MAP:
-                maps[currentMap].Update();
-                player.Update(gameTime, kb, prevKb, camera, maps[currentMap]);
+                if (!paused)
+                {
+                    // Update map and player
+                    maps[currentMap].Update(gameTime);
+                    player.Update(gameTime, kb, prevKb, camera, maps[currentMap]);
+
+                    // Update time passed UI (for safety make it optional)
+                    playScreen?.Update();
+
+                    // If the player died open game over screen
+                    if (player.isGameOver)
+                    {
+                        // TODO gotta make game over screen
+                        MapSelectScreen newScreen = new MapSelectScreen();
+                        GumService.Default.Root.Children.Clear();
+                        newScreen.AddToRoot();
+                        gameState = SELECT_MAP;
+                    }
+                }
                 break;
 
             case EDIT_MAP:
@@ -216,7 +243,14 @@ public class Game1 : Game
                 break;
         }
 
+        // Draw the UI made with the GUM library
         GumUI.Draw();
+
+        // Draw the cursor over everything
+        _spriteBatch.Begin();
+        _spriteBatch.Draw(mouse.LeftButton == ButtonState.Pressed ? cursorPressedImg : cursorImg, mouse.Position.ToVector2(), Color.White);
+        _spriteBatch.End();
+
         base.Draw(gameTime);
     }
 
@@ -244,5 +278,22 @@ public class Game1 : Game
         {
             // TODO load locked/default maps
         }
+    }
+
+    public static void ReturnToMenu()
+    {
+        // Remove all screens and go to menu (title screen)
+        TitleScreen newScreen = new TitleScreen();
+        GumService.Default.Root.Children.Clear();
+        newScreen.AddToRoot();
+
+        // Change gamestate
+        gameState = MENU;
+    }
+
+    public static string FormatTime(float seconds, bool includeMs = true)
+    {
+        if (includeMs) return TimeSpan.FromSeconds(seconds).ToString(@"mm\:ss\:fff");
+        return TimeSpan.FromSeconds(seconds).ToString(@"mm\:ss");
     }
 }

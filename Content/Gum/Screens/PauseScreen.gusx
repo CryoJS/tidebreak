@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScreenSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>PauseScreen</Name>
+  <State>
+    <Name>Default</Name>
+    <Variable Type="string" Name="ContinueBtn.Parent" SetsValue="true" />
+    <Variable Type="string" Name="ContinueBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">CONTINUE</Value>
+    </Variable>
+    <Variable Type="float" Name="ContinueBtn.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">400</Value>
+    </Variable>
+    <Variable Type="float" Name="ContinueBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="ContinueBtn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ContinueBtn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="ContinueBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">500</Value>
+    </Variable>
+    <Variable IsFont="true" Type="string" Name="H1.Font" SetsValue="true">
+      <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini.ttf</Value>
+    </Variable>
+    <Variable Type="int" Name="H1.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">100</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="H1.HorizontalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="bool" Name="H1.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="int" Name="H1.OutlineThickness" SetsValue="true">
+      <Value xsi:type="xsd:int">10</Value>
+    </Variable>
+    <Variable Type="string" Name="H1.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">&lt; GAME PAUSED &gt;</Value>
+    </Variable>
+    <Variable Type="bool" Name="H1.UseFontSmoothing" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="float" Name="H1.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="H1.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="H1.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="H1.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">260</Value>
+    </Variable>
+    <Variable IsFont="true" Type="string" Name="H2.Font" SetsValue="true">
+      <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini.ttf</Value>
+    </Variable>
+    <Variable Type="int" Name="H2.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">50</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="H2.HorizontalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="bool" Name="H2.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="bool" Name="H2.IsItalic" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="int" Name="H2.OutlineThickness" SetsValue="true">
+      <Value xsi:type="xsd:int">5</Value>
+    </Variable>
+    <Variable Type="string" Name="H2.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">\  Tidebreak  /</Value>
+    </Variable>
+    <Variable Type="bool" Name="H2.UseFontSmoothing" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="float" Name="H2.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="H2.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="H2.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="H2.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">370</Value>
+    </Variable>
+    <Variable Type="string" Name="MapsBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">MAP SELECT</Value>
+    </Variable>
+    <Variable Type="float" Name="MapsBtn.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">400</Value>
+    </Variable>
+    <Variable Type="float" Name="MapsBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="MapsBtn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="MapsBtn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="MapsBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">600</Value>
+    </Variable>
+    <Variable Type="string" Name="MenuBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">MENU</Value>
+    </Variable>
+    <Variable Type="float" Name="MenuBtn.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">400</Value>
+    </Variable>
+    <Variable Type="float" Name="MenuBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="MenuBtn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="MenuBtn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="MenuBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">700</Value>
+    </Variable>
+  </State>
+  <Instance Name="ContinueBtn" BaseType="Controls/ButtonStandard" />
+  <Instance Name="MapsBtn" BaseType="Controls/ButtonStandard" />
+  <Instance Name="MenuBtn" BaseType="Controls/ButtonStandard" />
+  <Instance Name="H1" BaseType="Text" />
+  <Instance Name="H2" BaseType="Text" />
+  <Behaviors />
+</ScreenSave>

@@ -7,9 +7,9 @@ using RenderingLibrary.Graphics;
 
 using System.Linq;
 
-namespace Tidebreak.Screens
+namespace Tidebreak.Components.Elements
 {
-    partial class DemoScreenGum
+    partial class IconSmall
     {
         partial void CustomInitialize()
         {

@@ -9,6 +9,7 @@ using MonoGameGum.GueDeriving;
 using RenderingLibrary.Graphics;
 using System.Linq;
 using Tidebreak.Components.Controls;
+using Tidebreak.Components.Elements;
 namespace Tidebreak.Components;
 partial class MapRow : global::Gum.Forms.Controls.FrameworkElement
 {
@@ -39,6 +40,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public TextRuntime TitleText { get; protected set; }
     public TextRuntime AuthorText { get; protected set; }
     public TextRuntime DifficultyText { get; protected set; }
+    public IconLarge IconLargeInstance { get; protected set; }
     public ContainerRuntime Options { get; protected set; }
     public NineSliceRuntime FocusedIndicator { get; protected set; }
 
@@ -60,6 +62,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         TitleText = this.Visual?.GetGraphicalUiElementByName("TitleText") as global::MonoGameGum.GueDeriving.TextRuntime;
         AuthorText = this.Visual?.GetGraphicalUiElementByName("AuthorText") as global::MonoGameGum.GueDeriving.TextRuntime;
         DifficultyText = this.Visual?.GetGraphicalUiElementByName("DifficultyText") as global::MonoGameGum.GueDeriving.TextRuntime;
+        IconLargeInstance = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<IconLarge>(this.Visual,"IconLargeInstance");
         Options = this.Visual?.GetGraphicalUiElementByName("Options") as global::MonoGameGum.GueDeriving.ContainerRuntime;
         FocusedIndicator = this.Visual?.GetGraphicalUiElementByName("FocusedIndicator") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
         CustomInitialize();

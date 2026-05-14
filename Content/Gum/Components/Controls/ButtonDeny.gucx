@@ -13,8 +13,30 @@
     <Variable Type="DimensionUnitType" Name="Background.HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
     </Variable>
+    <Variable Type="string" Name="Background.Parent" SetsValue="true" />
+    <Variable IsFile="true" Type="string" Name="Background.SourceFile" SetsValue="true">
+      <Value xsi:type="xsd:string">UI Assets\Btn.png</Value>
+    </Variable>
     <Variable Type="StyleCategory" Name="Background.StyleCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Bordered</Value>
+    </Variable>
+    <Variable Type="TextureAddress" Name="Background.TextureAddress" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="int" Name="Background.TextureHeight" SetsValue="true">
+      <Value xsi:type="xsd:int">15</Value>
+    </Variable>
+    <Variable Type="int" Name="Background.TextureLeft" SetsValue="true">
+      <Value xsi:type="xsd:int">64</Value>
+    </Variable>
+    <Variable Type="int" Name="Background.TextureTop" SetsValue="true">
+      <Value xsi:type="xsd:int">16</Value>
+    </Variable>
+    <Variable Type="int" Name="Background.TextureWidth" SetsValue="true">
+      <Value xsi:type="xsd:int">15</Value>
+    </Variable>
+    <Variable Type="bool" Name="Background.Visible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
     </Variable>
     <Variable Type="float" Name="Background.Width" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
@@ -117,86 +139,128 @@
     <Name>ButtonCategory</Name>
     <State>
       <Name>Enabled</Name>
-      <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
-        <Value xsi:type="xsd:string">Danger</Value>
-      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Red" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">212</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Green" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">18</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Blue" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">41</Value>
       </Variable>
     </State>
     <State>
       <Name>Disabled</Name>
-      <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
-        <Value xsi:type="xsd:string">DarkGray</Value>
-      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Gray</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Red" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Green" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Blue" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
       </Variable>
     </State>
     <State>
       <Name>Highlighted</Name>
-      <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
-        <Value xsi:type="xsd:string">PrimaryLight</Value>
-      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Red" SetsValue="true">
+        <Value xsi:type="xsd:int">249</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Green" SetsValue="true">
+        <Value xsi:type="xsd:int">49</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Blue" SetsValue="true">
+        <Value xsi:type="xsd:int">73</Value>
       </Variable>
     </State>
     <State>
       <Name>Pushed</Name>
-      <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
-        <Value xsi:type="xsd:string">PrimaryDark</Value>
-      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
       </Variable>
+      <Variable Type="int" Name="Background.Red" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">169</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Green" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">11</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Blue" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">30</Value>
+      </Variable>
     </State>
     <State>
       <Name>HighlightedFocused</Name>
-      <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
-        <Value xsi:type="xsd:string">PrimaryLight</Value>
-      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">true</Value>
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Red" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Green" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Blue" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
       </Variable>
     </State>
     <State>
       <Name>Focused</Name>
-      <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
-        <Value xsi:type="xsd:string">Danger</Value>
-      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">true</Value>
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
       </Variable>
+      <Variable Type="int" Name="Background.Red" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">249</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Green" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">49</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Blue" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">73</Value>
+      </Variable>
     </State>
     <State>
       <Name>DisabledFocused</Name>
-      <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
-        <Value xsi:type="xsd:string">DarkGray</Value>
-      </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">true</Value>
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Gray</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Red" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Green" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="int" Name="Background.Blue" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
       </Variable>
     </State>
   </Category>

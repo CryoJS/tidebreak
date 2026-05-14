@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Timers;
+using GameUtility;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Tidebreak;
@@ -12,16 +13,29 @@ class Map // TODO All documentation for methods
     public const int EMPTY = -1;
     public const string MISSING_BEST_TIME = "No Best Time";
 
+    // Create read only array for map difficulty colors
+    public static readonly Color[] diffColors = {
+        Color.White,        // 0 - Simple
+        Color.Green,        // 1 - Easy
+        Color.Yellow,       // 2 - Medium
+        Color.DarkRed,      // 3 - Hard
+        Color.Purple,       // 4 - Intense
+        Color.DarkOrange,   // 5 - Crazy
+        Color.OrangeRed,    // 6 - Merciless
+        Color.Blue,         // 7 - Extreme
+    };
+
     // Store core map information
     public string name { get; private set; }
     public string author { get; private set; }
+    public string description { get; private set; }
     public float difficulty { get; private set; }
-    private DateTime creationDate; // FIXME might not add these yet
-    private DateTime modifiedDate;
+    public DateTime creationDate { get; private set; } // FIXME might not add these yet
+    public DateTime modifiedDate { get; private set; }
     public bool locked {get; private set; }
 
     public float time { get; private set; } = 0; // seconds
-    public float bestTime { get; private set; } = EMPTY; // seconds
+    public float bestTime { get; set; } = EMPTY; // seconds
 
     // Store map behaviour information
     public int sizeX { get; private set; }
@@ -31,7 +45,7 @@ class Map // TODO All documentation for methods
 
     public float oxygenSpeed { get; private set; } = 10f; // Oxygen depletion amount when in water
     private float floodSpeed = 0.1f; // Water spread speed (tiles per second)
-    private Timer floodTimer; // Current timer for water spread
+    private GameUtility.Timer floodTimer; // Current timer for water spread // FIXME not sure if GameUtility.Timer or System.Timer(or something)
 
     // Store tiles in the map
     public Tile[,] tiles { get; private set; }
@@ -41,7 +55,11 @@ class Map // TODO All documentation for methods
     private int ziplineCnt = 0;
     public List<Zipline> ziplines { get; private set; }
 
-    public Map() { }
+    // Store buttons in the map
+    int buttonCnt;
+    public BSTree<Button> buttons { get; private set; } = new BSTree<Button>();
+
+    public Map() {}
 
     // TODO: use load map to update these parameters
     public Map(string name, string author, float difficulty, int sizeX, int sizeY, bool locked = false)
@@ -83,6 +101,22 @@ class Map // TODO All documentation for methods
 
         // Reset timer
         time = 0;
+
+        // Give player a copy of all the buttons (for the player to go through like a priority queue)
+        player.nextButton = buttons.GetLeftmost();
+        player.buttons = buttons.Copy();
+
+        // Reset all buttons to unpressed
+        for (int x = 0; x < sizeX; x++)
+        {
+            for (int y = 0; y < sizeY; y++)
+            {
+                if (tiles[x, y].type == Tile.PRESSED_BUTTON)
+                {
+                    tiles[x, y].type = Tile.BUTTON;
+                }
+            }
+        }
     }
 
     public void Update(GameTime gameTime)
@@ -122,6 +156,7 @@ class Map // TODO All documentation for methods
         // Load core map information
         name = inFile.ReadLine();
         author = inFile.ReadLine();
+        description = inFile.ReadLine();
         difficulty = Convert.ToSingle(inFile.ReadLine());
         creationDate = Convert.ToDateTime(inFile.ReadLine());
         modifiedDate = Convert.ToDateTime(inFile.ReadLine());
@@ -195,6 +230,24 @@ class Map // TODO All documentation for methods
         foreach (Zipline zipline in ziplines)
         {
             zipline.Load(gd);
+        }
+
+        // Load in the # of buttons
+        buttonCnt = Convert.ToInt32(inFile.ReadLine());
+
+        // Load in all buttons into BST
+        for (int i = 0; i < buttonCnt; i++)
+        {
+            // Store button line info
+            line = inFile.ReadLine().Split(' ');
+            int x = Convert.ToInt32(line[0]);
+            int y = Convert.ToInt32(line[1]);
+
+            // Add button into BST
+            buttons.Add(new Button(x, y, Convert.ToInt32(line[2])));
+
+            // As a safety, ensure buttons are drawn
+            tiles[x, y].type = Tile.BUTTON;
         }
     }
 }

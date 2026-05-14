@@ -4,7 +4,9 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using MonoGameGum;
 using Tidebreak;
+using Tidebreak.Screens;
 
 class Player
 {
@@ -15,7 +17,7 @@ class Player
     private const float SWIM_SPEED = WATER_RESISTANCE + RUN_SPEED;
     private const float ZIPLINE_SPEED = 1200f;
     private const float JUMP_SPEED = -2500f;
-    private const float DIVE_SPEED = 3000f;
+    private const float DIVE_SPEED = 2800f;
     private const float MAX_FALL_SPEED = 3000f;
     private const float AIR_RESISTANCE = 13000f;
     private const float WATER_RESISTANCE = 1000f;
@@ -67,9 +69,7 @@ class Player
     private int moveInput;
     private float coyoteTime = 0;
 
-    private bool isDead;
-    public bool isGameOver { get; private set; }
-    
+    private bool isDead;    
     private bool isGrounded;
     private bool isLatching;
     private bool onZipline;
@@ -82,6 +82,10 @@ class Player
 
     // Store player attribute data
     public float oxygen { get; private set; } = MAX_OXYGEN;
+
+    // Store the buttons the player needs to get
+    public Button nextButton { private get; set; }
+    public BSTree<Button> buttons { get; set; }
 
     // Store player collision rectangles
     private Rectangle top;
@@ -198,7 +202,6 @@ class Player
     {
         // Reset default states for safety
         isDead = false;
-        isGameOver = false;
         isGrounded = false;
         isLatching = false;
         onZipline = false;
@@ -210,6 +213,19 @@ class Player
 
         // Set oxygen back to max amount
         oxygen = MAX_OXYGEN;
+
+        // Reset death animation
+        deathAnim.Activate(false);
+    }
+
+    private void LoadWin()
+    {
+        // Pause the game
+        Game1.paused = true;
+
+        // Open win screen
+        WinScreen newScreen = new WinScreen();
+        newScreen.AddToRoot();
     }
 
     public void Update(GameTime gameTime, KeyboardState kb, KeyboardState prevKb, Camera camera, Map map)
@@ -459,7 +475,6 @@ class Player
                                 // Put player back in sliding, don't allow them to move until they press slide again
                                 OffsetPosInState(isSliding, isSliding = true, SLIDE_OFFSET);
                                 pos = prevPos;
-
                                 UpdateRec();
                                 LoadCollisionRecs();
                             }
@@ -527,10 +542,32 @@ class Player
             tileType = map.tiles[tileX, tileY].type;
 
             // Check each special tile
-            if (tileType == Tile.WATER)
+            if (tileType == Tile.END)
+            {
+                // If the player reaches the end, then win only if they got all the buttons
+                if (buttons.IsEmpty())
+                {
+                    LoadWin();
+                    return;
+                }
+            }
+            else if (tileType == Tile.WATER)
             {
                 // Player is in water
                 inWater = true;
+            }
+            else if (tileType == Tile.BUTTON)
+            {
+                // Check if button is found
+                if (tileX == nextButton.x && tileY == nextButton.y)
+                {
+                    // Remove button and store next one
+                    buttons.Delete(nextButton);
+                    nextButton = buttons.GetLeftmost();
+
+                    // Change tile to show a pressed button
+                    map.tiles[tileX, tileY].type = Tile.PRESSED_BUTTON;
+                }
             }
             else if (tileType >= Tile.ZIPLINE)
             {
@@ -587,10 +624,19 @@ class Player
 
     private void UpdateAnimsChecks()
     {
-        // Play death animation if dead, but if animation done end map
+        // Perform game over logic
         if (isDead)
         {
-            if (deathAnim.IsFinished()) isGameOver = true;
+            // Play death animation if dead, but if animation done go to game over screen
+            if (deathAnim.IsFinished())
+            {
+                // Pause the game
+                Game1.paused = true;
+
+                // Open gameover screen
+                DeathScreen newScreen = new DeathScreen();
+                newScreen.AddToRoot();
+            }
             else SetState(PlayerState.Dead);
             return;
         }

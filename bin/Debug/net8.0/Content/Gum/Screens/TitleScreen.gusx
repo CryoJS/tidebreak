@@ -153,7 +153,13 @@
     <Variable Type="PositionUnitType" Name="SettingsBtn.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
     </Variable>
+    <Variable Type="Blend" Name="tidebreakbg.Blend" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
     <Variable Type="string" Name="tidebreakbg.Parent" SetsValue="true" />
+    <Variable Type="int" Name="tidebreakbg.Red" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
+    </Variable>
     <Variable IsFile="true" Type="string" Name="tidebreakbg.SourceFile" SetsValue="true">
       <Value xsi:type="xsd:string">tidebreakbg.jpg</Value>
     </Variable>
@@ -190,6 +196,7 @@
     <Variable Type="int" Name="TitleText.OutlineThickness" SetsValue="true">
       <Value xsi:type="xsd:int">10</Value>
     </Variable>
+    <Variable Type="string" Name="TitleText.Parent" SetsValue="true" />
     <Variable Type="int" Name="TitleText.Red" SetsValue="true">
       <Value xsi:type="xsd:int">255</Value>
     </Variable>

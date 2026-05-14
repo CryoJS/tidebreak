@@ -46,6 +46,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public PercentBarIcon OxygenBar { get; protected set; }
     public TextRuntime BestTimeText { get; protected set; }
     public ContainerRuntime TopCenterContainer { get; protected set; }
+    public RoundedRectangleRuntime Vignette { get; protected set; }
 
     public PlayScreen(InteractiveGue visual) : base(visual)
     {
@@ -67,6 +68,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         OxygenBar = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<PercentBarIcon>(this.Visual,"OxygenBar");
         BestTimeText = this.Visual?.GetGraphicalUiElementByName("BestTimeText") as global::MonoGameGum.GueDeriving.TextRuntime;
         TopCenterContainer = this.Visual?.GetGraphicalUiElementByName("TopCenterContainer") as global::MonoGameGum.GueDeriving.ContainerRuntime;
+        Vignette = this.Visual?.GetGraphicalUiElementByName("Vignette") as global::MonoGameGum.GueDeriving.RoundedRectangleRuntime;
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code

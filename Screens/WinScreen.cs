@@ -1,0 +1,56 @@
+using MonoGameGum;
+
+namespace Tidebreak.Screens
+{
+    partial class WinScreen
+    {
+        private const string TIME_MESSAGE = "Time taken: ";
+        
+        partial void CustomInitialize()
+        {
+            // Store current map
+            Map map = Game1.currentMap;
+
+            // Update time taken text
+            H2.Text = TIME_MESSAGE + Game1.FormatTime(map.time);
+
+            // If new best time, show new best time UI and update best time, otherwise show normal win UI
+            if (map.bestTime == Map.EMPTY || map.time < map.bestTime)
+            {
+                NewBestEffect.Visible = true;
+                WinVignette.Visible = false;
+                map.bestTime = map.time;
+            }
+            else
+            {
+                NewBestEffect.Visible = false;
+                WinVignette.Visible = true;
+            }
+
+            // Click logic for restart button
+            RestartBtn.Click += (_, _) =>
+            {
+                // Play the current map again
+                Game1.PlayMap(Game1.currentMap);
+            };
+
+            // Click logic for return to map selection menu button
+            MapsBtn.Click += (_, _) =>
+            {
+                // Change gamestate
+                Game1.gameState = Game1.SELECT_MAP;
+                
+                // Change screen
+                MapSelectScreen newScreen = new MapSelectScreen();
+                GumService.Default.Root.Children.Clear();
+                newScreen.AddToRoot();
+            };
+
+            // Click logic for return to menu button
+            MenuBtn.Click += (_, _) =>
+            {
+                Game1.ReturnToMenu();
+            };
+        }
+    }
+}

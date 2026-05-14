@@ -11,8 +11,8 @@ using GameUtility;
 
 using MonoGameGum;
 using Tidebreak.Screens;
-using Gum.DataTypes;
-using System.ComponentModel.Design.Serialization;
+using MonoGameGum.GueDeriving;
+using MonoGameAndGum.Renderables;
 
 namespace Tidebreak;
 
@@ -70,7 +70,8 @@ public class Game1 : Game
 
     // Store all saved maps
     internal static List<Map> maps = new List<Map>();
-    internal static int currentMap = 0;
+    internal static Map currentMap;
+    internal static Map selectedMap;
 
     // Store player and player's camera
     internal static Player player;
@@ -78,6 +79,7 @@ public class Game1 : Game
 
     // Store all needed screens
     internal static PlayScreen playScreen;
+    internal static PauseScreen pauseScreen;
 
     // Store if the game is paused
     internal static bool paused;
@@ -95,8 +97,6 @@ public class Game1 : Game
         _graphics.PreferredBackBufferWidth = TILE_SPAN_X * TILE_SIZE * PIXEL_SCALE; // Assuming 1792
         _graphics.PreferredBackBufferHeight = TILE_SPAN_Y * TILE_SIZE * PIXEL_SCALE; // Assuming 1024
 
-        Console.WriteLine("Initializing game with resolution: " + _graphics.PreferredBackBufferWidth + "x" + _graphics.PreferredBackBufferHeight);
-
         // Set game FPS to target FPS, turn off VSync, and try to ensure equal frame time
         _graphics.SynchronizeWithVerticalRetrace = false;
         IsFixedTimeStep = true;
@@ -109,11 +109,18 @@ public class Game1 : Game
         screenWidth = _graphics.GraphicsDevice.Viewport.Width;
         screenHeight = _graphics.GraphicsDevice.Viewport.Height;
 
+        // Display goal resolution and current resolution
+        Console.WriteLine($"Initializing game with resolution: {_graphics.PreferredBackBufferWidth}x{_graphics.PreferredBackBufferHeight} | Current resolution: {screenWidth}x{screenHeight}");
+
         // Hide the cursor (using custom texture)
         IsMouseVisible = false;
 
         // Initialize GUM (UI library)
+        AposShapeRuntime.RegisterRuntimeTypes();
         GumUI.Initialize(this, "Gum/TidebreakGum.gumx");
+        ShapeRenderer.Self.Initialize();
+
+        // Initialize the starting screen
         TitleScreen startingScreen = new TitleScreen();
         startingScreen.AddToRoot();
 
@@ -144,10 +151,13 @@ public class Game1 : Game
         LoadMaps();
 
         // FIXME Add fake maps to test map select
-        for (int i = 0; i < 20; i++)
-        {
-            maps.Add(new Map($"Test {i+1}", "idek", 1.0f, 1, 1));
-        }
+        maps.Add(new Map($"easy map", "me", 1.2f, 1, 1));
+        maps.Add(new Map($"medium map", "me 2", 2.9f, 1, 1));
+        maps.Add(new Map($"hard map", "me again", 3.5f, 1, 1));
+        maps.Add(new Map($"insane map", "me", 4.7f, 1, 1));
+        maps.Add(new Map($"crazy map", "me", 5.1f, 1, 1));
+        maps.Add(new Map($"merciless map", "me 3", 6.3f, 1, 1));
+        maps.Add(new Map($"legendary map", "me ok", 7.5f, 1, 1));
     }
 
     protected override void Update(GameTime gameTime)
@@ -160,11 +170,10 @@ public class Game1 : Game
         prevMouse = mouse;
         mouse = Mouse.GetState();
 
-        // Perform update logic based on the current game state
+        // Perform update logic based on the current game state // FIXME (can prob remove if not using much?)
         switch (gameState)
         {
             case MENU:
-                // TODO
                 break;
 
             case SELECT_MAP:
@@ -177,21 +186,16 @@ public class Game1 : Game
                 if (!paused)
                 {
                     // Update map and player
-                    maps[currentMap].Update(gameTime);
-                    player.Update(gameTime, kb, prevKb, camera, maps[currentMap]);
+                    currentMap?.Update(gameTime);
+                    player.Update(gameTime, kb, prevKb, camera, currentMap);
 
-                    // Update time passed UI (for safety make it optional)
-                    playScreen?.Update();
-
-                    // If the player died open game over screen
-                    if (player.isGameOver)
-                    {
-                        // TODO gotta make game over screen
-                        MapSelectScreen newScreen = new MapSelectScreen();
-                        GumService.Default.Root.Children.Clear();
-                        newScreen.AddToRoot();
-                        gameState = SELECT_MAP;
-                    }
+                    // Update play screen dynamic UI
+                    playScreen?.Update(kb, prevKb);
+                }
+                else
+                {
+                    // Update pause screen UI (for inputs)
+                    pauseScreen?.Update(kb, prevKb);
                 }
                 break;
 
@@ -230,7 +234,7 @@ public class Game1 : Game
                 GraphicsDevice.Clear(Color.CornflowerBlue); // TODO let maps have bg color (+ documentation)
                 cameraSpriteBatchBegin();
 
-                maps[currentMap].Draw(_spriteBatch);
+                currentMap?.Draw(_spriteBatch);
                 player.Draw(_spriteBatch);
 
                 _spriteBatch.End();
@@ -277,6 +281,7 @@ public class Game1 : Game
         catch
         {
             // TODO load locked/default maps
+            Console.WriteLine("ERROR - Maps failed to load, loading defaults.");
         }
     }
 
@@ -289,6 +294,21 @@ public class Game1 : Game
 
         // Change gamestate
         gameState = MENU;
+    }
+
+    internal static void PlayMap(Map nextMap)
+    {
+        // Change gamestate (and map)
+        currentMap = nextMap;
+        gameState = PLAY_MAP;
+        
+        // Change screen
+        PlayScreen newScreen = new PlayScreen();
+        GumService.Default.Root.Children.Clear();
+        newScreen.AddToRoot();
+
+        // Load map
+        currentMap.Start(player, camera);
     }
 
     public static string FormatTime(float seconds, bool includeMs = true)

@@ -20,7 +20,10 @@
       <Value xsi:type="xsd:string">Danger</Value>
     </Variable>
     <Variable Type="float" Name="Bar.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">-21</Value>
+      <Value xsi:type="xsd:float">100</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="Bar.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
     </Variable>
     <Variable Type="string" Name="Bar.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">BarContainer</Value>
@@ -29,7 +32,7 @@
       <Value xsi:type="xsd:string">Solid</Value>
     </Variable>
     <Variable Type="float" Name="Bar.Width" ExposedAsName="BarPercent" SetsValue="true">
-      <Value xsi:type="xsd:float">25</Value>
+      <Value xsi:type="xsd:float">100</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="Bar.WidthUnits" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
@@ -50,7 +53,7 @@
       <Value xsi:type="xsd:string">Black</Value>
     </Variable>
     <Variable Type="float" Name="BarContainer.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">-4</Value>
+      <Value xsi:type="xsd:float">-25</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="BarContainer.HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
@@ -60,19 +63,19 @@
       <Value xsi:type="xsd:string">Solid</Value>
     </Variable>
     <Variable Type="float" Name="BarContainer.Width" SetsValue="true">
-      <Value xsi:type="xsd:float">-18</Value>
+      <Value xsi:type="xsd:float">-20</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="BarContainer.WidthUnits" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
     </Variable>
     <Variable Type="float" Name="BarContainer.X" SetsValue="true">
-      <Value xsi:type="xsd:float">-8</Value>
+      <Value xsi:type="xsd:float">10</Value>
     </Variable>
     <Variable Type="HorizontalAlignment" Name="BarContainer.XOrigin" SetsValue="true">
-      <Value xsi:type="xsd:int">2</Value>
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="PositionUnitType" Name="BarContainer.XUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">4</Value>
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="VerticalAlignment" Name="BarContainer.YOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>

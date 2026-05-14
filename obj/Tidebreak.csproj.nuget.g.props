@@ -15,6 +15,8 @@
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)monogame.content.builder.task\3.8.4.1\build\MonoGame.Content.Builder.Task.props" Condition="Exists('$(NuGetPackageRoot)monogame.content.builder.task\3.8.4.1\build\MonoGame.Content.Builder.Task.props')" />
     <Import Project="$(NuGetPackageRoot)microsoft.codeanalysis.analyzers\3.3.4\buildTransitive\Microsoft.CodeAnalysis.Analyzers.props" Condition="Exists('$(NuGetPackageRoot)microsoft.codeanalysis.analyzers\3.3.4\buildTransitive\Microsoft.CodeAnalysis.Analyzers.props')" />
+    <Import Project="$(NuGetPackageRoot)apos.shapes\0.6.8\buildTransitive\Apos.Shapes.props" Condition="Exists('$(NuGetPackageRoot)apos.shapes\0.6.8\buildTransitive\Apos.Shapes.props')" />
+    <Import Project="$(NuGetPackageRoot)gum.shapes.monogame\2026.5.8.1\buildTransitive\Gum.Shapes.MonoGame.props" Condition="Exists('$(NuGetPackageRoot)gum.shapes.monogame\2026.5.8.1\buildTransitive\Gum.Shapes.MonoGame.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgMicrosoft_CodeAnalysis_Analyzers Condition=" '$(PkgMicrosoft_CodeAnalysis_Analyzers)' == '' ">C:\Users\Vast\.nuget\packages\microsoft.codeanalysis.analyzers\3.3.4</PkgMicrosoft_CodeAnalysis_Analyzers>

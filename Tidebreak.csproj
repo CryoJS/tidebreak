@@ -1,5 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
+    <!-- Ignore AposShapesContent, we already have it -->
+    <SkipAposShapeContent>true</SkipAposShapeContent>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
     <RollForward>Major</RollForward>
@@ -25,6 +27,7 @@
   <ItemGroup>
     <PackageReference Include="Gum.Expressions" Version="2026.5.8.1" />
     <PackageReference Include="Gum.MonoGame" Version="2026.5.8.1" />
+    <PackageReference Include="Gum.Shapes.MonoGame" Version="2026.5.8.1" />
     <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.*" />
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.*" />
   </ItemGroup>
@@ -37,7 +40,7 @@
     <None Update="Content\Gum\**\*.*">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-</ItemGroup>
+  </ItemGroup>
   <Target Name="RestoreDotnetTools" BeforeTargets="CollectPackageReferences">
     <Message Text="Restoring dotnet tools (this might take a while depending on your internet speed and should only happen upon building your project for the first time, or after upgrading MonoGame, or clearing your nuget cache)" Importance="High" />
     <Exec Command="dotnet tool restore" />

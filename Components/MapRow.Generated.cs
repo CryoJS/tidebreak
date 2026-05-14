@@ -34,13 +34,22 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
             return gue;
         });
     }
+    public TextRuntime DifficultyText { get; protected set; }
+    public IconLarge IconLargeInstance2 { get; protected set; }
+    public IconLarge IconLargeInstance4 { get; protected set; }
+    public IconLarge IconLargeInstance3 { get; protected set; }
+    public IconLarge IconLargeInstance5 { get; protected set; }
+    public IconLarge IconLargeInstance1 { get; protected set; }
+    public IconLarge IconLargeInstance6 { get; protected set; }
     public ButtonConfirm PlayBtn { get; protected set; }
+    public ButtonStandard DetailsBtn { get; protected set; }
     public ButtonStandard EditBtn { get; protected set; }
+    public ButtonConfirm PlayBtn1 { get; protected set; }
+    public ButtonStandard DetailsBtn1 { get; protected set; }
     public NineSliceRuntime Background { get; protected set; }
     public TextRuntime TitleText { get; protected set; }
+    public NineSliceRuntime DifficultyBG { get; protected set; }
     public TextRuntime AuthorText { get; protected set; }
-    public TextRuntime DifficultyText { get; protected set; }
-    public IconLarge IconLargeInstance { get; protected set; }
     public ContainerRuntime Options { get; protected set; }
     public NineSliceRuntime FocusedIndicator { get; protected set; }
 
@@ -56,13 +65,22 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     protected override void ReactToVisualChanged()
     {
         base.ReactToVisualChanged();
+        DifficultyText = this.Visual?.GetGraphicalUiElementByName("DifficultyText") as global::MonoGameGum.GueDeriving.TextRuntime;
+        IconLargeInstance2 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<IconLarge>(this.Visual,"IconLargeInstance2");
+        IconLargeInstance4 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<IconLarge>(this.Visual,"IconLargeInstance4");
+        IconLargeInstance3 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<IconLarge>(this.Visual,"IconLargeInstance3");
+        IconLargeInstance5 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<IconLarge>(this.Visual,"IconLargeInstance5");
+        IconLargeInstance1 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<IconLarge>(this.Visual,"IconLargeInstance1");
+        IconLargeInstance6 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<IconLarge>(this.Visual,"IconLargeInstance6");
         PlayBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonConfirm>(this.Visual,"PlayBtn");
+        DetailsBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"DetailsBtn");
         EditBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"EditBtn");
+        PlayBtn1 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonConfirm>(this.Visual,"PlayBtn1");
+        DetailsBtn1 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"DetailsBtn1");
         Background = this.Visual?.GetGraphicalUiElementByName("Background") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
         TitleText = this.Visual?.GetGraphicalUiElementByName("TitleText") as global::MonoGameGum.GueDeriving.TextRuntime;
+        DifficultyBG = this.Visual?.GetGraphicalUiElementByName("DifficultyBG") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
         AuthorText = this.Visual?.GetGraphicalUiElementByName("AuthorText") as global::MonoGameGum.GueDeriving.TextRuntime;
-        DifficultyText = this.Visual?.GetGraphicalUiElementByName("DifficultyText") as global::MonoGameGum.GueDeriving.TextRuntime;
-        IconLargeInstance = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<IconLarge>(this.Visual,"IconLargeInstance");
         Options = this.Visual?.GetGraphicalUiElementByName("Options") as global::MonoGameGum.GueDeriving.ContainerRuntime;
         FocusedIndicator = this.Visual?.GetGraphicalUiElementByName("FocusedIndicator") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
         CustomInitialize();

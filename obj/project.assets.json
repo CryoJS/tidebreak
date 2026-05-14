@@ -2,6 +2,26 @@
   "version": 3,
   "targets": {
     "net8.0": {
+      "Apos.Shapes/0.6.8": {
+        "type": "package",
+        "dependencies": {
+          "FontStashSharp.MonoGame": "1.5.2",
+          "MonoGame.Extended": "5.3.1"
+        },
+        "compile": {
+          "lib/net8.0/Apos.Shapes.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Apos.Shapes.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/Apos.Shapes.props": {}
+        }
+      },
       "CsvHelper/33.1.0": {
         "type": "package",
         "compile": {
@@ -11,6 +31,19 @@
         },
         "runtime": {
           "lib/net8.0/CsvHelper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Cyotek.Drawing.BitmapFont/2.0.4": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Cyotek.Drawing.BitmapFont.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Cyotek.Drawing.BitmapFont.dll": {
             "related": ".xml"
           }
         }
@@ -57,6 +90,43 @@
           }
         }
       },
+      "FontStashSharp.Base/1.2.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/FontStashSharp.Base.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/FontStashSharp.Base.dll": {}
+        }
+      },
+      "FontStashSharp.MonoGame/1.5.2": {
+        "type": "package",
+        "dependencies": {
+          "Cyotek.Drawing.BitmapFont": "2.0.4",
+          "FontStashSharp.Base": "1.2.2",
+          "FontStashSharp.Rasterizers.StbTrueTypeSharp": "1.2.2",
+          "StbImageSharp": "2.30.15"
+        },
+        "compile": {
+          "lib/netstandard2.0/FontStashSharp.MonoGame.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/FontStashSharp.MonoGame.dll": {}
+        }
+      },
+      "FontStashSharp.Rasterizers.StbTrueTypeSharp/1.2.2": {
+        "type": "package",
+        "dependencies": {
+          "FontStashSharp.Base": "1.2.2",
+          "StbTrueTypeSharp": "1.26.12"
+        },
+        "compile": {
+          "lib/netstandard2.0/FontStashSharp.Rasterizers.StbTrueTypeSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/FontStashSharp.Rasterizers.StbTrueTypeSharp.dll": {}
+        }
+      },
       "Gum.Expressions/2026.5.8.1": {
         "type": "package",
         "dependencies": {
@@ -89,6 +159,26 @@
           "lib/net8.0/MonoGameGum.dll": {
             "related": ".xml"
           }
+        }
+      },
+      "Gum.Shapes.MonoGame/2026.5.8.1": {
+        "type": "package",
+        "dependencies": {
+          "Apos.Shapes": "0.6.8",
+          "Gum.MonoGame": "2026.5.8.1"
+        },
+        "compile": {
+          "lib/net8.0/MonoGameGumShapes.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/MonoGameGumShapes.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/Gum.Shapes.MonoGame.props": {}
         }
       },
       "Microsoft.CodeAnalysis.Analyzers/3.3.4": {
@@ -249,6 +339,19 @@
           "build/MonoGame.Content.Builder.Task.targets": {}
         }
       },
+      "MonoGame.Extended/5.3.1": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/MonoGame.Extended.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/MonoGame.Extended.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "MonoGame.Framework.DesktopGL/3.8.4.1": {
         "type": "package",
         "dependencies": {
@@ -353,6 +456,24 @@
           }
         }
       },
+      "StbImageSharp/2.30.15": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/StbImageSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/StbImageSharp.dll": {}
+        }
+      },
+      "StbTrueTypeSharp/1.26.12": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/StbTrueTypeSharp.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/StbTrueTypeSharp.dll": {}
+        }
+      },
       "System.Collections.Immutable/8.0.0": {
         "type": "package",
         "compile": {
@@ -443,6 +564,25 @@
     }
   },
   "libraries": {
+    "Apos.Shapes/0.6.8": {
+      "sha512": "g18JCosSDdCCxuG9u/o/QD0xb5F9PbQMgzuQ+01e7hSjuG5tbGa6Xk7bykDnl4roU/BjQzHcz0vc6gXYwBDJcg==",
+      "type": "package",
+      "path": "apos.shapes/0.6.8",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE",
+        "apos.shapes.0.6.8.nupkg.sha512",
+        "apos.shapes.nuspec",
+        "buildTransitive/Apos.Shapes.props",
+        "buildTransitive/Content/Content.mgcb",
+        "buildTransitive/Content/apos-shapes.fx",
+        "buildTransitive/Content/obj/DesktopGL/net8.0/Content/.mgstats",
+        "lib/net8.0/Apos.Shapes.dll",
+        "lib/net8.0/Apos.Shapes.xml"
+      ]
+    },
     "CsvHelper/33.1.0": {
       "sha512": "kqfTOZGrn7NarNeXgjh86JcpTHUoeQDMB8t9NVa/ZtlSYiV1rxfRnQ49WaJsob4AiGrbK0XDzpyKkBwai4F8eg==",
       "type": "package",
@@ -467,6 +607,44 @@
         "lib/netstandard2.0/CsvHelper.xml",
         "lib/netstandard2.1/CsvHelper.dll",
         "lib/netstandard2.1/CsvHelper.xml"
+      ]
+    },
+    "Cyotek.Drawing.BitmapFont/2.0.4": {
+      "sha512": "iA6WehGVdMUuNbfsQQDq/Bt+mMd/OqHjiMUtKFLIQd/0pyYh4ehT7FEjTxN9/4OXNKQZsp9bAJgltP2nnswUJg==",
+      "type": "package",
+      "path": "cyotek.drawing.bitmapfont/2.0.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "cyotek.drawing.bitmapfont.2.0.4.nupkg.sha512",
+        "cyotek.drawing.bitmapfont.nuspec",
+        "icon.png",
+        "lib/net35/Cyotek.Drawing.BitmapFont.dll",
+        "lib/net35/Cyotek.Drawing.BitmapFont.xml",
+        "lib/net40/Cyotek.Drawing.BitmapFont.dll",
+        "lib/net40/Cyotek.Drawing.BitmapFont.xml",
+        "lib/net452/Cyotek.Drawing.BitmapFont.dll",
+        "lib/net452/Cyotek.Drawing.BitmapFont.xml",
+        "lib/net462/Cyotek.Drawing.BitmapFont.dll",
+        "lib/net462/Cyotek.Drawing.BitmapFont.xml",
+        "lib/net472/Cyotek.Drawing.BitmapFont.dll",
+        "lib/net472/Cyotek.Drawing.BitmapFont.xml",
+        "lib/net48/Cyotek.Drawing.BitmapFont.dll",
+        "lib/net48/Cyotek.Drawing.BitmapFont.xml",
+        "lib/net5.0/Cyotek.Drawing.BitmapFont.dll",
+        "lib/net5.0/Cyotek.Drawing.BitmapFont.xml",
+        "lib/netcoreapp2.1/Cyotek.Drawing.BitmapFont.dll",
+        "lib/netcoreapp2.1/Cyotek.Drawing.BitmapFont.xml",
+        "lib/netcoreapp2.2/Cyotek.Drawing.BitmapFont.dll",
+        "lib/netcoreapp2.2/Cyotek.Drawing.BitmapFont.xml",
+        "lib/netcoreapp3.1/Cyotek.Drawing.BitmapFont.dll",
+        "lib/netcoreapp3.1/Cyotek.Drawing.BitmapFont.xml",
+        "lib/netstandard1.3/Cyotek.Drawing.BitmapFont.dll",
+        "lib/netstandard1.3/Cyotek.Drawing.BitmapFont.xml",
+        "lib/netstandard2.0/Cyotek.Drawing.BitmapFont.dll",
+        "lib/netstandard2.0/Cyotek.Drawing.BitmapFont.xml",
+        "lib/netstandard2.1/Cyotek.Drawing.BitmapFont.dll",
+        "lib/netstandard2.1/Cyotek.Drawing.BitmapFont.xml"
       ]
     },
     "FlatRedBall.GumCommon/2026.5.8.1": {
@@ -497,6 +675,44 @@
         "lib/netstandard2.0/FlatRedBall.InterpolationCore.xml"
       ]
     },
+    "FontStashSharp.Base/1.2.2": {
+      "sha512": "t2PT+/Sat9WPLm4AVYU1Aa/PrOgNQ4npSUGDHTYufXzLUHxrN3+BaRhAU0DZXkJNfuGCS5iKaQNopNXe9ES24g==",
+      "type": "package",
+      "path": "fontstashsharp.base/1.2.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fontstashsharp.base.1.2.2.nupkg.sha512",
+        "fontstashsharp.base.nuspec",
+        "lib/net471/FontStashSharp.Base.dll",
+        "lib/netstandard2.0/FontStashSharp.Base.dll"
+      ]
+    },
+    "FontStashSharp.MonoGame/1.5.2": {
+      "sha512": "+bhbAZ52L2fIWTRrHnSCNccB7ArKVH6Wa7c/kzO4YybrzXxgmDbLjuOwS49FgN9qsEp/7/Xqalc3YyquXs9uwA==",
+      "type": "package",
+      "path": "fontstashsharp.monogame/1.5.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fontstashsharp.monogame.1.5.2.nupkg.sha512",
+        "fontstashsharp.monogame.nuspec",
+        "lib/netstandard2.0/FontStashSharp.MonoGame.dll"
+      ]
+    },
+    "FontStashSharp.Rasterizers.StbTrueTypeSharp/1.2.2": {
+      "sha512": "OoXoGkxNMhyQeYR/wjeN6Bs8Guea7FisKXLcVJdeNtSYT+5iKxIh4ETi9x9OIk7GEQtNbE0yVhG3rb8RS04Kmg==",
+      "type": "package",
+      "path": "fontstashsharp.rasterizers.stbtruetypesharp/1.2.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fontstashsharp.rasterizers.stbtruetypesharp.1.2.2.nupkg.sha512",
+        "fontstashsharp.rasterizers.stbtruetypesharp.nuspec",
+        "lib/net471/FontStashSharp.Rasterizers.StbTrueTypeSharp.dll",
+        "lib/netstandard2.0/FontStashSharp.Rasterizers.StbTrueTypeSharp.dll"
+      ]
+    },
     "Gum.Expressions/2026.5.8.1": {
       "sha512": "5CZCnazeB2mncM8pu1kCFZqrDxc77qeSsqc+QR3u12+6n87Mv4gCRNc0m+vFOv+zYzDMNYlgNCtB+lbha4livQ==",
       "type": "package",
@@ -525,6 +741,22 @@
         "lib/net9.0-android35.0/MonoGameGum.xml",
         "lib/net9.0-ios18.0/MonoGameGum.dll",
         "lib/net9.0-ios18.0/MonoGameGum.xml"
+      ]
+    },
+    "Gum.Shapes.MonoGame/2026.5.8.1": {
+      "sha512": "JmwCNSxBFSZBISTitGzrMz7aCGPlcjiemt6kM9OoPrICP0+nQ53m2180iHF5wqtizYKI5yNRLryjfjTjWptgWw==",
+      "type": "package",
+      "path": "gum.shapes.monogame/2026.5.8.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "buildTransitive/Gum.Shapes.MonoGame.props",
+        "buildTransitive/MonoGame/Content/DesktopGL/apos-shapes.xnb",
+        "buildTransitive/MonoGame/Content/WindowsDX/apos-shapes.xnb",
+        "gum.shapes.monogame.2026.5.8.1.nupkg.sha512",
+        "gum.shapes.monogame.nuspec",
+        "lib/net8.0/MonoGameGumShapes.dll",
+        "lib/net8.0/MonoGameGumShapes.xml"
       ]
     },
     "Microsoft.CodeAnalysis.Analyzers/3.3.4": {
@@ -1362,6 +1594,21 @@
         "monogame.content.builder.task.nuspec"
       ]
     },
+    "MonoGame.Extended/5.3.1": {
+      "sha512": "/61Jvhpr9fogQEma3/DWrxMEt5SGsq5H48WrISi2e2lb9J4j+xF6DOl+MkMxZcDHiVVN/noOfyTTirdqCGbm3g==",
+      "type": "package",
+      "path": "monogame.extended/5.3.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "lib/net8.0/MonoGame.Extended.dll",
+        "lib/net8.0/MonoGame.Extended.xml",
+        "logo-nuget-128.png",
+        "monogame.extended.5.3.1.nupkg.sha512",
+        "monogame.extended.nuspec"
+      ]
+    },
     "MonoGame.Framework.DesktopGL/3.8.4.1": {
       "sha512": "YybxIIT5+Ky78E/XdkS0glyluMr2EeDZwx2LqXULAOCqiKt1+aDrjPZaqLL5qpNgBcMEHUeZJ4YjWe4TAZlWLw==",
       "type": "package",
@@ -1434,6 +1681,32 @@
         "lib/netstandard2.0/NVorbis.xml",
         "nvorbis.0.10.4.nupkg.sha512",
         "nvorbis.nuspec"
+      ]
+    },
+    "StbImageSharp/2.30.15": {
+      "sha512": "7QqbupVhz2kcFUPTgMw4iHR9rYDHGundzzee19Mwmd1typ2Lnv8EVJcLJxlkeBM2+4ex0NwsMtdbGSJctp1XCQ==",
+      "type": "package",
+      "path": "stbimagesharp/2.30.15",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net471/StbImageSharp.dll",
+        "lib/netstandard2.0/StbImageSharp.dll",
+        "stbimagesharp.2.30.15.nupkg.sha512",
+        "stbimagesharp.nuspec"
+      ]
+    },
+    "StbTrueTypeSharp/1.26.12": {
+      "sha512": "hCc6/OsfcPa5VsLECcEU2m78WOshBrKwK42nAodSm9Z5wH68f7n66SoiRLCdGCkDaqbWz2TlX4zYHIjogj1HJA==",
+      "type": "package",
+      "path": "stbtruetypesharp/1.26.12",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net471/StbTrueTypeSharp.dll",
+        "lib/netstandard2.0/StbTrueTypeSharp.dll",
+        "stbtruetypesharp.1.26.12.nupkg.sha512",
+        "stbtruetypesharp.nuspec"
       ]
     },
     "System.Collections.Immutable/8.0.0": {
@@ -1656,6 +1929,7 @@
     "net8.0": [
       "Gum.Expressions >= 2026.5.8.1",
       "Gum.MonoGame >= 2026.5.8.1",
+      "Gum.Shapes.MonoGame >= 2026.5.8.1",
       "MonoGame.Content.Builder.Task >= 3.8.*",
       "MonoGame.Framework.DesktopGL >= 3.8.*"
     ]
@@ -1666,11 +1940,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Vast\\Desktop\\Projects\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj",
+      "projectUniqueName": "c:\\Users\\Vast\\Desktop\\Projects\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj",
       "projectName": "Tidebreak",
-      "projectPath": "C:\\Users\\Vast\\Desktop\\Projects\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj",
+      "projectPath": "c:\\Users\\Vast\\Desktop\\Projects\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj",
       "packagesPath": "C:\\Users\\Vast\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Vast\\Desktop\\Projects\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\obj\\",
+      "outputPath": "c:\\Users\\Vast\\Desktop\\Projects\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Vast\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -1708,6 +1982,10 @@
             "version": "[2026.5.8.1, )"
           },
           "Gum.MonoGame": {
+            "target": "Package",
+            "version": "[2026.5.8.1, )"
+          },
+          "Gum.Shapes.MonoGame": {
             "target": "Package",
             "version": "[2026.5.8.1, )"
           },

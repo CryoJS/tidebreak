@@ -52,11 +52,16 @@
   <Guides />
   <ShowLocalizationInGum>true</ShowLocalizationInGum>
   <CurrentLanguageIndex>0</CurrentLanguageIndex>
+  <ScreenReference Name="DeathScreen" />
   <ScreenReference Name="EditScreen" />
+  <ScreenReference Name="MapDetailsScreen" />
   <ScreenReference Name="MapSelectScreen" />
+  <ScreenReference Name="MapSettingsScreen" />
+  <ScreenReference Name="NewMapScreen" />
   <ScreenReference Name="PauseScreen" />
   <ScreenReference Name="PlayScreen" />
   <ScreenReference Name="TitleScreen" />
+  <ScreenReference Name="WinScreen" />
   <ComponentReference Name="Controls/ButtonClose" />
   <ComponentReference Name="Controls/ButtonConfirm" />
   <ComponentReference Name="Controls/ButtonDeny" />
@@ -103,14 +108,21 @@
   <ComponentReference Name="Elements/VerticalLines" />
   <ComponentReference Name="MapRow" />
   <ComponentReference Name="Styles" />
+  <StandardElementReference Name="Arc" />
+  <StandardElementReference Name="Canvas" />
   <StandardElementReference Name="Circle" />
+  <StandardElementReference Name="ColoredCircle" />
   <StandardElementReference Name="ColoredRectangle" />
   <StandardElementReference Name="Component" />
   <StandardElementReference Name="Container" />
+  <StandardElementReference Name="Line" />
+  <StandardElementReference Name="LottieAnimation" />
   <StandardElementReference Name="NineSlice" />
   <StandardElementReference Name="Polygon" />
   <StandardElementReference Name="Rectangle" />
+  <StandardElementReference Name="RoundedRectangle" />
   <StandardElementReference Name="Sprite" />
+  <StandardElementReference Name="Svg" />
   <StandardElementReference Name="Text" />
   <BehaviorReference Name="ButtonBehavior" />
   <BehaviorReference Name="CheckBoxBehavior" />

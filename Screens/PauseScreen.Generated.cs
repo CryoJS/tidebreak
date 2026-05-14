@@ -38,6 +38,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         });
     }
     public ButtonStandard ContinueBtn { get; protected set; }
+    public ButtonStandard RestartBtn { get; protected set; }
     public ButtonStandard MapsBtn { get; protected set; }
     public ButtonStandard MenuBtn { get; protected set; }
     public TextRuntime H1 { get; protected set; }
@@ -56,6 +57,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     {
         base.ReactToVisualChanged();
         ContinueBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"ContinueBtn");
+        RestartBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"RestartBtn");
         MapsBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"MapsBtn");
         MenuBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"MenuBtn");
         H1 = this.Visual?.GetGraphicalUiElementByName("H1") as global::MonoGameGum.GueDeriving.TextRuntime;

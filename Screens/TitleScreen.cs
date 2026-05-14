@@ -10,13 +10,13 @@ namespace Tidebreak.Screens
             // Send player to level selection
             PlayBtn.Click += (_, _) =>
             {
+                // Change gamestate
+                Game1.gameState = Game1.SELECT_MAP;
+                
                 // Change screen
                 MapSelectScreen newScreen = new MapSelectScreen();
                 GumService.Default.Root.Children.Clear();
                 newScreen.AddToRoot();
-
-                // Change gamestate
-                Game1.gameState = Game1.SELECT_MAP;
             };
 
             // TODO settings + credits

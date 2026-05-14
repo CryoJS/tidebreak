@@ -8,10 +8,13 @@
       <Value xsi:type="xsd:float">24</Value>
     </Variable>
     <Variable Type="IconCategory" Name="DownButtonInstance.IconCategory" SetsValue="true">
-      <Value xsi:type="xsd:string">Arrow1</Value>
+      <Value xsi:type="xsd:string">None</Value>
     </Variable>
     <Variable Type="float" Name="DownButtonInstance.Rotation" SetsValue="true">
       <Value xsi:type="xsd:float">-90</Value>
+    </Variable>
+    <Variable Type="bool" Name="DownButtonInstance.Visible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
     </Variable>
     <Variable Type="float" Name="DownButtonInstance.Width" SetsValue="true">
       <Value xsi:type="xsd:float">24</Value>
@@ -59,7 +62,7 @@
       <Value xsi:type="xsd:int">7</Value>
     </Variable>
     <Variable Type="int" Name="TrackBackground.Alpha" SetsValue="true">
-      <Value xsi:type="xsd:int">118</Value>
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="ColorCategory" Name="TrackBackground.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Gray</Value>
@@ -134,10 +137,13 @@
       <Value xsi:type="xsd:float">24</Value>
     </Variable>
     <Variable Type="IconCategory" Name="UpButtonInstance.IconCategory" SetsValue="true">
-      <Value xsi:type="xsd:string">Arrow1</Value>
+      <Value xsi:type="xsd:string">None</Value>
     </Variable>
     <Variable Type="float" Name="UpButtonInstance.Rotation" SetsValue="true">
       <Value xsi:type="xsd:float">90</Value>
+    </Variable>
+    <Variable Type="bool" Name="UpButtonInstance.Visible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
     </Variable>
     <Variable Type="float" Name="UpButtonInstance.Width" SetsValue="true">
       <Value xsi:type="xsd:float">24</Value>

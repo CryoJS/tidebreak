@@ -28,15 +28,15 @@ class Player
     private const float COYOTE_MAX = 0.1f; // seconds
 
     // Store player animation constants
-    private const int FRAME_DURATION = 100; // Duration of each animation frame in milliseconds
-    private const int ANIM_SIZE = 128;      // Pixel size (player is in the center of a 128x128 frame)
-    private const int PLAYER_WIDTH = 10;    // Actual width of the player sprite (for collisions)
-    private const int PLAYER_HEIGHT = 30;   // Actual height of the player sprite (for collisions)
+    private const int FRAME_DURATION = 100;     // Duration of each animation frame in milliseconds
+    private const int ANIM_SIZE = 128;          // Pixel size (player is in the center of a 128x128 frame)
+    private const int PLAYER_WIDTH = 10;        // Actual width of the player sprite (for collisions)
+    private const int PLAYER_HEIGHT = 30;       // Actual height of the player sprite (for collisions)
+    private const int TILE_CHECK_SIZE = 2;      // Farthest # of tiles away from player to check for collisions
     private const int TRUE_HEIGHT = PLAYER_HEIGHT * Game1.PIXEL_SCALE;
     private const float HEIGHT_SHRINK_FACTOR = 0.3f;
     private const float SWIM_OFFSET = (1 - HEIGHT_SHRINK_FACTOR) * TRUE_HEIGHT / 2;
     private const float SLIDE_OFFSET = (1 - HEIGHT_SHRINK_FACTOR) * TRUE_HEIGHT;
-    private const int TILE_CHECK_SIZE = 2;  // Farthest # of tiles away from player to check for collisions
 
     // Store player attribute constants
     public const int MAX_OXYGEN = 100;
@@ -69,7 +69,7 @@ class Player
     private int moveInput;
     private float coyoteTime = 0;
 
-    private bool isDead;    
+    private bool isDead;
     private bool isGrounded;
     private bool isLatching;
     private bool onZipline;
@@ -84,8 +84,15 @@ class Player
     public float oxygen { get; private set; } = MAX_OXYGEN;
 
     // Store the buttons the player needs to get
-    public Button nextButton { private get; set; }
+    public Button nextButton { get; set; }
     public BSTree<Button> buttons { get; set; }
+
+    // Store button indicator constants
+    ButtonIndicator btnIndic = new ButtonIndicator();
+
+    // Store variables for screen glow when getting a button
+    private float btnGlow = 0; // Opacity in range [0, 1] 
+    private float btnGlowSpeed = 1;
 
     // Store player collision rectangles
     private Rectangle top;
@@ -238,6 +245,9 @@ class Player
         CheckCollisions(gameTime, map);
         UpdateRec();
         UpdateOxygen(gameTime, map);
+
+        // Update button indicator
+        btnIndic.Update(this);
 
         // Update animations and camera
         UpdateAnims(gameTime);
@@ -567,6 +577,9 @@ class Player
 
                     // Change tile to show a pressed button
                     map.tiles[tileX, tileY].type = Tile.PRESSED_BUTTON;
+
+                    // Give screen glow for player for getting the button
+                    btnGlow = 1;
                 }
             }
             else if (tileType >= Tile.ZIPLINE)
@@ -717,6 +730,10 @@ class Player
 
         // Update the position of the animation
         GetCurAnim().TranslateTo(pos.X - (ANIM_SIZE * Game1.PIXEL_SCALE - rec.Width) / 2, pos.Y - (ANIM_SIZE * Game1.PIXEL_SCALE - rec.Height) / 2);
+
+        // Update button screen glow amount and update button vignette
+        btnGlow = Math.Max(0, btnGlow - Game1.ExpSmoothing(gameTime, btnGlowSpeed));
+        Game1.playScreen.BtnVignette.Alpha2 = (int)(255 * btnGlow);
 
         // Update animation, unless the frame should be frozen
         if ((inWater && Math.Abs(vel.X) + Math.Abs(vel.Y) >= RUN_THRESHOLD) || (!inWater && (!isSliding || moveInput != 0)) || isDead)

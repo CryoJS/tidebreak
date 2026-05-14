@@ -61,8 +61,8 @@ public class Game1 : Game
     private MouseState prevMouse;
 
     // Create variables to store the screen dimensions
-    private int screenWidth;
-    private int screenHeight;
+    public static int screenWidth { get; private set; }
+    public static int screenHeight { get; private set; }
 
     // Store cursor textures
     Texture2D cursorImg;
@@ -315,5 +315,11 @@ public class Game1 : Game
     {
         if (includeMs) return TimeSpan.FromSeconds(seconds).ToString(@"mm\:ss\:fff");
         return TimeSpan.FromSeconds(seconds).ToString(@"mm\:ss");
+    }
+
+    public static float ExpSmoothing(GameTime gameTime, float speed)
+    {
+        // Calculate % value to get exponentially closer if farther with no affect from frame rate (source: https://www.rorydriscoll.com/2016/03/07/frame-rate-independent-damping-using-lerp/)
+        return 1 - MathF.Exp(-speed * (float)gameTime.ElapsedGameTime.TotalSeconds);
     }
 }

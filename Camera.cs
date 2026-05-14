@@ -2,6 +2,7 @@ using System;
 using GameUtility;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Tidebreak;
 
 class Camera
 {
@@ -30,8 +31,8 @@ class Camera
         // Only update camera if outside of dead zone
         if (dist.Length() > deadZone)
         {
-            // Move camera by a percentage of the distance needed, smoothly (source: https://www.rorydriscoll.com/2016/03/07/frame-rate-independent-damping-using-lerp/)
-            camera.LookAt(camera.GetPosition() + dist * (1 - MathF.Exp(-speed * (float)gameTime.ElapsedGameTime.TotalSeconds)));
+            // Move camera by a percentage of the distance needed, smoothly
+            camera.LookAt(camera.GetPosition() + dist * Game1.ExpSmoothing(gameTime, speed));
         }
     }
 

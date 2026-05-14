@@ -1171,3 +1171,4 @@ c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\b
 c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\FontCache\Font92Kenney_Mini_ttf_o3_noSmooth_Bold.bmfc
 c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\FontCache\Font92Kenney_Mini_ttf_o3_noSmooth_Bold.fnt
 c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\FontCache\Font92Kenney_Mini_ttf_o3_noSmooth_Bold_0.png
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\UI Assets\BtnIndicator.png

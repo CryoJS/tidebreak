@@ -244,7 +244,7 @@ class Map // TODO All documentation for methods
             int y = Convert.ToInt32(line[1]);
 
             // Add button into BST
-            buttons.Add(new Button(x, y, Convert.ToInt32(line[2])));
+            buttons.Add(new Button(x, y, Convert.ToInt32(line[2]), tiles[x, y].rec.Center.ToVector2()));
 
             // As a safety, ensure buttons are drawn
             tiles[x, y].type = Tile.BUTTON;

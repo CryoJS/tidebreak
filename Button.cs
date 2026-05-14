@@ -1,4 +1,5 @@
 using System;
+using Microsoft.Xna.Framework;
 
 class Button : IComparable<Button>
 {
@@ -7,11 +8,15 @@ class Button : IComparable<Button>
     public int y { get; private set; }
     public int priority { get; set; }
 
-    public Button(int x, int y, int priority)
+    // Store center of button
+    public Vector2 center { get; private set; }
+
+    public Button(int x, int y, int priority, Vector2 center)
     {
         this.x = x;
         this.y = y;
         this.priority = priority;
+        this.center = center;
     }
 
     public int CompareTo(Button other)

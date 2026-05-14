@@ -80,6 +80,114 @@
     <Variable Type="PositionUnitType" Name="BestTimeTextIcon.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
     </Variable>
+    <Variable Type="int" Name="BtnIndicator.Blue" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
+    </Variable>
+    <Variable Type="bool" Name="BtnIndicator.FlipVertical" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="int" Name="BtnIndicator.Green" SetsValue="true">
+      <Value xsi:type="xsd:int">206</Value>
+    </Variable>
+    <Variable Type="float" Name="BtnIndicator.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">80</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="BtnIndicator.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="int" Name="BtnIndicator.Red" SetsValue="true">
+      <Value xsi:type="xsd:int">167</Value>
+    </Variable>
+    <Variable Type="float" Name="BtnIndicator.Rotation" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable IsFile="true" Type="string" Name="BtnIndicator.SourceFile" SetsValue="true">
+      <Value xsi:type="xsd:string">ui assets\btnindicator.png</Value>
+    </Variable>
+    <Variable Type="float" Name="BtnIndicator.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">80</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="BtnIndicator.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="BtnIndicator.X" SetsValue="true">
+      <Value xsi:type="xsd:float">200</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="BtnIndicator.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="BtnIndicator.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="BtnIndicator.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">800</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="BtnIndicator.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="BtnIndicator.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="int" Name="BtnVignette.Alpha" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
+    </Variable>
+    <Variable Type="int" Name="BtnVignette.Alpha1" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="int" Name="BtnVignette.Alpha2" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="Blend" Name="BtnVignette.Blend" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="int" Name="BtnVignette.Blue1" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
+    </Variable>
+    <Variable Type="int" Name="BtnVignette.Blue2" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
+    </Variable>
+    <Variable Type="float" Name="BtnVignette.GradientInnerRadius" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="BtnVignette.GradientOuterRadius" SetsValue="true">
+      <Value xsi:type="xsd:float">1000</Value>
+    </Variable>
+    <Variable Type="GradientType" Name="BtnVignette.GradientType" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="BtnVignette.GradientX1Units" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="BtnVignette.GradientY1Units" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="int" Name="BtnVignette.Green1" SetsValue="true">
+      <Value xsi:type="xsd:int">134</Value>
+    </Variable>
+    <Variable Type="int" Name="BtnVignette.Green2" SetsValue="true">
+      <Value xsi:type="xsd:int">218</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="BtnVignette.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="int" Name="BtnVignette.Red1" SetsValue="true">
+      <Value xsi:type="xsd:int">49</Value>
+    </Variable>
+    <Variable Type="int" Name="BtnVignette.Red2" SetsValue="true">
+      <Value xsi:type="xsd:int">205</Value>
+    </Variable>
+    <Variable Type="bool" Name="BtnVignette.UseGradient" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="BtnVignette.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="BtnVignette.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="BtnVignette.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
     <Variable Type="float" Name="Height" SetsValue="true">
       <Value xsi:type="xsd:float">100</Value>
     </Variable>
@@ -305,7 +413,7 @@
       <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="int" Name="Vignette.Alpha2" SetsValue="true">
-      <Value xsi:type="xsd:int">255</Value>
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="Blend" Name="Vignette.Blend" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
@@ -372,5 +480,7 @@
   <Instance Name="BestTimeText" BaseType="Text" />
   <Instance Name="TopCenterContainer" BaseType="Container" />
   <Instance Name="Vignette" BaseType="RoundedRectangle" />
+  <Instance Name="BtnVignette" BaseType="RoundedRectangle" />
+  <Instance Name="BtnIndicator" BaseType="Sprite" />
   <Behaviors />
 </ScreenSave>

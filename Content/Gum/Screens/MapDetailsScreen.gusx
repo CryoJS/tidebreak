@@ -3,11 +3,17 @@
   <Name>MapDetailsScreen</Name>
   <State>
     <Name>Default</Name>
+    <Variable Type="int" Name="Author.Blue" SetsValue="true">
+      <Value xsi:type="xsd:int">89</Value>
+    </Variable>
     <Variable IsFont="true" Type="string" Name="Author.Font" SetsValue="true">
       <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini.ttf</Value>
     </Variable>
     <Variable Type="int" Name="Author.FontSize" SetsValue="true">
       <Value xsi:type="xsd:int">40</Value>
+    </Variable>
+    <Variable Type="int" Name="Author.Green" SetsValue="true">
+      <Value xsi:type="xsd:int">45</Value>
     </Variable>
     <Variable Type="HorizontalAlignment" Name="Author.HorizontalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
@@ -15,11 +21,17 @@
     <Variable Type="bool" Name="Author.IsBold" SetsValue="true">
       <Value xsi:type="xsd:boolean">false</Value>
     </Variable>
+    <Variable Type="bool" Name="Author.IsItalic" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
     <Variable Type="int" Name="Author.OutlineThickness" SetsValue="true">
-      <Value xsi:type="xsd:int">3</Value>
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="string" Name="Author.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">PreAuthor</Value>
+    </Variable>
+    <Variable Type="int" Name="Author.Red" SetsValue="true">
+      <Value xsi:type="xsd:int">39</Value>
     </Variable>
     <Variable Type="string" Name="Author.Text" SetsValue="true">
       <Value xsi:type="xsd:string">Author Name</Value>
@@ -48,23 +60,32 @@
     <Variable Type="PositionUnitType" Name="Author.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
     </Variable>
+    <Variable Type="int" Name="BestTime.Blue" SetsValue="true">
+      <Value xsi:type="xsd:int">89</Value>
+    </Variable>
     <Variable IsFont="true" Type="string" Name="BestTime.Font" SetsValue="true">
       <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini.ttf</Value>
     </Variable>
     <Variable Type="int" Name="BestTime.FontSize" SetsValue="true">
-      <Value xsi:type="xsd:int">55</Value>
+      <Value xsi:type="xsd:int">60</Value>
+    </Variable>
+    <Variable Type="int" Name="BestTime.Green" SetsValue="true">
+      <Value xsi:type="xsd:int">45</Value>
     </Variable>
     <Variable Type="HorizontalAlignment" Name="BestTime.HorizontalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="bool" Name="BestTime.IsBold" SetsValue="true">
-      <Value xsi:type="xsd:boolean">true</Value>
+      <Value xsi:type="xsd:boolean">false</Value>
     </Variable>
     <Variable Type="int" Name="BestTime.OutlineThickness" SetsValue="true">
-      <Value xsi:type="xsd:int">3</Value>
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="string" Name="BestTime.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">BestTimeHeader</Value>
+    </Variable>
+    <Variable Type="int" Name="BestTime.Red" SetsValue="true">
+      <Value xsi:type="xsd:int">39</Value>
     </Variable>
     <Variable Type="string" Name="BestTime.Text" SetsValue="true">
       <Value xsi:type="xsd:string">00:00:000</Value>
@@ -232,11 +253,17 @@
     <Variable Type="float" Name="ContainerInstance.Y" SetsValue="true">
       <Value xsi:type="xsd:float">167.66667</Value>
     </Variable>
+    <Variable Type="int" Name="CreationDate.Blue" SetsValue="true">
+      <Value xsi:type="xsd:int">89</Value>
+    </Variable>
     <Variable IsFont="true" Type="string" Name="CreationDate.Font" SetsValue="true">
       <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini.ttf</Value>
     </Variable>
     <Variable Type="int" Name="CreationDate.FontSize" SetsValue="true">
       <Value xsi:type="xsd:int">40</Value>
+    </Variable>
+    <Variable Type="int" Name="CreationDate.Green" SetsValue="true">
+      <Value xsi:type="xsd:int">45</Value>
     </Variable>
     <Variable Type="HorizontalAlignment" Name="CreationDate.HorizontalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
@@ -245,10 +272,13 @@
       <Value xsi:type="xsd:boolean">false</Value>
     </Variable>
     <Variable Type="int" Name="CreationDate.OutlineThickness" SetsValue="true">
-      <Value xsi:type="xsd:int">3</Value>
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="string" Name="CreationDate.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">PreCreationDate</Value>
+    </Variable>
+    <Variable Type="int" Name="CreationDate.Red" SetsValue="true">
+      <Value xsi:type="xsd:int">39</Value>
     </Variable>
     <Variable Type="string" Name="CreationDate.Text" SetsValue="true">
       <Value xsi:type="xsd:string">None</Value>
@@ -308,11 +338,17 @@
     <Variable Type="float" Name="DatesHeader.Y" SetsValue="true">
       <Value xsi:type="xsd:float">200</Value>
     </Variable>
+    <Variable Type="int" Name="Description.Blue" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
+    </Variable>
     <Variable IsFont="true" Type="string" Name="Description.Font" SetsValue="true">
       <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini.ttf</Value>
     </Variable>
     <Variable Type="int" Name="Description.FontSize" SetsValue="true">
       <Value xsi:type="xsd:int">30</Value>
+    </Variable>
+    <Variable Type="int" Name="Description.Green" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
     </Variable>
     <Variable Type="float" Name="Description.Height" SetsValue="true">
       <Value xsi:type="xsd:float">84.333336</Value>
@@ -324,10 +360,13 @@
       <Value xsi:type="xsd:boolean">false</Value>
     </Variable>
     <Variable Type="int" Name="Description.OutlineThickness" SetsValue="true">
-      <Value xsi:type="xsd:int">3</Value>
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="string" Name="Description.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">DescriptionBg</Value>
+    </Variable>
+    <Variable Type="int" Name="Description.Red" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
     </Variable>
     <Variable Type="string" Name="Description.Text" SetsValue="true">
       <Value xsi:type="xsd:string">Loren ipsum description placeholder text, uh I ran out of things to say, but this might be a cool map who knows.</Value>
@@ -345,7 +384,7 @@
       <Value xsi:type="xsd:int">2</Value>
     </Variable>
     <Variable Type="float" Name="Description.X" SetsValue="true">
-      <Value xsi:type="xsd:float">20</Value>
+      <Value xsi:type="xsd:float">24</Value>
     </Variable>
     <Variable Type="HorizontalAlignment" Name="Description.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
@@ -455,11 +494,17 @@
     <Variable Type="float" Name="DetailsHeader.Y" SetsValue="true">
       <Value xsi:type="xsd:float">-16</Value>
     </Variable>
+    <Variable Type="int" Name="Difficulty.Blue" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
+    </Variable>
     <Variable IsFont="true" Type="string" Name="Difficulty.Font" SetsValue="true">
       <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini.ttf</Value>
     </Variable>
     <Variable Type="int" Name="Difficulty.FontSize" SetsValue="true">
       <Value xsi:type="xsd:int">40</Value>
+    </Variable>
+    <Variable Type="int" Name="Difficulty.Green" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
     </Variable>
     <Variable Type="HorizontalAlignment" Name="Difficulty.HorizontalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
@@ -472,6 +517,9 @@
     </Variable>
     <Variable Type="string" Name="Difficulty.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">PreDifficulty</Value>
+    </Variable>
+    <Variable Type="int" Name="Difficulty.Red" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
     </Variable>
     <Variable Type="string" Name="Difficulty.Text" SetsValue="true">
       <Value xsi:type="xsd:string">0.0</Value>
@@ -649,11 +697,17 @@
     <Variable Type="float" Name="IconInstance2.Y" SetsValue="true">
       <Value xsi:type="xsd:float">-2</Value>
     </Variable>
+    <Variable Type="int" Name="Locked.Blue" SetsValue="true">
+      <Value xsi:type="xsd:int">89</Value>
+    </Variable>
     <Variable IsFont="true" Type="string" Name="Locked.Font" SetsValue="true">
       <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini.ttf</Value>
     </Variable>
     <Variable Type="int" Name="Locked.FontSize" SetsValue="true">
       <Value xsi:type="xsd:int">40</Value>
+    </Variable>
+    <Variable Type="int" Name="Locked.Green" SetsValue="true">
+      <Value xsi:type="xsd:int">45</Value>
     </Variable>
     <Variable Type="HorizontalAlignment" Name="Locked.HorizontalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
@@ -662,10 +716,13 @@
       <Value xsi:type="xsd:boolean">false</Value>
     </Variable>
     <Variable Type="int" Name="Locked.OutlineThickness" SetsValue="true">
-      <Value xsi:type="xsd:int">3</Value>
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="string" Name="Locked.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">PreLocked</Value>
+    </Variable>
+    <Variable Type="int" Name="Locked.Red" SetsValue="true">
+      <Value xsi:type="xsd:int">39</Value>
     </Variable>
     <Variable Type="string" Name="Locked.Text" SetsValue="true">
       <Value xsi:type="xsd:string">Yes</Value>
@@ -751,11 +808,17 @@
     <Variable Type="PositionUnitType" Name="MapName.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
+    <Variable Type="int" Name="ModifiedDate.Blue" SetsValue="true">
+      <Value xsi:type="xsd:int">89</Value>
+    </Variable>
     <Variable IsFont="true" Type="string" Name="ModifiedDate.Font" SetsValue="true">
       <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini.ttf</Value>
     </Variable>
     <Variable Type="int" Name="ModifiedDate.FontSize" SetsValue="true">
       <Value xsi:type="xsd:int">40</Value>
+    </Variable>
+    <Variable Type="int" Name="ModifiedDate.Green" SetsValue="true">
+      <Value xsi:type="xsd:int">45</Value>
     </Variable>
     <Variable Type="HorizontalAlignment" Name="ModifiedDate.HorizontalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
@@ -764,10 +827,13 @@
       <Value xsi:type="xsd:boolean">false</Value>
     </Variable>
     <Variable Type="int" Name="ModifiedDate.OutlineThickness" SetsValue="true">
-      <Value xsi:type="xsd:int">3</Value>
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="string" Name="ModifiedDate.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">PreModifiedDate</Value>
+    </Variable>
+    <Variable Type="int" Name="ModifiedDate.Red" SetsValue="true">
+      <Value xsi:type="xsd:int">39</Value>
     </Variable>
     <Variable Type="string" Name="ModifiedDate.Text" SetsValue="true">
       <Value xsi:type="xsd:string">None</Value>
@@ -796,11 +862,17 @@
     <Variable Type="PositionUnitType" Name="ModifiedDate.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">7</Value>
     </Variable>
+    <Variable Type="int" Name="PreAuthor.Blue" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
     <Variable IsFont="true" Type="string" Name="PreAuthor.Font" SetsValue="true">
       <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini.ttf</Value>
     </Variable>
     <Variable Type="int" Name="PreAuthor.FontSize" SetsValue="true">
       <Value xsi:type="xsd:int">40</Value>
+    </Variable>
+    <Variable Type="int" Name="PreAuthor.Green" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="HorizontalAlignment" Name="PreAuthor.HorizontalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
@@ -808,11 +880,17 @@
     <Variable Type="bool" Name="PreAuthor.IsBold" SetsValue="true">
       <Value xsi:type="xsd:boolean">true</Value>
     </Variable>
+    <Variable Type="bool" Name="PreAuthor.IsItalic" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
     <Variable Type="int" Name="PreAuthor.OutlineThickness" SetsValue="true">
-      <Value xsi:type="xsd:int">3</Value>
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="string" Name="PreAuthor.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ContainerInstance</Value>
+    </Variable>
+    <Variable Type="int" Name="PreAuthor.Red" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="string" Name="PreAuthor.Text" SetsValue="true">
       <Value xsi:type="xsd:string">Author: </Value>
@@ -841,11 +919,17 @@
     <Variable Type="PositionUnitType" Name="PreAuthor.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
+    <Variable Type="int" Name="PreCreationDate.Blue" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
     <Variable IsFont="true" Type="string" Name="PreCreationDate.Font" SetsValue="true">
       <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini.ttf</Value>
     </Variable>
     <Variable Type="int" Name="PreCreationDate.FontSize" SetsValue="true">
       <Value xsi:type="xsd:int">40</Value>
+    </Variable>
+    <Variable Type="int" Name="PreCreationDate.Green" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="HorizontalAlignment" Name="PreCreationDate.HorizontalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
@@ -854,10 +938,13 @@
       <Value xsi:type="xsd:boolean">true</Value>
     </Variable>
     <Variable Type="int" Name="PreCreationDate.OutlineThickness" SetsValue="true">
-      <Value xsi:type="xsd:int">3</Value>
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="string" Name="PreCreationDate.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ContainerInstance</Value>
+    </Variable>
+    <Variable Type="int" Name="PreCreationDate.Red" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="string" Name="PreCreationDate.Text" SetsValue="true">
       <Value xsi:type="xsd:string">Creation: </Value>
@@ -886,11 +973,17 @@
     <Variable Type="PositionUnitType" Name="PreCreationDate.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
+    <Variable Type="int" Name="PreDifficulty.Blue" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
     <Variable IsFont="true" Type="string" Name="PreDifficulty.Font" SetsValue="true">
       <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini.ttf</Value>
     </Variable>
     <Variable Type="int" Name="PreDifficulty.FontSize" SetsValue="true">
       <Value xsi:type="xsd:int">40</Value>
+    </Variable>
+    <Variable Type="int" Name="PreDifficulty.Green" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="HorizontalAlignment" Name="PreDifficulty.HorizontalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
@@ -899,10 +992,13 @@
       <Value xsi:type="xsd:boolean">true</Value>
     </Variable>
     <Variable Type="int" Name="PreDifficulty.OutlineThickness" SetsValue="true">
-      <Value xsi:type="xsd:int">3</Value>
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="string" Name="PreDifficulty.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ContainerInstance</Value>
+    </Variable>
+    <Variable Type="int" Name="PreDifficulty.Red" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="string" Name="PreDifficulty.Text" SetsValue="true">
       <Value xsi:type="xsd:string">Difficulty: </Value>
@@ -931,11 +1027,17 @@
     <Variable Type="PositionUnitType" Name="PreDifficulty.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
+    <Variable Type="int" Name="PreLocked.Blue" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
     <Variable IsFont="true" Type="string" Name="PreLocked.Font" SetsValue="true">
       <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini.ttf</Value>
     </Variable>
     <Variable Type="int" Name="PreLocked.FontSize" SetsValue="true">
       <Value xsi:type="xsd:int">40</Value>
+    </Variable>
+    <Variable Type="int" Name="PreLocked.Green" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="HorizontalAlignment" Name="PreLocked.HorizontalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
@@ -944,10 +1046,13 @@
       <Value xsi:type="xsd:boolean">true</Value>
     </Variable>
     <Variable Type="int" Name="PreLocked.OutlineThickness" SetsValue="true">
-      <Value xsi:type="xsd:int">3</Value>
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="string" Name="PreLocked.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ContainerInstance</Value>
+    </Variable>
+    <Variable Type="int" Name="PreLocked.Red" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="string" Name="PreLocked.Text" SetsValue="true">
       <Value xsi:type="xsd:string">Locked: </Value>
@@ -976,11 +1081,17 @@
     <Variable Type="PositionUnitType" Name="PreLocked.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
+    <Variable Type="int" Name="PreModifiedDate.Blue" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
     <Variable IsFont="true" Type="string" Name="PreModifiedDate.Font" SetsValue="true">
       <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini.ttf</Value>
     </Variable>
     <Variable Type="int" Name="PreModifiedDate.FontSize" SetsValue="true">
       <Value xsi:type="xsd:int">40</Value>
+    </Variable>
+    <Variable Type="int" Name="PreModifiedDate.Green" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="HorizontalAlignment" Name="PreModifiedDate.HorizontalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
@@ -989,10 +1100,13 @@
       <Value xsi:type="xsd:boolean">true</Value>
     </Variable>
     <Variable Type="int" Name="PreModifiedDate.OutlineThickness" SetsValue="true">
-      <Value xsi:type="xsd:int">3</Value>
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="string" Name="PreModifiedDate.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ContainerInstance</Value>
+    </Variable>
+    <Variable Type="int" Name="PreModifiedDate.Red" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="string" Name="PreModifiedDate.Text" SetsValue="true">
       <Value xsi:type="xsd:string">Modified: </Value>

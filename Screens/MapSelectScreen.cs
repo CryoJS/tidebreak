@@ -1,6 +1,3 @@
-using System;
-using Gum.Forms.Controls;
-using Microsoft.Xna.Framework;
 using MonoGameGum;
 using Tidebreak.Components;
 
@@ -37,7 +34,7 @@ namespace Tidebreak.Screens
                 // Add button click behaviour: look at map details, select it and open popup
                 row.DetailsBtn.Click += (_, _) =>
                 {
-                    Game1.selectedMap = map;
+                    Game1.currentMap = map;
 
                     MapDetailsScreen newScreen = new MapDetailsScreen();
                     newScreen.AddToRoot();
@@ -51,11 +48,9 @@ namespace Tidebreak.Screens
                     {
                         // Change gamestate (and map)
                         Game1.currentMap = map;
-                        Game1.gameState = Game1.EDIT_MAP;
                         
-                        // Change screen
-                        EditScreen newScreen = new EditScreen();
-                        GumService.Default.Root.Children.Clear();
+                        // Add map settings popup
+                        MapSettingsScreen newScreen = new MapSettingsScreen();
                         newScreen.AddToRoot();
                     };
                 }
@@ -67,6 +62,14 @@ namespace Tidebreak.Screens
                 // Add finalized map row into list of maps
                 MapList.InnerPanelInstance.Children.Add(row.Visual);
             }
+
+            // Create new map
+            NewMapBtn.Click += (_, _) =>
+            {
+                // Change popup screen
+                NewMapScreen newScreen = new NewMapScreen();
+                newScreen.AddToRoot();
+            };
 
             // Send player back to menu
             ReturnBtn.Click += (_, _) =>

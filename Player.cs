@@ -247,7 +247,7 @@ class Player
         UpdateOxygen(gameTime, map);
 
         // Update button indicator
-        btnIndic.Update(this);
+        btnIndic.Update(this, camera);
 
         // Update animations and camera
         UpdateAnims(gameTime);
@@ -621,7 +621,7 @@ class Player
         // If in water, lose oxygen, otherwise gain oxygen
         if (inWater)
         {
-            oxygen -= map.oxygenSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            oxygen -= map.drownSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
         else
         {

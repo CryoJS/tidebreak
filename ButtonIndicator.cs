@@ -4,19 +4,22 @@ using Tidebreak;
 
 class ButtonIndicator
 {
-    private const float RADIUS = 350;
-    private const float INNER_DIST = RADIUS + 300;
-    private const float OUTER_DIST = RADIUS + 800;
+    private const float RADIUS = 200;
+    private const float INNER_DIST = 500;
+    private const float OUTER_DIST = 1000;
 
     public ButtonIndicator() {}
 
-    public void Update(Player player)
+    public void Update(Player player, Camera camera)
     {
         // Only show indicator if there is a next button
         if (player.nextButton != null)
         {
+            // Store player center
+            Vector2 center = player.rec.Center.ToVector2();
+
             // Find the direction and distance to the next button
-            Vector2 direction = player.nextButton.center - player.rec.Center.ToVector2();
+            Vector2 direction = player.nextButton.center - center;
             float dist = direction.Length();
 
             // If the distance is far enough, draw indicator
@@ -27,8 +30,8 @@ class ButtonIndicator
                 direction *= RADIUS;
 
                 // Update indicator position
-                Game1.playScreen.BtnIndicator.X = Game1.screenWidth / 2 + direction.X;
-                Game1.playScreen.BtnIndicator.Y = Game1.screenHeight / 2 + direction.Y;
+                Game1.playScreen.BtnIndicator.X = camera.WorldToScreen(center).X + direction.X;
+                Game1.playScreen.BtnIndicator.Y = camera.WorldToScreen(center).Y + direction.Y;
 
                 // Update indicator rotation
                 float angle = MathHelper.ToDegrees((float)Math.Atan2(-direction.Y, direction.X));

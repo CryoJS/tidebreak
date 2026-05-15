@@ -87,7 +87,7 @@
       <Value xsi:type="xsd:boolean">false</Value>
     </Variable>
     <Variable Type="int" Name="BtnIndicator.Green" SetsValue="true">
-      <Value xsi:type="xsd:int">206</Value>
+      <Value xsi:type="xsd:int">255</Value>
     </Variable>
     <Variable Type="float" Name="BtnIndicator.Height" SetsValue="true">
       <Value xsi:type="xsd:float">80</Value>
@@ -96,7 +96,7 @@
       <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="int" Name="BtnIndicator.Red" SetsValue="true">
-      <Value xsi:type="xsd:int">167</Value>
+      <Value xsi:type="xsd:int">255</Value>
     </Variable>
     <Variable Type="float" Name="BtnIndicator.Rotation" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>

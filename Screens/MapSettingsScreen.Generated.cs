@@ -8,6 +8,8 @@ using MonoGameGum;
 using MonoGameGum.GueDeriving;
 using RenderingLibrary.Graphics;
 using System.Linq;
+using Tidebreak.Components.Controls;
+using Tidebreak.Components.Elements;
 namespace Tidebreak.Screens;
 partial class MapSettingsScreen : global::Gum.Forms.Controls.FrameworkElement
 {
@@ -36,6 +38,25 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
             return gue;
         });
     }
+    public TextRuntime SettingsHeader { get; protected set; }
+    public TextBox InputName { get; protected set; }
+    public TextBox InputAuthor { get; protected set; }
+    public TextBox InputDifficulty { get; protected set; }
+    public TextBox InputSizeX { get; protected set; }
+    public TextBox InputSizeY { get; protected set; }
+    public TextBox InputDrownSpeed { get; protected set; }
+    public TextBox InputFloodSpeed { get; protected set; }
+    public NineSliceRuntime DescriptionBg { get; protected set; }
+    public ButtonConfirm SaveBtn { get; protected set; }
+    public ButtonStandard EditBtn { get; protected set; }
+    public NineSliceRuntime FrameBG1 { get; protected set; }
+    public TextRuntime MapName { get; protected set; }
+    public ButtonDeny CloseBtn { get; protected set; }
+    public ContainerRuntime ContainerInstance { get; protected set; }
+    public NineSliceRuntime FrameBG { get; protected set; }
+    public Icon IconInstance2 { get; protected set; }
+    public TextRuntime DescriptionHeader { get; protected set; }
+    public TextBox InputDesc { get; protected set; }
 
     public MapSettingsScreen(InteractiveGue visual) : base(visual)
     {
@@ -49,6 +70,25 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     protected override void ReactToVisualChanged()
     {
         base.ReactToVisualChanged();
+        SettingsHeader = this.Visual?.GetGraphicalUiElementByName("SettingsHeader") as global::MonoGameGum.GueDeriving.TextRuntime;
+        InputName = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"InputName");
+        InputAuthor = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"InputAuthor");
+        InputDifficulty = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"InputDifficulty");
+        InputSizeX = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"InputSizeX");
+        InputSizeY = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"InputSizeY");
+        InputDrownSpeed = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"InputDrownSpeed");
+        InputFloodSpeed = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"InputFloodSpeed");
+        DescriptionBg = this.Visual?.GetGraphicalUiElementByName("DescriptionBg") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
+        SaveBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonConfirm>(this.Visual,"SaveBtn");
+        EditBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"EditBtn");
+        FrameBG1 = this.Visual?.GetGraphicalUiElementByName("FrameBG1") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
+        MapName = this.Visual?.GetGraphicalUiElementByName("MapName") as global::MonoGameGum.GueDeriving.TextRuntime;
+        CloseBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonDeny>(this.Visual,"CloseBtn");
+        ContainerInstance = this.Visual?.GetGraphicalUiElementByName("ContainerInstance") as global::MonoGameGum.GueDeriving.ContainerRuntime;
+        FrameBG = this.Visual?.GetGraphicalUiElementByName("FrameBG") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
+        IconInstance2 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Icon>(this.Visual,"IconInstance2");
+        DescriptionHeader = this.Visual?.GetGraphicalUiElementByName("DescriptionHeader") as global::MonoGameGum.GueDeriving.TextRuntime;
+        InputDesc = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"InputDesc");
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code

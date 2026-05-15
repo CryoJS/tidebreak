@@ -13,7 +13,14 @@ class Map // TODO All documentation for methods
     public const int EMPTY = -1;
     public const string MISSING_BEST_TIME = "No Best Time";
 
-    // Create read only array for map difficulty colors
+    // Create new map constants
+    public const string DEFAULT_DESC = "A newly created map template.";
+    public const int MAX_SIZE = 1000;
+
+    // Create read only array for map difficulties
+    public const int MIN_DIFF = 0;
+    public const int MAX_EXC_DIFF = 8;
+
     public static readonly Color[] diffColors = {
         Color.White,        // 0 - Simple
         Color.Green,        // 1 - Easy
@@ -26,10 +33,10 @@ class Map // TODO All documentation for methods
     };
 
     // Store core map information
-    public string name { get; private set; }
-    public string author { get; private set; }
-    public string description { get; private set; }
-    public float difficulty { get; private set; }
+    public string name { get; set; }
+    public string author { get; set; }
+    public string description { get; set; }
+    public float difficulty { get; set; }
     public DateTime creationDate { get; private set; } // FIXME might not add these yet
     public DateTime modifiedDate { get; private set; }
     public bool locked {get; private set; }
@@ -38,18 +45,19 @@ class Map // TODO All documentation for methods
     public float bestTime { get; set; } = EMPTY; // seconds
 
     // Store map behaviour information
-    public int sizeX { get; private set; }
-    public int sizeY { get; private set; }
+    public int sizeX { get; set; }
+    public int sizeY { get; set; }
     private int startTileCnt = 0;
     private Vector2 startPos;
 
-    public float oxygenSpeed { get; private set; } = 10f; // Oxygen depletion amount when in water
-    private float floodSpeed = 0.1f; // Water spread speed (tiles per second)
+    public float drownSpeed { get; set; } = 10f; // Oxygen depletion amount when in water
+    public float floodSpeed { get; set; } = 0.1f; // Water spread speed (tiles per second)
     private GameUtility.Timer floodTimer; // Current timer for water spread // FIXME not sure if GameUtility.Timer or System.Timer(or something)
 
     // Store tiles in the map
-    public Tile[,] tiles { get; private set; }
-    private Tile[,] bgTiles;
+    public Tile[,] tiles { get; set; }
+    public Tile[,] bgTiles { get; set; }
+    public bool[,] floodTiles { get; set; }
 
     // Store ziplines in the map
     private int ziplineCnt = 0;
@@ -62,28 +70,34 @@ class Map // TODO All documentation for methods
     public Map() {}
 
     // TODO: use load map to update these parameters
-    public Map(string name, string author, float difficulty, int sizeX, int sizeY, bool locked = false)
+    public Map(string name, string author, float difficulty = 0.0f, int sizeX = 50, int sizeY = 15, bool locked = false)
     {
         // Initialize map information
         this.name = name;
         this.author = author;
         this.difficulty = difficulty;
+        this.locked = locked;
+        this.sizeX = sizeX;
+        this.sizeY = sizeY;
+
+        // Update map dates
         creationDate = DateTime.Now;
         modifiedDate = DateTime.Now;
-        this.locked = locked;
 
-        // Create tile arrays
-        tiles = new Tile[sizeX, sizeY];
-        bgTiles = new Tile[sizeX, sizeY];
+        // Create template description
+        description = DEFAULT_DESC + $" Size of {sizeX}x{sizeY}.";
 
-        // Setup all tiles (starting as empty)
-        for (int x = 0; x < tiles.GetLength(0); x++)
+        // Try to default map
+        try
         {
-            for (int y = 0; y < tiles.GetLength(1); y++)
-            {
-                tiles[x, y] = new Tile(x, y);
-                bgTiles[x, y] = new Tile(x, y);
-            }
+            // Load the file into this map
+            StreamReader inFile = new StreamReader("DefaultMap.txt");
+            Load(inFile, Game1._graphics.GraphicsDevice, true);
+        }
+        catch
+        {
+            // Print what failed
+            Console.WriteLine("ERROR - New map template failed to load.");
         }
     }
 
@@ -148,31 +162,36 @@ class Map // TODO All documentation for methods
         // TODO
     }
 
-    public void Load(StreamReader inFile, GraphicsDevice gd)
+    public void Load(StreamReader inFile, GraphicsDevice gd, bool newMap = false) // FIXME if mr lane allows graphics device to be public, remove it here
     {
         // Create a variable for storing lines
         string[] line;
 
-        // Load core map information
-        name = inFile.ReadLine();
-        author = inFile.ReadLine();
-        description = inFile.ReadLine();
-        difficulty = Convert.ToSingle(inFile.ReadLine());
-        creationDate = Convert.ToDateTime(inFile.ReadLine());
-        modifiedDate = Convert.ToDateTime(inFile.ReadLine());
-        locked = Convert.ToBoolean(inFile.ReadLine());
+        // Load core map information only if this is not a new map
+        if (!newMap)
+        {
+            name = inFile.ReadLine();
+            author = inFile.ReadLine();
+            description = inFile.ReadLine();
+            difficulty = Convert.ToSingle(inFile.ReadLine());
+            creationDate = Convert.ToDateTime(inFile.ReadLine());
+            modifiedDate = Convert.ToDateTime(inFile.ReadLine());
+            locked = Convert.ToBoolean(inFile.ReadLine());
+
+            sizeX = Convert.ToInt32(inFile.ReadLine());
+            sizeY = Convert.ToInt32(inFile.ReadLine());
+        }
 
         // Load map behaviour information
-        sizeX = Convert.ToInt32(inFile.ReadLine());
-        sizeY = Convert.ToInt32(inFile.ReadLine());
         startTileCnt = Convert.ToInt32(inFile.ReadLine());
         ziplineCnt = Convert.ToInt32(inFile.ReadLine());
-        oxygenSpeed = Convert.ToSingle(inFile.ReadLine());
+        drownSpeed = Convert.ToSingle(inFile.ReadLine());
         floodSpeed = Convert.ToSingle(inFile.ReadLine());
 
         // Create tile arrays
         tiles = new Tile[sizeX, sizeY];
         bgTiles = new Tile[sizeX, sizeY];
+        floodTiles = new bool[sizeX, sizeY];
 
         // Create the list to store ziplines
         ziplines = new List<Zipline>(new Zipline[ziplineCnt]);
@@ -223,6 +242,17 @@ class Map // TODO All documentation for methods
             for (int x = 0; x < sizeX; x++)
             {
                 bgTiles[x, y] = new Tile(x, y, Convert.ToInt32(line[x]));
+            }
+        }
+
+        // Load in map tiles (flood tiles)
+        for (int y = 0; y < sizeY; y++)
+        {
+            line = inFile.ReadLine().Split(' ');
+
+            for (int x = 0; x < sizeX; x++)
+            {
+                floodTiles[x, y] = line[x] == Tile.FLOODABLE;
             }
         }
 

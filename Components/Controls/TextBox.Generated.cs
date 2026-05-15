@@ -97,9 +97,9 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     }
     public NineSliceRuntime Background { get; protected set; }
     public ContainerRuntime ClipContainer { get; protected set; }
+    public TextRuntime PlaceholderTextInstance { get; protected set; }
     public NineSliceRuntime SelectionInstance { get; protected set; }
     public TextRuntime TextInstance { get; protected set; }
-    public TextRuntime PlaceholderTextInstance { get; protected set; }
     public NineSliceRuntime FocusedIndicator { get; protected set; }
     public SpriteRuntime CaretInstance { get; protected set; }
 
@@ -120,9 +120,9 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         base.ReactToVisualChanged();
         Background = this.Visual?.GetGraphicalUiElementByName("Background") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
         ClipContainer = this.Visual?.GetGraphicalUiElementByName("ClipContainer") as global::MonoGameGum.GueDeriving.ContainerRuntime;
+        PlaceholderTextInstance = this.Visual?.GetGraphicalUiElementByName("PlaceholderTextInstance") as global::MonoGameGum.GueDeriving.TextRuntime;
         SelectionInstance = this.Visual?.GetGraphicalUiElementByName("SelectionInstance") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
         TextInstance = this.Visual?.GetGraphicalUiElementByName("TextInstance") as global::MonoGameGum.GueDeriving.TextRuntime;
-        PlaceholderTextInstance = this.Visual?.GetGraphicalUiElementByName("PlaceholderTextInstance") as global::MonoGameGum.GueDeriving.TextRuntime;
         FocusedIndicator = this.Visual?.GetGraphicalUiElementByName("FocusedIndicator") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
         CaretInstance = this.Visual?.GetGraphicalUiElementByName("CaretInstance") as global::MonoGameGum.GueDeriving.SpriteRuntime;
         CustomInitialize();

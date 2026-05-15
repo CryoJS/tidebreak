@@ -3,6 +3,582 @@
   <Name>MapSettingsScreen</Name>
   <State>
     <Name>Default</Name>
+    <Variable Type="bool" Name="CloseBtn.ExposeChildrenEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="float" Name="CloseBtn.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">80</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="CloseBtn.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="string" Name="CloseBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">FrameBG</Value>
+    </Variable>
+    <Variable Type="string" Name="CloseBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string"></Value>
+    </Variable>
+    <Variable Type="float" Name="CloseBtn.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">80</Value>
+    </Variable>
+    <Variable Type="float" Name="CloseBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">20</Value>
+    </Variable>
+    <Variable Type="float" Name="CloseBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">20</Value>
+    </Variable>
+    <Variable Type="bool" Name="ContainerInstance.ExposeChildrenEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="bool" Name="ContainerInstance.HasEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="float" Name="ContainerInstance.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-231.66667</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="ContainerInstance.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="string" Name="ContainerInstance.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">FrameBG</Value>
+    </Variable>
+    <Variable Type="float" Name="ContainerInstance.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-200</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="ContainerInstance.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="float" Name="ContainerInstance.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="ContainerInstance.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ContainerInstance.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="ContainerInstance.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">167.66667</Value>
+    </Variable>
+    <Variable Type="int" Name="DescriptionBg.Alpha" SetsValue="true">
+      <Value xsi:type="xsd:int">217</Value>
+    </Variable>
+    <Variable Type="int" Name="DescriptionBg.Blue" SetsValue="true">
+      <Value xsi:type="xsd:int">68</Value>
+    </Variable>
+    <Variable Type="bool" Name="DescriptionBg.ExposeChildrenEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="int" Name="DescriptionBg.Green" SetsValue="true">
+      <Value xsi:type="xsd:int">45</Value>
+    </Variable>
+    <Variable Type="float" Name="DescriptionBg.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">256.66666</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="DescriptionBg.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="string" Name="DescriptionBg.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ContainerInstance</Value>
+    </Variable>
+    <Variable Type="int" Name="DescriptionBg.Red" SetsValue="true">
+      <Value xsi:type="xsd:int">42</Value>
+    </Variable>
+    <Variable IsFile="true" Type="string" Name="DescriptionBg.SourceFile" SetsValue="true">
+      <Value xsi:type="xsd:string">UI Assets\FrameBG.png</Value>
+    </Variable>
+    <Variable Type="TextureAddress" Name="DescriptionBg.TextureAddress" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="DescriptionBg.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-581</Value>
+    </Variable>
+    <Variable Type="float" Name="DescriptionBg.X" SetsValue="true">
+      <Value xsi:type="xsd:float">289.5</Value>
+    </Variable>
+    <Variable Type="float" Name="DescriptionBg.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="DescriptionBg.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="DescriptionBg.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable IsFont="true" Type="string" Name="DescriptionHeader.Font" SetsValue="true">
+      <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini.ttf</Value>
+    </Variable>
+    <Variable Type="int" Name="DescriptionHeader.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">60</Value>
+    </Variable>
+    <Variable Type="bool" Name="DescriptionHeader.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="int" Name="DescriptionHeader.OutlineThickness" SetsValue="true">
+      <Value xsi:type="xsd:int">5</Value>
+    </Variable>
+    <Variable Type="string" Name="DescriptionHeader.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">DescriptionBg</Value>
+    </Variable>
+    <Variable Type="string" Name="DescriptionHeader.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">Description</Value>
+    </Variable>
+    <Variable Type="bool" Name="DescriptionHeader.UseCustomFont" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="bool" Name="DescriptionHeader.UseFontSmoothing" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="float" Name="DescriptionHeader.X" SetsValue="true">
+      <Value xsi:type="xsd:float">20</Value>
+    </Variable>
+    <Variable Type="float" Name="DescriptionHeader.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="EditBtn.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">40</Value>
+    </Variable>
+    <Variable Type="string" Name="EditBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ContainerInstance</Value>
+    </Variable>
+    <Variable Type="string" Name="EditBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">EDIT</Value>
+    </Variable>
+    <Variable Type="float" Name="EditBtn.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">300</Value>
+    </Variable>
+    <Variable Type="float" Name="EditBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">450</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="EditBtn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="EditBtn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="EditBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="EditBtn.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="EditBtn.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">5</Value>
+    </Variable>
+    <Variable Type="float?" Name="FrameBG.CustomFrameTextureCoordinateWidth" SetsValue="true" />
+    <Variable Type="bool" Name="FrameBG.ExposeChildrenEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="float" Name="FrameBG.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-380.33334</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="FrameBG.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="bool" Name="FrameBG.IsTilingMiddleSections" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable IsFile="true" Type="string" Name="FrameBG.SourceFile" SetsValue="true">
+      <Value xsi:type="xsd:string">UI Assets\FrameBG.png</Value>
+    </Variable>
+    <Variable Type="TextureAddress" Name="FrameBG.TextureAddress" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG.TextureHeight" SetsValue="true">
+      <Value xsi:type="xsd:int">64</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG.TextureLeft" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG.TextureTop" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG.TextureWidth" SetsValue="true">
+      <Value xsi:type="xsd:int">64</Value>
+    </Variable>
+    <Variable Type="bool" Name="FrameBG.Visible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="float" Name="FrameBG.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-400</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="FrameBG.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="bool" Name="FrameBG.Wrap" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="float" Name="FrameBG.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="FrameBG.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="FrameBG.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="FrameBG.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="FrameBG.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="FrameBG.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG1.Blue" SetsValue="true">
+      <Value xsi:type="xsd:int">208</Value>
+    </Variable>
+    <Variable Type="float?" Name="FrameBG1.CustomFrameTextureCoordinateWidth" SetsValue="true" />
+    <Variable Type="bool" Name="FrameBG1.ExposeChildrenEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG1.Green" SetsValue="true">
+      <Value xsi:type="xsd:int">184</Value>
+    </Variable>
+    <Variable Type="float" Name="FrameBG1.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">125</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="FrameBG1.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="bool" Name="FrameBG1.IsTilingMiddleSections" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="string" Name="FrameBG1.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">FrameBG</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG1.Red" SetsValue="true">
+      <Value xsi:type="xsd:int">180</Value>
+    </Variable>
+    <Variable IsFile="true" Type="string" Name="FrameBG1.SourceFile" SetsValue="true">
+      <Value xsi:type="xsd:string">UI Assets\FrameBG.png</Value>
+    </Variable>
+    <Variable Type="TextureAddress" Name="FrameBG1.TextureAddress" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG1.TextureHeight" SetsValue="true">
+      <Value xsi:type="xsd:int">64</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG1.TextureLeft" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG1.TextureTop" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG1.TextureWidth" SetsValue="true">
+      <Value xsi:type="xsd:int">64</Value>
+    </Variable>
+    <Variable Type="bool" Name="FrameBG1.Visible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="float" Name="FrameBG1.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="FrameBG1.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="bool" Name="FrameBG1.Wrap" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="float" Name="FrameBG1.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="FrameBG1.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="FrameBG1.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="FrameBG1.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="FrameBG1.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="FrameBG1.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="bool" Name="IconInstance2.ExposeChildrenEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="bool" Name="IconInstance2.HasEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="IconCategory" Name="IconInstance2.IconCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Close</Value>
+    </Variable>
+    <Variable Type="string" Name="IconInstance2.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">CloseBtn</Value>
+    </Variable>
+    <Variable Type="float" Name="IconInstance2.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">-2</Value>
+    </Variable>
+    <Variable Type="string" Name="InputAuthor.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ContainerInstance</Value>
+    </Variable>
+    <Variable Type="string" Name="InputAuthor.Placeholder" SetsValue="true">
+      <Value xsi:type="xsd:string">Author</Value>
+    </Variable>
+    <Variable Type="float" Name="InputAuthor.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">520</Value>
+    </Variable>
+    <Variable Type="float" Name="InputAuthor.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="InputAuthor.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">120</Value>
+    </Variable>
+    <Variable Type="float" Name="InputDesc.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">158</Value>
+    </Variable>
+    <Variable Type="int?" Name="InputDesc.MaxNumberOfLines" SetsValue="true">
+      <Value xsi:type="xsd:int">4</Value>
+    </Variable>
+    <Variable Type="string" Name="InputDesc.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">DescriptionBg</Value>
+    </Variable>
+    <Variable Type="string" Name="InputDesc.Placeholder" SetsValue="true">
+      <Value xsi:type="xsd:string">Write a new description
+here. This might not
+actually work properly.
+Who knows.</Value>
+    </Variable>
+    <Variable Type="float" Name="InputDesc.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">576</Value>
+    </Variable>
+    <Variable Type="float" Name="InputDesc.X" SetsValue="true">
+      <Value xsi:type="xsd:float">19</Value>
+    </Variable>
+    <Variable Type="float" Name="InputDesc.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">73</Value>
+    </Variable>
+    <Variable Type="string" Name="InputDifficulty.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ContainerInstance</Value>
+    </Variable>
+    <Variable Type="string" Name="InputDifficulty.Placeholder" SetsValue="true">
+      <Value xsi:type="xsd:string">Difficulty</Value>
+    </Variable>
+    <Variable Type="float" Name="InputDifficulty.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">520</Value>
+    </Variable>
+    <Variable Type="float" Name="InputDifficulty.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="InputDifficulty.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">170</Value>
+    </Variable>
+    <Variable Type="string" Name="InputDrownSpeed.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ContainerInstance</Value>
+    </Variable>
+    <Variable Type="string" Name="InputDrownSpeed.Placeholder" SetsValue="true">
+      <Value xsi:type="xsd:string">Drown Speed (Oxygen/S)</Value>
+    </Variable>
+    <Variable Type="float" Name="InputDrownSpeed.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">520</Value>
+    </Variable>
+    <Variable Type="float" Name="InputDrownSpeed.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="InputDrownSpeed.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">320</Value>
+    </Variable>
+    <Variable Type="string" Name="InputFloodSpeed.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ContainerInstance</Value>
+    </Variable>
+    <Variable Type="string" Name="InputFloodSpeed.Placeholder" SetsValue="true">
+      <Value xsi:type="xsd:string">Flood Speed (Tiles/S)</Value>
+    </Variable>
+    <Variable Type="float" Name="InputFloodSpeed.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">520</Value>
+    </Variable>
+    <Variable Type="float" Name="InputFloodSpeed.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="InputFloodSpeed.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">370</Value>
+    </Variable>
+    <Variable Type="string" Name="InputName.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ContainerInstance</Value>
+    </Variable>
+    <Variable Type="string" Name="InputName.Placeholder" SetsValue="true">
+      <Value xsi:type="xsd:string">Name</Value>
+    </Variable>
+    <Variable Type="float" Name="InputName.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">520</Value>
+    </Variable>
+    <Variable Type="float" Name="InputName.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="InputName.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">70</Value>
+    </Variable>
+    <Variable Type="string" Name="InputSizeX.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ContainerInstance</Value>
+    </Variable>
+    <Variable Type="string" Name="InputSizeX.Placeholder" SetsValue="true">
+      <Value xsi:type="xsd:string">Map Size (X)</Value>
+    </Variable>
+    <Variable Type="float" Name="InputSizeX.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">520</Value>
+    </Variable>
+    <Variable Type="float" Name="InputSizeX.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="InputSizeX.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">220</Value>
+    </Variable>
+    <Variable Type="string" Name="InputSizeY.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ContainerInstance</Value>
+    </Variable>
+    <Variable Type="string" Name="InputSizeY.Placeholder" SetsValue="true">
+      <Value xsi:type="xsd:string">Map Size (Y)</Value>
+    </Variable>
+    <Variable Type="float" Name="InputSizeY.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">520</Value>
+    </Variable>
+    <Variable Type="float" Name="InputSizeY.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="InputSizeY.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">270</Value>
+    </Variable>
+    <Variable IsFont="true" Type="string" Name="MapName.Font" SetsValue="true">
+      <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini.ttf</Value>
+    </Variable>
+    <Variable Type="int" Name="MapName.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">80</Value>
+    </Variable>
+    <Variable Type="float" Name="MapName.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="MapName.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="MapName.HorizontalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="bool" Name="MapName.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="int" Name="MapName.OutlineThickness" SetsValue="true">
+      <Value xsi:type="xsd:int">10</Value>
+    </Variable>
+    <Variable Type="string" Name="MapName.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">FrameBG</Value>
+    </Variable>
+    <Variable Type="string" Name="MapName.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">Map Name</Value>
+    </Variable>
+    <Variable Type="bool" Name="MapName.UseFontSmoothing" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="MapName.VerticalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="MapName.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="MapName.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="float" Name="MapName.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="MapName.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="MapName.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="MapName.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">5</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="MapName.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="MapName.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="float" Name="SaveBtn.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">40</Value>
+    </Variable>
+    <Variable Type="string" Name="SaveBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ContainerInstance</Value>
+    </Variable>
+    <Variable Type="string" Name="SaveBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">SAVE</Value>
+    </Variable>
+    <Variable Type="float" Name="SaveBtn.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">300</Value>
+    </Variable>
+    <Variable Type="float" Name="SaveBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">130</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="SaveBtn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="SaveBtn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="SaveBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="SaveBtn.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="SaveBtn.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">5</Value>
+    </Variable>
+    <Variable IsFont="true" Type="string" Name="SettingsHeader.Font" SetsValue="true">
+      <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini.ttf</Value>
+    </Variable>
+    <Variable Type="int" Name="SettingsHeader.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">60</Value>
+    </Variable>
+    <Variable Type="bool" Name="SettingsHeader.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="int" Name="SettingsHeader.OutlineThickness" SetsValue="true">
+      <Value xsi:type="xsd:int">5</Value>
+    </Variable>
+    <Variable Type="string" Name="SettingsHeader.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ContainerInstance</Value>
+    </Variable>
+    <Variable Type="string" Name="SettingsHeader.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">Change Settings</Value>
+    </Variable>
+    <Variable Type="bool" Name="SettingsHeader.UseCustomFont" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="bool" Name="SettingsHeader.UseFontSmoothing" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="float" Name="SettingsHeader.X" SetsValue="true">
+      <Value xsi:type="xsd:float">-1</Value>
+    </Variable>
+    <Variable Type="float" Name="SettingsHeader.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">-16</Value>
+    </Variable>
   </State>
+  <Instance Name="SettingsHeader" BaseType="Text" />
+  <Instance Name="InputName" BaseType="Controls/TextBox" />
+  <Instance Name="InputAuthor" BaseType="Controls/TextBox" />
+  <Instance Name="InputDifficulty" BaseType="Controls/TextBox" />
+  <Instance Name="InputSizeX" BaseType="Controls/TextBox" />
+  <Instance Name="InputSizeY" BaseType="Controls/TextBox" />
+  <Instance Name="InputDrownSpeed" BaseType="Controls/TextBox" />
+  <Instance Name="InputFloodSpeed" BaseType="Controls/TextBox" />
+  <Instance Name="DescriptionBg" BaseType="NineSlice" />
+  <Instance Name="SaveBtn" BaseType="Controls/ButtonConfirm" />
+  <Instance Name="EditBtn" BaseType="Controls/ButtonStandard" />
+  <Instance Name="FrameBG1" BaseType="NineSlice" />
+  <Instance Name="MapName" BaseType="Text" />
+  <Instance Name="CloseBtn" BaseType="Controls/ButtonDeny" />
+  <Instance Name="ContainerInstance" BaseType="Container" />
+  <Instance Name="FrameBG" BaseType="NineSlice" />
+  <Instance Name="IconInstance2" BaseType="Elements/Icon" />
+  <Instance Name="DescriptionHeader" BaseType="Text" />
+  <Instance Name="InputDesc" BaseType="Controls/TextBox" />
   <Behaviors />
 </ScreenSave>

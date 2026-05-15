@@ -7,7 +7,7 @@ using Tidebreak;
 class Camera
 {
     // Create viewport camera and store settings
-    private Cam2D camera;
+    private Cam2D camera; 
     private float cameraZoom = 0.5f;
     private float speed = 3f;
     private float deadZone = 100f;
@@ -16,6 +16,11 @@ class Camera
     {
         camera = new Cam2D(viewport);
         camera.SetZoom(cameraZoom);
+    }
+
+    public Vector2 WorldToScreen(Vector2 pos)
+    {
+        return camera.WorldToScreen(pos);
     }
 
     public void SetPos(Vector2 newPos)

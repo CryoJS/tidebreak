@@ -18,7 +18,7 @@ namespace Tidebreak;
 
 public class Game1 : Game
 {
-    private GraphicsDeviceManager _graphics;
+    public static GraphicsDeviceManager _graphics; // REVIEW can i make this public for ease of use?
     private SpriteBatch _spriteBatch;
     GumService GumUI => GumService.Default;
 
@@ -46,6 +46,11 @@ public class Game1 : Game
     public const int PIXEL_SCALE = 8;      // This scale value gets closest to full HD 1920x1080
     public const int TARGET_FPS = 240;     // Target high frame rate, important for platformer games
 
+    // Create string limit constants
+    public const int MAX_LENGTH_LONG = 80;
+    public const int MAX_LENGTH = 16;
+    public const int MAX_SHORT = 12;
+
     // Set the starting game state to be the menu state
     public static int gameState = MENU;
 
@@ -71,7 +76,6 @@ public class Game1 : Game
     // Store all saved maps
     internal static List<Map> maps = new List<Map>();
     internal static Map currentMap;
-    internal static Map selectedMap;
 
     // Store player and player's camera
     internal static Player player;
@@ -149,15 +153,6 @@ public class Game1 : Game
 
         // Load in all maps
         LoadMaps();
-
-        // FIXME Add fake maps to test map select
-        maps.Add(new Map($"easy map", "me", 1.2f, 1, 1));
-        maps.Add(new Map($"medium map", "me 2", 2.9f, 1, 1));
-        maps.Add(new Map($"hard map", "me again", 3.5f, 1, 1));
-        maps.Add(new Map($"insane map", "me", 4.7f, 1, 1));
-        maps.Add(new Map($"crazy map", "me", 5.1f, 1, 1));
-        maps.Add(new Map($"merciless map", "me 3", 6.3f, 1, 1));
-        maps.Add(new Map($"legendary map", "me ok", 7.5f, 1, 1));
     }
 
     protected override void Update(GameTime gameTime)

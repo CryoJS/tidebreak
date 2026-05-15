@@ -8,6 +8,8 @@ using MonoGameGum;
 using MonoGameGum.GueDeriving;
 using RenderingLibrary.Graphics;
 using System.Linq;
+using Tidebreak.Components.Controls;
+using Tidebreak.Components.Elements;
 namespace Tidebreak.Screens;
 partial class NewMapScreen : global::Gum.Forms.Controls.FrameworkElement
 {
@@ -36,6 +38,18 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
             return gue;
         });
     }
+    public TextBox MapName { get; protected set; }
+    public TextRuntime Prompt { get; protected set; }
+    public TextRuntime PreName { get; protected set; }
+    public TextRuntime PreAuthor { get; protected set; }
+    public NineSliceRuntime FrameBG1 { get; protected set; }
+    public TextRuntime H1 { get; protected set; }
+    public ButtonDeny CloseBtn { get; protected set; }
+    public ButtonConfirm CreateBtn { get; protected set; }
+    public ContainerRuntime ContainerInstance { get; protected set; }
+    public NineSliceRuntime FrameBG { get; protected set; }
+    public Icon IconInstance2 { get; protected set; }
+    public TextBox Author { get; protected set; }
 
     public NewMapScreen(InteractiveGue visual) : base(visual)
     {
@@ -49,6 +63,18 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     protected override void ReactToVisualChanged()
     {
         base.ReactToVisualChanged();
+        MapName = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"MapName");
+        Prompt = this.Visual?.GetGraphicalUiElementByName("Prompt") as global::MonoGameGum.GueDeriving.TextRuntime;
+        PreName = this.Visual?.GetGraphicalUiElementByName("PreName") as global::MonoGameGum.GueDeriving.TextRuntime;
+        PreAuthor = this.Visual?.GetGraphicalUiElementByName("PreAuthor") as global::MonoGameGum.GueDeriving.TextRuntime;
+        FrameBG1 = this.Visual?.GetGraphicalUiElementByName("FrameBG1") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
+        H1 = this.Visual?.GetGraphicalUiElementByName("H1") as global::MonoGameGum.GueDeriving.TextRuntime;
+        CloseBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonDeny>(this.Visual,"CloseBtn");
+        CreateBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonConfirm>(this.Visual,"CreateBtn");
+        ContainerInstance = this.Visual?.GetGraphicalUiElementByName("ContainerInstance") as global::MonoGameGum.GueDeriving.ContainerRuntime;
+        FrameBG = this.Visual?.GetGraphicalUiElementByName("FrameBG") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
+        IconInstance2 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Icon>(this.Visual,"IconInstance2");
+        Author = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"Author");
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code

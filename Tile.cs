@@ -40,6 +40,10 @@ class Tile
     public const int WALL_JUMP = 24;
     public const int ZIPLINE = 50; // Zipline start and end tiles are from here and onwards in pairs, i.e. {(50, 51), (52, 53), ...}
 
+    // Create constants for if tile is floodable or not
+    public const string FLOODABLE = "OO";
+    public const string NOT_FLOODABLE = "..";
+
     // Store all tile textures
     public static Texture2D[] tileTextures = new Texture2D[TYPE_AMOUNT];
 

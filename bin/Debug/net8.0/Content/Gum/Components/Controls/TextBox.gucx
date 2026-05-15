@@ -4,8 +4,17 @@
   <BaseType>Container</BaseType>
   <State>
     <Name>Default</Name>
+    <Variable Type="int" Name="Background.Blue" SetsValue="true">
+      <Value xsi:type="xsd:int">50</Value>
+    </Variable>
     <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">DarkGray</Value>
+    </Variable>
+    <Variable Type="int" Name="Background.Green" SetsValue="true">
+      <Value xsi:type="xsd:int">40</Value>
+    </Variable>
+    <Variable Type="int" Name="Background.Red" SetsValue="true">
+      <Value xsi:type="xsd:int">38</Value>
     </Variable>
     <Variable Type="StyleCategory" Name="Background.StyleCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Bordered</Value>
@@ -14,7 +23,7 @@
       <Value xsi:type="xsd:string">Primary</Value>
     </Variable>
     <Variable Type="float" Name="CaretInstance.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">14</Value>
+      <Value xsi:type="xsd:float">30</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="CaretInstance.HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
@@ -41,7 +50,7 @@
       <Value xsi:type="xsd:int">24</Value>
     </Variable>
     <Variable Type="float" Name="CaretInstance.Width" SetsValue="true">
-      <Value xsi:type="xsd:float">1</Value>
+      <Value xsi:type="xsd:float">5</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="CaretInstance.WidthUnits" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
@@ -76,6 +85,7 @@
     <Variable Type="DimensionUnitType" Name="ClipContainer.HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
     </Variable>
+    <Variable Type="string" Name="ClipContainer.Parent" SetsValue="true" />
     <Variable Type="float" Name="ClipContainer.Width" SetsValue="true">
       <Value xsi:type="xsd:float">-0</Value>
     </Variable>
@@ -104,7 +114,7 @@
       <Value xsi:type="xsd:boolean">false</Value>
     </Variable>
     <Variable Type="ColorCategory" Name="FocusedIndicator.ColorCategoryState" SetsValue="true">
-      <Value xsi:type="xsd:string">Warning</Value>
+      <Value xsi:type="xsd:string">Primary</Value>
     </Variable>
     <Variable Type="float" Name="FocusedIndicator.Height" SetsValue="true">
       <Value xsi:type="xsd:float">2</Value>
@@ -129,11 +139,17 @@
       <Value xsi:type="xsd:int">5</Value>
     </Variable>
     <Variable Type="float" Name="Height" SetsValue="true">
-      <Value xsi:type="xsd:float">24</Value>
+      <Value xsi:type="xsd:float">41</Value>
     </Variable>
     <Variable Type="LineModeCategory" Name="LineModeCategoryState" SetsValue="false" />
+    <Variable Type="int" Name="PlaceholderTextInstance.Alpha" SetsValue="true">
+      <Value xsi:type="xsd:int">113</Value>
+    </Variable>
     <Variable Type="ColorCategory" Name="PlaceholderTextInstance.ColorCategoryState" SetsValue="true">
-      <Value xsi:type="xsd:string">Gray</Value>
+      <Value xsi:type="xsd:string">White</Value>
+    </Variable>
+    <Variable Type="int" Name="PlaceholderTextInstance.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">30</Value>
     </Variable>
     <Variable Type="float" Name="PlaceholderTextInstance.Height" SetsValue="true">
       <Value xsi:type="xsd:float">-4</Value>
@@ -178,7 +194,10 @@
       <Value xsi:type="xsd:string">Primary</Value>
     </Variable>
     <Variable Type="float" Name="SelectionInstance.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">-4</Value>
+      <Value xsi:type="xsd:float">30</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="SelectionInstance.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="string" Name="SelectionInstance.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ClipContainer</Value>
@@ -203,8 +222,20 @@
     </Variable>
     <Variable Type="State" Name="State" Category="States and Visibility" SetsValue="true" />
     <Variable Type="TextBoxCategory" Name="TextBoxCategoryState" SetsValue="false" />
+    <Variable Type="int" Name="TextInstance.Blue" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
+    </Variable>
     <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">White</Value>
+    </Variable>
+    <Variable IsFont="true" Type="string" Name="TextInstance.Font" SetsValue="true">
+      <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini Square Mono.ttf</Value>
+    </Variable>
+    <Variable Type="int" Name="TextInstance.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">30</Value>
+    </Variable>
+    <Variable Type="int" Name="TextInstance.Green" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
     </Variable>
     <Variable Type="float" Name="TextInstance.Height" SetsValue="true">
       <Value xsi:type="xsd:float">-4</Value>
@@ -220,11 +251,17 @@
     <Variable Type="string" Name="TextInstance.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ClipContainer</Value>
     </Variable>
+    <Variable Type="int" Name="TextInstance.Red" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
+    </Variable>
     <Variable Type="StyleCategory" Name="TextInstance.StyleCategoryState" SetsValue="true">
-      <Value xsi:type="xsd:string">Normal</Value>
+      <Value xsi:type="xsd:string">Small</Value>
     </Variable>
     <Variable Type="string" Name="TextInstance.Text" ExposedAsName="Text" SetsValue="true">
       <Value xsi:type="xsd:string"></Value>
+    </Variable>
+    <Variable Type="bool" Name="TextInstance.UseFontSmoothing" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
     </Variable>
     <Variable Type="VerticalAlignment" Name="TextInstance.VerticalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
@@ -254,11 +291,25 @@
       <Value xsi:type="xsd:int">7</Value>
     </Variable>
     <Variable Type="float" Name="Width" SetsValue="true">
-      <Value xsi:type="xsd:float">256</Value>
+      <Value xsi:type="xsd:float">394</Value>
     </Variable>
     <VariableList xsi:type="VariableListSaveOfString">
       <Type>string</Type>
       <Name>CaretInstance.AnimationFrames</Name>
+      <IsFile>false</IsFile>
+      <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+      <Value />
+    </VariableList>
+    <VariableList xsi:type="VariableListSaveOfString">
+      <Type>string</Type>
+      <Name>TextInstance.VariableReferences</Name>
+      <IsFile>false</IsFile>
+      <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+      <Value />
+    </VariableList>
+    <VariableList xsi:type="VariableListSaveOfString">
+      <Type>string</Type>
+      <Name>Background.VariableReferences</Name>
       <IsFile>false</IsFile>
       <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
       <Value />
@@ -269,16 +320,19 @@
     <State>
       <Name>Enabled</Name>
       <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
-        <Value xsi:type="xsd:string">DarkGray</Value>
+        <Value xsi:type="xsd:string">White</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
+      </Variable>
+      <Variable Type="int" Name="PlaceholderTextInstance.Alpha" SetsValue="true">
+        <Value xsi:type="xsd:int">203</Value>
       </Variable>
       <Variable Type="ColorCategory" Name="PlaceholderTextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Gray</Value>
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
-        <Value xsi:type="xsd:string">White</Value>
+        <Value xsi:type="xsd:string">Black</Value>
       </Variable>
     </State>
     <State>
@@ -293,7 +347,10 @@
         <Value xsi:type="xsd:string">Gray</Value>
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
-        <Value xsi:type="xsd:string">Gray</Value>
+        <Value xsi:type="xsd:string">Black</Value>
+      </Variable>
+      <Variable Type="int" Name="PlaceholderTextInstance.Alpha" SetsValue="true">
+        <Value xsi:type="xsd:int">113</Value>
       </Variable>
     </State>
     <State>
@@ -308,7 +365,10 @@
         <Value xsi:type="xsd:string">DarkGray</Value>
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
-        <Value xsi:type="xsd:string">White</Value>
+        <Value xsi:type="xsd:string">Black</Value>
+      </Variable>
+      <Variable Type="int" Name="PlaceholderTextInstance.Alpha" SetsValue="true">
+        <Value xsi:type="xsd:int">113</Value>
       </Variable>
     </State>
     <State>
@@ -323,7 +383,10 @@
         <Value xsi:type="xsd:string">Gray</Value>
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
-        <Value xsi:type="xsd:string">White</Value>
+        <Value xsi:type="xsd:string">Black</Value>
+      </Variable>
+      <Variable Type="int" Name="PlaceholderTextInstance.Alpha" SetsValue="true">
+        <Value xsi:type="xsd:int">113</Value>
       </Variable>
     </State>
   </Category>
@@ -386,9 +449,9 @@
   </Category>
   <Instance Name="Background" BaseType="NineSlice" />
   <Instance Name="ClipContainer" BaseType="Container" />
+  <Instance Name="PlaceholderTextInstance" BaseType="Text" />
   <Instance Name="SelectionInstance" BaseType="NineSlice" />
   <Instance Name="TextInstance" BaseType="Text" />
-  <Instance Name="PlaceholderTextInstance" BaseType="Text" />
   <Instance Name="FocusedIndicator" BaseType="NineSlice" />
   <Instance Name="CaretInstance" BaseType="Sprite" />
   <Behaviors>

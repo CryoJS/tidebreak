@@ -13,13 +13,13 @@ class ButtonIndicator
     public void Update(Player player, Camera camera)
     {
         // Only show indicator if there is a next button
-        if (player.nextButton != null)
+        if (player.NextButton != null)
         {
             // Store player center
             Vector2 center = player.rec.Center.ToVector2();
 
             // Find the direction and distance to the next button
-            Vector2 direction = player.nextButton.center - center;
+            Vector2 direction = player.NextButton.Center - center;
             float dist = direction.Length();
 
             // If the distance is far enough, draw indicator

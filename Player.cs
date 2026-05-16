@@ -17,6 +17,7 @@ class Player
     private const float SWIM_SPEED = WATER_RESISTANCE + RUN_SPEED;
     private const float ZIPLINE_SPEED = 1200f;
     private const float JUMP_SPEED = -2500f;
+    private const float CLIMB_SPEED = -1000f;
     private const float DIVE_SPEED = 2800f;
     private const float MAX_FALL_SPEED = 3000f;
     private const float AIR_RESISTANCE = 13000f;
@@ -43,7 +44,8 @@ class Player
     private const float INHALE_SPEED = 30f;
 
     // Store possible player animation states
-    private enum PlayerState
+    private const int ANIM_STATE_AMOUNT = 11;
+    private enum animStates
     {
         Idle,
         Running,
@@ -55,11 +57,11 @@ class Player
         Latching,
         Climbing,
         Hanging,
-        Dead
+        Dying
     }
 
     // Store player movement data
-    private PlayerState state = PlayerState.Idle;
+    private animStates state = animStates.Idle;
     public Rectangle rec = new Rectangle(0, 0, PLAYER_WIDTH * Game1.PIXEL_SCALE, PLAYER_HEIGHT * Game1.PIXEL_SCALE);
     public Vector2 pos = new Vector2(0, 0);
     public Vector2 prevPos;
@@ -72,6 +74,7 @@ class Player
     private bool isDead;
     private bool isGrounded;
     private bool isLatching;
+    private bool isClimbing;
     private bool onZipline;
     private Zipline curZipline;
 
@@ -81,11 +84,11 @@ class Player
     private bool isPrevSliding;
 
     // Store player attribute data
-    public float oxygen { get; private set; } = MAX_OXYGEN;
+    public float Oxygen { get; private set; } = MAX_OXYGEN;
 
     // Store the buttons the player needs to get
-    public Button nextButton { get; set; }
-    public BSTree<Button> buttons { get; set; }
+    public Button NextButton { get; set; }
+    public BSTree<Button> Buttons { get; set; }
 
     // Store button indicator constants
     ButtonIndicator btnIndic = new ButtonIndicator();
@@ -101,107 +104,37 @@ class Player
     private Rectangle right;
 
     // Store player animation data
-    private static Texture2D idleImg;
-    private static Texture2D runImg;
-    private static Texture2D landImg;
-    private static Texture2D jumpImg;
-    private static Texture2D fallImg;
-    private static Texture2D swimImg;
-    private static Texture2D slideImg;
-    private static Texture2D latchImg;
-    private static Texture2D climbImg;
-    private static Texture2D hangImg;
-    private static Texture2D deathImg;
-
-    private static Animation idleAnim;
-    private static Animation runAnim;
-    private static Animation landAnim;
-    private static Animation jumpAnim;
-    private static Animation fallAnim;
-    private static Animation swimAnim;
-    private static Animation slideAnim;
-    private static Animation latchAnim;
-    private static Animation climbAnim;
-    private static Animation hangAnim;
-    private static Animation deathAnim;
+    private static Texture2D[] imgs = new Texture2D[ANIM_STATE_AMOUNT];
+    private static Animation[] anims = new Animation[ANIM_STATE_AMOUNT];
 
     public Player(ContentManager content)
     {
         // Load player animation spreadsheets
-        idleImg = content.Load<Texture2D>("Images/Sprites/Player/HeroIdle");
-        runImg = content.Load<Texture2D>("Images/Sprites/Player/HeroRun");
-        landImg = content.Load<Texture2D>("Images/Sprites/Player/HeroLand");
-        jumpImg = content.Load<Texture2D>("Images/Sprites/Player/HeroJump");
-        fallImg = content.Load<Texture2D>("Images/Sprites/Player/HeroFall");
-        swimImg = content.Load<Texture2D>("Images/Sprites/Player/HeroSwim");
-        slideImg = content.Load<Texture2D>("Images/Sprites/Player/HeroSlide");
-        latchImg = content.Load<Texture2D>("Images/Sprites/Player/HeroWallJump");
-        climbImg = content.Load<Texture2D>("Images/Sprites/Player/HeroClimb");
-        hangImg = content.Load<Texture2D>("Images/Sprites/Player/HeroHang");
-        deathImg = content.Load<Texture2D>("Images/Sprites/Player/HeroDeath");
+        foreach (animStates animState in Enum.GetValues(typeof(animStates)))
+        {
+            imgs[(int)animState] = content.Load<Texture2D>($"Images/Sprites/Player/Hero{animState}");
+        }
 
         // Create player animations
-        idleAnim = new Animation(idleImg, 10, 1, 10, 0, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 10 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, true, "PlayerIdle");
-        runAnim = new Animation(runImg, 10, 1, 10, 0, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 10 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, true, "PlayerRun");
-        landAnim = new Animation(landImg, 5, 1, 5, 0, Animation.NO_IDLE, 1, 5 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, false, "PlayerLand");
-        jumpAnim = new Animation(jumpImg, 6, 1, 6, 0, 5, 1, 6 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, false, "PlayerJump");
-        fallAnim = new Animation(fallImg, 3, 1, 3, 0, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 3 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, true, "PlayerFall");
-        swimAnim = new Animation(swimImg, 6, 1, 6, 0, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 6 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, true, "PlayerSwim");
-        slideAnim = new Animation(slideImg, 6, 1, 6, 2, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 6 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, false, "PlayerSlide");
-        latchAnim = new Animation(latchImg, 4, 1, 4, 0, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 8 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, false, "PlayerWallJump");
-        climbAnim = new Animation(climbImg, 4, 1, 4, 0, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 4 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, true, "PlayerClimb");
-        hangAnim = new Animation(hangImg, 3, 1, 3, 0, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 3 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, true, "PlayerHang");
-        deathAnim = new Animation(deathImg, 23, 1, 23, 0, Animation.NO_IDLE, 1, 23 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, false, "PlayerDeath");
+        anims[(int)animStates.Idle] = new Animation(imgs[(int)animStates.Idle], 10, 1, 10, 0, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 10 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, true, "PlayerIdle");
+        anims[(int)animStates.Running] = new Animation(imgs[(int)animStates.Running], 10, 1, 10, 0, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 10 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, true, "PlayerRun");
+        anims[(int)animStates.Landing] = new Animation(imgs[(int)animStates.Landing], 5, 1, 5, 0, Animation.NO_IDLE, 1, 5 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, false, "PlayerLand");
+        anims[(int)animStates.Jumping] = new Animation(imgs[(int)animStates.Jumping], 6, 1, 6, 0, 5, 1, 6 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, false, "PlayerJump");
+        anims[(int)animStates.Falling] = new Animation(imgs[(int)animStates.Falling], 3, 1, 3, 0, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 3 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, true, "PlayerFall");
+        anims[(int)animStates.Swimming] = new Animation(imgs[(int)animStates.Swimming], 6, 1, 6, 0, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 6 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, true, "PlayerSwim");
+        anims[(int)animStates.Sliding] = new Animation(imgs[(int)animStates.Sliding], 6, 1, 6, 2, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 6 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, false, "PlayerSlide");
+        anims[(int)animStates.Latching] = new Animation(imgs[(int)animStates.Latching], 4, 1, 4, 0, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 8 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, false, "PlayerWallJump");
+        anims[(int)animStates.Climbing] = new Animation(imgs[(int)animStates.Climbing], 4, 1, 4, 0, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 4 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, true, "PlayerClimb");
+        anims[(int)animStates.Hanging] = new Animation(imgs[(int)animStates.Hanging], 3, 1, 3, 0, Animation.NO_IDLE, Animation.ANIMATE_FOREVER, 3 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, true, "PlayerHang");
+        anims[(int)animStates.Dying] = new Animation(imgs[(int)animStates.Dying], 23, 1, 23, 0, Animation.NO_IDLE, 1, 23 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, false, "PlayerDeath");
     }
 
-    private Animation GetCurAnim()
-    {
-        switch (state)
-        {
-            case PlayerState.Idle:
-                return idleAnim;
-
-            case PlayerState.Running:
-                return runAnim;
-
-            case PlayerState.Landing:
-                return landAnim;
-
-            case PlayerState.Jumping:
-                return jumpAnim;
-
-            case PlayerState.Falling:
-                return fallAnim;
-
-            case PlayerState.Swimming:
-                return swimAnim;
-
-            case PlayerState.Sliding:
-                return slideAnim;
-
-            case PlayerState.Latching:
-                return latchAnim;
-
-            case PlayerState.Climbing:
-                return climbAnim;
-
-            case PlayerState.Hanging:
-                return hangAnim;
-
-            case PlayerState.Dead:
-                return deathAnim;
-
-            default:
-                return idleAnim;
-        }
-    }
-
-    private void SetState(PlayerState newState)
+    private void SetState(animStates newState)
     {
         if (state != newState)
         {
             state = newState;
-            GetCurAnim().Activate(true);
+            anims[(int)state].Activate(true);
         }
     }
 
@@ -211,6 +144,7 @@ class Player
         isDead = false;
         isGrounded = false;
         isLatching = false;
+        isClimbing = false;
         onZipline = false;
 
         inWater = false;
@@ -219,10 +153,10 @@ class Player
         isPrevSliding = false;
 
         // Set oxygen back to max amount
-        oxygen = MAX_OXYGEN;
+        Oxygen = MAX_OXYGEN;
 
         // Reset death animation
-        deathAnim.Activate(false);
+        anims[(int)animStates.Dying].Activate(false);
     }
 
     private void LoadWin()
@@ -256,7 +190,7 @@ class Player
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        GetCurAnim().Draw(spriteBatch, Color.White, direction);
+        anims[(int)state].Draw(spriteBatch, Color.White, direction);
     }
 
     public void CenterPos(Vector2 newPos)
@@ -359,17 +293,17 @@ class Player
         vel.X = vel.X - Math.Sign(vel.X) * Math.Min(Math.Abs(vel.X), AIR_RESISTANCE * (float)gameTime.ElapsedGameTime.TotalSeconds);
 
         // If the player presses a jump key, and is on the grounded, update their speed to move up and play jump animation
-        if ((isGrounded || prevInWater) && (kb.IsKeyDown(Keys.W) || kb.IsKeyDown(Keys.Up) || kb.IsKeyDown(Keys.Space)))
+        if ((isGrounded || prevInWater || isClimbing) && (kb.IsKeyDown(Keys.W) || kb.IsKeyDown(Keys.Up) || kb.IsKeyDown(Keys.Space)))
         {
             // Since the player jumped, they are no longer grounded
             isGrounded = false;
             coyoteTime = -1;
 
             // Update the player's velocity, making them jump
-            vel.Y = JUMP_SPEED;
+            vel.Y = isGrounded && prevInWater ? JUMP_SPEED : CLIMB_SPEED;
 
             // Play jump animation
-            SetState(PlayerState.Jumping);
+            SetState(animStates.Jumping);
         }
 
         // Set player as assumed to not be sliding
@@ -407,6 +341,13 @@ class Player
         // Update the player's position with velocity
         pos.X += vel.X * (float)gameTime.ElapsedGameTime.TotalSeconds;
         pos.Y += vel.Y * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+        // If the player is in water, they aren't sliding anymore // FIXME bug when player slides into swim
+        if (!prevInWater && inWater && isSliding)
+        {
+            // isPrevSliding = isSliding;
+            // isSliding = false;
+        }
 
         // Ensure player is centered when swimming and grounded when sliding
         OffsetPosInState(prevInWater, inWater, SWIM_OFFSET);
@@ -457,8 +398,10 @@ class Player
         int tileType;
         Rectangle tileRec;
 
-        // Set the player to not be on the ground and in water unless collision checks conclude otherwise
+        // Reset player state checks
         isGrounded = false;
+        isClimbing = false;
+
         prevInWater = inWater;
         inWater = false;
 
@@ -470,11 +413,11 @@ class Player
                 for (int y = Math.Max(0, tileY - TILE_CHECK_SIZE); y <= Math.Min(map.sizeY - 1, tileY + TILE_CHECK_SIZE); y++)
                 {
                     if (map.tiles[x, y] == null) continue;
-                    tileType = map.tiles[x, y].type;
-                    tileRec = map.tiles[x, y].rec;
+                    tileType = map.tiles[x, y].Type;
+                    tileRec = map.tiles[x, y].Rec;
 
                     // Check if any collision occurred with a collidable tile
-                    if (1 <= tileType && (tileType <= Tile.PLATFORM_TYPE_AMOUNT || tileType == Tile.WALL_JUMP) && rec.Intersects(tileRec))
+                    if (Tile.WATER < tileType && (tileType <= Tile.PLATFORM_TYPE_AMOUNT || tileType == Tile.WALL_JUMP) && rec.Intersects(tileRec))
                     {
                         // Check if player collides up or down
                         if (tileRec.Intersects(top))
@@ -549,34 +492,29 @@ class Player
         // Perform tile collision checks with player (for the tile the player is at) (if tile exists)
         if (0 <= tileX && tileX < map.sizeX && 0 <= tileY && tileY < map.sizeY)
         {
-            tileType = map.tiles[tileX, tileY].type;
+            tileType = map.tiles[tileX, tileY].Type;
 
             // Check each special tile
             if (tileType == Tile.END)
             {
                 // If the player reaches the end, then win only if they got all the buttons
-                if (buttons.IsEmpty())
+                if (Buttons.IsEmpty())
                 {
                     LoadWin();
                     return;
                 }
             }
-            else if (tileType == Tile.WATER)
-            {
-                // Player is in water
-                inWater = true;
-            }
             else if (tileType == Tile.BUTTON)
             {
                 // Check if button is found
-                if (tileX == nextButton.x && tileY == nextButton.y)
+                if (tileX == NextButton.X && tileY == NextButton.Y)
                 {
                     // Remove button and store next one
-                    buttons.Delete(nextButton);
-                    nextButton = buttons.GetLeftmost();
+                    Buttons.Delete(NextButton);
+                    NextButton = Buttons.GetLeftmost();
 
                     // Change tile to show a pressed button
-                    map.tiles[tileX, tileY].type = Tile.PRESSED_BUTTON;
+                    map.tiles[tileX, tileY].Type = Tile.PRESSED_BUTTON;
 
                     // Give screen glow for player for getting the button
                     btnGlow = 1;
@@ -594,13 +532,23 @@ class Player
                         curZipline = map.ziplines[Zipline.FindId(tileType)];
 
                         // Center player at zipline
-                        CenterPos(map.tiles[tileX, tileY].rec.Center.ToVector2());
+                        CenterPos(map.tiles[tileX, tileY].Rec.Center.ToVector2());
                     }
                 }
-                else if (onZipline && curZipline.end.type == tileType)
+                else if (onZipline && curZipline.End.Type == tileType)
                 {
                     onZipline = false;
                 }
+            }
+            else if (tileType == Tile.WATER || map.floodTiles[tileX, tileY] != Tile.NOT_FLOODED)
+            {
+                // Player is in water
+                inWater = true;
+            }
+            else if (tileType == Tile.LADDER)
+            {
+                // Player is climbing
+                isClimbing = true;
             }
         }
 
@@ -621,15 +569,15 @@ class Player
         // If in water, lose oxygen, otherwise gain oxygen
         if (inWater)
         {
-            oxygen -= map.drownSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            Oxygen -= map.drownSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
         else
         {
-            oxygen = Math.Min(MAX_OXYGEN, oxygen + INHALE_SPEED * (float)gameTime.ElapsedGameTime.TotalSeconds);
+            Oxygen = Math.Min(MAX_OXYGEN, Oxygen + INHALE_SPEED * (float)gameTime.ElapsedGameTime.TotalSeconds);
         }
 
         // If the player runs out of oxygen, they die
-        if (oxygen < 0)
+        if (Oxygen < 0)
         {
             isDead = true;
         }
@@ -641,7 +589,7 @@ class Player
         if (isDead)
         {
             // Play death animation if dead, but if animation done go to game over screen
-            if (deathAnim.IsFinished())
+            if (anims[(int)animStates.Dying].IsFinished())
             {
                 // Pause the game
                 Game1.paused = true;
@@ -650,7 +598,7 @@ class Player
                 DeathScreen newScreen = new DeathScreen();
                 newScreen.AddToRoot();
             }
-            else SetState(PlayerState.Dead);
+            else SetState(animStates.Dying);
             return;
         }
 
@@ -661,21 +609,21 @@ class Player
         // Play latching animation when needed
         if (isLatching)
         {
-            SetState(PlayerState.Latching);
+            SetState(animStates.Latching);
             return;
         }
 
         // If the player is on a zipline, play zipline hanging animation
         if (onZipline)
         {
-            SetState(PlayerState.Hanging);
+            SetState(animStates.Hanging);
             return;
         }
 
         // If the player is in water, they are in the swimming animation
         if (inWater)
         {
-            SetState(PlayerState.Swimming);
+            SetState(animStates.Swimming);
             return;
         }
         
@@ -684,9 +632,9 @@ class Player
         {
             if (!isLatching)
             {
-                if (vel.Y < 0) SetState(PlayerState.Jumping);
-                else if (vel.Y >= FALL_THRESHOLD) SetState(PlayerState.Falling);
-                else if (state != PlayerState.Jumping && state != PlayerState.Running) SetState(PlayerState.Idle);
+                if (vel.Y < 0) SetState(animStates.Jumping);
+                else if (vel.Y >= FALL_THRESHOLD) SetState(animStates.Falling);
+                else if (state != animStates.Jumping && state != animStates.Running) SetState(animStates.Idle);
             }
             return;
         }
@@ -694,33 +642,33 @@ class Player
         // If sliding, play slide animation
         if (isSliding)
         {
-            SetState(PlayerState.Sliding);
+            SetState(animStates.Sliding);
             return;
         }
         
         // Play landing animation as we just landed only if no input
-        if ((state == PlayerState.Falling || state == PlayerState.Jumping) && moveInput == 0)
+        if ((state == animStates.Falling || state == animStates.Jumping) && moveInput == 0)
         {
-            SetState(PlayerState.Landing);
+            SetState(animStates.Landing);
             return;
         }
         
         // When the landing animation finishes, go to Idle
-        if (state == PlayerState.Landing)
+        if (state == animStates.Landing)
         {
-            if (!landAnim.IsAnimating()) SetState(PlayerState.Idle);
+            if (!anims[(int)animStates.Landing].IsAnimating()) SetState(animStates.Idle);
             return;
         }
         
         // Player is trying to move
         if (moveInput != 0)
         {
-            SetState(PlayerState.Running);
+            SetState(animStates.Running);
             return;
         }
         
         // Otherwise idle
-        SetState(PlayerState.Idle);
+        SetState(animStates.Idle);
     }
 
     private void UpdateAnims(GameTime gameTime)
@@ -729,7 +677,7 @@ class Player
         UpdateAnimsChecks();
 
         // Update the position of the animation
-        GetCurAnim().TranslateTo(pos.X - (ANIM_SIZE * Game1.PIXEL_SCALE - rec.Width) / 2, pos.Y - (ANIM_SIZE * Game1.PIXEL_SCALE - rec.Height) / 2);
+        anims[(int)state].TranslateTo(pos.X - (ANIM_SIZE * Game1.PIXEL_SCALE - rec.Width) / 2, pos.Y - (ANIM_SIZE * Game1.PIXEL_SCALE - rec.Height) / 2);
 
         // Update button screen glow amount and update button vignette
         btnGlow = Math.Max(0, btnGlow - Game1.ExpSmoothing(gameTime, btnGlowSpeed));
@@ -738,7 +686,7 @@ class Player
         // Update animation, unless the frame should be frozen
         if ((inWater && Math.Abs(vel.X) + Math.Abs(vel.Y) >= RUN_THRESHOLD) || (!inWater && (!isSliding || moveInput != 0)) || isDead)
         {
-            GetCurAnim().Update(gameTime);
+            anims[(int)state].Update(gameTime);
         }
     }
 }

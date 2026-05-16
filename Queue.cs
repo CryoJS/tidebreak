@@ -5,16 +5,16 @@ class Queue<Value>
     // Store data about the collection // REVIEW can i implement queue but with integrated linked list and therefore renamed head tail to front back?
     private QueueNode<Value> front = null;
     private QueueNode<Value> back = null;
-    public int count { get; private set; }
+    public int Count { get; private set; }
 
     public Queue()
     {
-        count = 0;
+        Count = 0;
     }
 
     public bool IsEmpty()
     {
-        return count == 0;
+        return Count == 0;
     }
 
     public void Enqueue(Value val)
@@ -27,12 +27,12 @@ class Queue<Value>
         else
         {
             // Add to back and update new back
-            back.next = new QueueNode<Value>(val, back);
-            back = back.next;
+            back.Next = new QueueNode<Value>(val, back);
+            back = back.Next;
         }
 
         // Increment count
-        count++;
+        Count++;
     }
 
     public Value Dequeue()
@@ -44,14 +44,14 @@ class Queue<Value>
             Value val = front.val;
 
             // Set the front to the next value
-            front = front.next;
+            front = front.Next;
 
             // Remove deleter references of old front, if queue is now empty reset back too
-            if (front != null) front.prev = null;
+            if (front != null) front.Prev = null;
             else back = null;
 
             // Decrement count and return
-            count--;
+            Count--;
             return val;
         }
 

@@ -4,16 +4,16 @@ class BSTree<Value> where Value : IComparable<Value>
 {
     // Store required data
     private BSTreeNode<Value> root;
-    public int count { get; private set; }
+    public int Count { get; private set; }
 
     public BSTree()
     {
-        count = 0;
+        Count = 0;
     }
 
     public bool IsEmpty()
     {
-        return count == 0;
+        return Count == 0;
     }
 
     public Value GetLeftmost()
@@ -23,7 +23,7 @@ class BSTree<Value> where Value : IComparable<Value>
 
         // Explore tree starting from root, always going left
         BSTreeNode<Value> cur = root;
-        while (cur.left != null) cur = cur.left;
+        while (cur.Left != null) cur = cur.Left;
 
         // Return found leftmost node
         return cur.val;
@@ -52,34 +52,34 @@ class BSTree<Value> where Value : IComparable<Value>
                 else if (val.CompareTo(cur.val) < 0)
                 {
                     // If no left tree, place new node, otherwise explore left
-                    if (cur.left == null)
+                    if (cur.Left == null)
                     {
-                        cur.left = new BSTreeNode<Value>(val, cur);
+                        cur.Left = new BSTreeNode<Value>(val, cur);
                         break;
                     }
                     else
                     {
-                        cur = cur.left;
+                        cur = cur.Left;
                     }
                 }
                 else
                 {
                     // If no right tree, place new node, otherwise explore right
-                    if (cur.right == null)
+                    if (cur.Right == null)
                     {
-                        cur.right = new BSTreeNode<Value>(val, cur);
+                        cur.Right = new BSTreeNode<Value>(val, cur);
                         break;
                     }
                     else
                     {
-                        cur = cur.right;
+                        cur = cur.Right;
                     }
                 }
             }
         }
 
         // Increment count and return true (as we didn't find the value we were adding)
-        count++;
+        Count++;
         return true;
     }
 
@@ -90,8 +90,8 @@ class BSTree<Value> where Value : IComparable<Value>
         {
             // If equal then found, if less than explore left subtree, else explore right subtree
             if (val.Equals(cur.val)) return cur;
-            else if (val.CompareTo(cur.val) < 0) cur = cur.left;
-            else cur = cur.right;
+            else if (val.CompareTo(cur.val) < 0) cur = cur.Left;
+            else cur = cur.Right;
         }
 
         return null;
@@ -106,9 +106,9 @@ class BSTree<Value> where Value : IComparable<Value>
         if (cur == null) return;
 
         // Store important nodes we want to store (as they are accessed frequently)
-        BSTreeNode<Value> parent = cur.parent;
-        BSTreeNode<Value> left = cur.left;
-        BSTreeNode<Value> right = cur.right;
+        BSTreeNode<Value> parent = cur.Parent;
+        BSTreeNode<Value> left = cur.Left;
+        BSTreeNode<Value> right = cur.Right;
 
         // Check how many children exists (none, two, one)
         if (left == null && right == null) // No children
@@ -121,15 +121,15 @@ class BSTree<Value> where Value : IComparable<Value>
             else
             {
                 // Find where node is referenced by parent and delete it
-                if (val.CompareTo(parent.val) < 0) parent.left = null;
-                else parent.right = null;
+                if (val.CompareTo(parent.val) < 0) parent.Left = null;
+                else parent.Right = null;
             }
         }
         else if (left != null && right != null) // Two children
         {
             // Only two children exist, find rightmost (largest) node in left subtree as replacement
             BSTreeNode<Value> newCur = left;
-            while (newCur.right != null) newCur = newCur.right;
+            while (newCur.Right != null) newCur = newCur.Right;
 
             // Store current node's new value after replacement and delete replacement node
             Value newCurVal = newCur.val;
@@ -137,7 +137,7 @@ class BSTree<Value> where Value : IComparable<Value>
 
             // Replace node to be deleted with replacement node
             cur.val = newCurVal;
-            count++;
+            Count++;
         }
         else // Only one child (right)
         {
@@ -145,26 +145,26 @@ class BSTree<Value> where Value : IComparable<Value>
             BSTreeNode<Value> child;
 
             // Find and store the only child
-            if (left != null) child = cur.left;
-            else child = cur.right;
+            if (left != null) child = cur.Left;
+            else child = cur.Right;
 
             // If no parent set new root as current node was root, otherwise give parent the only child 
             if (parent == null)
             {
                 root = child;
-                child.parent = null;
+                child.Parent = null;
             }
             else
             {
                 // If child is in delete node's parent's left subtree set left child to delete node's only child (and vice versa) 
-                if (parent.left.val.Equals(val)) parent.left = child;
-                else parent.right = child;
-                child.parent = parent;
+                if (parent.Left.val.Equals(val)) parent.Left = child;
+                else parent.Right = child;
+                child.Parent = parent;
             }
         }
 
         // Decrement count
-        count--;
+        Count--;
     }
 
     public BSTree<Value> Copy()
@@ -185,8 +185,8 @@ class BSTree<Value> where Value : IComparable<Value>
 
         // Copy the current node, then continue exploring and copying the left and right subtrees
         copy.Add(node.val);
-        CopyNode(copy, node.left);
-        CopyNode(copy, node.right);
+        CopyNode(copy, node.Left);
+        CopyNode(copy, node.Right);
     }
 
     public string InOrderTreeDisplay()
@@ -199,8 +199,8 @@ class BSTree<Value> where Value : IComparable<Value>
     private string GetDisplayList(BSTreeNode<Value> root)
     {
         // Display left subtree, then display root value, then display right subtree
-        return (root.left == null ? "" : "(" + GetDisplayList(root.left) + ") ")
+        return (root.Left == null ? "" : "(" + GetDisplayList(root.Left) + ") ")
                 + root.val
-                + (root.right == null ? "" : " (" + GetDisplayList(root.right) + ")");
+                + (root.Right == null ? "" : " (" + GetDisplayList(root.Right) + ")");
     }
 }

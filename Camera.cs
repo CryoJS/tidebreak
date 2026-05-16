@@ -6,16 +6,18 @@ using Tidebreak;
 
 class Camera
 {
-    // Create viewport camera and store settings
+    // Store camera settings
+    private const float CAMERA_ZOOM = 0.5f;
+    private const float SPEED = 3f;
+    private const float DEAD_ZONE = 100f;
+
+    // Create viewport camera
     private Cam2D camera; 
-    private float cameraZoom = 0.5f;
-    private float speed = 3f;
-    private float deadZone = 100f;
 
     public Camera(Viewport viewport)
     {
         camera = new Cam2D(viewport);
-        camera.SetZoom(cameraZoom);
+        camera.SetZoom(CAMERA_ZOOM);
     }
 
     public Vector2 WorldToScreen(Vector2 pos)
@@ -34,10 +36,10 @@ class Camera
         Vector2 dist = rec.Center.ToVector2() - camera.GetPosition();
 
         // Only update camera if outside of dead zone
-        if (dist.Length() > deadZone)
+        if (dist.Length() > DEAD_ZONE)
         {
             // Move camera by a percentage of the distance needed, smoothly
-            camera.LookAt(camera.GetPosition() + dist * Game1.ExpSmoothing(gameTime, speed));
+            camera.LookAt(camera.GetPosition() + dist * Game1.ExpSmoothing(gameTime, SPEED));
         }
     }
 

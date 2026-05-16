@@ -1,4 +1,3 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Tidebreak;
@@ -7,8 +6,9 @@ class Tile
 {
     // Create constants for tile types
     public const int TYPE_AMOUNT = 25;
-    public const int PLATFORM_TYPE_AMOUNT = 13;
+    public const int PLATFORM_TYPE_AMOUNT = 11;
 
+    public const int BARRIER = -2; // TODO add texture for barrier
     public const int EMPTY = -1;
     public const int WATER = 0;
     public const int GRASS = 1;
@@ -21,10 +21,10 @@ class Tile
     public const int PLANK = 8;
     public const int PIKE = 9;
     public const int CRATE = 10;
-    public const int LEAF = 11;
-    public const int TRUNK = 12;
-    public const int LADDER = 13;
+    public const int TRUNK = 11;
 
+    public const int LADDER = 12; // TODO add ladder climbing
+    public const int LEAF = 13;
     public const int SIGN = 14;
     public const int LEFT_SIGN = 15;
     public const int RIGHT_SIGN = 16;
@@ -41,28 +41,29 @@ class Tile
     public const int ZIPLINE = 50; // Zipline start and end tiles are from here and onwards in pairs, i.e. {(50, 51), (52, 53), ...}
 
     // Create constants for if tile is floodable or not
-    public const string FLOODABLE = "OO";
-    public const string NOT_FLOODABLE = "..";
+    public const int NOT_FLOODED = 0;
+    public const int FLOOD_START = 1;
+    public const int FLOODED = 2;
 
     // Store all tile textures
     public static Texture2D[] tileTextures = new Texture2D[TYPE_AMOUNT];
 
     // Store tile information
-    public int type { get; set; }
-    public Rectangle rec { get; }
+    public int Type { get; set; }
+    public Rectangle Rec { get; }
 
     public Tile(int posX, int posY, int type = EMPTY)
     {
-        this.type = type;
-        rec = new Rectangle(posX * Game1.TILE_SIZE * Game1.PIXEL_SCALE, posY * Game1.TILE_SIZE * Game1.PIXEL_SCALE, Game1.TILE_SIZE * Game1.PIXEL_SCALE, Game1.TILE_SIZE * Game1.PIXEL_SCALE);
+        Type = type;
+        Rec = new Rectangle(posX * Game1.TILE_SIZE * Game1.PIXEL_SCALE, posY * Game1.TILE_SIZE * Game1.PIXEL_SCALE, Game1.TILE_SIZE * Game1.PIXEL_SCALE, Game1.TILE_SIZE * Game1.PIXEL_SCALE);
     }
 
-    public void Draw(SpriteBatch _spriteBatch, bool editing = false)
+    public void Draw(SpriteBatch spriteBatch, bool editing = false)
     {
         // Draw the tile if it can be drawn and should be visible
-        if (type != EMPTY && (editing || (type != START && type != END)) && (type < ZIPLINE))
+        if (Type > EMPTY && (editing || (Type != START && Type != END)) && (Type < ZIPLINE))
         {
-            _spriteBatch.Draw(tileTextures[type], rec, Color.White);
+            spriteBatch.Draw(tileTextures[Type], Rec, Color.White);
         }
     }
 }

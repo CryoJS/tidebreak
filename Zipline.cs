@@ -18,16 +18,16 @@ class Zipline
     private GameCircle endCircle;
 
     // Store start and end tiles
-    public Tile start { set; get; }
-    public Tile end { set; get; }
+    public Tile Start { set; get; }
+    public Tile End { set; get; }
 
     public Zipline() { }
 
     public void Load(GraphicsDevice gd)
     {
-        line = new GameLine(gd, start.rec.Center.ToVector2(), end.rec.Center.ToVector2(), BORDER_WIDTH);
-        startCircle = new GameCircle(gd, start.rec.Center.ToVector2(), RADIUS, BORDER_WIDTH);
-        endCircle = new GameCircle(gd, end.rec.Center.ToVector2(), RADIUS / 2);
+        line = new GameLine(gd, Start.Rec.Center.ToVector2(), End.Rec.Center.ToVector2(), BORDER_WIDTH);
+        startCircle = new GameCircle(gd, Start.Rec.Center.ToVector2(), RADIUS, BORDER_WIDTH);
+        endCircle = new GameCircle(gd, End.Rec.Center.ToVector2(), RADIUS / 2);
     }
 
     public void Draw(SpriteBatch spriteBatch)
@@ -40,7 +40,7 @@ class Zipline
     public void MovePlayer(Player player, float speed)
     {
         // Calculate the direction unit vector
-        Vector2 dir = end.rec.Center.ToVector2() - player.rec.Center.ToVector2();
+        Vector2 dir = End.Rec.Center.ToVector2() - player.rec.Center.ToVector2();
         dir.Normalize();
 
         // Move player with that speed and direction along the zipline

@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Timers;
 using GameUtility;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -32,12 +31,15 @@ class Map // TODO All documentation for methods
         Color.Blue,         // 7 - Extreme
     };
 
+    // Store adjacent tile transformations
+    (int, int)[] adjTiles = {(-1, 0), (1, 0), (0, -1), (0, 1)};
+
     // Store core map information
     public string name { get; set; }
     public string author { get; set; }
     public string description { get; set; }
     public float difficulty { get; set; }
-    public DateTime creationDate { get; private set; } // FIXME might not add these yet
+    public DateTime creationDate { get; private set; }
     public DateTime modifiedDate { get; private set; }
     public bool locked {get; private set; }
 
@@ -50,14 +52,13 @@ class Map // TODO All documentation for methods
     private int startTileCnt = 0;
     private Vector2 startPos;
 
-    public float drownSpeed { get; set; } = 10f; // Oxygen depletion amount when in water
-    public float floodSpeed { get; set; } = 0.1f; // Water spread speed (tiles per second)
-    private GameUtility.Timer floodTimer; // Current timer for water spread // FIXME not sure if GameUtility.Timer or System.Timer(or something)
+    public float drownSpeed { get; set; } = 10f;    // Oxygen depletion amount when in water
+    public float floodSpeed { get; set; } = 0.1f;   // Water spread speed (tiles per second)
 
     // Store tiles in the map
     public Tile[,] tiles { get; set; }
     public Tile[,] bgTiles { get; set; }
-    public bool[,] floodTiles { get; set; }
+    public int[,] floodTiles { get; set; }
 
     // Store ziplines in the map
     private int ziplineCnt = 0;
@@ -66,6 +67,10 @@ class Map // TODO All documentation for methods
     // Store buttons in the map
     int buttonCnt;
     public BSTree<Button> buttons { get; private set; } = new BSTree<Button>();
+
+    // Store buttons in the map
+    private Queue<(int, int)> floodQueue;
+    private Timer floodTimer; // Current timer for water spread
 
     public Map() {}
 
@@ -92,7 +97,7 @@ class Map // TODO All documentation for methods
         {
             // Load the file into this map
             StreamReader inFile = new StreamReader("DefaultMap.txt");
-            Load(inFile, Game1._graphics.GraphicsDevice, true);
+            Load(inFile, true);
         }
         catch
         {
@@ -117,17 +122,32 @@ class Map // TODO All documentation for methods
         time = 0;
 
         // Give player a copy of all the buttons (for the player to go through like a priority queue)
-        player.nextButton = buttons.GetLeftmost();
-        player.buttons = buttons.Copy();
+        player.NextButton = buttons.GetLeftmost();
+        player.Buttons = buttons.Copy();
 
-        // Reset all buttons to unpressed
+        // Reset flood queue and timer
+        floodQueue = new Queue<(int, int)>();
+        floodTimer = new Timer(1000 / floodSpeed, true);
+
+        // Reset all buttons to unpressed and water tiles to unflooded, also add flood start tiles into queue
         for (int x = 0; x < sizeX; x++)
         {
             for (int y = 0; y < sizeY; y++)
             {
-                if (tiles[x, y].type == Tile.PRESSED_BUTTON)
+                // Reset buttons
+                if (tiles[x, y].Type == Tile.PRESSED_BUTTON)
                 {
-                    tiles[x, y].type = Tile.BUTTON;
+                    tiles[x, y].Type = Tile.BUTTON;
+                }
+
+                // Reset flood, and if the tile is a flood start tile, put it into the queue
+                if (floodTiles[x, y] == Tile.FLOODED)
+                {
+                    floodTiles[x, y] = Tile.NOT_FLOODED;
+                }
+                else if (floodTiles[x, y] == Tile.FLOOD_START)
+                {
+                    floodQueue.Enqueue((x, y));
                 }
             }
         }
@@ -135,17 +155,69 @@ class Map // TODO All documentation for methods
 
     public void Update(GameTime gameTime)
     {
+        // Store current tile and adj tile coordinates
+        int x;
+        int y;
+        int nx;
+        int ny;
+
+        // Update elapsed time
         time += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
+        // Update flood timer
+        floodTimer.Update(gameTime.ElapsedGameTime.Milliseconds);
+
+        // Propagate flood if flood timer is finished
+        if (floodTimer.IsFinished())
+        {
+            // Only loop amount of tiles in current depth
+            for (int amount = floodQueue.Count; amount-- > 0;)
+            {
+                // Get current tile
+                (x, y) = floodQueue.Dequeue();
+
+                // Explore adjacent tiles
+                foreach ((int xi, int yi) in adjTiles)
+                {
+                    // Calculate new tiles
+                    nx = x + xi;
+                    ny = y + yi;
+
+                    // Only perform logic if tile within bounds
+                    if (nx < 0 || nx > sizeX || ny < 0 || ny > sizeY) continue;
+
+                    // Only expand tile if empty (and unflooded)
+                    if (floodTiles[nx, ny] == Tile.NOT_FLOODED && tiles[nx, ny].Type != Tile.WALL_JUMP && (tiles[nx, ny].Type == Tile.EMPTY || tiles[nx, ny].Type > Tile.PLATFORM_TYPE_AMOUNT))
+                    {
+                        // Set the tile to flooded and add it to the queue
+                        floodTiles[nx, ny] = Tile.FLOODED;
+                        floodQueue.Enqueue((nx, ny));
+                    }
+                }
+            }
+
+            // Reset flood timer
+            floodTimer.ResetTimer(true);
+        }
     }
 
     public void Draw(SpriteBatch spriteBatch)
     {
-        // Draw each tile, background tile first, then foreground tile
+        // Draw each tile, background tile first, 
         for (int x = 0; x < sizeX; x++)
         {
             for (int y = 0; y < sizeY; y++)
             {
+                // Draw background tile first
                 bgTiles[x, y].Draw(spriteBatch);
+
+                // Draw expanding water while keeping background and foreground in mind
+                if (floodTiles[x, y] != Tile.NOT_FLOODED && floodTiles[x, y] != Tile.WALL_JUMP)
+                {
+                    spriteBatch.Draw(Tile.tileTextures[Tile.WATER], tiles[x, y].Rec, Color.White);
+                }
+
+                // Draw foreground tile last
                 tiles[x, y].Draw(spriteBatch);
             }
         }
@@ -162,7 +234,7 @@ class Map // TODO All documentation for methods
         // TODO
     }
 
-    public void Load(StreamReader inFile, GraphicsDevice gd, bool newMap = false) // FIXME if mr lane allows graphics device to be public, remove it here
+    public void Load(StreamReader inFile, bool newMap = false)
     {
         // Create a variable for storing lines
         string[] line;
@@ -191,7 +263,7 @@ class Map // TODO All documentation for methods
         // Create tile arrays
         tiles = new Tile[sizeX, sizeY];
         bgTiles = new Tile[sizeX, sizeY];
-        floodTiles = new bool[sizeX, sizeY];
+        floodTiles = new int[sizeX, sizeY];
 
         // Create the list to store ziplines
         ziplines = new List<Zipline>(new Zipline[ziplineCnt]);
@@ -206,14 +278,14 @@ class Map // TODO All documentation for methods
                 tiles[x, y] = new Tile(x, y, Convert.ToInt32(line[x]));
 
                 // Keep track of special tiles
-                if (tiles[x, y].type == Tile.START)
+                if (tiles[x, y].Type == Tile.START)
                 {
                     startPos = new Vector2(x * Game1.TILE_SIZE * Game1.PIXEL_SCALE, y * Game1.TILE_SIZE * Game1.PIXEL_SCALE);
                 }
-                else if (tiles[x, y].type >= Tile.ZIPLINE)
+                else if (tiles[x, y].Type >= Tile.ZIPLINE)
                 {
                     // Create variables to easily access zipline indexes and properties
-                    int id = Zipline.FindId(tiles[x, y].type);
+                    int id = Zipline.FindId(tiles[x, y].Type);
 
                     // Create a new zipline if there is none
                     if (ziplines[id] == null)
@@ -222,13 +294,13 @@ class Map // TODO All documentation for methods
                     }
 
                     // Set the zipline's start and end tile, depending on if this tile is the start or end
-                    if (Zipline.IsStart(tiles[x, y].type))
+                    if (Zipline.IsStart(tiles[x, y].Type))
                     {
-                        ziplines[id].start = tiles[x, y];
+                        ziplines[id].Start = tiles[x, y];
                     }
                     else
                     {
-                        ziplines[id].end = tiles[x, y];
+                        ziplines[id].End = tiles[x, y];
                     }
                 }
             }
@@ -252,14 +324,14 @@ class Map // TODO All documentation for methods
 
             for (int x = 0; x < sizeX; x++)
             {
-                floodTiles[x, y] = line[x] == Tile.FLOODABLE;
+                floodTiles[x, y] = Convert.ToInt32(line[x]);
             }
         }
 
         // Load all zipline shapes
         foreach (Zipline zipline in ziplines)
         {
-            zipline.Load(gd);
+            zipline.Load(Game1._graphics.GraphicsDevice);
         }
 
         // Load in the # of buttons
@@ -274,10 +346,10 @@ class Map // TODO All documentation for methods
             int y = Convert.ToInt32(line[1]);
 
             // Add button into BST
-            buttons.Add(new Button(x, y, Convert.ToInt32(line[2]), tiles[x, y].rec.Center.ToVector2()));
+            buttons.Add(new Button(x, y, Convert.ToInt32(line[2]), tiles[x, y].Rec.Center.ToVector2()));
 
             // As a safety, ensure buttons are drawn
-            tiles[x, y].type = Tile.BUTTON;
+            tiles[x, y].Type = Tile.BUTTON;
         }
     }
 }

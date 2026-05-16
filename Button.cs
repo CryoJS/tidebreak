@@ -4,34 +4,34 @@ using Microsoft.Xna.Framework;
 class Button : IComparable<Button>
 {
     // Store button location and priority
-    public int x { get; private set; }
-    public int y { get; private set; }
-    public int priority { get; set; }
+    public int X { get; private set; }
+    public int Y { get; private set; }
+    public int Priority { get; set; }
 
     // Store center of button
-    public Vector2 center { get; private set; }
+    public Vector2 Center { get; private set; }
 
     public Button(int x, int y, int priority, Vector2 center)
     {
-        this.x = x;
-        this.y = y;
-        this.priority = priority;
-        this.center = center;
+        X = x;
+        Y = y;
+        Priority = priority;
+        Center = center;
     }
 
     public int CompareTo(Button other)
     {
-        return priority.CompareTo(other.priority);
+        return Priority.CompareTo(other.Priority);
     }
     
     // Check if same type, and if same type check if equal priority
     public override bool Equals(object other)
     {
-        return other is Button && priority == ((Button)other).priority;
+        return other is Button && Priority == ((Button)other).Priority;
     }
 
     public override int GetHashCode()
     {
-        return priority.GetHashCode();
+        return Priority.GetHashCode();
     }
 }

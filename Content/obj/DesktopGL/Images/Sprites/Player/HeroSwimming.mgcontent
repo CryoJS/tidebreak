@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroRun.png</SourceFile>
+  <SourceFile>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroSwimming.png</SourceFile>
   <SourceTime>2026-05-09T23:12:19.5845666-04:00</SourceTime>
-  <DestFile>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/bin/DesktopGL/Content/Images/Sprites/Player/HeroRun.xnb</DestFile>
-  <DestTime>2026-05-12T18:54:55.3537335-04:00</DestTime>
+  <DestFile>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/bin/DesktopGL/Images/Sprites/Player/HeroSwimming.xnb</DestFile>
+  <DestTime>2026-05-16T17:12:12.0500558-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2025-10-20T10:25:32-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

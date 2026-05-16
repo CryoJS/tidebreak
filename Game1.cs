@@ -18,7 +18,7 @@ namespace Tidebreak;
 
 public class Game1 : Game
 {
-    public static GraphicsDeviceManager _graphics; // REVIEW can i make this public for ease of use?
+    public static GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
     GumService GumUI => GumService.Default;
 
@@ -66,8 +66,8 @@ public class Game1 : Game
     private MouseState prevMouse;
 
     // Create variables to store the screen dimensions
-    public static int screenWidth { get; private set; }
-    public static int screenHeight { get; private set; }
+    public static int ScreenWidth { get; private set; }
+    public static int ScreenHeight { get; private set; }
 
     // Store cursor textures
     Texture2D cursorImg;
@@ -110,11 +110,11 @@ public class Game1 : Game
         _graphics.ApplyChanges();
 
         // Store the width and height of the screen
-        screenWidth = _graphics.GraphicsDevice.Viewport.Width;
-        screenHeight = _graphics.GraphicsDevice.Viewport.Height;
+        ScreenWidth = _graphics.GraphicsDevice.Viewport.Width;
+        ScreenHeight = _graphics.GraphicsDevice.Viewport.Height;
 
         // Display goal resolution and current resolution
-        Console.WriteLine($"Initializing game with resolution: {_graphics.PreferredBackBufferWidth}x{_graphics.PreferredBackBufferHeight} | Current resolution: {screenWidth}x{screenHeight}");
+        Console.WriteLine($"Initializing game with resolution: {_graphics.PreferredBackBufferWidth}x{_graphics.PreferredBackBufferHeight} | Current resolution: {ScreenWidth}x{ScreenHeight}");
 
         // Hide the cursor (using custom texture)
         IsMouseVisible = false;
@@ -270,7 +270,7 @@ public class Game1 : Game
             while (!inFile.EndOfStream)
             {
                 maps.Add(new Map());
-                maps.Last().Load(inFile, _graphics.GraphicsDevice);
+                maps.Last().Load(inFile);
             }
         }
         catch

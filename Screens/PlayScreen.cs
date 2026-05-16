@@ -43,10 +43,10 @@ namespace Tidebreak.Screens
             TimeText.Text = Game1.FormatTime(Game1.currentMap.time, false);
 
             // Update oxygen bar
-            OxygenBar.BarPercent = 100 * Game1.player.oxygen / Player.MAX_OXYGEN;
+            OxygenBar.BarPercent = 100 * Game1.player.Oxygen / Player.MAX_OXYGEN;
 
             // Update vignette intensity by how much oxygen is left
-            Vignette.Alpha2 = (int)(255 * (1 - Math.Max(0, Game1.player.oxygen) / Player.MAX_OXYGEN));
+            Vignette.Alpha2 = (int)(255 * (1 - Math.Max(0, Game1.player.Oxygen) / Player.MAX_OXYGEN));
 
             // If the user presses escape to pause, pause the game
             if (kb.IsKeyDown(Keys.Escape) && !prevKb.IsKeyDown(Keys.Escape)) TriggerPause();

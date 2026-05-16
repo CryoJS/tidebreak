@@ -7,17 +7,17 @@
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Icons/Cursor.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Icons/CursorPressed.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Icons/Gem.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroClimb.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroDeath.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroFall.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroHang.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroClimbing.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroDying.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroFalling.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroHanging.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroIdle.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroJump.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroLand.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroRun.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroSlide.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroSwim.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroWallJump.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroJumping.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroLanding.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroLatching.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroRunning.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroSliding.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroSwimming.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile0.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile1.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile10.png</File>
@@ -48,17 +48,17 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File>Images/Sprites/Player/HeroHang</File>
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File>Images/Sprites/Player/HeroLand</File>
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File>Images/Sprites/Player/HeroSwim</File>
-    <File xsi:nil="true" />
+    <File>Images/Sprites/Player/HeroClimbing</File>
+    <File>Images/Sprites/Player/HeroDying</File>
+    <File>Images/Sprites/Player/HeroFalling</File>
+    <File>Images/Sprites/Player/HeroHanging</File>
+    <File>Images/Sprites/Player/HeroIdle</File>
+    <File>Images/Sprites/Player/HeroJumping</File>
+    <File>Images/Sprites/Player/HeroLanding</File>
+    <File>Images/Sprites/Player/HeroLatching</File>
+    <File>Images/Sprites/Player/HeroRunning</File>
+    <File>Images/Sprites/Player/HeroSliding</File>
+    <File>Images/Sprites/Player/HeroSwimming</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

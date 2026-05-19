@@ -79,7 +79,6 @@ public class Game1 : Game
 
     // Store player and player's camera
     internal static Player player;
-    internal static Camera camera;
 
     // Store all needed screens
     internal static PlayScreen playScreen;
@@ -148,9 +147,6 @@ public class Game1 : Game
         // Create player (load player textures and animations)
         player = new Player(Content);
 
-        // Initialize the camera object
-        camera = new Camera(GraphicsDevice.Viewport);
-
         // Load in all maps
         LoadMaps();
     }
@@ -182,7 +178,7 @@ public class Game1 : Game
                 {
                     // Update map and player
                     currentMap?.Update(gameTime);
-                    player.Update(gameTime, kb, prevKb, camera, currentMap);
+                    player.Update(gameTime, kb, prevKb, currentMap);
 
                     // Update play screen dynamic UI
                     playScreen?.Update(kb, prevKb);
@@ -255,7 +251,7 @@ public class Game1 : Game
 
     private void cameraSpriteBatchBegin()
     {
-        _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, camera.GetTransformation());
+        _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, player.camera.GetTransformation());
     }
 
     private void LoadMaps()
@@ -303,7 +299,7 @@ public class Game1 : Game
         newScreen.AddToRoot();
 
         // Load map
-        currentMap.Start(player, camera);
+        currentMap.Start(player);
     }
 
     public static string FormatTime(float seconds, bool includeMs = true)

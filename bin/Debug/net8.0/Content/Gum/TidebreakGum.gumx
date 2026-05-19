@@ -60,14 +60,17 @@
   <ScreenReference Name="NewMapScreen" />
   <ScreenReference Name="PauseScreen" />
   <ScreenReference Name="PlayScreen" />
+  <ScreenReference Name="StopEditScreen" />
   <ScreenReference Name="TitleScreen" />
   <ScreenReference Name="WinScreen" />
   <ComponentReference Name="Controls/ButtonClose" />
   <ComponentReference Name="Controls/ButtonConfirm" />
   <ComponentReference Name="Controls/ButtonDeny" />
+  <ComponentReference Name="Controls/ButtonDenyLarger" />
   <ComponentReference Name="Controls/ButtonIcon" />
   <ComponentReference Name="Controls/ButtonStandard" />
   <ComponentReference Name="Controls/ButtonStandardIcon" />
+  <ComponentReference Name="Controls/ButtonStandardMini" />
   <ComponentReference Name="Controls/ButtonTab" />
   <ComponentReference Name="Controls/CheckBox" />
   <ComponentReference Name="Controls/ComboBox" />

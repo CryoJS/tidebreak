@@ -22,6 +22,7 @@ namespace Tidebreak.Screens
                 // Update details
                 MapName.Text = Game1.currentMap.name;
                 Author.Text = Game1.currentMap.author;
+                Size.Text = $"{Game1.currentMap.sizeX} x {Game1.currentMap.sizeY}";
                 Locked.Text = Game1.currentMap.locked ? "Yes" : "No";
 
                 // Change text and color of difficulty text

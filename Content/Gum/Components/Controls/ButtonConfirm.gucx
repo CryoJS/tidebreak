@@ -94,7 +94,7 @@
     <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">White</Value>
     </Variable>
-    <Variable Type="int" Name="TextInstance.FontSize" SetsValue="true">
+    <Variable Type="int" Name="TextInstance.FontSize" ExposedAsName="FontSize" SetsValue="true">
       <Value xsi:type="xsd:int">60</Value>
     </Variable>
     <Variable Type="float" Name="TextInstance.Height" SetsValue="true">
@@ -106,7 +106,7 @@
     <Variable Type="HorizontalAlignment" Name="TextInstance.HorizontalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
-    <Variable Type="int" Name="TextInstance.OutlineThickness" SetsValue="true">
+    <Variable Type="int" Name="TextInstance.OutlineThickness" ExposedAsName="OutlineThickness" SetsValue="true">
       <Value xsi:type="xsd:int">5</Value>
     </Variable>
     <Variable Type="StyleCategory" Name="TextInstance.StyleCategoryState" SetsValue="true">
@@ -180,19 +180,19 @@
     <State>
       <Name>Disabled</Name>
       <Variable Type="int" Name="Background.Blue" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">48</Value>
+        <Value xsi:type="xsd:int">82</Value>
       </Variable>
       <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">DarkGray</Value>
       </Variable>
       <Variable Type="int" Name="Background.Green" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">167</Value>
+        <Value xsi:type="xsd:int">106</Value>
       </Variable>
       <Variable Type="bool" Name="Background.IgnoredByParentSize" Category="Parent" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
       <Variable Type="int" Name="Background.Red" Category="Rendering" SetsValue="true">
-        <Value xsi:type="xsd:int">62</Value>
+        <Value xsi:type="xsd:int">79</Value>
       </Variable>
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
@@ -206,11 +206,7 @@
         <Category>References</Category>
         <IsFile>false</IsFile>
         <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
-        <Value>
-          <string>Red = Components/Styles.Success.Red</string>
-          <string>Green = Components/Styles.Success.Green</string>
-          <string>Blue = Components/Styles.Success.Blue</string>
-        </Value>
+        <Value />
       </VariableList>
     </State>
     <State>

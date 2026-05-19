@@ -340,9 +340,7 @@
     </Variable>
     <Variable Type="string" Name="InputDesc.Placeholder" SetsValue="true">
       <Value xsi:type="xsd:string">Write a new description
-here. This might not
-actually work properly.
-Who knows.</Value>
+here.</Value>
     </Variable>
     <Variable Type="float" Name="InputDesc.Width" SetsValue="true">
       <Value xsi:type="xsd:float">576</Value>

@@ -106,11 +106,12 @@ class Map // TODO All documentation for methods
         }
     }
 
-    public void Start(Player player, Camera camera)
+    public void Start(Player player)
     {
         // Center player and camera
         player.CenterPos(startPos);
-        camera.SetPos(startPos);
+        player.camera.SetPos(startPos);
+        player.camera.ResetZoom();
 
         // Reset player data
         player.ResetPlayer();

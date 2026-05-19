@@ -19,6 +19,9 @@
     <Variable Type="float" Name="FullscreenCheckboxInstance.Y" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
     </Variable>
+    <Variable Type="float" Name="Height" SetsValue="true">
+      <Value xsi:type="xsd:float">157</Value>
+    </Variable>
     <Variable Type="DimensionUnitType" Name="HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
     </Variable>
@@ -59,6 +62,9 @@
       <Value xsi:type="xsd:float">12</Value>
     </Variable>
     <Variable Type="State" Name="State" Category="States and Visibility" SetsValue="true" />
+    <Variable Type="float" Name="Width" SetsValue="true">
+      <Value xsi:type="xsd:float">345</Value>
+    </Variable>
   </State>
   <Instance Name="FullscreenCheckboxInstance" BaseType="Controls/CheckBox" />
   <Instance Name="MusicVolumeLabel" BaseType="Controls/Label" />

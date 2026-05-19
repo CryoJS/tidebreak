@@ -1,11 +1,4 @@
-using Gum.Converters;
-using Gum.DataTypes;
-using Gum.Managers;
-using Gum.Wireframe;
-
-using RenderingLibrary.Graphics;
-
-using System.Linq;
+using MonoGameGum;
 
 namespace Tidebreak.Screens
 {
@@ -13,7 +6,18 @@ namespace Tidebreak.Screens
     {
         partial void CustomInitialize()
         {
-        
+            // Save map if there are changes
+            SaveBtn.Click += (_, _) =>
+            {
+                // TODO this and also below logic
+            };
+
+            // Stop editing popup when pressing exit
+            CloseBtn.Click += (_, _) =>
+            {
+                StopEditScreen newScreen = new StopEditScreen();
+                newScreen.AddToRoot();
+            };
         }
     }
 }

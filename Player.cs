@@ -17,15 +17,16 @@ class Player
     private const float SWIM_SPEED = WATER_RESISTANCE + RUN_SPEED;
     private const float ZIPLINE_SPEED = 1200f;
     private const float JUMP_SPEED = -2500f;
-    private const float CLIMB_SPEED = -1000f;
+    private const float CLIMB_SPEED = 800f;
     private const float DIVE_SPEED = 2800f;
     private const float MAX_FALL_SPEED = 3000f;
     private const float AIR_RESISTANCE = 13000f;
     private const float WATER_RESISTANCE = 1000f;
     private const float WALL_JUMP_SPEED = 3200f;
 
-    private const float RUN_THRESHOLD = 50f;
+    private const float DEFAULT_THRESHOLD = 50f;
     private const float FALL_THRESHOLD = 0.9f * MAX_FALL_SPEED;
+    private const float CLIMB_DOWN_BUFFER = 200; // ms
     private const float COYOTE_MAX = 0.1f; // seconds
 
     // Store player animation constants
@@ -72,7 +73,8 @@ class Player
     private float coyoteTime = 0;
 
     private bool isDead;
-    private bool isGrounded;
+    private bool isGrounded; // any ground (ie. ladders)
+    private bool onGround; // specifically platforms
     private bool isLatching;
     private bool isClimbing;
     private bool onZipline;
@@ -82,6 +84,9 @@ class Player
     private bool prevInWater;
     private bool isSliding;
     private bool isPrevSliding;
+
+    // Store player following camera
+    public Camera camera { get; private set; } = new Camera(Game1._graphics.GraphicsDevice.Viewport);
 
     // Store player attribute data
     public float Oxygen { get; private set; } = MAX_OXYGEN;
@@ -94,8 +99,11 @@ class Player
     ButtonIndicator btnIndic = new ButtonIndicator();
 
     // Store variables for screen glow when getting a button
-    private float btnGlow = 0; // Opacity in range [0, 1] 
+    private float btnGlow = 0; // Opacity in range [0, 1]
     private float btnGlowSpeed = 1;
+
+    // Store ladder climb down timer
+    Timer climbDownTimer = new Timer(CLIMB_DOWN_BUFFER, false);
 
     // Store player collision rectangles
     private Rectangle top;
@@ -129,12 +137,12 @@ class Player
         anims[(int)animStates.Dying] = new Animation(imgs[(int)animStates.Dying], 23, 1, 23, 0, Animation.NO_IDLE, 1, 23 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, false, "PlayerDeath");
     }
 
-    private void SetState(animStates newState)
+    private void SetState(animStates newState, bool activate = true)
     {
         if (state != newState)
         {
             state = newState;
-            anims[(int)state].Activate(true);
+            anims[(int)state].Activate(activate);
         }
     }
 
@@ -143,6 +151,7 @@ class Player
         // Reset default states for safety
         isDead = false;
         isGrounded = false;
+        onGround = false;
         isLatching = false;
         isClimbing = false;
         onZipline = false;
@@ -169,14 +178,14 @@ class Player
         newScreen.AddToRoot();
     }
 
-    public void Update(GameTime gameTime, KeyboardState kb, KeyboardState prevKb, Camera camera, Map map)
+    public void Update(GameTime gameTime, KeyboardState kb, KeyboardState prevKb, Map map)
     {
         // Move player, check collisions, update player attributes
         prevPos = pos;
         Move(gameTime, kb, prevKb);
         UpdateRec();
 
-        CheckCollisions(gameTime, map);
+        CheckCollisions(gameTime, map, kb, prevKb);
         UpdateRec();
         UpdateOxygen(gameTime, map);
 
@@ -185,7 +194,7 @@ class Player
 
         // Update animations and camera
         UpdateAnims(gameTime);
-        camera.Update(gameTime, rec);
+        camera.Update(gameTime, rec, onZipline);
     }
 
     public void Draw(SpriteBatch spriteBatch)
@@ -272,7 +281,7 @@ class Player
             else
             {
                 // If moving same direction, choose largest movement, otherwise changing direction means slowly transitioning
-                if (Math.Sign(vel.X) == Math.Sign(moveInput) || Math.Abs(vel.X) < RUN_THRESHOLD)
+                if (Math.Sign(vel.X) == Math.Sign(moveInput) || Math.Abs(vel.X) < DEFAULT_THRESHOLD)
                 {
                     vel.X = moveInput * Math.Max(Math.Abs(vel.X), RUN_SPEED);
                 }
@@ -295,23 +304,25 @@ class Player
         // If the player presses a jump key, and is on the grounded, update their speed to move up and play jump animation
         if ((isGrounded || prevInWater || isClimbing) && (kb.IsKeyDown(Keys.W) || kb.IsKeyDown(Keys.Up) || kb.IsKeyDown(Keys.Space)))
         {
+            // Update the player's velocity, making them jump
+            vel.Y = isGrounded || prevInWater ? JUMP_SPEED : -CLIMB_SPEED;
+
             // Since the player jumped, they are no longer grounded
             isGrounded = false;
             coyoteTime = -1;
 
-            // Update the player's velocity, making them jump
-            vel.Y = isGrounded && prevInWater ? JUMP_SPEED : CLIMB_SPEED;
-
-            // Play jump animation
-            SetState(animStates.Jumping);
+            // Play jump animation (if not climbing)
+            if (!isClimbing) SetState(animStates.Jumping);
         }
 
         // Set player as assumed to not be sliding
         isPrevSliding = isSliding;
         isSliding = false;
 
+        Console.WriteLine(onGround + " " + isGrounded);
+
         // Slide or airdive if the player presses the button to, depending on if the player is on the ground or not
-        if (isGrounded)
+        if (onGround)
         {
             // If the player is holding slide key while on ground, he is sliding
             if (kb.IsKeyDown(Keys.S) || kb.IsKeyDown(Keys.Down))
@@ -319,10 +330,16 @@ class Player
                 isSliding = true;
             }
         }
-        else if ((kb.IsKeyDown(Keys.S) && !prevKb.IsKeyDown(Keys.S)) || (kb.IsKeyDown(Keys.Down) && !prevKb.IsKeyDown(Keys.Down)))
+        else if (!isGrounded && ((kb.IsKeyDown(Keys.S) && !prevKb.IsKeyDown(Keys.S)) || (kb.IsKeyDown(Keys.Down) && !prevKb.IsKeyDown(Keys.Down))))
         {
             // Update the player's velocity, making them air dive
             vel.Y = DIVE_SPEED;
+        }
+
+        // If the player is not diving, clamp their speed on ladders
+        if (isClimbing && vel.Y > DEFAULT_THRESHOLD && vel.Y < DIVE_SPEED - DEFAULT_THRESHOLD)
+        {
+            vel.Y = Math.Min(vel.Y, CLIMB_SPEED);
         }
     }
 
@@ -343,7 +360,7 @@ class Player
         pos.Y += vel.Y * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
         // If the player is in water, they aren't sliding anymore // FIXME bug when player slides into swim
-        if (!prevInWater && inWater && isSliding)
+        if (!prevInWater && inWater && isSliding) // FIXME bug when player swims up while in ladder
         {
             // isPrevSliding = isSliding;
             // isSliding = false;
@@ -386,7 +403,7 @@ class Player
         right = new Rectangle((int)(rec.X + 0.5 * rec.Width), (int)(rec.Y + 0.05 * rec.Height), (int)(0.5 * rec.Width), (int)(0.9 * rec.Height));
     }
 
-    private void CheckCollisions(GameTime gameTime, Map map)
+    private void CheckCollisions(GameTime gameTime, Map map, KeyboardState kb, KeyboardState prevKb)
     {
         // Load rectangles for checking collisions
         LoadCollisionRecs();
@@ -399,7 +416,7 @@ class Player
         Rectangle tileRec;
 
         // Reset player state checks
-        isGrounded = false;
+        isGrounded = onGround = false;
         isClimbing = false;
 
         prevInWater = inWater;
@@ -445,7 +462,7 @@ class Player
                             vel.Y = 0;
 
                             // Update grounded status
-                            isGrounded = true;
+                            isGrounded = onGround = true;
                         }
 
                         // Check if player collides left or right
@@ -455,8 +472,8 @@ class Player
                             pos.X = tileRec.Right + 1;
                             vel.X = 0;
 
-                            // If the player hits a wall jump, latch onto it
-                            if (tileType == Tile.WALL_JUMP && tileRec.Contains(new Vector2(rec.Left, rec.Center.Y)))
+                            // If the player hits a wall jump, latch onto it (if not swimming)
+                            if (!inWater && tileType == Tile.WALL_JUMP && tileRec.Contains(new Vector2(rec.Left, rec.Center.Y)))
                             {
                                 isLatching = true;
                                 moveInput = 1;
@@ -469,8 +486,8 @@ class Player
                             pos.X = tileRec.Left - rec.Width;
                             vel.X = 0;
 
-                            // If the player hits a wall jump, latch onto it
-                            if (tileType == Tile.WALL_JUMP && tileRec.Contains(new Vector2(rec.Right, rec.Center.Y)))
+                            // If the player hits a wall jump, latch onto it (if not swimming)
+                            if (!inWater && tileType == Tile.WALL_JUMP && tileRec.Contains(new Vector2(rec.Right, rec.Center.Y)))
                             {
                                 isLatching = true;
                                 moveInput = -1;
@@ -485,7 +502,7 @@ class Player
         // If the player is latching onto a wall, they aren't grounded
         if (isLatching)
         {
-            isGrounded = false;
+            isGrounded = onGround = false;
             vel = Vector2.Zero;
         }
 
@@ -549,6 +566,47 @@ class Player
             {
                 // Player is climbing
                 isClimbing = true;
+            }
+        }
+
+        // Update climb down timer
+        climbDownTimer.Update(gameTime.ElapsedGameTime.Milliseconds);
+
+        // Perform special collision checks with the ladder (only if player is not jumping/climbing/swimming) (and the game thinks they aren't grounded)
+        if (!onZipline && !isGrounded && !inWater)
+        {
+            for (int y = Math.Max(0, tileY); y <= Math.Min(map.sizeY - 1, tileY + 1); y++)
+            {
+                // Store tile to check
+                Tile tile = map.tiles[tileX, y];
+
+                // Only check collisions if ladder and colliding with feet while not going up
+                if (tile.Type == Tile.LADDER && tile.Rec.Intersects(bottom) && vel.Y > -DEFAULT_THRESHOLD)
+                {
+                    // Check if player is trying to climb down
+                    if ((kb.IsKeyDown(Keys.S) && !prevKb.IsKeyDown(Keys.S)) || (kb.IsKeyDown(Keys.Down) && !prevKb.IsKeyDown(Keys.Down)))
+                    {
+                        // Activate the timer to buffer
+                        climbDownTimer.ResetTimer(true);
+                    }
+
+                    // Check if player is climbing down, make them go down
+                    if (climbDownTimer.IsActive() && (kb.IsKeyDown(Keys.S) || kb.IsKeyDown(Keys.Down)))
+                    {
+                        vel.Y = CLIMB_SPEED;
+                    }
+
+                    // If player is not climbing down, collide player with the ladder step 
+                    if (!climbDownTimer.IsActive() && !kb.IsKeyDown(Keys.S) && !kb.IsKeyDown(Keys.Down))
+                    {
+                        // Set the player right above the platform, let downwards speed be blocked by the floor
+                        pos.Y = tile.Rec.Top - rec.Height + 1;
+                        vel.Y = 0;
+
+                        // Update grounded status
+                        isGrounded = true;
+                    }
+                }
             }
         }
 
@@ -627,10 +685,15 @@ class Player
             return;
         }
         
-        // If airborne, check latching or if fall or jump animation should be playing (or default to idle)
+        // If airborne, check latching, on ladder, or if fall or jump animation should be playing (or default to idle)
         if (!isGrounded)
         {
-            if (!isLatching)
+            // If falling too fast, no climb animation, if not latch check jump/fall/idle animations
+            if (isClimbing && vel.Y <= CLIMB_SPEED + DEFAULT_THRESHOLD)
+            {
+                SetState(animStates.Climbing, false);
+            }
+            else if (!isLatching)
             {
                 if (vel.Y < 0) SetState(animStates.Jumping);
                 else if (vel.Y >= FALL_THRESHOLD) SetState(animStates.Falling);
@@ -683,8 +746,10 @@ class Player
         btnGlow = Math.Max(0, btnGlow - Game1.ExpSmoothing(gameTime, btnGlowSpeed));
         Game1.playScreen.BtnVignette.Alpha2 = (int)(255 * btnGlow);
 
-        // Update animation, unless the frame should be frozen
-        if ((inWater && Math.Abs(vel.X) + Math.Abs(vel.Y) >= RUN_THRESHOLD) || (!inWater && (!isSliding || moveInput != 0)) || isDead)
+        // Update animation, unless the frame should be frozen // REVIEW is this good
+        if ((inWater && Math.Abs(vel.X) + Math.Abs(vel.Y) >= DEFAULT_THRESHOLD)
+            || (!inWater && (!isSliding || isClimbing || moveInput != 0))
+            || isDead)
         {
             anims[(int)state].Update(gameTime);
         }

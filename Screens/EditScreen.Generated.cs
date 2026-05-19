@@ -8,6 +8,8 @@ using MonoGameGum;
 using MonoGameGum.GueDeriving;
 using RenderingLibrary.Graphics;
 using System.Linq;
+using Tidebreak.Components.Controls;
+using Tidebreak.Components.Elements;
 namespace Tidebreak.Screens;
 partial class EditScreen : global::Gum.Forms.Controls.FrameworkElement
 {
@@ -36,6 +38,15 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
             return gue;
         });
     }
+    public ButtonStandardMini PlatformsBtn { get; protected set; }
+    public ButtonStandardMini DecorationsBtn { get; protected set; }
+    public ButtonConfirm SaveBtn { get; protected set; }
+    public ButtonStandardMini SpecialBtn { get; protected set; }
+    public NineSliceRuntime FrameTopBG { get; protected set; }
+    public ContainerRuntime ContainerInstance { get; protected set; }
+    public NineSliceRuntime FrameBG { get; protected set; }
+    public ButtonStandard CloseBtn { get; protected set; }
+    public Icon IconInstance2 { get; protected set; }
 
     public EditScreen(InteractiveGue visual) : base(visual)
     {
@@ -49,6 +60,15 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     protected override void ReactToVisualChanged()
     {
         base.ReactToVisualChanged();
+        PlatformsBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandardMini>(this.Visual,"PlatformsBtn");
+        DecorationsBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandardMini>(this.Visual,"DecorationsBtn");
+        SaveBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonConfirm>(this.Visual,"SaveBtn");
+        SpecialBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandardMini>(this.Visual,"SpecialBtn");
+        FrameTopBG = this.Visual?.GetGraphicalUiElementByName("FrameTopBG") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
+        ContainerInstance = this.Visual?.GetGraphicalUiElementByName("ContainerInstance") as global::MonoGameGum.GueDeriving.ContainerRuntime;
+        FrameBG = this.Visual?.GetGraphicalUiElementByName("FrameBG") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
+        CloseBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"CloseBtn");
+        IconInstance2 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Icon>(this.Visual,"IconInstance2");
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code

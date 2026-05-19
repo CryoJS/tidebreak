@@ -15,56 +15,14 @@ namespace Tidebreak.Screens
             InputDesc.TextWrapping = TextWrapping.Wrap;
             InputDesc.MaxLength = Game1.MAX_LENGTH_LONG;
 
-            // Ensure difficulty is a valid float
-            InputDifficulty.PreviewTextInput += (sender, args) =>
-            {
-                // Store current input and calculate new input 
-                TextBox textBox = (TextBox)sender;
-                string newText = textBox.Text.Insert(textBox.CaretIndex, args.Text);
-                
-                // Check if new input is valid using try parse
-                args.Handled = !float.TryParse(newText, out _);
-            };
+            // Ensure difficulty, drown speed, and flood speed are given valid floats
+            InputDifficulty.PreviewTextInput += FloatOnlyHandler;
+            InputDrownSpeed.PreviewTextInput += FloatOnlyHandler;
+            InputFloodSpeed.PreviewTextInput += FloatOnlyHandler;
 
-            // Ensure drown speed is a valid float
-            InputDrownSpeed.PreviewTextInput += (sender, args) =>
-            {
-                // Store current input and calculate new input 
-                TextBox textBox = (TextBox)sender;
-                string newText = textBox.Text.Insert(textBox.CaretIndex, args.Text);
-                
-                // Check if new input is valid using try parse
-                args.Handled = !float.TryParse(newText, out _);
-            };
-
-            // Ensure flood speed is a valid float
-            InputFloodSpeed.PreviewTextInput += (sender, args) =>
-            {
-                // Store current input and calculate new input 
-                TextBox textBox = (TextBox)sender;
-                string newText = textBox.Text.Insert(textBox.CaretIndex, args.Text);
-                
-                // Check if new input is valid using try parse
-                args.Handled = !float.TryParse(newText, out _);
-            };
-
-            // Ensure size x only recieves digits (to be an integer)
-            InputSizeX.PreviewTextInput += (sender, args) =>
-            {
-                if (args.Text.Any(item => !char.IsDigit(item)))
-                {
-                    args.Handled = true;
-                }
-            };
-
-            // Ensure size x only recieves digits (to be an integer)
-            InputSizeY.PreviewTextInput += (sender, args) =>
-            {
-                if (args.Text.Any(item => !char.IsDigit(item)))
-                {
-                    args.Handled = true;
-                }
-            };
+            // Ensure size x and y only recieves digits (to be an integer)
+            InputSizeX.PreviewTextInput += IntegerOnlyHandler;
+            InputSizeY.PreviewTextInput += IntegerOnlyHandler;
 
             // Store all float inputs
             float difficulty = Map.EMPTY;
@@ -158,6 +116,21 @@ namespace Tidebreak.Screens
             {
                 this.RemoveFromRoot();
             };
+        }
+
+        private void FloatOnlyHandler(object sender, TextCompositionEventArgs args)
+        {
+            // Store current input and calculate new input
+            TextBox textBox = (TextBox)sender;
+            string newText = textBox.Text.Insert(textBox.CaretIndex, args.Text);
+
+            // Check if new input is valid using try parse
+            args.Handled = !float.TryParse(newText, out _);
+        }
+
+        private void IntegerOnlyHandler(object sender, TextCompositionEventArgs args)
+        {
+            args.Handled = args.Text.Any(c => !char.IsDigit(c));
         }
     }
 }

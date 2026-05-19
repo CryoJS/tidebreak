@@ -71,6 +71,18 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public TextRuntime TextInstance { get; protected set; }
     public NineSliceRuntime FocusedIndicator { get; protected set; }
 
+    public int FontSize
+    {
+        get => TextInstance.FontSize;
+        set => TextInstance.FontSize = value;
+    }
+
+    public int OutlineThickness
+    {
+        get => TextInstance.OutlineThickness;
+        set => TextInstance.OutlineThickness = value;
+    }
+
 
     public ButtonConfirm(InteractiveGue visual) : base(visual)
     {

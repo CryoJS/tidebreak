@@ -107,6 +107,9 @@
     <Variable Type="HorizontalAlignment" Name="TextInstance.HorizontalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
+    <Variable Type="int" Name="TextInstance.OutlineThickness" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
     <Variable Type="StyleCategory" Name="TextInstance.StyleCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Strong</Value>
     </Variable>

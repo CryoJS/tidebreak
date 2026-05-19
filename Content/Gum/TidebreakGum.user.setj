@@ -1,15 +1,7 @@
 {
   "TreeViewState": {
     "ExpandedNodes": [
-      "Screens",
-      "Screens/MapSettingsScreen",
-      "Screens/MapSettingsScreen/FrameBG",
-      "Screens/MapSettingsScreen/FrameBG/ContainerInstance",
-      "Screens/MapSettingsScreen/FrameBG/ContainerInstance/DescriptionBg",
-      "Components",
-      "Components/Controls",
-      "Components/Controls/TextBox",
-      "Components/Controls/TextBox/ClipContainer"
+      "Screens"
     ]
   }
 }

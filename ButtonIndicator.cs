@@ -5,8 +5,8 @@ using Tidebreak;
 class ButtonIndicator
 {
     private const float RADIUS = 200;
-    private const float INNER_DIST = 500;
-    private const float OUTER_DIST = 1000;
+    private const float INNER_DIST = 600;
+    private const float OUTER_DIST = 3000;
 
     public ButtonIndicator() {}
 

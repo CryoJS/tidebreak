@@ -38,15 +38,24 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
             return gue;
         });
     }
-    public ButtonStandardMini PlatformsBtn { get; protected set; }
-    public ButtonStandardMini DecorationsBtn { get; protected set; }
+    public CheckBox BgBtn { get; protected set; }
+    public CheckBox GridBtn { get; protected set; }
+    public ButtonStandard CloseBtn { get; protected set; }
     public ButtonConfirm SaveBtn { get; protected set; }
-    public ButtonStandardMini SpecialBtn { get; protected set; }
+    public ButtonYellow RedoBtn { get; protected set; }
+    public ButtonYellow UndoBtn { get; protected set; }
+    public ButtonStandardMini PlatformBtn { get; protected set; }
+    public ButtonStandardMini DecorativeBtn { get; protected set; }
+    public ButtonStandardMini FunctionalBtn { get; protected set; }
+    public ButtonStandardMini UnselectBtn { get; protected set; }
     public NineSliceRuntime FrameTopBG { get; protected set; }
     public ContainerRuntime ContainerInstance { get; protected set; }
-    public NineSliceRuntime FrameBG { get; protected set; }
-    public ButtonStandard CloseBtn { get; protected set; }
+    public ScrollViewer TileList { get; protected set; }
+    public NineSliceRuntime BarContainer { get; protected set; }
     public Icon IconInstance2 { get; protected set; }
+    public ContainerRuntime TopRightContainer { get; protected set; }
+    public ContainerRuntime TopLeftContainer { get; protected set; }
+    public NineSliceRuntime ButtonEditContainer { get; protected set; }
 
     public EditScreen(InteractiveGue visual) : base(visual)
     {
@@ -60,15 +69,24 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     protected override void ReactToVisualChanged()
     {
         base.ReactToVisualChanged();
-        PlatformsBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandardMini>(this.Visual,"PlatformsBtn");
-        DecorationsBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandardMini>(this.Visual,"DecorationsBtn");
+        BgBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<CheckBox>(this.Visual,"BgBtn");
+        GridBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<CheckBox>(this.Visual,"GridBtn");
+        CloseBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"CloseBtn");
         SaveBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonConfirm>(this.Visual,"SaveBtn");
-        SpecialBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandardMini>(this.Visual,"SpecialBtn");
+        RedoBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonYellow>(this.Visual,"RedoBtn");
+        UndoBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonYellow>(this.Visual,"UndoBtn");
+        PlatformBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandardMini>(this.Visual,"PlatformBtn");
+        DecorativeBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandardMini>(this.Visual,"DecorativeBtn");
+        FunctionalBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandardMini>(this.Visual,"FunctionalBtn");
+        UnselectBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandardMini>(this.Visual,"UnselectBtn");
         FrameTopBG = this.Visual?.GetGraphicalUiElementByName("FrameTopBG") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
         ContainerInstance = this.Visual?.GetGraphicalUiElementByName("ContainerInstance") as global::MonoGameGum.GueDeriving.ContainerRuntime;
-        FrameBG = this.Visual?.GetGraphicalUiElementByName("FrameBG") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
-        CloseBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"CloseBtn");
+        TileList = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ScrollViewer>(this.Visual,"TileList");
+        BarContainer = this.Visual?.GetGraphicalUiElementByName("BarContainer") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
         IconInstance2 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Icon>(this.Visual,"IconInstance2");
+        TopRightContainer = this.Visual?.GetGraphicalUiElementByName("TopRightContainer") as global::MonoGameGum.GueDeriving.ContainerRuntime;
+        TopLeftContainer = this.Visual?.GetGraphicalUiElementByName("TopLeftContainer") as global::MonoGameGum.GueDeriving.ContainerRuntime;
+        ButtonEditContainer = this.Visual?.GetGraphicalUiElementByName("ButtonEditContainer") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code

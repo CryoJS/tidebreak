@@ -170,7 +170,7 @@
       <Value xsi:type="xsd:boolean">true</Value>
     </Variable>
     <Variable Type="float" Name="FrameBG.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">-380.33334</Value>
+      <Value xsi:type="xsd:float">-380</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="FrameBG.HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>

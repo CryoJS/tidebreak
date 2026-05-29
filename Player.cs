@@ -26,6 +26,7 @@ class Player
 
     private const float DEFAULT_THRESHOLD = 50f;
     private const float FALL_THRESHOLD = 0.9f * MAX_FALL_SPEED;
+    private const float FALL_DEATH_THRESHOLD = 4; // tiles
     private const float CLIMB_DOWN_BUFFER = 200; // ms
     private const float COYOTE_MAX = 0.1f; // seconds
 
@@ -86,7 +87,7 @@ class Player
     private bool isPrevSliding;
 
     // Store player following camera
-    public Camera camera { get; private set; } = new Camera(Game1._graphics.GraphicsDevice.Viewport);
+    public Camera Camera { get; private set; } = new Camera(Game1._graphics.GraphicsDevice.Viewport);
 
     // Store player attribute data
     public float Oxygen { get; private set; } = MAX_OXYGEN;
@@ -165,7 +166,7 @@ class Player
         Oxygen = MAX_OXYGEN;
 
         // Reset death animation
-        anims[(int)animStates.Dying].Activate(false);
+        anims[(int)animStates.Dying].Activate(true);
     }
 
     private void LoadWin()
@@ -190,11 +191,11 @@ class Player
         UpdateOxygen(gameTime, map);
 
         // Update button indicator
-        btnIndic.Update(this, camera);
+        btnIndic.Update(this, Camera);
 
         // Update animations and camera
         UpdateAnims(gameTime);
-        camera.Update(gameTime, rec, onZipline);
+        Camera.Update(gameTime, rec.Center.ToVector2(), onZipline);
     }
 
     public void Draw(SpriteBatch spriteBatch)
@@ -319,8 +320,6 @@ class Player
         isPrevSliding = isSliding;
         isSliding = false;
 
-        Console.WriteLine(onGround + " " + isGrounded);
-
         // Slide or airdive if the player presses the button to, depending on if the player is on the ground or not
         if (onGround)
         {
@@ -405,12 +404,17 @@ class Player
 
     private void CheckCollisions(GameTime gameTime, Map map, KeyboardState kb, KeyboardState prevKb)
     {
+        // If the player falls out of the world, they die
+        if (pos.Y > (map.SizeY + FALL_DEATH_THRESHOLD) * Game1.TILE_SIZE * Game1.PIXEL_SCALE)
+        {
+            isDead = true;
+        }
+
         // Load rectangles for checking collisions
         LoadCollisionRecs();
 
-        // Get the current tile of the map the player is on, and create variables for storing tile type and recs
-        int tileX = rec.Center.X / (Game1.TILE_SIZE * Game1.PIXEL_SCALE);
-        int tileY = rec.Center.Y / (Game1.TILE_SIZE * Game1.PIXEL_SCALE);
+        // Get the current tile of the map the player is on, and create variables for storing tile type and recs (Math.Floor to always round down to negative infinity)
+        (int tileX, int tileY) = Game1.CalcTile(rec.Center.ToVector2());
 
         int tileType;
         Rectangle tileRec;
@@ -422,16 +426,83 @@ class Player
         prevInWater = inWater;
         inWater = false;
 
+        // If the player is latching onto a wall, they aren't grounded
+        if (isLatching)
+        {
+            isGrounded = onGround = false;
+            vel = Vector2.Zero;
+        }
+
+        // Perform tile collision checks with player (for the tile the player is at) (if tile exists)
+        if (0 <= tileX && tileX < map.SizeX && 0 <= tileY && tileY < map.SizeY)
+        {
+            tileType = Tile.GetType(map.Tiles[tileX, tileY].Type);
+
+            // Check each special tile
+            if (tileType == Tile.END)
+            {
+                // If the player reaches the end, then win only if they got all the buttons
+                if (Buttons.IsEmpty())
+                {
+                    LoadWin();
+                    return;
+                }
+            }
+            else if (tileType == Tile.BUTTON)
+            {
+                // Check if button is found
+                if (tileX == NextButton.X && tileY == NextButton.Y)
+                {
+                    // Remove button and store next one
+                    Buttons.Delete(NextButton);
+                    NextButton = Buttons.GetLeftmost();
+
+                    // Give screen glow for player for getting the button
+                    btnGlow = 1;
+                }
+            }
+            else if (tileType >= Tile.ZIPLINE)
+            {
+                // Player either enters or exits zipline
+                if (Zipline.IsStart(tileType))
+                {
+                    // Only put player on this zipline if not already on a zipline
+                    if (!onZipline)
+                    {
+                        onZipline = true;
+                        curZipline = map.Ziplines[Zipline.FindId(tileType)];
+
+                        // Center player at zipline
+                        CenterPos(map.Tiles[tileX, tileY].Rec.Center.ToVector2());
+                    }
+                }
+                else if (onZipline && curZipline.End.Type == tileType)
+                {
+                    onZipline = false;
+                }
+            }
+            else if (tileType == Tile.WATER || map.FloodTiles[tileX, tileY] != Tile.NOT_FLOODED)
+            {
+                // Player is in water
+                inWater = true;
+            }
+            else if (tileType == Tile.LADDER)
+            {
+                // Player is climbing
+                isClimbing = true;
+            }
+        }
+
         // Check for platform collisions within a certain radius of the player (if not on zipline)
         if (!onZipline)
         {
-            for (int x = Math.Max(0, tileX - TILE_CHECK_SIZE); x <= Math.Min(map.sizeX - 1, tileX + TILE_CHECK_SIZE); x++)
+            for (int x = Math.Max(0, tileX - TILE_CHECK_SIZE); x <= Math.Min(map.SizeX - 1, tileX + TILE_CHECK_SIZE); x++)
             {
-                for (int y = Math.Max(0, tileY - TILE_CHECK_SIZE); y <= Math.Min(map.sizeY - 1, tileY + TILE_CHECK_SIZE); y++)
+                for (int y = Math.Max(0, tileY - TILE_CHECK_SIZE); y <= Math.Min(map.SizeY - 1, tileY + TILE_CHECK_SIZE); y++)
                 {
-                    if (map.tiles[x, y] == null) continue;
-                    tileType = map.tiles[x, y].Type;
-                    tileRec = map.tiles[x, y].Rec;
+                    if (map.Tiles[x, y] == null) continue;
+                    tileType = map.Tiles[x, y].Type;
+                    tileRec = map.Tiles[x, y].Rec;
 
                     // Check if any collision occurred with a collidable tile
                     if (Tile.WATER < tileType && (tileType <= Tile.PLATFORM_TYPE_AMOUNT || tileType == Tile.WALL_JUMP) && rec.Intersects(tileRec))
@@ -499,86 +570,16 @@ class Player
             }
         }
 
-        // If the player is latching onto a wall, they aren't grounded
-        if (isLatching)
-        {
-            isGrounded = onGround = false;
-            vel = Vector2.Zero;
-        }
-
-        // Perform tile collision checks with player (for the tile the player is at) (if tile exists)
-        if (0 <= tileX && tileX < map.sizeX && 0 <= tileY && tileY < map.sizeY)
-        {
-            tileType = map.tiles[tileX, tileY].Type;
-
-            // Check each special tile
-            if (tileType == Tile.END)
-            {
-                // If the player reaches the end, then win only if they got all the buttons
-                if (Buttons.IsEmpty())
-                {
-                    LoadWin();
-                    return;
-                }
-            }
-            else if (tileType == Tile.BUTTON)
-            {
-                // Check if button is found
-                if (tileX == NextButton.X && tileY == NextButton.Y)
-                {
-                    // Remove button and store next one
-                    Buttons.Delete(NextButton);
-                    NextButton = Buttons.GetLeftmost();
-
-                    // Change tile to show a pressed button
-                    map.tiles[tileX, tileY].Type = Tile.PRESSED_BUTTON;
-
-                    // Give screen glow for player for getting the button
-                    btnGlow = 1;
-                }
-            }
-            else if (tileType >= Tile.ZIPLINE)
-            {
-                // Player either enters or exits zipline
-                if (Zipline.IsStart(tileType))
-                {
-                    // Only put player on this zipline if not already on a zipline
-                    if (!onZipline)
-                    {
-                        onZipline = true;
-                        curZipline = map.ziplines[Zipline.FindId(tileType)];
-
-                        // Center player at zipline
-                        CenterPos(map.tiles[tileX, tileY].Rec.Center.ToVector2());
-                    }
-                }
-                else if (onZipline && curZipline.End.Type == tileType)
-                {
-                    onZipline = false;
-                }
-            }
-            else if (tileType == Tile.WATER || map.floodTiles[tileX, tileY] != Tile.NOT_FLOODED)
-            {
-                // Player is in water
-                inWater = true;
-            }
-            else if (tileType == Tile.LADDER)
-            {
-                // Player is climbing
-                isClimbing = true;
-            }
-        }
-
         // Update climb down timer
         climbDownTimer.Update(gameTime.ElapsedGameTime.Milliseconds);
 
         // Perform special collision checks with the ladder (only if player is not jumping/climbing/swimming) (and the game thinks they aren't grounded)
-        if (!onZipline && !isGrounded && !inWater)
+        if (!onZipline && !isGrounded && !inWater && 0 <= tileX && tileX < map.SizeX)
         {
-            for (int y = Math.Max(0, tileY); y <= Math.Min(map.sizeY - 1, tileY + 1); y++)
+            for (int y = Math.Max(0, tileY); y <= Math.Min(map.SizeY - 1, tileY + 1); y++)
             {
                 // Store tile to check
-                Tile tile = map.tiles[tileX, y];
+                Tile tile = map.Tiles[tileX, y];
 
                 // Only check collisions if ladder and colliding with feet while not going up
                 if (tile.Type == Tile.LADDER && tile.Rec.Intersects(bottom) && vel.Y > -DEFAULT_THRESHOLD)
@@ -627,7 +628,7 @@ class Player
         // If in water, lose oxygen, otherwise gain oxygen
         if (inWater)
         {
-            Oxygen -= map.drownSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            Oxygen -= map.DrownSpeed * (float)gameTime.ElapsedGameTime.TotalSeconds;
         }
         else
         {

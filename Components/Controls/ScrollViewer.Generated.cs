@@ -103,6 +103,24 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public ContainerRuntime InnerPanelInstance { get; protected set; }
     public NineSliceRuntime FocusedIndicator { get; protected set; }
 
+    public int BackgroundRed
+    {
+        get => Background.Red;
+        set => Background.Red = value;
+    }
+
+    public int BackgroundGreen
+    {
+        get => Background.Green;
+        set => Background.Green = value;
+    }
+
+    public int BackgroundBlue
+    {
+        get => Background.Blue;
+        set => Background.Blue = value;
+    }
+
     public ScrollViewer(InteractiveGue visual) : base(visual)
     {
     }

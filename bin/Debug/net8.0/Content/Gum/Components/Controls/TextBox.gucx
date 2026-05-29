@@ -23,10 +23,10 @@
       <Value xsi:type="xsd:string">Primary</Value>
     </Variable>
     <Variable Type="float" Name="CaretInstance.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">30</Value>
+      <Value xsi:type="xsd:float">-10</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="CaretInstance.HeightUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">2</Value>
     </Variable>
     <Variable Type="string" Name="CaretInstance.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ClipContainer</Value>
@@ -148,7 +148,7 @@
     <Variable Type="ColorCategory" Name="PlaceholderTextInstance.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">White</Value>
     </Variable>
-    <Variable Type="int" Name="PlaceholderTextInstance.FontSize" SetsValue="true">
+    <Variable Type="int" Name="PlaceholderTextInstance.FontSize" ExposedAsName="PlaceholderFontSize" SetsValue="true">
       <Value xsi:type="xsd:int">30</Value>
     </Variable>
     <Variable Type="float" Name="PlaceholderTextInstance.Height" SetsValue="true">
@@ -194,10 +194,10 @@
       <Value xsi:type="xsd:string">Primary</Value>
     </Variable>
     <Variable Type="float" Name="SelectionInstance.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">30</Value>
+      <Value xsi:type="xsd:float">-10</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="SelectionInstance.HeightUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">0</Value>
+      <Value xsi:type="xsd:int">2</Value>
     </Variable>
     <Variable Type="string" Name="SelectionInstance.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ClipContainer</Value>
@@ -231,7 +231,7 @@
     <Variable IsFont="true" Type="string" Name="TextInstance.Font" SetsValue="true">
       <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini Square Mono.ttf</Value>
     </Variable>
-    <Variable Type="int" Name="TextInstance.FontSize" SetsValue="true">
+    <Variable Type="int" Name="TextInstance.FontSize" ExposedAsName="FontSize" SetsValue="true">
       <Value xsi:type="xsd:int">30</Value>
     </Variable>
     <Variable Type="int" Name="TextInstance.Green" SetsValue="true">
@@ -343,14 +343,14 @@
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
+      <Variable Type="int" Name="PlaceholderTextInstance.Alpha" SetsValue="true">
+        <Value xsi:type="xsd:int">113</Value>
+      </Variable>
       <Variable Type="ColorCategory" Name="PlaceholderTextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Gray</Value>
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Black</Value>
-      </Variable>
-      <Variable Type="int" Name="PlaceholderTextInstance.Alpha" SetsValue="true">
-        <Value xsi:type="xsd:int">113</Value>
       </Variable>
     </State>
     <State>
@@ -361,14 +361,14 @@
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">false</Value>
       </Variable>
+      <Variable Type="int" Name="PlaceholderTextInstance.Alpha" SetsValue="true">
+        <Value xsi:type="xsd:int">113</Value>
+      </Variable>
       <Variable Type="ColorCategory" Name="PlaceholderTextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">DarkGray</Value>
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Black</Value>
-      </Variable>
-      <Variable Type="int" Name="PlaceholderTextInstance.Alpha" SetsValue="true">
-        <Value xsi:type="xsd:int">113</Value>
       </Variable>
     </State>
     <State>
@@ -379,14 +379,14 @@
       <Variable Type="bool" Name="FocusedIndicator.Visible" SetsValue="true">
         <Value xsi:type="xsd:boolean">true</Value>
       </Variable>
+      <Variable Type="int" Name="PlaceholderTextInstance.Alpha" SetsValue="true">
+        <Value xsi:type="xsd:int">113</Value>
+      </Variable>
       <Variable Type="ColorCategory" Name="PlaceholderTextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Gray</Value>
       </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Black</Value>
-      </Variable>
-      <Variable Type="int" Name="PlaceholderTextInstance.Alpha" SetsValue="true">
-        <Value xsi:type="xsd:int">113</Value>
       </Variable>
     </State>
   </Category>

@@ -4,8 +4,14 @@
   <BaseType>Container</BaseType>
   <State>
     <Name>Default</Name>
+    <Variable Type="int" Name="Background.Blue" ExposedAsName="BackgroundBlue" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
+    </Variable>
     <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">DarkGray</Value>
+    </Variable>
+    <Variable Type="int" Name="Background.Green" ExposedAsName="BackgroundGreen" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
     </Variable>
     <Variable Type="float" Name="Background.Height" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
@@ -14,8 +20,17 @@
       <Value xsi:type="xsd:int">2</Value>
     </Variable>
     <Variable Type="string" Name="Background.Parent" SetsValue="true" />
+    <Variable Type="int" Name="Background.Red" ExposedAsName="BackgroundRed" SetsValue="true">
+      <Value xsi:type="xsd:int">255</Value>
+    </Variable>
+    <Variable IsFile="true" Type="string" Name="Background.SourceFile" SetsValue="true">
+      <Value xsi:type="xsd:string">UI Assets\FrameBG.png</Value>
+    </Variable>
     <Variable Type="StyleCategory" Name="Background.StyleCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Bordered</Value>
+    </Variable>
+    <Variable Type="TextureAddress" Name="Background.TextureAddress" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="float" Name="Background.Width" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
@@ -171,6 +186,13 @@
     <Variable Type="PositionUnitType" Name="VerticalScrollBarInstance.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
+    <VariableList xsi:type="VariableListSaveOfString">
+      <Type>string</Type>
+      <Name>Background.VariableReferences</Name>
+      <IsFile>false</IsFile>
+      <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+      <Value />
+    </VariableList>
   </State>
   <Category>
     <Name>ScrollBarVisibility</Name>

@@ -1,0 +1,80 @@
+//Code for EditButtonScreen
+using Gum.Converters;
+using Gum.DataTypes;
+using Gum.Managers;
+using Gum.Wireframe;
+using GumRuntime;
+using MonoGameGum;
+using MonoGameGum.GueDeriving;
+using RenderingLibrary.Graphics;
+using System.Linq;
+using Tidebreak.Components.Controls;
+using Tidebreak.Components.Elements;
+namespace Tidebreak.Screens;
+partial class EditButtonScreen : global::Gum.Forms.Controls.FrameworkElement
+{
+    [System.Runtime.CompilerServices.ModuleInitializer]
+    public static void RegisterRuntimeType()
+    {
+        var template = new global::Gum.Forms.VisualTemplate((vm, createForms) =>
+        {
+            var visual = new global::MonoGameGum.GueDeriving.ContainerRuntime();
+            var element = ObjectFinder.Self.GetElementSave("EditButtonScreen");
+#if DEBUG
+if(element == null) throw new System.InvalidOperationException("Could not find an element named EditButtonScreen - did you forget to load a Gum project?");
+#endif
+            element.SetGraphicalUiElement(visual, RenderingLibrary.SystemManagers.Default);
+            if(createForms) visual.FormsControlAsObject = new EditButtonScreen(visual);
+            visual.Width = 0;
+            visual.WidthUnits = global::Gum.DataTypes.DimensionUnitType.RelativeToParent;
+            visual.Height = 0;
+            visual.HeightUnits = global::Gum.DataTypes.DimensionUnitType.RelativeToParent;
+            return visual;
+        });
+        global::Gum.Forms.Controls.FrameworkElement.DefaultFormsTemplates[typeof(EditButtonScreen)] = template;
+        ElementSaveExtensions.RegisterGueInstantiation("EditButtonScreen", () => 
+        {
+            var gue = template.CreateContent(null, true) as InteractiveGue;
+            return gue;
+        });
+    }
+    public ContainerRuntime InputBlocker { get; protected set; }
+    public TextRuntime Priority { get; protected set; }
+    public TextRuntime PrePriority { get; protected set; }
+    public TextBox InputPriority { get; protected set; }
+    public ButtonConfirm SaveBtn { get; protected set; }
+    public NineSliceRuntime FrameBG1 { get; protected set; }
+    public TextRuntime MapName { get; protected set; }
+    public ButtonDeny CloseBtn { get; protected set; }
+    public ContainerRuntime ContainerInstance { get; protected set; }
+    public NineSliceRuntime ButtonEditContainer { get; protected set; }
+    public Icon IconInstance3 { get; protected set; }
+
+    public EditButtonScreen(InteractiveGue visual) : base(visual)
+    {
+    }
+    public EditButtonScreen()
+    {
+
+
+
+    }
+    protected override void ReactToVisualChanged()
+    {
+        base.ReactToVisualChanged();
+        InputBlocker = this.Visual?.GetGraphicalUiElementByName("InputBlocker") as global::MonoGameGum.GueDeriving.ContainerRuntime;
+        Priority = this.Visual?.GetGraphicalUiElementByName("Priority") as global::MonoGameGum.GueDeriving.TextRuntime;
+        PrePriority = this.Visual?.GetGraphicalUiElementByName("PrePriority") as global::MonoGameGum.GueDeriving.TextRuntime;
+        InputPriority = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"InputPriority");
+        SaveBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonConfirm>(this.Visual,"SaveBtn");
+        FrameBG1 = this.Visual?.GetGraphicalUiElementByName("FrameBG1") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
+        MapName = this.Visual?.GetGraphicalUiElementByName("MapName") as global::MonoGameGum.GueDeriving.TextRuntime;
+        CloseBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonDeny>(this.Visual,"CloseBtn");
+        ContainerInstance = this.Visual?.GetGraphicalUiElementByName("ContainerInstance") as global::MonoGameGum.GueDeriving.ContainerRuntime;
+        ButtonEditContainer = this.Visual?.GetGraphicalUiElementByName("ButtonEditContainer") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
+        IconInstance3 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Icon>(this.Visual,"IconInstance3");
+        CustomInitialize();
+    }
+    //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code
+    partial void CustomInitialize();
+}

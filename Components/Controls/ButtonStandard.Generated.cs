@@ -70,7 +70,24 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     }
     public NineSliceRuntime Background { get; protected set; }
     public TextRuntime TextInstance { get; protected set; }
-    public NineSliceRuntime FocusedIndicator { get; protected set; }
+
+    public string Font
+    {
+        get => TextInstance.Font;
+        set => TextInstance.Font = value;
+    }
+
+    public int FontSize
+    {
+        get => TextInstance.FontSize;
+        set => TextInstance.FontSize = value;
+    }
+
+    public int OutlineThickness
+    {
+        get => TextInstance.OutlineThickness;
+        set => TextInstance.OutlineThickness = value;
+    }
 
 
     public ButtonStandard(InteractiveGue visual) : base(visual)
@@ -87,7 +104,6 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         base.ReactToVisualChanged();
         Background = this.Visual?.GetGraphicalUiElementByName("Background") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
         TextInstance = this.Visual?.GetGraphicalUiElementByName("TextInstance") as global::MonoGameGum.GueDeriving.TextRuntime;
-        FocusedIndicator = this.Visual?.GetGraphicalUiElementByName("FocusedIndicator") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code

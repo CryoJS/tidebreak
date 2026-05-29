@@ -320,6 +320,39 @@
     <Variable Type="float" Name="IconInstance2.Y" SetsValue="true">
       <Value xsi:type="xsd:float">-2</Value>
     </Variable>
+    <Variable Type="bool" Name="InputBlocker.ExposeChildrenEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="float" Name="InputBlocker.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="InputBlocker.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="float" Name="InputBlocker.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="InputBlocker.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="float" Name="InputBlocker.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="InputBlocker.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="InputBlocker.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="InputBlocker.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="InputBlocker.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="InputBlocker.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
     <Variable Type="float" Name="SaveBtn.Height" SetsValue="true">
       <Value xsi:type="xsd:float">100</Value>
     </Variable>
@@ -356,7 +389,9 @@
     <Variable Type="PositionUnitType" Name="SaveBtn.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
+    <Variable Type="string" Name="InputBlocker.Parent" SetsValue="true" />
   </State>
+  <Instance Name="InputBlocker" BaseType="Container" />
   <Instance Name="SaveBtn" BaseType="Controls/ButtonConfirm" />
   <Instance Name="ExitBtn" BaseType="Controls/ButtonDenyLarger" />
   <Instance Name="FrameBG1" BaseType="NineSlice" />

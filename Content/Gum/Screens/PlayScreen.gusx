@@ -141,10 +141,10 @@
       <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="int" Name="BtnVignette.Blue1" SetsValue="true">
-      <Value xsi:type="xsd:int">59</Value>
+      <Value xsi:type="xsd:int">138</Value>
     </Variable>
     <Variable Type="int" Name="BtnVignette.Blue2" SetsValue="true">
-      <Value xsi:type="xsd:int">255</Value>
+      <Value xsi:type="xsd:int">72</Value>
     </Variable>
     <Variable Type="float" Name="BtnVignette.GradientInnerRadius" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
@@ -162,19 +162,19 @@
       <Value xsi:type="xsd:int">7</Value>
     </Variable>
     <Variable Type="int" Name="BtnVignette.Green1" SetsValue="true">
-      <Value xsi:type="xsd:int">255</Value>
+      <Value xsi:type="xsd:int">153</Value>
     </Variable>
     <Variable Type="int" Name="BtnVignette.Green2" SetsValue="true">
-      <Value xsi:type="xsd:int">218</Value>
+      <Value xsi:type="xsd:int">255</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="BtnVignette.HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
     <Variable Type="int" Name="BtnVignette.Red1" SetsValue="true">
-      <Value xsi:type="xsd:int">25</Value>
+      <Value xsi:type="xsd:int">12</Value>
     </Variable>
     <Variable Type="int" Name="BtnVignette.Red2" SetsValue="true">
-      <Value xsi:type="xsd:int">205</Value>
+      <Value xsi:type="xsd:int">25</Value>
     </Variable>
     <Variable Type="bool" Name="BtnVignette.UseGradient" SetsValue="true">
       <Value xsi:type="xsd:boolean">true</Value>

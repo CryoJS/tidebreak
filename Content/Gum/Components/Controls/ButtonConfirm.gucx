@@ -7,7 +7,7 @@
     <Variable Type="int" Name="Background.Alpha" SetsValue="true">
       <Value xsi:type="xsd:int">255</Value>
     </Variable>
-    <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
+    <Variable Type="ColorCategory" Name="Background.ColorCategoryState" ExposedAsName="BackgroundColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Success</Value>
     </Variable>
     <Variable Type="float" Name="Background.Height" SetsValue="true">

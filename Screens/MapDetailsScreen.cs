@@ -20,25 +20,25 @@ namespace Tidebreak.Screens
             if (Game1.currentMap != null)
             {
                 // Update details
-                MapName.Text = Game1.currentMap.name;
-                Author.Text = Game1.currentMap.author;
-                Size.Text = $"{Game1.currentMap.sizeX} x {Game1.currentMap.sizeY}";
-                Locked.Text = Game1.currentMap.locked ? "Yes" : "No";
+                MapName.Text = Game1.currentMap.Name;
+                Author.Text = Game1.currentMap.Author;
+                Size.Text = $"{Game1.currentMap.SizeX} x {Game1.currentMap.SizeY}";
+                Locked.Text = Game1.currentMap.Locked ? "Yes" : "No";
 
                 // Change text and color of difficulty text
-                Difficulty.Text = Game1.currentMap.difficulty.ToString("F1");
-                Difficulty.Color = Map.diffColors[(int)Game1.currentMap.difficulty];
+                Difficulty.Text = Game1.currentMap.Difficulty.ToString("F1");
+                Difficulty.Color = Map.diffColors[(int)Game1.currentMap.Difficulty];
 
                 // Update dates
-                CreationDate.Text = Game1.currentMap.creationDate.ToLongDateString();
-                ModifiedDate.Text = Game1.currentMap.modifiedDate.ToLongDateString();
+                CreationDate.Text = Game1.currentMap.CreationDate.ToLongDateString();
+                ModifiedDate.Text = Game1.currentMap.ModifiedDate.ToLongDateString();
 
                 // Update best time and description
-                if (Game1.currentMap.bestTime == Map.EMPTY) BestTime.Text = NO_BEST_TIME;
-                else BestTime.Text = Game1.FormatTime(Game1.currentMap.bestTime);
+                if (Game1.currentMap.BestTime == Map.EMPTY) BestTime.Text = NO_BEST_TIME;
+                else BestTime.Text = Game1.FormatTime(Game1.currentMap.BestTime);
                 
                 // Update description
-                Description.Text = Game1.currentMap.description;
+                Description.Text = Game1.currentMap.Description;
             }
 
             // Add close popup button option

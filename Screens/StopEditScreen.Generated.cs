@@ -38,6 +38,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
             return gue;
         });
     }
+    public ContainerRuntime InputBlocker { get; protected set; }
     public ButtonConfirm SaveBtn { get; protected set; }
     public ButtonDenyLarger ExitBtn { get; protected set; }
     public NineSliceRuntime FrameBG1 { get; protected set; }
@@ -59,6 +60,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     protected override void ReactToVisualChanged()
     {
         base.ReactToVisualChanged();
+        InputBlocker = this.Visual?.GetGraphicalUiElementByName("InputBlocker") as global::MonoGameGum.GueDeriving.ContainerRuntime;
         SaveBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonConfirm>(this.Visual,"SaveBtn");
         ExitBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonDenyLarger>(this.Visual,"ExitBtn");
         FrameBG1 = this.Visual?.GetGraphicalUiElementByName("FrameBG1") as global::MonoGameGum.GueDeriving.NineSliceRuntime;

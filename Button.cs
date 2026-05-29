@@ -1,5 +1,6 @@
 using System;
 using Microsoft.Xna.Framework;
+using Tidebreak;
 
 class Button : IComparable<Button>
 {
@@ -11,12 +12,15 @@ class Button : IComparable<Button>
     // Store center of button
     public Vector2 Center { get; private set; }
 
-    public Button(int x, int y, int priority, Vector2 center)
+    public Button(int x, int y, int priority)
     {
         X = x;
         Y = y;
         Priority = priority;
-        Center = center;
+
+        // Calculate scale amount and calculate center
+        float scale = Game1.TILE_SIZE * Game1.PIXEL_SCALE;
+        Center = new Vector2(x * scale + scale / 2, y * scale + scale / 2);
     }
 
     public int CompareTo(Button other)
@@ -33,5 +37,15 @@ class Button : IComparable<Button>
     public override int GetHashCode()
     {
         return Priority.GetHashCode();
+    }
+
+    public static int TypeToPriority(int type)
+    {
+        return -(type - Tile.BUTTON_START);
+    }
+
+    public static int PriorityToType(int priority)
+    {
+        return Tile.BUTTON_START - priority;
     }
 }

@@ -71,6 +71,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public TextRuntime TextInstance { get; protected set; }
     public NineSliceRuntime FocusedIndicator { get; protected set; }
 
+
     public int FontSize
     {
         get => TextInstance.FontSize;

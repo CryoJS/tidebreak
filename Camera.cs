@@ -23,10 +23,19 @@ class Camera
         ResetZoom();
     }
 
-    public Vector2 WorldToScreen(Vector2 pos)
+    public Vector2 GetPos()
     {
-        return camera.WorldToScreen(pos);
+        return camera.GetPosition();
     }
+
+    public float GetZoom()
+    {
+        return camera.GetZoom();
+    }
+
+    // REVIEW can i use arrow func, also do i need to document stuff like this?
+    public Vector2 WorldToScreen(Vector2 pos) => camera.WorldToScreen(pos);
+    public Vector2 ScreenToWorld(Vector2 pos) => camera.ScreenToWorld(pos);
 
     public void SetPos(Vector2 newPos)
     {
@@ -38,10 +47,15 @@ class Camera
         camera.SetZoom(CAMERA_ZOOM);
     }
 
-    public void Update(GameTime gameTime, Rectangle rec, bool onZipline)
+    public void ZoomUpdate(GameTime gameTime, float zoomGoal)
+    {
+        camera.SetZoom(camera.GetZoom() + (zoomGoal - camera.GetZoom()) * Game1.ExpSmoothing(gameTime, ZOOM_SPEED));
+    }
+
+    public void Update(GameTime gameTime, Vector2 goal, bool onZipline = false)
     {
         // Store needed distance for camera to travel, and speed
-        Vector2 dist = rec.Center.ToVector2() - camera.GetPosition();
+        Vector2 dist = goal - camera.GetPosition();
 
         // Only update camera if outside of dead zone
         if (dist.Length() > DEAD_ZONE)
@@ -51,7 +65,7 @@ class Camera
         }
 
         // Smooth zoom to desired zoom depending if on zipline or not (zoom out on ziplines)
-        camera.SetZoom(camera.GetZoom() + ((onZipline ? ZIPLINE_CAMERA_ZOOM : CAMERA_ZOOM) - camera.GetZoom()) * Game1.ExpSmoothing(gameTime, ZOOM_SPEED));
+        ZoomUpdate(gameTime, onZipline ? ZIPLINE_CAMERA_ZOOM : CAMERA_ZOOM);
     }
 
     public Matrix GetTransformation()

@@ -774,7 +774,6 @@ c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\b
 c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\UI Assets\Others\UI_Flat_ButtonPlus01a.png
 c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\UI Assets\Others\UI_Flat_Select01a_1.png
 c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\UI Assets\Others\UI_Flat_Select01a_2.png
-c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\UI Assets\Others\UI_Flat_Select01a_3.png
 c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\UI Assets\Others\UI_Flat_Select01a_4.png
 c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\UI Assets\Others\UI_Flat_Select02a_1.png
 c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\UI Assets\Others\UI_Flat_Select02a_2.png
@@ -1404,3 +1403,26 @@ c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\b
 c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\FontCache\Font58Kenney_Mini_Square_Mono_ttf_o5_noSmooth_Bold.bmfc
 c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\FontCache\Font58Kenney_Mini_Square_Mono_ttf_o5_noSmooth_Bold.fnt
 c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\FontCache\Font58Kenney_Mini_Square_Mono_ttf_o5_noSmooth_Bold_0.png
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\FontCache\Font14Arial_o2.bmfc
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\FontCache\Font14Arial_o2.fnt
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\FontCache\Font14Arial_o2_0.png
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\Components\Controls\ButtonYellow.gucx
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\FontCache\Font40Kenney_Mini_Square_Mono_ttf_o3.bmfc
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\FontCache\Font40Kenney_Mini_Square_Mono_ttf_o3.fnt
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\FontCache\Font40Kenney_Mini_Square_Mono_ttf_o3_0.png
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\FontCache\Font60Kenney_Mini_ttf_o5.bmfc
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\FontCache\Font60Kenney_Mini_ttf_o5.fnt
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\FontCache\Font60Kenney_Mini_ttf_o5_0.png
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\Components\TileUI.gucx
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\UI Assets\Selection.png
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Images\Sprites\EditorTiles\BarrierTile.xnb
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Images\Sprites\EditorTiles\EmptyTile.xnb
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Images\Sprites\EditorTiles\ZiplineTile.xnb
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\Components\Controls\ButtonOverlay.gucx
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\UI Assets\Fill.png
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\FontCache\Font29Kenney_Mini_Square_Mono_ttf_o3.bmfc
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\FontCache\Font29Kenney_Mini_Square_Mono_ttf_o3.fnt
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\FontCache\Font29Kenney_Mini_Square_Mono_ttf_o3_0.png
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Images\Sprites\EditorTiles\FloodTile.xnb
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Images\Sprites\EditorTiles\SelectTile.xnb
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Gum\Screens\EditButtonScreen.gusx

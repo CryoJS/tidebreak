@@ -12,14 +12,14 @@ namespace Tidebreak.Screens
             Map map = Game1.currentMap;
 
             // Update time taken text
-            H2.Text = TIME_MESSAGE + Game1.FormatTime(map.time);
+            H2.Text = TIME_MESSAGE + Game1.FormatTime(map.Time);
 
             // If new best time, show new best time UI and update best time, otherwise show normal win UI
-            if (map.bestTime == Map.EMPTY || map.time < map.bestTime)
+            if (map.BestTime == Map.EMPTY || map.Time < map.BestTime)
             {
                 NewBestEffect.Visible = true;
                 WinVignette.Visible = false;
-                map.bestTime = map.time;
+                map.BestTime = map.Time;
             }
             else
             {

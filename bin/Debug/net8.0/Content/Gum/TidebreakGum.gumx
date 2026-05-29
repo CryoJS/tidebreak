@@ -53,6 +53,7 @@
   <ShowLocalizationInGum>true</ShowLocalizationInGum>
   <CurrentLanguageIndex>0</CurrentLanguageIndex>
   <ScreenReference Name="DeathScreen" />
+  <ScreenReference Name="EditButtonScreen" />
   <ScreenReference Name="EditScreen" />
   <ScreenReference Name="MapDetailsScreen" />
   <ScreenReference Name="MapSelectScreen" />
@@ -68,10 +69,12 @@
   <ComponentReference Name="Controls/ButtonDeny" />
   <ComponentReference Name="Controls/ButtonDenyLarger" />
   <ComponentReference Name="Controls/ButtonIcon" />
+  <ComponentReference Name="Controls/ButtonOverlay" />
   <ComponentReference Name="Controls/ButtonStandard" />
   <ComponentReference Name="Controls/ButtonStandardIcon" />
   <ComponentReference Name="Controls/ButtonStandardMini" />
   <ComponentReference Name="Controls/ButtonTab" />
+  <ComponentReference Name="Controls/ButtonYellow" />
   <ComponentReference Name="Controls/CheckBox" />
   <ComponentReference Name="Controls/ComboBox" />
   <ComponentReference Name="Controls/DialogBox" />
@@ -111,6 +114,7 @@
   <ComponentReference Name="Elements/VerticalLines" />
   <ComponentReference Name="MapRow" />
   <ComponentReference Name="Styles" />
+  <ComponentReference Name="TileUI" />
   <StandardElementReference Name="Arc" />
   <StandardElementReference Name="Canvas" />
   <StandardElementReference Name="Circle" />

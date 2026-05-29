@@ -13,6 +13,7 @@ using MonoGameGum;
 using Tidebreak.Screens;
 using MonoGameGum.GueDeriving;
 using MonoGameAndGum.Renderables;
+using Gum.Forms.Controls;
 
 namespace Tidebreak;
 
@@ -25,7 +26,7 @@ public class Game1 : Game
     // Create random object
     public static Random rng = new Random();
 
-    // Create game state constants
+    // Create game state constants // FIXME (can prob remove if not using much?)
     public const int MENU = 0;
     public const int SELECT_MAP = 1;
     public const int CREATE_MAP = 2;
@@ -80,9 +81,13 @@ public class Game1 : Game
     // Store player and player's camera
     internal static Player player;
 
+    // Store map editor
+    internal static MapEditor mapEditor = new MapEditor();
+
     // Store all needed screens
     internal static PlayScreen playScreen;
     internal static PauseScreen pauseScreen;
+    internal static EditScreen editScreen;
 
     // Store if the game is paused
     internal static bool paused;
@@ -139,10 +144,13 @@ public class Game1 : Game
         cursorPressedImg = Content.Load<Texture2D>($"Images/Sprites/Icons/CursorPressed");
 
         // Load all tile textures
-        for (int i = 0; i < Tile.TYPE_AMOUNT; i++)
+        for (int i = 0; i < Tile.TEXTURE_TYPE_AMOUNT; i++)
         {
-            Tile.tileTextures[i] = Content.Load<Texture2D>($"Images/Sprites/Tiles/Tile{i}");
+            Tile.textures[i] = Content.Load<Texture2D>($"Images/Sprites/Tiles/Tile{i}");
         }
+
+        // Load editor only tile textures
+        Tile.LoadEditorOnlyTiles(Content);
 
         // Create player (load player textures and animations)
         player = new Player(Content);
@@ -161,18 +169,9 @@ public class Game1 : Game
         prevMouse = mouse;
         mouse = Mouse.GetState();
 
-        // Perform update logic based on the current game state // FIXME (can prob remove if not using much?)
+        // Perform update logic based on the current game state
         switch (gameState)
         {
-            case MENU:
-                break;
-
-            case SELECT_MAP:
-                break;
-
-            case CREATE_MAP:
-                break;
-
             case PLAY_MAP:
                 if (!paused)
                 {
@@ -191,9 +190,7 @@ public class Game1 : Game
                 break;
 
             case EDIT_MAP:
-                break;
-
-            case END_MAP:
+                mapEditor.Update(gameTime, kb, prevKb, mouse, prevMouse);
                 break;
 
             case EXIT:
@@ -212,19 +209,12 @@ public class Game1 : Game
         // Perform update logic based on the current game state
         switch (gameState)
         {
-            case MENU:
-                break;
-
-            case SELECT_MAP:
-                break;
-
-            case CREATE_MAP:
-                break;
-
             case PLAY_MAP:
+                // Clear screen, start drawing
                 GraphicsDevice.Clear(Color.CornflowerBlue); // TODO let maps have bg color (+ documentation)
-                cameraSpriteBatchBegin();
+                CameraSpriteBatchBegin(player.Camera);
 
+                // Draw the map and player
                 currentMap?.Draw(_spriteBatch);
                 player.Draw(_spriteBatch);
 
@@ -232,9 +222,13 @@ public class Game1 : Game
                 break;
 
             case EDIT_MAP:
-                break;
-
-            case END_MAP:
+                // Clear screen, start drawing
+                GraphicsDevice.Clear(Color.CornflowerBlue); // TODO let maps have bg color (+ documentation)
+                CameraSpriteBatchBegin(mapEditor.Camera);
+                
+                // Draw the map
+                mapEditor.Draw(_spriteBatch, mouse);
+                _spriteBatch.End();
                 break;
         }
 
@@ -249,12 +243,12 @@ public class Game1 : Game
         base.Draw(gameTime);
     }
 
-    private void cameraSpriteBatchBegin()
+    private void CameraSpriteBatchBegin(Camera camera)
     {
-        _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, player.camera.GetTransformation());
+        _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, camera.GetTransformation());
     }
 
-    private void LoadMaps()
+    private static void LoadMaps()
     {
         // Try to load maps, if failed, load defaults
         try
@@ -312,5 +306,26 @@ public class Game1 : Game
     {
         // Calculate % value to get exponentially closer if farther with no affect from frame rate (source: https://www.rorydriscoll.com/2016/03/07/frame-rate-independent-damping-using-lerp/)
         return 1 - MathF.Exp(-speed * (float)gameTime.ElapsedGameTime.TotalSeconds);
+    }
+
+    // NOTE: Takes world position
+    public static Point CalcTile(Vector2 pos)
+    {
+        return new Point((int)Math.Floor(pos.X / (TILE_SIZE * PIXEL_SCALE)), (int)Math.Floor(pos.Y / (TILE_SIZE * PIXEL_SCALE)));
+    }
+
+    public static void FloatOnlyHandler(object sender, TextCompositionEventArgs args)
+    {
+        // Store current input and calculate new input
+        TextBox textBox = (TextBox)sender;
+        string newText = textBox.Text.Insert(textBox.CaretIndex, args.Text);
+
+        // Check if new input is valid using try parse
+        args.Handled = !float.TryParse(newText, out _);
+    }
+
+    public static void IntegerOnlyHandler(object sender, TextCompositionEventArgs args)
+    {
+        args.Handled = args.Text.Any(c => !char.IsDigit(c));
     }
 }

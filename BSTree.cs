@@ -29,6 +29,19 @@ class BSTree<Value> where Value : IComparable<Value>
         return cur.val;
     }
 
+    public Value GetRightmost()
+    {
+        // If the tree is empty, return null (for objects, but default since template Value is used)
+        if (root == null) return default;
+
+        // Explore tree starting from root, always going right
+        BSTreeNode<Value> cur = root;
+        while (cur.Right != null) cur = cur.Right;
+
+        // Return found rightmost node
+        return cur.val;
+    }
+
     public bool Add(Value val)
     {
         // If BST is empty, create new root
@@ -139,7 +152,7 @@ class BSTree<Value> where Value : IComparable<Value>
             cur.val = newCurVal;
             Count++;
         }
-        else // Only one child (right)
+        else // Only one child
         {
             // Prepare to store the only child of the node to be deleted
             BSTreeNode<Value> child;
@@ -157,7 +170,7 @@ class BSTree<Value> where Value : IComparable<Value>
             else
             {
                 // If child is in delete node's parent's left subtree set left child to delete node's only child (and vice versa) 
-                if (parent.Left.val.Equals(val)) parent.Left = child;
+                if (parent.Left != null && parent.Left.val.Equals(val)) parent.Left = child;
                 else parent.Right = child;
                 child.Parent = parent;
             }

@@ -12,16 +12,16 @@ namespace Tidebreak.Screens
         partial void CustomInitialize()
         {
             // Store best time from current map
-            float bestTime = Game1.currentMap.bestTime;
+            float bestTime = Game1.currentMap.BestTime;
 
             // Store current screen in Game1.cs
             Game1.playScreen = this;
 
             // Update map name text
-            NameText.Text = Game1.currentMap.name;
+            NameText.Text = Game1.currentMap.Name;
 
             // Update current map time
-            TimeText.SetBinding(nameof(TimeText.Text), nameof(Game1.currentMap.time));
+            TimeText.SetBinding(nameof(TimeText.Text), nameof(Game1.currentMap.Time));
 
             // Update map best time text
             if (Math.Round(bestTime) == Map.EMPTY)
@@ -40,7 +40,7 @@ namespace Tidebreak.Screens
         public void Update(KeyboardState kb, KeyboardState prevKb)
         {
             // Update current map time
-            TimeText.Text = Game1.FormatTime(Game1.currentMap.time, false);
+            TimeText.Text = Game1.FormatTime(Game1.currentMap.Time, false);
 
             // Update oxygen bar
             OxygenBar.BarPercent = 100 * Game1.player.Oxygen / Player.MAX_OXYGEN;

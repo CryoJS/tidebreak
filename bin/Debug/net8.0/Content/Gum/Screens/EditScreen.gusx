@@ -3,6 +3,79 @@
   <Name>EditScreen</Name>
   <State>
     <Name>Default</Name>
+    <Variable Type="float?" Name="BarContainer.CustomFrameTextureCoordinateWidth" SetsValue="true" />
+    <Variable Type="bool" Name="BarContainer.ExposeChildrenEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="float" Name="BarContainer.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">250</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="BarContainer.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="bool" Name="BarContainer.IsTilingMiddleSections" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable IsFile="true" Type="string" Name="BarContainer.SourceFile" SetsValue="true">
+      <Value xsi:type="xsd:string">UI Assets\FrameBG.png</Value>
+    </Variable>
+    <Variable Type="TextureAddress" Name="BarContainer.TextureAddress" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="int" Name="BarContainer.TextureHeight" SetsValue="true">
+      <Value xsi:type="xsd:int">64</Value>
+    </Variable>
+    <Variable Type="int" Name="BarContainer.TextureLeft" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="int" Name="BarContainer.TextureTop" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="int" Name="BarContainer.TextureWidth" SetsValue="true">
+      <Value xsi:type="xsd:int">64</Value>
+    </Variable>
+    <Variable Type="bool" Name="BarContainer.Visible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="float" Name="BarContainer.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="BarContainer.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="bool" Name="BarContainer.Wrap" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="float" Name="BarContainer.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="BarContainer.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="BarContainer.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="BarContainer.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="BarContainer.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="BarContainer.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">5</Value>
+    </Variable>
+    <Variable Type="string" Name="BgBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">TopLeftContainer</Value>
+    </Variable>
+    <Variable Type="string" Name="BgBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">BG</Value>
+    </Variable>
+    <Variable Type="float" Name="BgBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">38</Value>
+    </Variable>
+    <Variable Type="float" Name="BgBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">120</Value>
+    </Variable>
     <Variable Type="bool" Name="CloseBtn.ExposeChildrenEvents" SetsValue="true">
       <Value xsi:type="xsd:boolean">true</Value>
     </Variable>
@@ -12,7 +85,9 @@
     <Variable Type="DimensionUnitType" Name="CloseBtn.HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
     </Variable>
-    <Variable Type="string" Name="CloseBtn.Parent" SetsValue="true" />
+    <Variable Type="string" Name="CloseBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">TopLeftContainer</Value>
+    </Variable>
     <Variable Type="string" Name="CloseBtn.Text" SetsValue="true">
       <Value xsi:type="xsd:string"></Value>
     </Variable>
@@ -38,7 +113,7 @@
       <Value xsi:type="xsd:int">2</Value>
     </Variable>
     <Variable Type="string" Name="ContainerInstance.Parent" SetsValue="true">
-      <Value xsi:type="xsd:string">FrameBG</Value>
+      <Value xsi:type="xsd:string">BarContainer</Value>
     </Variable>
     <Variable Type="float" Name="ContainerInstance.Width" SetsValue="true">
       <Value xsi:type="xsd:float">-80</Value>
@@ -64,84 +139,23 @@
     <Variable Type="PositionUnitType" Name="ContainerInstance.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">5</Value>
     </Variable>
-    <Variable Type="float" Name="DecorationsBtn.Height" SetsValue="true">
+    <Variable Type="float" Name="DecorativeBtn.Height" SetsValue="true">
       <Value xsi:type="xsd:float">-6</Value>
     </Variable>
-    <Variable Type="string" Name="DecorationsBtn.Parent" SetsValue="true">
+    <Variable Type="string" Name="DecorativeBtn.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">FrameTopBG</Value>
     </Variable>
-    <Variable Type="string" Name="DecorationsBtn.Text" SetsValue="true">
-      <Value xsi:type="xsd:string">Decorations</Value>
+    <Variable Type="string" Name="DecorativeBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">Decorative</Value>
     </Variable>
-    <Variable Type="float" Name="DecorationsBtn.Width" SetsValue="true">
+    <Variable Type="float" Name="DecorativeBtn.Width" SetsValue="true">
       <Value xsi:type="xsd:float">240</Value>
     </Variable>
-    <Variable Type="float" Name="DecorationsBtn.X" SetsValue="true">
+    <Variable Type="float" Name="DecorativeBtn.X" SetsValue="true">
       <Value xsi:type="xsd:float">260</Value>
     </Variable>
-    <Variable Type="float" Name="DecorationsBtn.Y" SetsValue="true">
+    <Variable Type="float" Name="DecorativeBtn.Y" SetsValue="true">
       <Value xsi:type="xsd:float">9</Value>
-    </Variable>
-    <Variable Type="float?" Name="FrameBG.CustomFrameTextureCoordinateWidth" SetsValue="true" />
-    <Variable Type="bool" Name="FrameBG.ExposeChildrenEvents" SetsValue="true">
-      <Value xsi:type="xsd:boolean">true</Value>
-    </Variable>
-    <Variable Type="float" Name="FrameBG.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">327.66666</Value>
-    </Variable>
-    <Variable Type="DimensionUnitType" Name="FrameBG.HeightUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">0</Value>
-    </Variable>
-    <Variable Type="bool" Name="FrameBG.IsTilingMiddleSections" SetsValue="true">
-      <Value xsi:type="xsd:boolean">false</Value>
-    </Variable>
-    <Variable IsFile="true" Type="string" Name="FrameBG.SourceFile" SetsValue="true">
-      <Value xsi:type="xsd:string">UI Assets\FrameBG.png</Value>
-    </Variable>
-    <Variable Type="TextureAddress" Name="FrameBG.TextureAddress" SetsValue="true">
-      <Value xsi:type="xsd:int">1</Value>
-    </Variable>
-    <Variable Type="int" Name="FrameBG.TextureHeight" SetsValue="true">
-      <Value xsi:type="xsd:int">64</Value>
-    </Variable>
-    <Variable Type="int" Name="FrameBG.TextureLeft" SetsValue="true">
-      <Value xsi:type="xsd:int">0</Value>
-    </Variable>
-    <Variable Type="int" Name="FrameBG.TextureTop" SetsValue="true">
-      <Value xsi:type="xsd:int">0</Value>
-    </Variable>
-    <Variable Type="int" Name="FrameBG.TextureWidth" SetsValue="true">
-      <Value xsi:type="xsd:int">64</Value>
-    </Variable>
-    <Variable Type="bool" Name="FrameBG.Visible" SetsValue="true">
-      <Value xsi:type="xsd:boolean">true</Value>
-    </Variable>
-    <Variable Type="float" Name="FrameBG.Width" SetsValue="true">
-      <Value xsi:type="xsd:float">-0</Value>
-    </Variable>
-    <Variable Type="DimensionUnitType" Name="FrameBG.WidthUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">2</Value>
-    </Variable>
-    <Variable Type="bool" Name="FrameBG.Wrap" SetsValue="true">
-      <Value xsi:type="xsd:boolean">false</Value>
-    </Variable>
-    <Variable Type="float" Name="FrameBG.X" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="HorizontalAlignment" Name="FrameBG.XOrigin" SetsValue="true">
-      <Value xsi:type="xsd:int">1</Value>
-    </Variable>
-    <Variable Type="PositionUnitType" Name="FrameBG.XUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">6</Value>
-    </Variable>
-    <Variable Type="float" Name="FrameBG.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="VerticalAlignment" Name="FrameBG.YOrigin" SetsValue="true">
-      <Value xsi:type="xsd:int">2</Value>
-    </Variable>
-    <Variable Type="PositionUnitType" Name="FrameBG.YUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">5</Value>
     </Variable>
     <Variable Type="int" Name="FrameTopBG.Blue" SetsValue="true">
       <Value xsi:type="xsd:int">208</Value>
@@ -163,7 +177,7 @@
       <Value xsi:type="xsd:boolean">false</Value>
     </Variable>
     <Variable Type="string" Name="FrameTopBG.Parent" SetsValue="true">
-      <Value xsi:type="xsd:string">FrameBG</Value>
+      <Value xsi:type="xsd:string">BarContainer</Value>
     </Variable>
     <Variable Type="int" Name="FrameTopBG.Red" SetsValue="true">
       <Value xsi:type="xsd:int">180</Value>
@@ -216,6 +230,39 @@
     <Variable Type="PositionUnitType" Name="FrameTopBG.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
+    <Variable Type="float" Name="FunctionalBtn.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-6</Value>
+    </Variable>
+    <Variable Type="string" Name="FunctionalBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">FrameTopBG</Value>
+    </Variable>
+    <Variable Type="string" Name="FunctionalBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">Functional</Value>
+    </Variable>
+    <Variable Type="float" Name="FunctionalBtn.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">240</Value>
+    </Variable>
+    <Variable Type="float" Name="FunctionalBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">510</Value>
+    </Variable>
+    <Variable Type="float" Name="FunctionalBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">9</Value>
+    </Variable>
+    <Variable Type="string" Name="GridBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">TopLeftContainer</Value>
+    </Variable>
+    <Variable Type="string" Name="GridBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">Grid</Value>
+    </Variable>
+    <Variable Type="float" Name="GridBtn.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">172</Value>
+    </Variable>
+    <Variable Type="float" Name="GridBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">38</Value>
+    </Variable>
+    <Variable Type="float" Name="GridBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">164</Value>
+    </Variable>
     <Variable Type="bool" Name="IconInstance2.ExposeChildrenEvents" SetsValue="true">
       <Value xsi:type="xsd:boolean">false</Value>
     </Variable>
@@ -231,23 +278,65 @@
     <Variable Type="float" Name="IconInstance2.Y" SetsValue="true">
       <Value xsi:type="xsd:float">-2</Value>
     </Variable>
-    <Variable Type="float" Name="PlatformsBtn.Height" SetsValue="true">
+    <Variable Type="float" Name="PlatformBtn.Height" SetsValue="true">
       <Value xsi:type="xsd:float">-6</Value>
     </Variable>
-    <Variable Type="string" Name="PlatformsBtn.Parent" SetsValue="true">
+    <Variable Type="string" Name="PlatformBtn.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">FrameTopBG</Value>
     </Variable>
-    <Variable Type="string" Name="PlatformsBtn.Text" SetsValue="true">
+    <Variable Type="string" Name="PlatformBtn.Text" SetsValue="true">
       <Value xsi:type="xsd:string">Platforms</Value>
     </Variable>
-    <Variable Type="float" Name="PlatformsBtn.Width" SetsValue="true">
+    <Variable Type="float" Name="PlatformBtn.Width" SetsValue="true">
       <Value xsi:type="xsd:float">240</Value>
     </Variable>
-    <Variable Type="float" Name="PlatformsBtn.X" SetsValue="true">
+    <Variable Type="float" Name="PlatformBtn.X" SetsValue="true">
       <Value xsi:type="xsd:float">10</Value>
     </Variable>
-    <Variable Type="float" Name="PlatformsBtn.Y" SetsValue="true">
+    <Variable Type="float" Name="PlatformBtn.Y" SetsValue="true">
       <Value xsi:type="xsd:float">9</Value>
+    </Variable>
+    <Variable Type="ColorCategory" Name="RedoBtn.BackgroundColorCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Warning</Value>
+    </Variable>
+    <Variable Type="int" Name="RedoBtn.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">40</Value>
+    </Variable>
+    <Variable Type="float" Name="RedoBtn.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">80</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="RedoBtn.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="int" Name="RedoBtn.OutlineThickness" SetsValue="true">
+      <Value xsi:type="xsd:int">3</Value>
+    </Variable>
+    <Variable Type="string" Name="RedoBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">TopRightContainer</Value>
+    </Variable>
+    <Variable Type="string" Name="RedoBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">Redo</Value>
+    </Variable>
+    <Variable Type="float" Name="RedoBtn.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">180</Value>
+    </Variable>
+    <Variable Type="float" Name="RedoBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">-220</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="RedoBtn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="RedoBtn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">4</Value>
+    </Variable>
+    <Variable Type="float" Name="RedoBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">20</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="RedoBtn.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="RedoBtn.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
     </Variable>
     <Variable Type="int" Name="SaveBtn.FontSize" SetsValue="true">
       <Value xsi:type="xsd:int">40</Value>
@@ -260,6 +349,9 @@
     </Variable>
     <Variable Type="int" Name="SaveBtn.OutlineThickness" SetsValue="true">
       <Value xsi:type="xsd:int">3</Value>
+    </Variable>
+    <Variable Type="string" Name="SaveBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">TopRightContainer</Value>
     </Variable>
     <Variable Type="string" Name="SaveBtn.Text" SetsValue="true">
       <Value xsi:type="xsd:string">Save</Value>
@@ -285,33 +377,173 @@
     <Variable Type="PositionUnitType" Name="SaveBtn.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
-    <Variable Type="float" Name="SpecialBtn.Height" SetsValue="true">
+    <Variable Type="bool" Name="TileList.ClipsChildren" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="float" Name="TileList.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-70</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="TileList.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="string" Name="TileList.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">BarContainer</Value>
+    </Variable>
+    <Variable Type="ScrollBarVisibility" Name="TileList.ScrollBarVisibilityState" SetsValue="true">
+      <Value xsi:type="xsd:string">HorizontalScrollVisible</Value>
+    </Variable>
+    <Variable Type="ScrollViewerCategory" Name="TileList.ScrollViewerCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Enabled</Value>
+    </Variable>
+    <Variable Type="float" Name="TileList.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="TileList.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="float" Name="TileList.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="TileList.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="TileList.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="TileList.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="TileList.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="TileList.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">5</Value>
+    </Variable>
+    <Variable Type="bool" Name="TopLeftContainer.HasEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="float" Name="TopLeftContainer.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">201</Value>
+    </Variable>
+    <Variable Type="float" Name="TopLeftContainer.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">218</Value>
+    </Variable>
+    <Variable Type="bool" Name="TopRightContainer.HasEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="float" Name="TopRightContainer.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">101</Value>
+    </Variable>
+    <Variable Type="float" Name="TopRightContainer.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">601</Value>
+    </Variable>
+    <Variable Type="float" Name="TopRightContainer.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="TopRightContainer.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="TopRightContainer.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">4</Value>
+    </Variable>
+    <Variable Type="float" Name="TopRightContainer.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="TopRightContainer.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="TopRightContainer.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="ColorCategory" Name="UndoBtn.BackgroundColorCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Warning</Value>
+    </Variable>
+    <Variable Type="int" Name="UndoBtn.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">40</Value>
+    </Variable>
+    <Variable Type="float" Name="UndoBtn.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">80</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="UndoBtn.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="int" Name="UndoBtn.OutlineThickness" SetsValue="true">
+      <Value xsi:type="xsd:int">3</Value>
+    </Variable>
+    <Variable Type="string" Name="UndoBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">TopRightContainer</Value>
+    </Variable>
+    <Variable Type="string" Name="UndoBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">Undo</Value>
+    </Variable>
+    <Variable Type="float" Name="UndoBtn.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">180</Value>
+    </Variable>
+    <Variable Type="float" Name="UndoBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">-420</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="UndoBtn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="UndoBtn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">4</Value>
+    </Variable>
+    <Variable Type="float" Name="UndoBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">20</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="UndoBtn.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="UndoBtn.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="float" Name="UnselectBtn.Height" SetsValue="true">
       <Value xsi:type="xsd:float">-6</Value>
     </Variable>
-    <Variable Type="string" Name="SpecialBtn.Parent" SetsValue="true">
+    <Variable Type="string" Name="UnselectBtn.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">FrameTopBG</Value>
     </Variable>
-    <Variable Type="string" Name="SpecialBtn.Text" SetsValue="true">
-      <Value xsi:type="xsd:string">Special</Value>
+    <Variable Type="string" Name="UnselectBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">Unselect</Value>
     </Variable>
-    <Variable Type="float" Name="SpecialBtn.Width" SetsValue="true">
+    <Variable Type="float" Name="UnselectBtn.Width" SetsValue="true">
       <Value xsi:type="xsd:float">240</Value>
     </Variable>
-    <Variable Type="float" Name="SpecialBtn.X" SetsValue="true">
-      <Value xsi:type="xsd:float">510</Value>
+    <Variable Type="float" Name="UnselectBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">-10</Value>
     </Variable>
-    <Variable Type="float" Name="SpecialBtn.Y" SetsValue="true">
+    <Variable Type="HorizontalAlignment" Name="UnselectBtn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="UnselectBtn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">4</Value>
+    </Variable>
+    <Variable Type="float" Name="UnselectBtn.Y" SetsValue="true">
       <Value xsi:type="xsd:float">9</Value>
     </Variable>
+    <Variable Type="VerticalAlignment" Name="UnselectBtn.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="UnselectBtn.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
   </State>
-  <Instance Name="PlatformsBtn" BaseType="Controls/ButtonStandardMini" />
-  <Instance Name="DecorationsBtn" BaseType="Controls/ButtonStandardMini" />
+  <Instance Name="BgBtn" BaseType="Controls/CheckBox" />
+  <Instance Name="GridBtn" BaseType="Controls/CheckBox" />
+  <Instance Name="CloseBtn" BaseType="Controls/ButtonStandard" />
   <Instance Name="SaveBtn" BaseType="Controls/ButtonConfirm" />
-  <Instance Name="SpecialBtn" BaseType="Controls/ButtonStandardMini" />
+  <Instance Name="RedoBtn" BaseType="Controls/ButtonYellow" />
+  <Instance Name="UndoBtn" BaseType="Controls/ButtonYellow" />
+  <Instance Name="PlatformBtn" BaseType="Controls/ButtonStandardMini" />
+  <Instance Name="DecorativeBtn" BaseType="Controls/ButtonStandardMini" />
+  <Instance Name="FunctionalBtn" BaseType="Controls/ButtonStandardMini" />
+  <Instance Name="UnselectBtn" BaseType="Controls/ButtonStandardMini" />
   <Instance Name="FrameTopBG" BaseType="NineSlice" />
   <Instance Name="ContainerInstance" BaseType="Container" />
-  <Instance Name="FrameBG" BaseType="NineSlice" />
-  <Instance Name="CloseBtn" BaseType="Controls/ButtonStandard" />
+  <Instance Name="TileList" BaseType="Controls/ScrollViewer" />
+  <Instance Name="BarContainer" BaseType="NineSlice" />
   <Instance Name="IconInstance2" BaseType="Elements/Icon" />
+  <Instance Name="TopRightContainer" BaseType="Container" />
+  <Instance Name="TopLeftContainer" BaseType="Container" />
   <Behaviors />
 </ScreenSave>

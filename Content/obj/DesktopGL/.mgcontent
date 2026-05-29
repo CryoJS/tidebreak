@@ -4,6 +4,11 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/EditorTiles/BarrierTile.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/EditorTiles/EmptyTile.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/EditorTiles/FloodTile.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/EditorTiles/SelectTile.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/EditorTiles/ZiplineTile.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Icons/Cursor.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Icons/CursorPressed.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Icons/Gem.png</File>
@@ -45,6 +50,11 @@
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile9.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File>Images/Sprites/EditorTiles/FloodTile</File>
+    <File>Images/Sprites/EditorTiles/SelectTile</File>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

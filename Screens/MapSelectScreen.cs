@@ -20,10 +20,10 @@ namespace Tidebreak.Screens
                 MapRow row = new MapRow();
 
                 // Update text in each row with the map info
-                row.TitleText.Text = map.name;
-                row.AuthorText.Text = map.author;
-                row.DifficultyText.Text = map.difficulty.ToString("F1");
-                row.DifficultyText.Color = Map.diffColors[(int)map.difficulty];
+                row.TitleText.Text = map.Name;
+                row.AuthorText.Text = map.Author;
+                row.DifficultyText.Text = map.Difficulty.ToString("F1");
+                row.DifficultyText.Color = Map.diffColors[(int)map.Difficulty];
 
                 // Add button click behaviour: play the map
                 row.PlayBtn.Click += (_, _) =>
@@ -41,7 +41,7 @@ namespace Tidebreak.Screens
                 };
 
                 // Edit the map only if map is not locked
-                if (!map.locked)
+                if (!map.Locked)
                 {
                     // Add edit map button click behaviour
                     row.EditBtn.Click += (_, _) =>
@@ -60,7 +60,7 @@ namespace Tidebreak.Screens
                 }
 
                 // Add finalized map row into list of maps
-                MapList.InnerPanelInstance.Children.Add(row.Visual);
+                MapList.AddChild(row.Visual);
             }
 
             // Create new map

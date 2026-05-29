@@ -16,13 +16,13 @@ namespace Tidebreak.Screens
             InputDesc.MaxLength = Game1.MAX_LENGTH_LONG;
 
             // Ensure difficulty, drown speed, and flood speed are given valid floats
-            InputDifficulty.PreviewTextInput += FloatOnlyHandler;
-            InputDrownSpeed.PreviewTextInput += FloatOnlyHandler;
-            InputFloodSpeed.PreviewTextInput += FloatOnlyHandler;
+            InputDifficulty.PreviewTextInput += Game1.FloatOnlyHandler;
+            InputDrownSpeed.PreviewTextInput += Game1.FloatOnlyHandler;
+            InputFloodSpeed.PreviewTextInput += Game1.FloatOnlyHandler;
 
             // Ensure size x and y only recieves digits (to be an integer)
-            InputSizeX.PreviewTextInput += IntegerOnlyHandler;
-            InputSizeY.PreviewTextInput += IntegerOnlyHandler;
+            InputSizeX.PreviewTextInput += Game1.IntegerOnlyHandler;
+            InputSizeY.PreviewTextInput += Game1.IntegerOnlyHandler;
 
             // Store all float inputs
             float difficulty = Map.EMPTY;
@@ -40,9 +40,9 @@ namespace Tidebreak.Screens
                 InputDesc.Text = InputDesc.Text.Trim();
 
                 // Save them if they are valid
-                if (InputName.Text != "") Game1.currentMap.name = InputName.Text;
-                if (InputAuthor.Text != "") Game1.currentMap.author = InputAuthor.Text;
-                if (InputDesc.Text != "") Game1.currentMap.description = InputDesc.Text;
+                if (InputName.Text != "") Game1.currentMap.Name = InputName.Text;
+                if (InputAuthor.Text != "") Game1.currentMap.Author = InputAuthor.Text;
+                if (InputDesc.Text != "") Game1.currentMap.Description = InputDesc.Text;
 
                 // Convert floats if possible
                 if (InputDifficulty.Text != "") difficulty = (float)Math.Round(Convert.ToDouble(InputDifficulty.Text), 1);
@@ -52,42 +52,42 @@ namespace Tidebreak.Screens
                 if (InputFloodSpeed.Text != "") floodSpeed = Convert.ToSingle(InputFloodSpeed.Text);
 
                 // Check if floats are valid and save them if so
-                if (Map.MIN_DIFF <= difficulty && difficulty < Map.MAX_EXC_DIFF) Game1.currentMap.difficulty = difficulty;
-                if (sizeX > 0) Game1.currentMap.sizeX = Math.Min(sizeX, Map.MAX_SIZE);
-                if (sizeY > 0) Game1.currentMap.sizeY = Math.Min(sizeY, Map.MAX_SIZE);
-                if (drownSpeed >= 0) Game1.currentMap.drownSpeed = drownSpeed;
-                if (floodSpeed >= 0) Game1.currentMap.floodSpeed = floodSpeed;
+                if (Map.MIN_DIFF <= difficulty && difficulty < Map.MAX_EXC_DIFF) Game1.currentMap.Difficulty = difficulty;
+                if (sizeX > 0) Game1.currentMap.SizeX = Math.Min(sizeX, Map.MAX_SIZE);
+                if (sizeY > 0) Game1.currentMap.SizeY = Math.Min(sizeY, Map.MAX_SIZE);
+                if (drownSpeed >= 0) Game1.currentMap.DrownSpeed = drownSpeed;
+                if (floodSpeed >= 0) Game1.currentMap.FloodSpeed = floodSpeed;
 
                 // If size is changed, copy over new map
                 if (sizeX > 0 || sizeY > 0)
                 {
                     // Temp store old tiles
-                    Tile[,] oldTiles = Game1.currentMap.tiles;
-                    Tile[,] oldBgTiles = Game1.currentMap.bgTiles;
-                    int[,] oldFloodTiles = Game1.currentMap.floodTiles;
+                    Tile[,] oldTiles = Game1.currentMap.Tiles;
+                    Tile[,] oldBgTiles = Game1.currentMap.BgTiles;
+                    int[,] oldFloodTiles = Game1.currentMap.FloodTiles;
 
                     // Resize current tiles
-                    Game1.currentMap.tiles = new Tile[Game1.currentMap.sizeX, Game1.currentMap.sizeY];
-                    Game1.currentMap.bgTiles = new Tile[Game1.currentMap.sizeX, Game1.currentMap.sizeY];
-                    Game1.currentMap.floodTiles = new int[Game1.currentMap.sizeX, Game1.currentMap.sizeY];
+                    Game1.currentMap.Tiles = new Tile[Game1.currentMap.SizeX, Game1.currentMap.SizeY];
+                    Game1.currentMap.BgTiles = new Tile[Game1.currentMap.SizeX, Game1.currentMap.SizeY];
+                    Game1.currentMap.FloodTiles = new int[Game1.currentMap.SizeX, Game1.currentMap.SizeY];
 
                     // Loop through all tiles, if doesn't exist, set as empty tile (otherwise copy over)
-                    for (int x = 0; x < Game1.currentMap.sizeX; x++)
+                    for (int x = 0; x < Game1.currentMap.SizeX; x++)
                     {
-                        for (int y = 0; y < Game1.currentMap.sizeY; y++)
+                        for (int y = 0; y < Game1.currentMap.SizeY; y++)
                         {
                             // Try to copy over, if failed (index out of range) just assign empty tile
                             try
                             {
-                                Game1.currentMap.tiles[x, y] = oldTiles[x, y];
-                                Game1.currentMap.bgTiles[x, y] = oldBgTiles[x, y];
-                                Game1.currentMap.floodTiles[x, y] = oldFloodTiles[x, y];
+                                Game1.currentMap.Tiles[x, y] = oldTiles[x, y];
+                                Game1.currentMap.BgTiles[x, y] = oldBgTiles[x, y];
+                                Game1.currentMap.FloodTiles[x, y] = oldFloodTiles[x, y];
                             }
                             catch
                             {
-                                Game1.currentMap.tiles[x, y] = new Tile(x, y);
-                                Game1.currentMap.bgTiles[x, y] = new Tile(x, y);
-                                Game1.currentMap.floodTiles[x, y] = Tile.NOT_FLOODED;
+                                Game1.currentMap.Tiles[x, y] = new Tile(x, y);
+                                Game1.currentMap.BgTiles[x, y] = new Tile(x, y);
+                                Game1.currentMap.FloodTiles[x, y] = Tile.NOT_FLOODED;
                             }
                         }
                     }
@@ -102,13 +102,16 @@ namespace Tidebreak.Screens
             //  If user presses edit, let them edit the map tiles
             EditBtn.Click += (_, _) =>
             {
+                // Load map into editor
+                Game1.mapEditor.Load(Game1.currentMap);
+
                 // Update gamestate
                 Game1.gameState = Game1.EDIT_MAP;
 
                 // Change screen
-                EditScreen newScreen = new EditScreen();
+                Game1.editScreen = new EditScreen();
                 GumService.Default.Root.Children.Clear();
-                newScreen.AddToRoot();
+                Game1.editScreen.AddToRoot();
             };
 
             // If user presses exit, close popup
@@ -116,21 +119,6 @@ namespace Tidebreak.Screens
             {
                 this.RemoveFromRoot();
             };
-        }
-
-        private void FloatOnlyHandler(object sender, TextCompositionEventArgs args)
-        {
-            // Store current input and calculate new input
-            TextBox textBox = (TextBox)sender;
-            string newText = textBox.Text.Insert(textBox.CaretIndex, args.Text);
-
-            // Check if new input is valid using try parse
-            args.Handled = !float.TryParse(newText, out _);
-        }
-
-        private void IntegerOnlyHandler(object sender, TextCompositionEventArgs args)
-        {
-            args.Handled = args.Text.Any(c => !char.IsDigit(c));
         }
     }
 }

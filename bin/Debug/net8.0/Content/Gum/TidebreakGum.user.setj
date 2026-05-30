@@ -2,14 +2,8 @@
   "TreeViewState": {
     "ExpandedNodes": [
       "Screens",
-      "Screens/EditScreen",
-      "Screens/EditScreen/FrameBG",
-      "Screens/EditScreen/FrameBG/FrameTopBG",
-      "Screens/EditScreen/TopRightContainer",
       "Components",
-      "Components/Controls",
-      "Components/Controls/ButtonStandard",
-      "Components/Controls/ScrollViewer"
+      "Components/Controls"
     ]
   }
 }

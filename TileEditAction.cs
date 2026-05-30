@@ -1,20 +1,20 @@
 class TileEdit
 {
     // Store action position
-    private int x;
-    private int y;
-    bool editBg;
+    public int X { get; private set; }
+    public int Y { get; private set; }
+    public bool Bg { get; private set; }
 
     // Store replaced tile and new tile
-    private int oldType;
-    private int newType;
+    public int OldType { get; private set; }
+    public int NewType { get; private set; }
 
-    public TileEdit(int x, int y, bool editBg, int oldType, int newType)
+    public TileEdit(int x, int y, bool bg, int oldType, int newType)
     {
-        this.x = x;
-        this.y = y;
-        this.editBg = editBg;
-        this.oldType = oldType;
-        this.newType = newType;
+        X = x;
+        Y = y;
+        Bg = bg;
+        OldType = oldType;
+        NewType = newType;
     }
 }

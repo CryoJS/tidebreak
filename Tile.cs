@@ -1,8 +1,6 @@
-using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
 using Tidebreak;
 
 class Tile
@@ -10,7 +8,7 @@ class Tile
     // Create constants for tile types
     public const int TEXTURE_TYPE_AMOUNT = 25;
     public const int PLATFORM_TYPE_AMOUNT = 12; // includes EMPTY
-    public const int DECORATIVE_TYPE_AMOUNT = 7;
+    public const int DECORATIVE_TYPE_AMOUNT = 8;
     public const int FUNCTIONAL_TYPE_AMOUNT = 8;
 
     public const int BUTTON_START = -5;
@@ -49,9 +47,8 @@ class Tile
     public const int ZIPLINE = 50; // Zipline start and end tiles are from here and onwards in pairs, i.e. {(50, 51), (52, 53), ...}
 
     // Create constants for if tile is floodable or not
-    public const int NOT_FLOODED = 0;
-    public const int FLOOD_START = 1;
-    public const int FLOODED = 2;
+    public const bool NOT_FLOODED = false;
+    public const bool FLOODED = true;
 
     // Store all tile textures
     public static Texture2D[] textures = new Texture2D[TEXTURE_TYPE_AMOUNT];
@@ -62,24 +59,32 @@ class Tile
     private static Texture2D floodImg;
 
     // Store tile information
-    private Point pos;
+    public Point Pos { get; private set; }
     public int Type { get; set; }
     public Rectangle Rec { get; }
 
     public Tile(int posX, int posY, int type = EMPTY)
     {
-        pos = new Point(posX, posY);
+        Pos = new Point(posX, posY);
         Type = type;
         Rec = new Rectangle(posX * Game1.TILE_SIZE * Game1.PIXEL_SCALE, posY * Game1.TILE_SIZE * Game1.PIXEL_SCALE, Game1.TILE_SIZE * Game1.PIXEL_SCALE, Game1.TILE_SIZE * Game1.PIXEL_SCALE);
     }
 
     public static int GetType(int type, bool isEditing = false)
     {
-        // Perform button logic if button
+        // Perform button logic if button or flood
         if (type <= BUTTON_START)
         {
             if (isEditing || Game1.player == null) return BUTTON;
             return (Game1.player.Buttons.Find(new Button(0, 0, Button.TypeToPriority(type))) != null) ? BUTTON : PRESSED_BUTTON;
+        }
+        else if (type >= ZIPLINE)
+        {
+            return ZIPLINE;
+        }
+        else if (!isEditing && type == FLOOD)
+        {
+            return WATER;
         }
 
         return type;
@@ -87,7 +92,7 @@ class Tile
 
     public Tile Copy()
     {
-        return new Tile(pos.X, pos.Y, Type);
+        return new Tile(Pos.X, Pos.Y, Type);
     }
 
     public void Draw(SpriteBatch spriteBatch, bool editing = false)

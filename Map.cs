@@ -58,7 +58,7 @@ class Map // TODO All documentation for methods
     // Store tiles in the map
     public Tile[,] Tiles { get; set; }
     public Tile[,] BgTiles { get; set; }
-    public int[,] FloodTiles { get; set; }
+    public bool[,] FloodTiles { get; set; }
 
     // Store ziplines in the map
     private int ziplineCnt = 0;
@@ -135,13 +135,14 @@ class Map // TODO All documentation for methods
             for (int y = 0; y < SizeY; y++)
             {
                 // Reset flood, and if the tile is a flood start tile, put it into the queue
-                if (FloodTiles[x, y] == Tile.FLOODED)
+                if (Tiles[x, y].Type == Tile.FLOOD)
+                {
+                    FloodTiles[x, y] = Tile.FLOODED;
+                    floodQueue.Enqueue((x, y));
+                }
+                else
                 {
                     FloodTiles[x, y] = Tile.NOT_FLOODED;
-                }
-                else if (FloodTiles[x, y] == Tile.FLOOD_START)
-                {
-                    floodQueue.Enqueue((x, y));
                 }
             }
         }
@@ -180,8 +181,11 @@ class Map // TODO All documentation for methods
                     // Only perform logic if tile within bounds
                     if (nx < 0 || nx > SizeX || ny < 0 || ny > SizeY) continue;
 
+                    // Store tile type
+                    int type = Tile.GetType(Tiles[nx, ny].Type);
+
                     // Only expand tile if empty (and unflooded)
-                    if (FloodTiles[nx, ny] == Tile.NOT_FLOODED && Tiles[nx, ny].Type != Tile.WALL_JUMP && (Tiles[nx, ny].Type == Tile.EMPTY || Tiles[nx, ny].Type > Tile.PLATFORM_TYPE_AMOUNT))
+                    if (FloodTiles[nx, ny] == Tile.NOT_FLOODED && type != Tile.WALL_JUMP && (type == Tile.EMPTY || type > Tile.PLATFORM_TYPE_AMOUNT))
                     {
                         // Set the tile to flooded and add it to the queue
                         FloodTiles[nx, ny] = Tile.FLOODED;
@@ -206,7 +210,7 @@ class Map // TODO All documentation for methods
                 BgTiles[x, y].Draw(spriteBatch);
 
                 // Draw expanding water while keeping background and foreground in mind
-                if (FloodTiles[x, y] != Tile.NOT_FLOODED && FloodTiles[x, y] != Tile.WALL_JUMP)
+                if (FloodTiles[x, y] == Tile.FLOODED && Tiles[x, y].Type != Tile.WALL_JUMP)
                 {
                     spriteBatch.Draw(Tile.textures[Tile.WATER], Tiles[x, y].Rec, Color.White);
                 }
@@ -256,7 +260,7 @@ class Map // TODO All documentation for methods
         // Create tile arrays
         Tiles = new Tile[SizeX, SizeY];
         BgTiles = new Tile[SizeX, SizeY];
-        FloodTiles = new int[SizeX, SizeY];
+        FloodTiles = new bool[SizeX, SizeY];
 
         // Create the list to store ziplines
         Ziplines = new Zipline[ziplineCnt].ToList();
@@ -278,7 +282,7 @@ class Map // TODO All documentation for methods
                 else if (Tiles[x, y].Type >= Tile.ZIPLINE)
                 {
                     // Create variables to easily access zipline indexes and properties
-                    int id = Zipline.FindId(Tiles[x, y].Type);
+                    int id = Zipline.GetId(Tiles[x, y].Type);
 
                     // Create a new zipline if there is none
                     if (Ziplines[id] == null)
@@ -315,21 +319,7 @@ class Map // TODO All documentation for methods
             }
         }
 
-        // Load in map tiles (flood tiles)
-        for (int y = 0; y < SizeY; y++)
-        {
-            line = inFile.ReadLine().Split(' ');
-
-            for (int x = 0; x < SizeX; x++)
-            {
-                FloodTiles[x, y] = Convert.ToInt32(line[x]);
-            }
-        }
-
-        // Load all zipline shapes
-        foreach (Zipline zipline in Ziplines)
-        {
-            zipline.Load(Game1._graphics.GraphicsDevice);
-        }
+        // Load all zipline shapes // REVIEW for loop one line is fine right?
+        foreach (Zipline zipline in Ziplines) zipline.Load();
     }
 }

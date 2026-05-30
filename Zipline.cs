@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using GameUtility;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -21,14 +23,25 @@ class Zipline
     public Tile Start { set; get; }
     public Tile End { set; get; }
 
-    public Zipline() { }
+    public Zipline() {}
 
-    public void Load(GraphicsDevice gd)
+    public Zipline(Tile start, Tile end)
     {
-        line = new GameLine(gd, Start.Rec.Center.ToVector2(), End.Rec.Center.ToVector2(), BORDER_WIDTH);
-        startCircle = new GameCircle(gd, Start.Rec.Center.ToVector2(), RADIUS, BORDER_WIDTH);
-        endCircle = new GameCircle(gd, End.Rec.Center.ToVector2(), RADIUS / 2);
+        Start = start;
+        End = end;
+
+        // Load the zipline shapes
+        Load();
     }
+
+    public void Load()
+    {
+        line = new GameLine(Game1._graphics.GraphicsDevice, Start.Rec.Center.ToVector2(), End.Rec.Center.ToVector2(), BORDER_WIDTH);
+        startCircle = new GameCircle(Game1._graphics.GraphicsDevice, Start.Rec.Center.ToVector2(), RADIUS, BORDER_WIDTH);
+        endCircle = new GameCircle(Game1._graphics.GraphicsDevice, End.Rec.Center.ToVector2(), RADIUS / 2);
+    }
+
+    public Zipline Copy() => new Zipline(Start.Copy(), End.Copy());
 
     public void Draw(SpriteBatch spriteBatch)
     {
@@ -47,12 +60,14 @@ class Zipline
         player.vel = dir * speed;
     }
 
+    public static List<Zipline> CopyList(List<Zipline> ziplines) => ziplines.Select(zipline => zipline.Copy()).ToList(); // REVIEW long arrow func
+
     private static int FindUnpairedId(int type)
     {
         return type - Tile.ZIPLINE;
     }
 
-    public static int FindId(int type)
+    public static int GetId(int type)
     {
         return FindUnpairedId(type) / 2;
     }
@@ -60,5 +75,10 @@ class Zipline
     public static bool IsStart(int type)
     {
         return (FindUnpairedId(type) & 1) == (Tile.ZIPLINE & 1);
+    }
+
+    public static int IdToType(int id, bool start)
+    {
+        return Tile.ZIPLINE + id * 2 + (start ? 0 : 1);
     }
 }

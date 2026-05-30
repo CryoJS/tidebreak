@@ -187,7 +187,6 @@ class BSTree<Value> where Value : IComparable<Value>
 
         // Copy the subtree starting at the root (entire tree) and return
         CopyNode(copy, root);
-
         return copy;
     }
 

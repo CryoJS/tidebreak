@@ -436,7 +436,7 @@ class Player
         // Perform tile collision checks with player (for the tile the player is at) (if tile exists)
         if (0 <= tileX && tileX < map.SizeX && 0 <= tileY && tileY < map.SizeY)
         {
-            tileType = Tile.GetType(map.Tiles[tileX, tileY].Type);
+            tileType = map.Tiles[tileX, tileY].Type;
 
             // Check each special tile
             if (tileType == Tile.END)
@@ -448,7 +448,7 @@ class Player
                     return;
                 }
             }
-            else if (tileType == Tile.BUTTON)
+            else if (Tile.GetType(tileType) == Tile.BUTTON)
             {
                 // Check if button is found
                 if (tileX == NextButton.X && tileY == NextButton.Y)
@@ -461,7 +461,7 @@ class Player
                     btnGlow = 1;
                 }
             }
-            else if (tileType >= Tile.ZIPLINE)
+            else if (Tile.GetType(tileType) == Tile.ZIPLINE)
             {
                 // Player either enters or exits zipline
                 if (Zipline.IsStart(tileType))
@@ -470,7 +470,7 @@ class Player
                     if (!onZipline)
                     {
                         onZipline = true;
-                        curZipline = map.Ziplines[Zipline.FindId(tileType)];
+                        curZipline = map.Ziplines[Zipline.GetId(tileType)];
 
                         // Center player at zipline
                         CenterPos(map.Tiles[tileX, tileY].Rec.Center.ToVector2());
@@ -481,7 +481,7 @@ class Player
                     onZipline = false;
                 }
             }
-            else if (tileType == Tile.WATER || map.FloodTiles[tileX, tileY] != Tile.NOT_FLOODED)
+            else if (Tile.GetType(tileType) == Tile.WATER || map.FloodTiles[tileX, tileY] == Tile.FLOODED)
             {
                 // Player is in water
                 inWater = true;
@@ -505,7 +505,7 @@ class Player
                     tileRec = map.Tiles[x, y].Rec;
 
                     // Check if any collision occurred with a collidable tile
-                    if (Tile.WATER < tileType && (tileType <= Tile.PLATFORM_TYPE_AMOUNT || tileType == Tile.WALL_JUMP) && rec.Intersects(tileRec))
+                    if (Tile.WATER < tileType && (tileType < Tile.PLATFORM_TYPE_AMOUNT || tileType == Tile.WALL_JUMP) && rec.Intersects(tileRec))
                     {
                         // Check if player collides up or down
                         if (tileRec.Intersects(top))

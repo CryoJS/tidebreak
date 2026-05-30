@@ -64,12 +64,10 @@ namespace Tidebreak.Screens
                     // Temp store old tiles
                     Tile[,] oldTiles = Game1.currentMap.Tiles;
                     Tile[,] oldBgTiles = Game1.currentMap.BgTiles;
-                    int[,] oldFloodTiles = Game1.currentMap.FloodTiles;
 
                     // Resize current tiles
                     Game1.currentMap.Tiles = new Tile[Game1.currentMap.SizeX, Game1.currentMap.SizeY];
                     Game1.currentMap.BgTiles = new Tile[Game1.currentMap.SizeX, Game1.currentMap.SizeY];
-                    Game1.currentMap.FloodTiles = new int[Game1.currentMap.SizeX, Game1.currentMap.SizeY];
 
                     // Loop through all tiles, if doesn't exist, set as empty tile (otherwise copy over)
                     for (int x = 0; x < Game1.currentMap.SizeX; x++)
@@ -81,13 +79,11 @@ namespace Tidebreak.Screens
                             {
                                 Game1.currentMap.Tiles[x, y] = oldTiles[x, y];
                                 Game1.currentMap.BgTiles[x, y] = oldBgTiles[x, y];
-                                Game1.currentMap.FloodTiles[x, y] = oldFloodTiles[x, y];
                             }
                             catch
                             {
                                 Game1.currentMap.Tiles[x, y] = new Tile(x, y);
                                 Game1.currentMap.BgTiles[x, y] = new Tile(x, y);
-                                Game1.currentMap.FloodTiles[x, y] = Tile.NOT_FLOODED;
                             }
                         }
                     }

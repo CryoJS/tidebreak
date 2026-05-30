@@ -35,13 +35,13 @@ namespace Tidebreak.Screens
 
             for (int type = 1; type < Tile.PLATFORM_TYPE_AMOUNT; type++)
             {
-                platforms[type] = CreateTileUI(Tile.GRASS + type, platforms);
+                platforms[type] = CreateTileUI(type, platforms);
             }
 
             // Add all decorative tiles
             for (int type = 0; type < Tile.DECORATIVE_TYPE_AMOUNT; type++)
             {
-                decorative[type] = CreateTileUI(Tile.LEAF + type, decorative);
+                decorative[type] = CreateTileUI(Tile.LADDER + type, decorative);
             }
 
             // Add all functional tiles
@@ -108,6 +108,12 @@ namespace Tidebreak.Screens
             {
                 Game1.mapEditor.Save();
             };
+
+            // When clicking undo button, undo
+            UndoBtn.Click += (_, _) => Game1.mapEditor.Undo();
+
+            // When clicking redo button, redo
+            RedoBtn.Click += (_, _) => Game1.mapEditor.Redo();
 
             // Stop editing popup when pressing exit
             CloseBtn.Click += (_, _) =>

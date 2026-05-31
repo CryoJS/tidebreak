@@ -135,6 +135,18 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public SpriteRuntime IconSprite { get; protected set; }
 
 
+    public float IconHeight
+    {
+        get => IconSprite.Height;
+        set => IconSprite.Height = value;
+    }
+
+    public float IconWidth
+    {
+        get => IconSprite.Width;
+        set => IconSprite.Width = value;
+    }
+
     public Icon(InteractiveGue visual) : base(visual)
     {
     }

@@ -2,8 +2,12 @@
   "TreeViewState": {
     "ExpandedNodes": [
       "Screens",
+      "Screens/MapSortScreen",
+      "Screens/MapSortScreen/FrameBG",
+      "Screens/MapSortScreen/FrameBG/SortCombo",
       "Components",
-      "Components/Controls"
+      "Components/Controls",
+      "Components/Controls/ComboBox"
     ]
   }
 }

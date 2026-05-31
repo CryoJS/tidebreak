@@ -35,9 +35,7 @@ namespace Tidebreak.Screens
                 row.DetailsBtn.Click += (_, _) =>
                 {
                     Game1.currentMap = map;
-
-                    MapDetailsScreen newScreen = new MapDetailsScreen();
-                    newScreen.AddToRoot();
+                    new MapDetailsScreen().AddToRoot();
                 };
 
                 // Edit the map only if map is not locked
@@ -50,8 +48,7 @@ namespace Tidebreak.Screens
                         Game1.currentMap = map;
                         
                         // Add map settings popup
-                        MapSettingsScreen newScreen = new MapSettingsScreen();
-                        newScreen.AddToRoot();
+                        new MapSettingsScreen().AddToRoot();
                     };
                 }
                 else
@@ -66,9 +63,13 @@ namespace Tidebreak.Screens
             // Create new map
             NewMapBtn.Click += (_, _) =>
             {
-                // Change popup screen
-                NewMapScreen newScreen = new NewMapScreen();
-                newScreen.AddToRoot();
+                new NewMapScreen().AddToRoot();
+            };
+
+            // Open map sort menu
+            SortBtn.Click  += (_, _) =>
+            {
+                new MapSortScreen().AddToRoot();
             };
 
             // Send player back to menu

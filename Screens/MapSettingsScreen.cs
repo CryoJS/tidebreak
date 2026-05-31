@@ -90,9 +90,8 @@ namespace Tidebreak.Screens
                 }
 
                 // Refresh map selection screen
-                MapSelectScreen newScreen = new MapSelectScreen();
                 GumService.Default.Root.Children.Clear();
-                newScreen.AddToRoot();
+                new MapSelectScreen().AddToRoot();
             };
 
             //  If user presses edit, let them edit the map tiles

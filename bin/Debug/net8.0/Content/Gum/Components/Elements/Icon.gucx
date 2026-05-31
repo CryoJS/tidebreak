@@ -14,7 +14,7 @@
     <Variable Type="ColorCategory" Name="IconSprite.ColorCategoryState" ExposedAsName="IconColor" SetsValue="true">
       <Value xsi:type="xsd:string">White</Value>
     </Variable>
-    <Variable Type="float" Name="IconSprite.Height" SetsValue="true">
+    <Variable Type="float" Name="IconSprite.Height" ExposedAsName="IconHeight" SetsValue="true">
       <Value xsi:type="xsd:float">80</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="IconSprite.HeightUnits" SetsValue="true">
@@ -38,7 +38,7 @@
     <Variable Type="int" Name="IconSprite.TextureWidth" SetsValue="true">
       <Value xsi:type="xsd:int">32</Value>
     </Variable>
-    <Variable Type="float" Name="IconSprite.Width" SetsValue="true">
+    <Variable Type="float" Name="IconSprite.Width" ExposedAsName="IconWidth" SetsValue="true">
       <Value xsi:type="xsd:float">80</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="IconSprite.WidthUnits" SetsValue="true">

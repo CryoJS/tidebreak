@@ -67,8 +67,9 @@ class MapEditor
     // Store needed info to ensure map works
     private int startCnt;
 
-    // Store if unsaved
-    private bool unsaved = true;
+    // Store needed save variables
+    private bool unsaved;
+    private bool ziplineEdited;
 
     public MapEditor() {}
 
@@ -89,8 +90,9 @@ class MapEditor
         IsEditing = true;
         startCnt = 0;
 
-        // Map is saved already at the start
+        // Map is saved already at the start, ziplines not touched
         unsaved = false;
+        ziplineEdited = false;
 
         // Copy over all tiles (by looping through them)
         for (int x = 0; x < map.SizeX; x++)
@@ -180,8 +182,7 @@ class MapEditor
                         if (Tile.GetType(Tiles[StartSelected.X, StartSelected.Y].Type, true) == Tile.BUTTON)
                         {
                             // If they are editing a button, open the edit button popup for that button, otherwise start editing that button
-                            EditButtonScreen newScreen = new EditButtonScreen();
-                            newScreen.AddToRoot();
+                            new EditButtonScreen().AddToRoot();
 
                             // Let the editor know popup is open (so other actions can be blocked)
                             IsEditing = false;
@@ -224,6 +225,9 @@ class MapEditor
             }
         }
 
+        // Update list of ziplines
+        ReloadZiplines();
+
         // Check redo input and undo input
         if (kb.IsKeyDown(Keys.LeftControl) && kb.IsKeyDown(Keys.Z) && !prevKb.IsKeyDown(Keys.Z))
         {
@@ -232,14 +236,15 @@ class MapEditor
             else Undo();
         }
 
+        // Update list of ziplines
+        ReloadZiplines();
+
         // Update undo and redo buttons state
         Game1.editScreen.UndoBtn.IsEnabled = !UndoStack.IsEmpty();
         Game1.editScreen.RedoBtn.IsEnabled = !RedoStack.IsEmpty();
 
         // Ensure saving is only possible when there is at least 1 start tile (and unsaved)
         Game1.editScreen.SaveBtn.IsEnabled = Game1.editScreen.SaveBtn.IsEnabled = startCnt > 0 && unsaved;
-
-        DisplayDebugInfo(Tile.ZIPLINE); //FIXME
     }
 
     public void Draw(SpriteBatch spriteBatch, MouseState mouse)
@@ -348,6 +353,9 @@ class MapEditor
                 break;
             
             case Tile.ZIPLINE:
+                // Update that ziplines have been edited
+                ziplineEdited = true;
+
                 // Store id of this zipline
                 int i = Zipline.GetId(type);
 
@@ -364,28 +372,9 @@ class MapEditor
                 // Remove zipline
                 ziplines.RemoveAt(i);
 
-                // Store stack to put changes
-                Stack<List<TileEdit>> stack = canUndo ? UndoStack : RedoStack;
-
-                // Shift other ziplines down
-                for (int j = i; j < ziplines.Count; j++)
-                {
-                    // Store start and ends of the current zipline
-                    Tile start = ziplines[j].Start;
-                    Tile end = ziplines[j].End;
-
-                    // Update zipline types to reflect new index
-                    stack.Top().Add(new TileEdit(start.Pos.X, start.Pos.Y, EditBg, start.Type, Zipline.IdToType(j, true)));
-                    start.Type = Zipline.IdToType(j, true);
-                    Tiles[start.Pos.X, start.Pos.Y].Type = start.Type;
-                    
-                    stack.Top().Add(new TileEdit(end.Pos.X, end.Pos.Y, EditBg, end.Type, Zipline.IdToType(j, false)));
-                    end.Type = Zipline.IdToType(j, false);
-                    Tiles[end.Pos.X, end.Pos.Y].Type = end.Type;
-                }
-
                 // Remove the other part of the zipline
-                ChangeTile(other.X, other.Y, canUndo: canUndo);
+                if (SelectedTile == Tile.ZIPLINE) ChangeTile(other.X, other.Y, Tile.EMPTY, canUndo: canUndo);
+                else ChangeTile(other.X, other.Y, canUndo: canUndo);
                 break;
         }
     }
@@ -403,6 +392,11 @@ class MapEditor
             case Tile.BUTTON:
                 // Add button to BST
                 buttons.Add(new Button(x, y, Button.TypeToPriority(type)));
+                break;
+
+            case Tile.ZIPLINE:
+                // Update that ziplines have been edited
+                ziplineEdited = true;
                 break;
         }
     }
@@ -435,7 +429,7 @@ class MapEditor
         if (EditBg && EditScreen.Bar == EditScreen.functional) return;
         
         // Perform zipline place logic
-        if (Tile.GetType(newType) == Tile.ZIPLINE)
+        if (Tile.GetType(newType, true) == Tile.ZIPLINE)
         {
             // If trying to place zipline start and end not at same tile, place the zipline
             if (start != end)
@@ -447,9 +441,6 @@ class MapEditor
                 StartSelected = end;
                 ChangeTile(start.X, start.Y, newType);
                 ChangeTile(end.X, end.Y, newType + 1);
-
-                // Add new zipline to list
-                ziplines.Add(new Zipline(new Tile(start.X, start.Y, newType), new Tile(end.X, end.Y, newType + 1)));
             }
             return;
         }
@@ -532,6 +523,49 @@ class MapEditor
         // Add new action and update the button
         AddNewAction();
         ChangeTile(StartSelected.X, StartSelected.Y);
+    }
+
+    private void ReloadZiplines()
+    {
+        // If ziplines have not been touched, don't do anything, otherwise reset
+        if (!ziplineEdited) return;
+        ziplineEdited = false;
+
+        // Store all zipline types
+        BSTree<(int, int, int)> newZiplines = new(); // FIXME change this to list when sorting is done
+
+        // Check all tiles for ziplines
+        for (int x = 0; x < map.SizeX; x++)
+        {
+            for (int y = 0; y < map.SizeY; y++)
+            {
+                if (Tile.GetType(Tiles[x, y].Type, true) == Tile.ZIPLINE)
+                {
+                    newZiplines.Add((Tiles[x, y].Type, x, y));
+                }
+            }
+        }
+
+        // Clear the old list of ziplines
+        ziplines.Clear();
+
+        for (int i = 0; !newZiplines.IsEmpty(); i++)
+        {
+            // Store and delete start point of this zipline, do the same thing for end (but if end doesn't pair then this start was abandoned)
+            (int type, int x, int y) start = newZiplines.GetLeftmost();
+            newZiplines.Delete(start);
+
+            (int type, int x, int y) end = newZiplines.GetLeftmost();
+            if (start.type + 1 != end.type) continue;
+            newZiplines.Delete(end);
+
+            // Add new zipline
+            ziplines.Add(new Zipline(new Tile(start.x, start.y, Zipline.IdToType(i, true)), new Tile(end.x, end.y, Zipline.IdToType(i, false))));
+
+            // Update zipline tiles' types
+            Tiles[start.x, start.y].Type = Zipline.IdToType(i, true);
+            Tiles[end.x, end.y].Type = Zipline.IdToType(i, false);
+        }
     }
 
     public void Save()

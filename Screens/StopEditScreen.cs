@@ -26,17 +26,15 @@ namespace Tidebreak.Screens
                 Game1.mapEditor.Save();
 
                 // Leave
-                MapSelectScreen newScreen = new MapSelectScreen();
                 GumService.Default.Root.Children.Clear();
-                newScreen.AddToRoot();
+                new MapSelectScreen().AddToRoot();
             };
 
             // Add logic for button to leave without saving
             ExitBtn.Click += (_, _) =>
             {
-                MapSelectScreen newScreen = new MapSelectScreen();
                 GumService.Default.Root.Children.Clear();
-                newScreen.AddToRoot();
+                new MapSelectScreen().AddToRoot();
             };
         }
     }

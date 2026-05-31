@@ -40,7 +40,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     }
     public Icon IconInstance { get; protected set; }
     public ButtonConfirm NewMapBtn { get; protected set; }
-    public ButtonStandard FilterBtn { get; protected set; }
+    public ButtonStandard SortBtn { get; protected set; }
     public SpriteRuntime tidebreakbg { get; protected set; }
     public ListBox MapList { get; protected set; }
     public TextRuntime H1 { get; protected set; }
@@ -64,7 +64,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         base.ReactToVisualChanged();
         IconInstance = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Icon>(this.Visual,"IconInstance");
         NewMapBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonConfirm>(this.Visual,"NewMapBtn");
-        FilterBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"FilterBtn");
+        SortBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"SortBtn");
         tidebreakbg = this.Visual?.GetGraphicalUiElementByName("tidebreakbg") as global::MonoGameGum.GueDeriving.SpriteRuntime;
         MapList = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ListBox>(this.Visual,"MapList");
         H1 = this.Visual?.GetGraphicalUiElementByName("H1") as global::MonoGameGum.GueDeriving.TextRuntime;

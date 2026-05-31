@@ -8,7 +8,6 @@ using MonoGameGum;
 using MonoGameGum.GueDeriving;
 using RenderingLibrary.Graphics;
 using System.Linq;
-using Tidebreak.Components.Controls;
 namespace Tidebreak.Components.Controls;
 partial class ListBoxItem : global::Gum.Forms.Controls.ListBoxItem
 {
@@ -66,19 +65,14 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
             }
         }
     }
-    public ButtonConfirm PlayBtn { get; protected set; }
-    public ButtonStandard EditBtn { get; protected set; }
     public NineSliceRuntime Background { get; protected set; }
-    public TextRuntime Title { get; protected set; }
-    public TextRuntime Author { get; protected set; }
-    public TextRuntime Rating { get; protected set; }
-    public ContainerRuntime Options { get; protected set; }
+    public TextRuntime TextInstance { get; protected set; }
     public NineSliceRuntime FocusedIndicator { get; protected set; }
 
     public string ListItemDisplayText
     {
-        get => Title.Text;
-        set => Title.Text = value;
+        get => TextInstance.Text;
+        set => TextInstance.Text = value;
     }
 
     public ListBoxItem(InteractiveGue visual) : base(visual)
@@ -93,13 +87,8 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     protected override void ReactToVisualChanged()
     {
         base.ReactToVisualChanged();
-        PlayBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonConfirm>(this.Visual,"PlayBtn");
-        EditBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"EditBtn");
         Background = this.Visual?.GetGraphicalUiElementByName("Background") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
-        Title = this.Visual?.GetGraphicalUiElementByName("Title") as global::MonoGameGum.GueDeriving.TextRuntime;
-        Author = this.Visual?.GetGraphicalUiElementByName("Author") as global::MonoGameGum.GueDeriving.TextRuntime;
-        Rating = this.Visual?.GetGraphicalUiElementByName("Rating") as global::MonoGameGum.GueDeriving.TextRuntime;
-        Options = this.Visual?.GetGraphicalUiElementByName("Options") as global::MonoGameGum.GueDeriving.ContainerRuntime;
+        TextInstance = this.Visual?.GetGraphicalUiElementByName("TextInstance") as global::MonoGameGum.GueDeriving.TextRuntime;
         FocusedIndicator = this.Visual?.GetGraphicalUiElementByName("FocusedIndicator") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
         CustomInitialize();
     }

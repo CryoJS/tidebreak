@@ -58,6 +58,7 @@
   <ScreenReference Name="MapDetailsScreen" />
   <ScreenReference Name="MapSelectScreen" />
   <ScreenReference Name="MapSettingsScreen" />
+  <ScreenReference Name="MapSortScreen" />
   <ScreenReference Name="NewMapScreen" />
   <ScreenReference Name="PauseScreen" />
   <ScreenReference Name="PlayScreen" />

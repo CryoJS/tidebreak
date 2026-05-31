@@ -57,9 +57,8 @@ namespace Tidebreak.Screens
                 Game1.gameState = Game1.SELECT_MAP;
                 
                 // Change screen
-                MapSelectScreen newScreen = new MapSelectScreen();
                 GumService.Default.Root.Children.Clear();
-                newScreen.AddToRoot();
+                new MapSelectScreen().AddToRoot();
             };
 
             // Click logic for return to menu button

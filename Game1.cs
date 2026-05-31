@@ -273,9 +273,8 @@ public class Game1 : Game
     public static void ReturnToMenu()
     {
         // Remove all screens and go to menu (title screen)
-        TitleScreen newScreen = new TitleScreen();
         GumService.Default.Root.Children.Clear();
-        newScreen.AddToRoot();
+        new TitleScreen().AddToRoot();
 
         // Change gamestate
         gameState = MENU;
@@ -288,9 +287,8 @@ public class Game1 : Game
         gameState = PLAY_MAP;
         
         // Change screen
-        PlayScreen newScreen = new PlayScreen();
         GumService.Default.Root.Children.Clear();
-        newScreen.AddToRoot();
+        new PlayScreen().AddToRoot();
 
         // Load map
         currentMap.Start(player);

@@ -121,14 +121,12 @@ namespace Tidebreak.Screens
                 // If there are not changes, exit, otherwise prompt to save
                 if (Game1.mapEditor.UndoStack.IsEmpty())
                 {
-                    MapSelectScreen newScreen = new MapSelectScreen();
                     GumService.Default.Root.Children.Clear();
-                    newScreen.AddToRoot();
+                    new MapSelectScreen().AddToRoot();
                 }
                 else
                 {
-                    StopEditScreen newScreen = new StopEditScreen();
-                    newScreen.AddToRoot();
+                    new StopEditScreen().AddToRoot();
                 }
             };
         }

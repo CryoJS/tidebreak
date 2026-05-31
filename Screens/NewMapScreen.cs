@@ -25,9 +25,8 @@ namespace Tidebreak.Screens
                     Game1.maps.Add(new Map(MapName.Text, Author.Text));
 
                     // Refresh map select screen
-                    MapSelectScreen newScreen = new MapSelectScreen();
                     GumService.Default.Root.Children.Clear();
-                    newScreen.AddToRoot();
+                    new MapSelectScreen().AddToRoot();
                 }
             };
 

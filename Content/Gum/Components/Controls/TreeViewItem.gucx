@@ -58,7 +58,7 @@
     </Variable>
   </State>
   <Instance Name="ToggleButtonInstance" BaseType="Controls/TreeViewToggle" />
-  <Instance Name="ListBoxItemInstance" BaseType="Controls/ListBoxItem" />
+  <Instance Name="ListBoxItemInstance" BaseType="Controls/ListBoxItemtemp" />
   <Instance Name="InnerPanelInstance" BaseType="Container" />
   <Behaviors>
     <ElementBehaviorReference>

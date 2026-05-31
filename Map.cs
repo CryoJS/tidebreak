@@ -44,6 +44,24 @@ class Map // TODO All documentation for methods
     public DateTime ModifiedDate { get; private set; }
     public bool Locked {get; private set; }
 
+    // Sort a list of maps by a given property
+    public static void Sort(List<Map> maps, Comparison<Map> comparison) => MergeSort.Sort(maps, comparison);
+
+    // Create the comparisons for the allowed options (properties) to sort by // REVIEW do i need to document all of these comparators as functions cuz they are just fields technically?
+    public static readonly Comparison<Map> SortByName         = (a, b) => a.Name.CompareTo(b.Name);
+    public static readonly Comparison<Map> SortByDifficulty   = (a, b) => a.Difficulty.CompareTo(b.Difficulty);
+    public static readonly Comparison<Map> SortByCreationDate = (a, b) => a.CreationDate.CompareTo(b.CreationDate);
+    public static readonly Comparison<Map> SortByModifiedDate = (a, b) => a.ModifiedDate.CompareTo(b.ModifiedDate);
+    public static readonly Comparison<Map> SortByBestTime     = (a, b) => {
+        // If best time is empty, sort it last (put it at the end)
+        if (a.BestTime == b.BestTime) return 0;
+        if (a.BestTime == EMPTY) return 1;
+        if (b.BestTime == EMPTY) return -1;
+
+        // Otherwise sort by fastest time in non-descending order
+        return a.BestTime.CompareTo(b.BestTime);
+    };
+
     public float Time { get; private set; } = 0; // seconds
     public float BestTime { get; set; } = EMPTY; // seconds
 

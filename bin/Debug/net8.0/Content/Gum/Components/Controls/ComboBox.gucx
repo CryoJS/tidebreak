@@ -70,7 +70,7 @@
       <Value xsi:type="xsd:int">5</Value>
     </Variable>
     <Variable Type="float" Name="Height" SetsValue="true">
-      <Value xsi:type="xsd:float">24</Value>
+      <Value xsi:type="xsd:float">70</Value>
     </Variable>
     <Variable Type="bool" Name="IconInstance.ExposeChildrenEvents" SetsValue="true">
       <Value xsi:type="xsd:boolean">false</Value>
@@ -106,7 +106,7 @@
       <Value xsi:type="xsd:int">7</Value>
     </Variable>
     <Variable Type="float" Name="ListBoxInstance.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">128</Value>
+      <Value xsi:type="xsd:float">300</Value>
     </Variable>
     <Variable Type="bool" Name="ListBoxInstance.Visible" SetsValue="true">
       <Value xsi:type="xsd:boolean">false</Value>
@@ -118,20 +118,35 @@
       <Value xsi:type="xsd:int">2</Value>
     </Variable>
     <Variable Type="float" Name="ListBoxInstance.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">28</Value>
+      <Value xsi:type="xsd:float">70</Value>
     </Variable>
     <Variable Type="State" Name="State" Category="States and Visibility" SetsValue="true" />
+    <Variable Type="int" Name="TextInstance.Blue" SetsValue="true">
+      <Value xsi:type="xsd:int">188</Value>
+    </Variable>
     <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">White</Value>
     </Variable>
+    <Variable Type="int" Name="TextInstance.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">50</Value>
+    </Variable>
+    <Variable Type="int" Name="TextInstance.Green" SetsValue="true">
+      <Value xsi:type="xsd:int">124</Value>
+    </Variable>
     <Variable Type="DimensionUnitType" Name="TextInstance.HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="int" Name="TextInstance.OutlineThickness" SetsValue="true">
+      <Value xsi:type="xsd:int">3</Value>
+    </Variable>
+    <Variable Type="int" Name="TextInstance.Red" SetsValue="true">
+      <Value xsi:type="xsd:int">106</Value>
     </Variable>
     <Variable Type="StyleCategory" Name="TextInstance.StyleCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Strong</Value>
     </Variable>
     <Variable Type="string" Name="TextInstance.Text" SetsValue="true">
-      <Value xsi:type="xsd:string">Selected Item</Value>
+      <Value xsi:type="xsd:string">Modified Date</Value>
     </Variable>
     <Variable Type="VerticalAlignment" Name="TextInstance.VerticalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
@@ -155,8 +170,15 @@
       <Value xsi:type="xsd:int">7</Value>
     </Variable>
     <Variable Type="float" Name="Width" SetsValue="true">
-      <Value xsi:type="xsd:float">256</Value>
+      <Value xsi:type="xsd:float">616.6667</Value>
     </Variable>
+    <VariableList xsi:type="VariableListSaveOfString">
+      <Type>string</Type>
+      <Name>TextInstance.VariableReferences</Name>
+      <IsFile>false</IsFile>
+      <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+      <Value />
+    </VariableList>
   </State>
   <Category>
     <Name>ComboBoxCategory</Name>
@@ -168,9 +190,28 @@
       <Variable Type="ColorCategory" Name="IconInstance.IconColor" SetsValue="true">
         <Value xsi:type="xsd:string">Primary</Value>
       </Variable>
+      <Variable Type="int" Name="TextInstance.Blue" SetsValue="true">
+        <Value xsi:type="xsd:int">188</Value>
+      </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
       </Variable>
+      <Variable Type="int" Name="TextInstance.Green" SetsValue="true">
+        <Value xsi:type="xsd:int">124</Value>
+      </Variable>
+      <Variable Type="int" Name="TextInstance.OutlineThickness" SetsValue="true">
+        <Value xsi:type="xsd:int">3</Value>
+      </Variable>
+      <Variable Type="int" Name="TextInstance.Red" SetsValue="true">
+        <Value xsi:type="xsd:int">106</Value>
+      </Variable>
+      <VariableList xsi:type="VariableListSaveOfString">
+        <Type>System.Collections.Generic.List`1[System.String]</Type>
+        <Name>TextInstance.VariableReferences</Name>
+        <IsFile>false</IsFile>
+        <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+        <Value />
+      </VariableList>
     </State>
     <State>
       <Name>Disabled</Name>
@@ -180,9 +221,29 @@
       <Variable Type="ColorCategory" Name="IconInstance.IconColor" SetsValue="true">
         <Value xsi:type="xsd:string">Gray</Value>
       </Variable>
+      <Variable Type="int" Name="TextInstance.Blue" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">188</Value>
+      </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">Gray</Value>
       </Variable>
+      <Variable Type="int" Name="TextInstance.Green" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">124</Value>
+      </Variable>
+      <Variable Type="int" Name="TextInstance.OutlineThickness" Category="Font" SetsValue="true">
+        <Value xsi:type="xsd:int">3</Value>
+      </Variable>
+      <Variable Type="int" Name="TextInstance.Red" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">106</Value>
+      </Variable>
+      <VariableList xsi:type="VariableListSaveOfString">
+        <Type>string</Type>
+        <Name>TextInstance.VariableReferences</Name>
+        <Category>References</Category>
+        <IsFile>false</IsFile>
+        <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+        <Value />
+      </VariableList>
     </State>
     <State>
       <Name>Highlighted</Name>
@@ -192,9 +253,29 @@
       <Variable Type="ColorCategory" Name="IconInstance.IconColor" SetsValue="true">
         <Value xsi:type="xsd:string">PrimaryLight</Value>
       </Variable>
+      <Variable Type="int" Name="TextInstance.Blue" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">188</Value>
+      </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">PrimaryLight</Value>
       </Variable>
+      <Variable Type="int" Name="TextInstance.Green" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">124</Value>
+      </Variable>
+      <Variable Type="int" Name="TextInstance.OutlineThickness" Category="Font" SetsValue="true">
+        <Value xsi:type="xsd:int">3</Value>
+      </Variable>
+      <Variable Type="int" Name="TextInstance.Red" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">106</Value>
+      </Variable>
+      <VariableList xsi:type="VariableListSaveOfString">
+        <Type>string</Type>
+        <Name>TextInstance.VariableReferences</Name>
+        <Category>References</Category>
+        <IsFile>false</IsFile>
+        <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+        <Value />
+      </VariableList>
     </State>
     <State>
       <Name>Pushed</Name>
@@ -204,9 +285,29 @@
       <Variable Type="ColorCategory" Name="IconInstance.IconColor" SetsValue="true">
         <Value xsi:type="xsd:string">PrimaryDark</Value>
       </Variable>
+      <Variable Type="int" Name="TextInstance.Blue" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">188</Value>
+      </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">PrimaryDark</Value>
       </Variable>
+      <Variable Type="int" Name="TextInstance.Green" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">124</Value>
+      </Variable>
+      <Variable Type="int" Name="TextInstance.OutlineThickness" Category="Font" SetsValue="true">
+        <Value xsi:type="xsd:int">3</Value>
+      </Variable>
+      <Variable Type="int" Name="TextInstance.Red" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">106</Value>
+      </Variable>
+      <VariableList xsi:type="VariableListSaveOfString">
+        <Type>string</Type>
+        <Name>TextInstance.VariableReferences</Name>
+        <Category>References</Category>
+        <IsFile>false</IsFile>
+        <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+        <Value />
+      </VariableList>
     </State>
     <State>
       <Name>HighlightedFocused</Name>
@@ -216,9 +317,33 @@
       <Variable Type="ColorCategory" Name="IconInstance.IconColor" SetsValue="true">
         <Value xsi:type="xsd:string">Primary</Value>
       </Variable>
+      <Variable Type="int" Name="TextInstance.Blue" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
       </Variable>
+      <Variable Type="int" Name="TextInstance.Green" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="int" Name="TextInstance.OutlineThickness" Category="Font" SetsValue="true">
+        <Value xsi:type="xsd:int">0</Value>
+      </Variable>
+      <Variable Type="int" Name="TextInstance.Red" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <VariableList xsi:type="VariableListSaveOfString">
+        <Type>string</Type>
+        <Name>TextInstance.VariableReferences</Name>
+        <Category>References</Category>
+        <IsFile>false</IsFile>
+        <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+        <Value>
+          <string>Red = Components/Styles.White.Red</string>
+          <string>Green = Components/Styles.White.Green</string>
+          <string>Blue = Components/Styles.White.Blue</string>
+        </Value>
+      </VariableList>
     </State>
     <State>
       <Name>Focused</Name>
@@ -228,9 +353,33 @@
       <Variable Type="ColorCategory" Name="IconInstance.IconColor" SetsValue="true">
         <Value xsi:type="xsd:string">Primary</Value>
       </Variable>
+      <Variable Type="int" Name="TextInstance.Blue" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
       </Variable>
+      <Variable Type="int" Name="TextInstance.Green" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="int" Name="TextInstance.OutlineThickness" Category="Font" SetsValue="true">
+        <Value xsi:type="xsd:int">0</Value>
+      </Variable>
+      <Variable Type="int" Name="TextInstance.Red" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <VariableList xsi:type="VariableListSaveOfString">
+        <Type>string</Type>
+        <Name>TextInstance.VariableReferences</Name>
+        <Category>References</Category>
+        <IsFile>false</IsFile>
+        <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+        <Value>
+          <string>Red = Components/Styles.White.Red</string>
+          <string>Green = Components/Styles.White.Green</string>
+          <string>Blue = Components/Styles.White.Blue</string>
+        </Value>
+      </VariableList>
     </State>
     <State>
       <Name>DisabledFocused</Name>
@@ -240,9 +389,33 @@
       <Variable Type="ColorCategory" Name="IconInstance.IconColor" SetsValue="true">
         <Value xsi:type="xsd:string">Primary</Value>
       </Variable>
+      <Variable Type="int" Name="TextInstance.Blue" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
       <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
         <Value xsi:type="xsd:string">White</Value>
       </Variable>
+      <Variable Type="int" Name="TextInstance.Green" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="int" Name="TextInstance.OutlineThickness" Category="Font" SetsValue="true">
+        <Value xsi:type="xsd:int">0</Value>
+      </Variable>
+      <Variable Type="int" Name="TextInstance.Red" Category="Rendering" SetsValue="true">
+        <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <VariableList xsi:type="VariableListSaveOfString">
+        <Type>string</Type>
+        <Name>TextInstance.VariableReferences</Name>
+        <Category>References</Category>
+        <IsFile>false</IsFile>
+        <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+        <Value>
+          <string>Red = Components/Styles.White.Red</string>
+          <string>Green = Components/Styles.White.Green</string>
+          <string>Blue = Components/Styles.White.Blue</string>
+        </Value>
+      </VariableList>
     </State>
   </Category>
   <Instance Name="Background" BaseType="NineSlice" />

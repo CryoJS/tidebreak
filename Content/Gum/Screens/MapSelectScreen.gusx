@@ -3,31 +3,31 @@
   <Name>MapSelectScreen</Name>
   <State>
     <Name>Default</Name>
-    <Variable Type="float" Name="FilterBtn.Height" SetsValue="true">
+    <Variable Type="float" Name="SortBtn.Height" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
     </Variable>
-    <Variable Type="DimensionUnitType" Name="FilterBtn.HeightUnits" SetsValue="true">
+    <Variable Type="DimensionUnitType" Name="SortBtn.HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
     </Variable>
-    <Variable Type="string" Name="FilterBtn.Parent" SetsValue="true">
+    <Variable Type="string" Name="SortBtn.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">RightContainer</Value>
     </Variable>
-    <Variable Type="string" Name="FilterBtn.Text" SetsValue="true">
+    <Variable Type="string" Name="SortBtn.Text" SetsValue="true">
       <Value xsi:type="xsd:string"></Value>
     </Variable>
-    <Variable Type="float" Name="FilterBtn.Width" SetsValue="true">
+    <Variable Type="float" Name="SortBtn.Width" SetsValue="true">
       <Value xsi:type="xsd:float">80</Value>
     </Variable>
-    <Variable Type="float" Name="FilterBtn.X" SetsValue="true">
+    <Variable Type="float" Name="SortBtn.X" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
     </Variable>
-    <Variable Type="HorizontalAlignment" Name="FilterBtn.XOrigin" SetsValue="true">
+    <Variable Type="HorizontalAlignment" Name="SortBtn.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
     </Variable>
-    <Variable Type="PositionUnitType" Name="FilterBtn.XUnits" SetsValue="true">
+    <Variable Type="PositionUnitType" Name="SortBtn.XUnits" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
     </Variable>
-    <Variable Type="float" Name="FilterBtn.Y" SetsValue="true">
+    <Variable Type="float" Name="SortBtn.Y" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
     </Variable>
     <Variable Type="float?" Name="FrameBG.CustomFrameTextureCoordinateWidth" SetsValue="true" />
@@ -173,7 +173,7 @@
       <Value xsi:type="xsd:string">Sliders</Value>
     </Variable>
     <Variable Type="string" Name="IconInstance1.Parent" SetsValue="true">
-      <Value xsi:type="xsd:string">FilterBtn</Value>
+      <Value xsi:type="xsd:string">SortBtn</Value>
     </Variable>
     <Variable Type="float" Name="IconInstance1.Y" SetsValue="true">
       <Value xsi:type="xsd:float">-3</Value>
@@ -320,7 +320,7 @@
   </State>
   <Instance Name="IconInstance" BaseType="Elements/Icon" />
   <Instance Name="NewMapBtn" BaseType="Controls/ButtonConfirm" />
-  <Instance Name="FilterBtn" BaseType="Controls/ButtonStandard" />
+  <Instance Name="SortBtn" BaseType="Controls/ButtonStandard" />
   <Instance Name="tidebreakbg" BaseType="Sprite" />
   <Instance Name="MapList" BaseType="Controls/ListBox" />
   <Instance Name="H1" BaseType="Text" />

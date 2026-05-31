@@ -175,8 +175,7 @@ class Player
         Game1.paused = true;
 
         // Open win screen
-        WinScreen newScreen = new WinScreen();
-        newScreen.AddToRoot();
+        new WinScreen().AddToRoot();
     }
 
     public void Update(GameTime gameTime, KeyboardState kb, KeyboardState prevKb, Map map)
@@ -654,8 +653,7 @@ class Player
                 Game1.paused = true;
 
                 // Open gameover screen
-                DeathScreen newScreen = new DeathScreen();
-                newScreen.AddToRoot();
+                new DeathScreen().AddToRoot();
             }
             else SetState(animStates.Dying);
             return;

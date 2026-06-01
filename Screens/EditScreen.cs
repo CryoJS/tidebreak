@@ -75,6 +75,10 @@ namespace Tidebreak.Screens
                 LoadTileBar(functional);
             };
 
+            // Ensure options are in sync
+            FgBtn.IsChecked = Game1.mapEditor.ShowFg;
+            BgBtn.IsChecked = Game1.mapEditor.ShowBg;
+
             // Add unselect logic
             UnselectBtn.Click += (_, _) =>
             {
@@ -89,11 +93,25 @@ namespace Tidebreak.Screens
                 MapEditor.SelectedTile = Tile.NULL;
             };
 
-            // Add edit BG toggle logic
+            // Add show foreground toggle logic
+            FgBtn.Click += (_, _) =>
+            {
+                // Toggle background visibility
+                Game1.mapEditor.ShowFg = (bool)FgBtn.IsChecked;
+            };
+
+            // Add show background toggle logic
             BgBtn.Click += (_, _) =>
             {
                 // Toggle background visibility
-                Game1.mapEditor.EditBg = (bool)BgBtn.IsChecked;
+                Game1.mapEditor.ShowBg = (bool)BgBtn.IsChecked;
+            };
+
+            // Add edit background toggle logic
+            EditBgBtn.Click += (_, _) =>
+            {
+                // Toggle background visibility
+                Game1.mapEditor.EditBg = (bool)EditBgBtn.IsChecked;
             };
 
             // Add grid toggle logic
@@ -119,14 +137,14 @@ namespace Tidebreak.Screens
             CloseBtn.Click += (_, _) =>
             {
                 // If there are not changes, exit, otherwise prompt to save
-                if (Game1.mapEditor.UndoStack.IsEmpty())
+                if (SaveBtn.IsEnabled)
                 {
-                    GumService.Default.Root.Children.Clear();
-                    new MapSelectScreen().AddToRoot();
+                    new StopEditScreen().AddToRoot();
                 }
                 else
                 {
-                    new StopEditScreen().AddToRoot();
+                    GumService.Default.Root.Children.Clear();
+                    new MapSelectScreen().AddToRoot();
                 }
             };
         }

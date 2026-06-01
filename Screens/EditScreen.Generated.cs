@@ -38,7 +38,9 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
             return gue;
         });
     }
+    public CheckBox FgBtn { get; protected set; }
     public CheckBox BgBtn { get; protected set; }
+    public CheckBox EditBgBtn { get; protected set; }
     public CheckBox GridBtn { get; protected set; }
     public ButtonStandard CloseBtn { get; protected set; }
     public ButtonConfirm SaveBtn { get; protected set; }
@@ -55,7 +57,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public Icon IconInstance2 { get; protected set; }
     public ContainerRuntime TopRightContainer { get; protected set; }
     public ContainerRuntime TopLeftContainer { get; protected set; }
-    public NineSliceRuntime ButtonEditContainer { get; protected set; }
+    public Icon IconInstance3 { get; protected set; }
 
     public EditScreen(InteractiveGue visual) : base(visual)
     {
@@ -69,7 +71,9 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     protected override void ReactToVisualChanged()
     {
         base.ReactToVisualChanged();
+        FgBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<CheckBox>(this.Visual,"FgBtn");
         BgBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<CheckBox>(this.Visual,"BgBtn");
+        EditBgBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<CheckBox>(this.Visual,"EditBgBtn");
         GridBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<CheckBox>(this.Visual,"GridBtn");
         CloseBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"CloseBtn");
         SaveBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonConfirm>(this.Visual,"SaveBtn");
@@ -86,7 +90,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         IconInstance2 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Icon>(this.Visual,"IconInstance2");
         TopRightContainer = this.Visual?.GetGraphicalUiElementByName("TopRightContainer") as global::MonoGameGum.GueDeriving.ContainerRuntime;
         TopLeftContainer = this.Visual?.GetGraphicalUiElementByName("TopLeftContainer") as global::MonoGameGum.GueDeriving.ContainerRuntime;
-        ButtonEditContainer = this.Visual?.GetGraphicalUiElementByName("ButtonEditContainer") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
+        IconInstance3 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Icon>(this.Visual,"IconInstance3");
         CustomInitialize();
     }
     //Not assigning variables because Object Instantiation Type is set to By Name rather than Fully In Code

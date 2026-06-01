@@ -10,9 +10,9 @@ static class MergeSort
 
     private static List<Value> MergeSortRange<Value>(List<Value> vals, int left, int right, Comparison<Value> comparison)
     {
-        // If list is empty or has one element, already sorted, return the list
-        if (left > right) return new List<Value>();
-        if (left == right) return new List<Value> { vals[left] };
+        // If list is empty or has one element, already sorted, return the list itself
+        if (left > right) return [];
+        if (left == right) return [vals[left]];
 
         // Find midpoint, sort each half, then merge them together
         int mid = (left + right) >> 1;

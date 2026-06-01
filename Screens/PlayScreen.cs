@@ -1,7 +1,4 @@
 using System;
-using Gum.Forms.DefaultVisuals;
-using Gum.Mvvm;
-using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using MonoGameGum;
 
@@ -24,14 +21,10 @@ namespace Tidebreak.Screens
             TimeText.SetBinding(nameof(TimeText.Text), nameof(Game1.currentMap.Time));
 
             // Update map best time text
-            if (Math.Round(bestTime) == Map.EMPTY)
-            {
-                BestTimeText.Text = Map.MISSING_BEST_TIME;
-            }
-            else
-            {
-                BestTimeText.Text = Game1.FormatTime(bestTime);
-            }
+            if (Math.Round(bestTime) == Map.EMPTY) BestTimeText.Text = Math.Round(bestTime) == Map.EMPTY ? Map.MISSING_BEST_TIME : Game1.FormatTime(bestTime);
+
+            // Update button indicator visibility
+            BtnIndicator.Visible = Game1.currentMap.Buttons.Count > 0;
 
             // Clicking pause button
             PauseBtn.Click += (_, _) => TriggerPause();

@@ -204,7 +204,7 @@ class Player
 
     public void CenterPos(Vector2 newPos)
     {
-        pos = newPos - new Vector2(rec.Width / 2, rec.Height / 2);
+        pos = newPos - new Vector2(rec.Width, rec.Height) / 2;
     }
 
     private void MoveChecks(GameTime gameTime, KeyboardState kb, KeyboardState prevKb)

@@ -125,11 +125,6 @@ class Map // TODO All documentation for methods
 
     public void Start(Player player)
     {
-        // Center player and camera
-        player.CenterPos(startPos);
-        player.Camera.SetPos(startPos);
-        player.Camera.ResetZoom();
-
         // Reset player data
         player.ResetPlayer();
 
@@ -152,6 +147,12 @@ class Map // TODO All documentation for methods
         {
             for (int y = 0; y < SizeY; y++)
             {
+                // Find start pos
+                if (Tiles[x, y].Type == Tile.START)
+                {
+                    startPos = new Vector2(x + 0.5f, y + 0.5f) * (Game1.TILE_SIZE * Game1.PIXEL_SCALE);
+                }
+
                 // Reset flood, and if the tile is a flood start tile, put it into the queue
                 if (Tiles[x, y].Type == Tile.FLOOD)
                 {
@@ -164,6 +165,11 @@ class Map // TODO All documentation for methods
                 }
             }
         }
+
+        // Center player and camera
+        player.CenterPos(startPos);
+        player.Camera.SetPos(startPos);
+        player.Camera.ResetZoom();
     }
 
     public void Update(GameTime gameTime)
@@ -197,7 +203,7 @@ class Map // TODO All documentation for methods
                     ny = y + yi;
 
                     // Only perform logic if tile within bounds
-                    if (nx < 0 || nx > SizeX || ny < 0 || ny > SizeY) continue;
+                    if (nx < 0 || nx >= SizeX || ny < 0 || ny >= SizeY) continue;
 
                     // Store tile type
                     int type = Tile.GetType(Tiles[nx, ny].Type);
@@ -293,11 +299,7 @@ class Map // TODO All documentation for methods
                 Tiles[x, y] = new Tile(x, y, Convert.ToInt32(line[x]));
 
                 // Keep track of special tiles
-                if (Tiles[x, y].Type == Tile.START)
-                {
-                    startPos = new Vector2(x * Game1.TILE_SIZE * Game1.PIXEL_SCALE, y * Game1.TILE_SIZE * Game1.PIXEL_SCALE);
-                }
-                else if (Tiles[x, y].Type >= Tile.ZIPLINE)
+                if (Tiles[x, y].Type >= Tile.ZIPLINE)
                 {
                     // Create variables to easily access zipline indexes and properties
                     int id = Zipline.GetId(Tiles[x, y].Type);

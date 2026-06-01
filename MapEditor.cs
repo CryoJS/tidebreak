@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using GameUtility;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -25,25 +26,25 @@ class MapEditor
 
     // Store grid lines thickness
     private const float GRID_THICKNESS = 7f;
-    private readonly Color gridColor = Color.Black;
+    private readonly Color gridColor = Color.White;
 
     // Store empty selected tile constant
     private readonly Point NO_TILE_SELECTED = new Point(-1, -1);
 
     // Store the edited map
-    Map map;
+    private Map map;
 
     // Store the changed tiles of the edited map
     public Tile[,] Tiles { get; private set; }
     public Tile[,] BgTiles { get; private set; }
 
     // Store the changed buttons and ziplines of the edited map
-    BSTree<Button> buttons;
-    List<Zipline> ziplines;
+    private BSTree<Button> buttons;
+    private List<Zipline> ziplines;
 
     // Store the stacks for undo and redo
-    public Stack<List<TileEdit>> UndoStack { get; private set; }
-    public Stack<List<TileEdit>> RedoStack { get; private set; }
+    public Stack<Stack<TileEdit>> UndoStack { get; private set; }
+    public Stack<Stack<TileEdit>> RedoStack { get; private set; }
 
     // Store the camera and desired camera position and zoom to view the map
     public Camera Camera { get; private set; }
@@ -53,6 +54,9 @@ class MapEditor
     // Store variables for display options
     public bool DisplayGrid { get; set; }
     public bool EditBg { get; set; }
+
+    public bool ShowFg { get; set; }
+    public bool ShowBg { get; set; }
 
     private GameLine[] verLines;
     private GameLine[] horLines;
@@ -79,8 +83,8 @@ class MapEditor
         this.map = map;
 
         // Reset undo and redo stacks
-        UndoStack = new Stack<List<TileEdit>>();
-        RedoStack = new Stack<List<TileEdit>>();
+        UndoStack = new Stack<Stack<TileEdit>>();
+        RedoStack = new Stack<Stack<TileEdit>>();
 
         // Create space to store the changed map
         Tiles = new Tile[map.SizeX, map.SizeY];
@@ -121,9 +125,11 @@ class MapEditor
         pos = Camera.GetPos();
         zoom = Camera.GetZoom();
 
-        // Set grid lines default to not visible
-        DisplayGrid = false;
+        // Set default display options
+        ShowFg = true;
+        ShowBg = true;
         EditBg = false;
+        DisplayGrid = false;
 
         // Add space to store gridlines
         verLines = new GameLine[map.SizeX + 1];
@@ -149,6 +155,9 @@ class MapEditor
         // Update camera
         Camera.Update(gameTime, pos);
         Camera.ZoomUpdate(gameTime, zoom);
+
+        // Update if edit BG or not, if no layer selected don't let them do anything
+        if (!ShowFg && !ShowBg) return;
 
         // Only check for tile placing if mouse isn't on the bar
         if (IsTileClickable(mouse.Position.ToVector2()))
@@ -255,15 +264,15 @@ class MapEditor
             for (int y = 0; y < map.SizeY; y++)
             {
                 // Draw background tile first
-                BgTiles[x, y].Draw(spriteBatch, true);
+                if (ShowBg) BgTiles[x, y].Draw(spriteBatch, true);
 
                 // Draw foreground tiles after
-                if (!EditBg) Tiles[x, y].Draw(spriteBatch, true);
+                if (ShowFg) Tiles[x, y].Draw(spriteBatch, true);
             }
         }
 
         // Draw all the ziplines if we are drawing the foreground
-        if (!EditBg)
+        if (ShowFg)
         {
             foreach (Zipline zipline in ziplines)
             {
@@ -412,8 +421,8 @@ class MapEditor
         ExtraRemove(curTile.Type, x, y, canUndo);
 
         // Add tile edit to current stack action of changing all selected tiles (also if tile already updated, do nothing)
-        if (canUndo) UndoStack.Top().Add(new TileEdit(x, y, newEditBg ?? EditBg, curTile.Type, type));
-        else RedoStack.Top().Add(new TileEdit(x, y, newEditBg ?? EditBg, curTile.Type, type));
+        if (canUndo) UndoStack.Top().Push(new TileEdit(x, y, newEditBg ?? EditBg, curTile.Type, type));
+        else RedoStack.Top().Push(new TileEdit(x, y, newEditBg ?? EditBg, curTile.Type, type));
 
         // Replace tile and perform any needed updates
         curTile.Type = type;
@@ -436,6 +445,10 @@ class MapEditor
             {
                 // Add new action
                 AddNewAction();
+
+                // If we are replacing any ziplines, delete them cleanly
+                if (Tile.GetType(Tiles[start.X, start.Y].Type, true) == Tile.ZIPLINE) ChangeTile(start.X, start.Y, Tile.EMPTY);
+                if (Tile.GetType(Tiles[end.X, end.Y].Type, true) == Tile.ZIPLINE) ChangeTile(end.X, end.Y, Tile.EMPTY);
 
                 // Store the end location, place the start
                 StartSelected = end;
@@ -461,29 +474,32 @@ class MapEditor
     private void AddNewAction()
     {
         // Add new action to stack and clear redo stack
-        UndoStack.Push([]);
+        UndoStack.Push(new());
         RedoStack.Clear();
 
         // Update save as not saved
         unsaved = true;
     }
 
-    public void Undo()
+    public void Undo(bool redo = false)
     {
-        // If nothing to undo, do nothing
-        if (UndoStack.IsEmpty()) return;
+        // Store stack, if nothing to undo, do nothing
+        Stack<Stack<TileEdit>> stack = redo ? RedoStack : UndoStack;
+        if (stack.IsEmpty()) return;
 
         // Get the last action and undo it
-        List<TileEdit> lastAction = UndoStack.Pop();
+        Stack<TileEdit> lastAction = stack.Pop();
 
         // Add new action to the redo stack
-        RedoStack.Push([]);
+        if (!redo) RedoStack.Push(new());
+        else UndoStack.Push(new());
 
-        // Undo all tile changes
-        foreach (TileEdit edit in lastAction)
+        // Undo all tile changes (in reverse to mimic undo one by one)
+        while (!lastAction.IsEmpty())
         {
             // Replace tile
-            ChangeTile(edit.X, edit.Y, edit.OldType, edit.Bg, false);
+            TileEdit edit = lastAction.Pop();
+            ChangeTile(edit.X, edit.Y, edit.OldType, edit.Bg, redo);
         }
 
         // Update save state
@@ -492,24 +508,8 @@ class MapEditor
 
     public void Redo()
     {
-        // If nothing to redo, do nothing
-        if (RedoStack.IsEmpty()) return;
-
-        // Get the last undone action and redo it
-        List<TileEdit> lastAction = RedoStack.Pop();
-
-        // Add new action to the undo stack
-        UndoStack.Push([]);
-
-        // Redo all tile changes
-        foreach (TileEdit edit in lastAction)
-        {
-            // Replace tile
-            ChangeTile(edit.X, edit.Y, edit.OldType, edit.Bg);
-        }
-
-        // Update save state
-        unsaved = true;
+        // Call same undo logic but on redo stack (undo-ing an undo)
+        Undo(true);
     }
 
     public void ChangeButtonSettings(int newPriority)
@@ -532,7 +532,7 @@ class MapEditor
         ziplineEdited = false;
 
         // Store all zipline types
-        BSTree<(int, int, int)> newZiplines = new(); // FIXME change this to list when sorting is done
+        List<(int, int, int)> newZiplines = [];
 
         // Check all tiles for ziplines
         for (int x = 0; x < map.SizeX; x++)
@@ -546,20 +546,35 @@ class MapEditor
             }
         }
 
-        // Clear the old list of ziplines
+        // Clear the old list of ziplines and sort new one (in descending order by type, i.e. first tuple value)
         ziplines.Clear();
+        newZiplines = MergeSort.Sort(newZiplines, (a, b) => b.Item1.CompareTo(a.Item1));
 
-        for (int i = 0; !newZiplines.IsEmpty(); i++)
+        for (int i = 0; newZiplines.Count != 0; i++)
         {
-            // Store and delete start point of this zipline, do the same thing for end (but if end doesn't pair then this start was abandoned)
-            (int type, int x, int y) start = newZiplines.GetLeftmost();
-            newZiplines.Delete(start);
+            // Store and delete start point of this zipline
+            (int type, int x, int y) start = newZiplines.Last();
+            newZiplines.RemoveAt(newZiplines.Count - 1);
 
-            (int type, int x, int y) end = newZiplines.GetLeftmost();
-            if (start.type + 1 != end.type) continue;
-            newZiplines.Delete(end);
+            // Delete start if unpaired
+            if (newZiplines.Count == 0) 
+            {
+                Tiles[start.x, start.y].Type = Tile.EMPTY;
+                break;
+            }
 
-            // Add new zipline
+            // Get end
+            (int type, int x, int y) end = newZiplines.Last();
+
+            // If doesn't pair, this start doesn't belong, delete it
+            if (start.type + 1 != end.type) 
+            {
+                Tiles[start.x, start.y].Type = Tile.EMPTY;
+                continue;
+            }
+
+            // Remove end from list and add new zipline
+            newZiplines.RemoveAt(newZiplines.Count - 1);
             ziplines.Add(new Zipline(new Tile(start.x, start.y, Zipline.IdToType(i, true)), new Tile(end.x, end.y, Zipline.IdToType(i, false))));
 
             // Update zipline tiles' types

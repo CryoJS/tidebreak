@@ -39,59 +39,67 @@ namespace Tidebreak.Screens
                 InputAuthor.Text = InputAuthor.Text.Trim();
                 InputDesc.Text = InputDesc.Text.Trim();
 
-                // Save them if they are valid
-                if (InputName.Text != "") Game1.currentMap.Name = InputName.Text;
-                if (InputAuthor.Text != "") Game1.currentMap.Author = InputAuthor.Text;
-                if (InputDesc.Text != "") Game1.currentMap.Description = InputDesc.Text;
-
-                // Convert floats if possible
-                if (InputDifficulty.Text != "") difficulty = (float)Math.Round(Convert.ToDouble(InputDifficulty.Text), 1);
-                if (InputSizeX.Text != "") sizeX = Convert.ToInt32(InputSizeX.Text);
-                if (InputSizeY.Text != "") sizeY = Convert.ToInt32(InputSizeY.Text);
-                if (InputDrownSpeed.Text != "") drownSpeed = Convert.ToSingle(InputDrownSpeed.Text);
-                if (InputFloodSpeed.Text != "") floodSpeed = Convert.ToSingle(InputFloodSpeed.Text);
-
-                // Check if floats are valid and save them if so
-                if (Map.MIN_DIFF <= difficulty && difficulty < Map.MAX_EXC_DIFF) Game1.currentMap.Difficulty = difficulty;
-                if (sizeX > 0) Game1.currentMap.SizeX = Math.Min(sizeX, Map.MAX_SIZE);
-                if (sizeY > 0) Game1.currentMap.SizeY = Math.Min(sizeY, Map.MAX_SIZE);
-                if (drownSpeed >= 0) Game1.currentMap.DrownSpeed = drownSpeed;
-                if (floodSpeed >= 0) Game1.currentMap.FloodSpeed = floodSpeed;
-
-                // If size is changed, copy over new map
-                if (sizeX > 0 || sizeY > 0)
+                // Try to convert
+                try
                 {
-                    // Temp store old tiles
-                    Tile[,] oldTiles = Game1.currentMap.Tiles;
-                    Tile[,] oldBgTiles = Game1.currentMap.BgTiles;
+                    // Save them if they are valid
+                    if (InputName.Text != "") Game1.currentMap.Name = InputName.Text;
+                    if (InputAuthor.Text != "") Game1.currentMap.Author = InputAuthor.Text;
+                    if (InputDesc.Text != "") Game1.currentMap.Description = InputDesc.Text;
 
-                    // Resize current tiles
-                    Game1.currentMap.Tiles = new Tile[Game1.currentMap.SizeX, Game1.currentMap.SizeY];
-                    Game1.currentMap.BgTiles = new Tile[Game1.currentMap.SizeX, Game1.currentMap.SizeY];
+                    // Convert floats if possible
+                    if (InputDifficulty.Text != "") difficulty = (float)Math.Round(Convert.ToDouble(InputDifficulty.Text), 1);
+                    if (InputSizeX.Text != "") sizeX = Convert.ToInt32(InputSizeX.Text);
+                    if (InputSizeY.Text != "") sizeY = Convert.ToInt32(InputSizeY.Text);
+                    if (InputDrownSpeed.Text != "") drownSpeed = Convert.ToSingle(InputDrownSpeed.Text);
+                    if (InputFloodSpeed.Text != "") floodSpeed = Convert.ToSingle(InputFloodSpeed.Text);
 
-                    // Loop through all tiles, if doesn't exist, set as empty tile (otherwise copy over)
-                    for (int x = 0; x < Game1.currentMap.SizeX; x++)
+                    // Check if floats are valid and save them if so
+                    if (Map.MIN_DIFF <= difficulty && difficulty < Map.MAX_EXC_DIFF) Game1.currentMap.Difficulty = difficulty;
+                    if (sizeX > 0) Game1.currentMap.SizeX = Math.Min(sizeX, Map.MAX_SIZE);
+                    if (sizeY > 0) Game1.currentMap.SizeY = Math.Min(sizeY, Map.MAX_SIZE);
+                    if (drownSpeed >= 0) Game1.currentMap.DrownSpeed = drownSpeed;
+                    if (floodSpeed >= 0) Game1.currentMap.FloodSpeed = floodSpeed;
+
+                    // If size is changed, copy over new map
+                    if (sizeX > 0 || sizeY > 0)
                     {
-                        for (int y = 0; y < Game1.currentMap.SizeY; y++)
+                        // Temp store old tiles
+                        Tile[,] oldTiles = Game1.currentMap.Tiles;
+                        Tile[,] oldBgTiles = Game1.currentMap.BgTiles;
+
+                        // Resize current tiles
+                        Game1.currentMap.Tiles = new Tile[Game1.currentMap.SizeX, Game1.currentMap.SizeY];
+                        Game1.currentMap.BgTiles = new Tile[Game1.currentMap.SizeX, Game1.currentMap.SizeY];
+
+                        // Loop through all tiles, if doesn't exist, set as empty tile (otherwise copy over)
+                        for (int x = 0; x < Game1.currentMap.SizeX; x++)
                         {
-                            // Try to copy over, if failed (index out of range) just assign empty tile
-                            try
+                            for (int y = 0; y < Game1.currentMap.SizeY; y++)
                             {
-                                Game1.currentMap.Tiles[x, y] = oldTiles[x, y];
-                                Game1.currentMap.BgTiles[x, y] = oldBgTiles[x, y];
-                            }
-                            catch
-                            {
-                                Game1.currentMap.Tiles[x, y] = new Tile(x, y);
-                                Game1.currentMap.BgTiles[x, y] = new Tile(x, y);
+                                // Try to copy over, if failed (index out of range) just assign empty tile
+                                try
+                                {
+                                    Game1.currentMap.Tiles[x, y] = oldTiles[x, y];
+                                    Game1.currentMap.BgTiles[x, y] = oldBgTiles[x, y];
+                                }
+                                catch
+                                {
+                                    Game1.currentMap.Tiles[x, y] = new Tile(x, y);
+                                    Game1.currentMap.BgTiles[x, y] = new Tile(x, y);
+                                }
                             }
                         }
                     }
-                }
 
-                // Refresh map selection screen
-                GumService.Default.Root.Children.Clear();
-                new MapSelectScreen().AddToRoot();
+                    // Refresh map selection screen
+                    GumService.Default.Root.Children.Clear();
+                    new MapSelectScreen().AddToRoot();
+                }
+                catch
+                {
+                    Console.WriteLine("ERROR - Invalid map settings");
+                }
             };
 
             //  If user presses edit, let them edit the map tiles

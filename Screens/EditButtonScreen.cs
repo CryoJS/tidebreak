@@ -1,5 +1,6 @@
 using System;
 using Gum.Forms.Controls;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Tidebreak.Screens
 {
@@ -27,13 +28,23 @@ namespace Tidebreak.Screens
             {
                 // Trim input and store
                 InputPriority.Text = InputPriority.Text.Trim();
-                priority = Convert.ToInt32(InputPriority.Text);
-
-                // If valid integer, save it and close popup
-                if (priority >= 0)
+                
+                // Try to parse
+                try
                 {
-                    Game1.mapEditor.ChangeButtonSettings(priority);
-                    Close();
+                    // Convert
+                    priority = Convert.ToInt32(InputPriority.Text);
+
+                    // If valid integer, save it and close popup
+                    if (priority >= 0)
+                    {
+                        Game1.mapEditor.ChangeButtonSettings(priority);
+                        Close();
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("ERROR - Invalid button priority");
                 }
             };
         }

@@ -11,6 +11,9 @@ namespace Tidebreak.Screens
             // Clicking continue
             ContinueBtn.Click += (_, _) =>
             {
+                // Play click sound
+                SoundManager.PlayClick();
+
                 // Close the pause menu
                 this.RemoveFromRoot();
 
@@ -19,11 +22,18 @@ namespace Tidebreak.Screens
             };
 
             // Click logic for restart button
-            RestartBtn.Click += (_, _) => Game1.PlayMap(Game1.currentMap);
+            RestartBtn.Click += (_, _) =>
+            {
+                SoundManager.PlayClick();
+                Game1.PlayMap(Game1.currentMap);
+            };
 
             // Clicking return to map selection
             MapsBtn.Click += (_, _) =>
             {
+                // Play click sound
+                SoundManager.PlayClick();
+
                 // Change gamestate
                 Game1.gameState = Game1.SELECT_MAP;
                 
@@ -35,14 +45,15 @@ namespace Tidebreak.Screens
             // Clicking return to menu
             MenuBtn.Click += (_, _) =>
             {
+                SoundManager.PlayClick();
                 Game1.ReturnToMenu();
             };
         }
 
         public void Update(KeyboardState kb, KeyboardState prevKb)
         {
-            // If the user presses escape to unpause, unpause the game
-            if (kb.IsKeyDown(Keys.Escape) && !prevKb.IsKeyDown(Keys.Escape))
+            // If the user presses escape to unpause, unpause the game (can't be dead)
+            if (kb.IsKeyDown(Keys.Escape) && !prevKb.IsKeyDown(Keys.Escape) && !Game1.player.IsDead)
             {
                 // Close the pause menu
                 this.RemoveFromRoot();

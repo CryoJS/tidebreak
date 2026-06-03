@@ -71,6 +71,24 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public NineSliceRuntime Background { get; protected set; }
     public TextRuntime TextInstance { get; protected set; }
 
+    public int BackgroundBlue
+    {
+        get => Background.Blue;
+        set => Background.Blue = value;
+    }
+
+    public int BackgroundGreen
+    {
+        get => Background.Green;
+        set => Background.Green = value;
+    }
+
+    public int BackgroundRed
+    {
+        get => Background.Red;
+        set => Background.Red = value;
+    }
+
     public string Font
     {
         get => TextInstance.Font;

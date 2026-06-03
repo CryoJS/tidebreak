@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Decaying Silo.mp3</SourceFile>
+  <SourceTime>2026-06-01T13:36:14.1002674-04:00</SourceTime>
+  <DestFile>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/bin/DesktopGL/Content/Audio/Map/Decaying Silo.xnb</DestFile>
+  <DestTime>2026-06-02T17:34:28.1268597-04:00</DestTime>
+  <Importer>Mp3Importer</Importer>
+  <ImporterTime>2025-10-20T10:25:32-04:00</ImporterTime>
+  <Processor>SongProcessor</Processor>
+  <ProcessorTime>2025-10-20T10:25:32-04:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput>
+    <string>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/bin/DesktopGL/Content/Audio/Map/Decaying Silo.ogg</string>
+  </BuildOutput>
+</PipelineBuildEvent>

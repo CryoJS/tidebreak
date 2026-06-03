@@ -38,8 +38,8 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         });
     }
     public ButtonStandard PlayBtn { get; protected set; }
+    public ButtonStandard AboutBtn { get; protected set; }
     public ButtonStandard SettingsBtn { get; protected set; }
-    public ButtonStandard CreditsBtn { get; protected set; }
     public ButtonStandard ExitBtn { get; protected set; }
     public SpriteRuntime tidebreakbg { get; protected set; }
     public TextRuntime TitleText { get; protected set; }
@@ -58,8 +58,8 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     {
         base.ReactToVisualChanged();
         PlayBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"PlayBtn");
+        AboutBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"AboutBtn");
         SettingsBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"SettingsBtn");
-        CreditsBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"CreditsBtn");
         ExitBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"ExitBtn");
         tidebreakbg = this.Visual?.GetGraphicalUiElementByName("tidebreakbg") as global::MonoGameGum.GueDeriving.SpriteRuntime;
         TitleText = this.Visual?.GetGraphicalUiElementByName("TitleText") as global::MonoGameGum.GueDeriving.TextRuntime;

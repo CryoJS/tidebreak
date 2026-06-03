@@ -10,9 +10,11 @@
     <Variable Type="Blend" Name="Background.Blend" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
     </Variable>
+    <Variable Type="int" Name="Background.Blue" ExposedAsName="BackgroundBlue" SetsValue="false" />
     <Variable Type="ColorCategory" Name="Background.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Primary</Value>
     </Variable>
+    <Variable Type="int" Name="Background.Green" ExposedAsName="BackgroundGreen" SetsValue="false" />
     <Variable Type="float" Name="Background.Height" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
     </Variable>
@@ -22,6 +24,7 @@
     <Variable Type="bool" Name="Background.IsTilingMiddleSections" SetsValue="true">
       <Value xsi:type="xsd:boolean">false</Value>
     </Variable>
+    <Variable Type="int" Name="Background.Red" ExposedAsName="BackgroundRed" SetsValue="false" />
     <Variable IsFile="true" Type="string" Name="Background.SourceFile" SetsValue="true">
       <Value xsi:type="xsd:string">UI Assets\Btn.png</Value>
     </Variable>
@@ -132,6 +135,13 @@
     <Variable Type="float" Name="Width" SetsValue="true">
       <Value xsi:type="xsd:float">325</Value>
     </Variable>
+    <VariableList xsi:type="VariableListSaveOfString">
+      <Type>string</Type>
+      <Name>Background.VariableReferences</Name>
+      <IsFile>false</IsFile>
+      <IsHiddenInPropertyGrid>false</IsHiddenInPropertyGrid>
+      <Value />
+    </VariableList>
   </State>
   <Category>
     <Name>ButtonCategory</Name>
@@ -149,11 +159,11 @@
       <Variable Type="int" Name="Background.Red" Category="Rendering" SetsValue="true">
         <Value xsi:type="xsd:int">106</Value>
       </Variable>
-      <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
-        <Value xsi:type="xsd:string">White</Value>
-      </Variable>
       <Variable Type="int" Name="TextInstance.Alpha" SetsValue="true">
         <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">White</Value>
       </Variable>
       <VariableList xsi:type="VariableListSaveOfString">
         <Type>string</Type>
@@ -178,11 +188,11 @@
       <Variable Type="int" Name="Background.Red" SetsValue="true">
         <Value xsi:type="xsd:int">46</Value>
       </Variable>
-      <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
-        <Value xsi:type="xsd:string">Gray</Value>
-      </Variable>
       <Variable Type="int" Name="TextInstance.Alpha" SetsValue="true">
         <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">Gray</Value>
       </Variable>
       <VariableList xsi:type="VariableListSaveOfString">
         <Type>System.Collections.Generic.List`1[System.String]</Type>
@@ -206,11 +216,11 @@
       <Variable Type="int" Name="Background.Red" Category="Rendering" SetsValue="true">
         <Value xsi:type="xsd:int">154</Value>
       </Variable>
-      <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
-        <Value xsi:type="xsd:string">White</Value>
-      </Variable>
       <Variable Type="int" Name="TextInstance.Alpha" SetsValue="true">
         <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">White</Value>
       </Variable>
       <VariableList xsi:type="VariableListSaveOfString">
         <Type>string</Type>
@@ -235,11 +245,11 @@
       <Variable Type="int" Name="Background.Red" Category="Rendering" SetsValue="true">
         <Value xsi:type="xsd:int">69</Value>
       </Variable>
-      <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
-        <Value xsi:type="xsd:string">White</Value>
-      </Variable>
       <Variable Type="int" Name="TextInstance.Alpha" SetsValue="true">
         <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">White</Value>
       </Variable>
       <VariableList xsi:type="VariableListSaveOfString">
         <Type>string</Type>
@@ -322,11 +332,11 @@
       <Variable Type="int" Name="Background.Red" Category="Rendering" SetsValue="true">
         <Value xsi:type="xsd:int">106</Value>
       </Variable>
-      <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
-        <Value xsi:type="xsd:string">Gray</Value>
-      </Variable>
       <Variable Type="int" Name="TextInstance.Alpha" SetsValue="true">
         <Value xsi:type="xsd:int">255</Value>
+      </Variable>
+      <Variable Type="ColorCategory" Name="TextInstance.ColorCategoryState" SetsValue="true">
+        <Value xsi:type="xsd:string">Gray</Value>
       </Variable>
       <VariableList xsi:type="VariableListSaveOfString">
         <Type>string</Type>

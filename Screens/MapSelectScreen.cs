@@ -10,6 +10,9 @@ namespace Tidebreak.Screens
 
         partial void CustomInitialize() // REVIEW do i need to add documentation for custum initialize functions that are used for ui screens (and other functions i make in here)
         {
+            // Play lobby music
+            SoundManager.PlayLobbyMusic();
+            
             // Increase scroll speed (its sooo slow by default)
             MapList.VerticalScrollBarInstance.SmallChange = DEFAULT_SCROLL_SPEED;
 
@@ -28,12 +31,14 @@ namespace Tidebreak.Screens
                 // Add button click behaviour: play the map
                 row.PlayBtn.Click += (_, _) =>
                 {
+                    SoundManager.PlayClick();
                     Game1.PlayMap(map);
                 };
 
                 // Add button click behaviour: look at map details, select it and open popup
                 row.DetailsBtn.Click += (_, _) =>
                 {
+                    SoundManager.PlayClick();
                     Game1.currentMap = map;
                     new MapDetailsScreen().AddToRoot();
                 };
@@ -44,6 +49,8 @@ namespace Tidebreak.Screens
                     // Add edit map button click behaviour
                     row.EditBtn.Click += (_, _) =>
                     {
+                        SoundManager.PlayClick();
+
                         // Change gamestate (and map)
                         Game1.currentMap = map;
                         
@@ -63,18 +70,21 @@ namespace Tidebreak.Screens
             // Create new map
             NewMapBtn.Click += (_, _) =>
             {
+                SoundManager.PlayClick();
                 new NewMapScreen().AddToRoot();
             };
 
             // Open map sort menu
             SortBtn.Click  += (_, _) =>
             {
+                SoundManager.PlayClick();
                 new MapSortScreen().AddToRoot();
             };
 
             // Send player back to menu
             ReturnBtn.Click += (_, _) =>
             {
+                SoundManager.PlayClick();
                 Game1.ReturnToMenu();
             };
         }

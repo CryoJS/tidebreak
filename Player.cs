@@ -73,7 +73,7 @@ class Player
     private int moveInput;
     private float coyoteTime = 0;
 
-    private bool isDead;
+    public bool IsDead { get; private set; }
     private bool isGrounded; // any ground (ie. ladders)
     private bool onGround; // specifically platforms
     private bool isLatching;
@@ -101,7 +101,7 @@ class Player
 
     // Store variables for screen glow when getting a button
     private float btnGlow = 0; // Opacity in range [0, 1]
-    private float btnGlowSpeed = 1;
+    private readonly float btnGlowSpeed = 1;
 
     // Store ladder climb down timer
     Timer climbDownTimer = new Timer(CLIMB_DOWN_BUFFER, false);
@@ -150,7 +150,7 @@ class Player
     public void ResetPlayer()
     {
         // Reset default states for safety
-        isDead = false;
+        IsDead = false;
         isGrounded = false;
         onGround = false;
         isLatching = false;
@@ -171,11 +171,21 @@ class Player
 
     private void LoadWin()
     {
-        // Pause the game
+        // Play win sound and pause the game
+        SoundManager.PlayWin();
         Game1.paused = true;
 
         // Open win screen
         new WinScreen().AddToRoot();
+    }
+
+    private void StartPlayerDeath()
+    {
+        if (!IsDead)
+        {
+            IsDead = true;
+            SoundManager.PlayDeath();
+        }
     }
 
     public void Update(GameTime gameTime, KeyboardState kb, KeyboardState prevKb, Map map)
@@ -226,6 +236,7 @@ class Player
                 vel.Y = JUMP_SPEED;
 
                 isLatching = false;
+                SoundManager.PlayWalljumpOff();
             }
 
             return;
@@ -344,7 +355,7 @@ class Player
     private void Move(GameTime gameTime, KeyboardState kb, KeyboardState prevKb)
     {
         // If the player is dead, do not let them move
-        if (isDead) return;
+        if (IsDead) return;
 
         // Perform movement checks
         MoveChecks(gameTime, kb, prevKb);
@@ -404,10 +415,7 @@ class Player
     private void CheckCollisions(GameTime gameTime, Map map, KeyboardState kb, KeyboardState prevKb)
     {
         // If the player falls out of the world, they die
-        if (pos.Y > (map.SizeY + FALL_DEATH_THRESHOLD) * Game1.TILE_SIZE * Game1.PIXEL_SCALE)
-        {
-            isDead = true;
-        }
+        if (pos.Y > (map.SizeY + FALL_DEATH_THRESHOLD) * Game1.TILE_SIZE * Game1.PIXEL_SCALE) StartPlayerDeath();
 
         // Load rectangles for checking collisions
         LoadCollisionRecs();
@@ -456,7 +464,8 @@ class Player
                     Buttons.Delete(NextButton);
                     NextButton = Buttons.GetLeftmost();
 
-                    // Give screen glow for player for getting the button
+                    // Play button pickup sound and give screen glow for player
+                    SoundManager.PlayButton();
                     btnGlow = 1;
                 }
             }
@@ -470,6 +479,7 @@ class Player
                     {
                         onZipline = true;
                         curZipline = map.Ziplines[Zipline.GetId(tileType)];
+                        SoundManager.PlayZiplineStart();
 
                         // Center player at zipline
                         CenterPos(map.Tiles[tileX, tileY].Rec.Center.ToVector2());
@@ -478,12 +488,16 @@ class Player
                 else if (onZipline && curZipline.End.Type == tileType)
                 {
                     onZipline = false;
+                    SoundManager.PlayZiplineEnd();
                 }
             }
             else if (Tile.GetType(tileType) == Tile.WATER || map.FloodTiles[tileX, tileY] == Tile.FLOODED)
             {
                 // Player is in water
                 inWater = true;
+
+                // Play underwater sfx
+                SoundManager.PlayUnderwater();
             }
             else if (tileType == Tile.LADDER)
             {
@@ -491,6 +505,9 @@ class Player
                 isClimbing = true;
             }
         }
+
+        // If player is not in water stop underwater sfx
+        if (!inWater) SoundManager.StopUnderwater();
 
         // Check for platform collisions within a certain radius of the player (if not on zipline)
         if (!onZipline)
@@ -548,6 +565,7 @@ class Player
                                 isLatching = true;
                                 moveInput = 1;
                                 direction = SpriteEffects.None;
+                                SoundManager.PlayWalljumpOn();
                             }
                         }
                         else if (tileRec.Intersects(right))
@@ -562,6 +580,7 @@ class Player
                                 isLatching = true;
                                 moveInput = -1;
                                 direction = SpriteEffects.FlipHorizontally;
+                                SoundManager.PlayWalljumpOn();
                             }
                         }
                     }
@@ -635,17 +654,17 @@ class Player
         }
 
         // If the player runs out of oxygen, they die
-        if (Oxygen < 0)
-        {
-            isDead = true;
-        }
+        if (Oxygen < 0) StartPlayerDeath();
     }
 
     private void UpdateAnimsChecks()
     {
         // Perform game over logic
-        if (isDead)
+        if (IsDead)
         {
+            // Stop underwater
+            SoundManager.StopUnderwater();
+
             // Play death animation if dead, but if animation done go to game over screen
             if (anims[(int)animStates.Dying].IsFinished())
             {
@@ -673,6 +692,9 @@ class Player
         // If the player is on a zipline, play zipline hanging animation
         if (onZipline)
         {
+            // Play zipline sfx (if not playing)
+            SoundManager.PlayZiplineDuring();
+
             SetState(animStates.Hanging);
             return;
         }
@@ -748,7 +770,7 @@ class Player
         // Update animation, unless the frame should be frozen // REVIEW is this good
         if ((inWater && Math.Abs(vel.X) + Math.Abs(vel.Y) >= DEFAULT_THRESHOLD)
             || (!inWater && (!isSliding || isClimbing || moveInput != 0))
-            || isDead)
+            || IsDead)
         {
             anims[(int)state].Update(gameTime);
         }

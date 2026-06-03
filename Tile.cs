@@ -6,9 +6,9 @@ using Tidebreak;
 class Tile
 {
     // Create constants for tile types
-    public const int TEXTURE_TYPE_AMOUNT = 25;
+    public const int TEXTURE_TYPE_AMOUNT = 41;
     public const int PLATFORM_TYPE_AMOUNT = 12; // includes EMPTY
-    public const int DECORATIVE_TYPE_AMOUNT = 8;
+    public const int DECORATIVE_TYPE_AMOUNT = 16;
     public const int FUNCTIONAL_TYPE_AMOUNT = 8;
 
     public const int BUTTON_START = -5;
@@ -44,6 +44,26 @@ class Tile
     public const int BUTTON = 22; // Only for visuals, buttons are stored as #s < NULL
     public const int PRESSED_BUTTON = 23;
     public const int WALL_JUMP = 24;
+
+    // Create constant for color tiles
+    public const int COLOR_BLACK = 25;
+    public const int COLOR_GREY = 26;
+    public const int COLOR_WHITE = 27;
+    public const int COLOR_RED = 28;
+    public const int COLOR_ORANGE = 29;
+    public const int COLOR_YELLOW = 30;
+    public const int COLOR_LIME = 31;
+    public const int COLOR_GREEN = 32;
+    public const int COLOR_TEAL = 33;
+    public const int COLOR_CYAN = 34;
+    public const int COLOR_SKY = 35;
+    public const int COLOR_BLUE = 36;
+    public const int COLOR_INDIGO = 37;
+    public const int COLOR_PURPLE = 38;
+    public const int COLOR_MAGENTA = 39;
+    public const int COLOR_PINK = 40;
+
+    // Create constant for zipline tile type
     public const int ZIPLINE = 50; // Zipline start and end tiles are from here and onwards in pairs, i.e. {(50, 51), (52, 53), ...}
 
     // Create constants for if tile is floodable or not

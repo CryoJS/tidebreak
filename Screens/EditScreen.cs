@@ -39,10 +39,8 @@ namespace Tidebreak.Screens
             }
 
             // Add all decorative tiles
-            for (int type = 0; type < Tile.DECORATIVE_TYPE_AMOUNT; type++)
-            {
-                decorative[type] = CreateTileUI(Tile.LADDER + type, decorative);
-            }
+            for (int type = 0; type < 8; type++) decorative[type] = CreateTileUI(Tile.LADDER + type, decorative);
+            for (int type = 0; type < 16; type++) decorative[8 + type] = CreateTileUI(Tile.COLOR_BLACK + type, decorative);
 
             // Add all functional tiles
             functional[0] = CreateTileUI(Tile.WATER, functional);
@@ -60,18 +58,21 @@ namespace Tidebreak.Screens
             // Add platform bar logic
             PlatformBtn.Click += (_, _) =>
             {
+                SoundManager.PlayClick();
                 LoadTileBar(platforms);
             };
 
             // Add decorative bar logic
             DecorativeBtn.Click += (_, _) =>
             {
+                SoundManager.PlayClick();
                 LoadTileBar(decorative);
             };
 
             // Add functional bar logic
             FunctionalBtn.Click += (_, _) =>
             {
+                SoundManager.PlayClick();
                 LoadTileBar(functional);
             };
 
@@ -82,6 +83,9 @@ namespace Tidebreak.Screens
             // Add unselect logic
             UnselectBtn.Click += (_, _) =>
             {
+                // Play click sound
+                SoundManager.PlayClick();
+                
                 // Remove previously selected tile if it exists
                 if (Bar != null && selectedTileUI != Tile.NULL) Bar[selectedTileUI].Selection.Visible = false;
 
@@ -96,46 +100,58 @@ namespace Tidebreak.Screens
             // Add show foreground toggle logic
             FgBtn.Click += (_, _) =>
             {
-                // Toggle background visibility
+                SoundManager.PlayClick();
                 Game1.mapEditor.ShowFg = (bool)FgBtn.IsChecked;
             };
 
             // Add show background toggle logic
             BgBtn.Click += (_, _) =>
             {
-                // Toggle background visibility
+                SoundManager.PlayClick();
                 Game1.mapEditor.ShowBg = (bool)BgBtn.IsChecked;
             };
 
             // Add edit background toggle logic
             EditBgBtn.Click += (_, _) =>
             {
-                // Toggle background visibility
+                SoundManager.PlayClick();
                 Game1.mapEditor.EditBg = (bool)EditBgBtn.IsChecked;
             };
 
             // Add grid toggle logic
             GridBtn.Click += (_, _) =>
             {
-                // Toggle grid visibility
+                SoundManager.PlayClick();
                 Game1.mapEditor.DisplayGrid = (bool)GridBtn.IsChecked;
             };
 
             // Save map if there are changes
             SaveBtn.Click += (_, _) =>
             {
+                SoundManager.PlayClick();
                 Game1.mapEditor.Save();
             };
 
             // When clicking undo button, undo
-            UndoBtn.Click += (_, _) => Game1.mapEditor.Undo();
+            UndoBtn.Click += (_, _) =>
+            {
+                SoundManager.PlayClick();
+                Game1.mapEditor.Undo();
+            };
 
             // When clicking redo button, redo
-            RedoBtn.Click += (_, _) => Game1.mapEditor.Redo();
+            RedoBtn.Click += (_, _) =>
+            {
+                SoundManager.PlayClick();
+                Game1.mapEditor.Redo();
+            };
 
             // Stop editing popup when pressing exit
             CloseBtn.Click += (_, _) =>
             {
+                // Play click sound
+                SoundManager.PlayClick();
+
                 // If there are not changes, exit, otherwise prompt to save
                 if (SaveBtn.IsEnabled)
                 {
@@ -170,6 +186,9 @@ namespace Tidebreak.Screens
             // Add tile select logic
             tile.Btn.Click += (_, _) =>
             {
+                // Play click sound
+                SoundManager.PlayClick();
+
                 // Remove previously selected tile if it exists
                 if (Bar != null && selectedTileUI != Tile.NULL) Bar[selectedTileUI].Selection.Visible = false;
                 

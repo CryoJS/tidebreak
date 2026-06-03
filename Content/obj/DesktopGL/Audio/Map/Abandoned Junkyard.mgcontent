@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Abandoned Junkyard.mp3</SourceFile>
+  <SourceTime>2026-06-01T15:56:59.8956182-04:00</SourceTime>
+  <DestFile>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/bin/DesktopGL/Audio/Map/Abandoned Junkyard.xnb</DestFile>
+  <DestTime>2026-06-01T21:57:39.2092126-04:00</DestTime>
+  <Importer>Mp3Importer</Importer>
+  <ImporterTime>2025-10-20T10:25:32-04:00</ImporterTime>
+  <Processor>SongProcessor</Processor>
+  <ProcessorTime>2025-10-20T10:25:32-04:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput>
+    <string>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/bin/DesktopGL/Audio/Map/Abandoned Junkyard.ogg</string>
+  </BuildOutput>
+</PipelineBuildEvent>

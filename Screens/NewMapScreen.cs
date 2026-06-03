@@ -14,6 +14,7 @@ namespace Tidebreak.Screens
             // Create new map
             CreateBtn.Click += (_, _) =>
             {
+                SoundManager.PlayClick();
                 // Trim inputted text
                 MapName.Text = MapName.Text.Trim();
                 Author.Text = Author.Text.Trim();
@@ -33,6 +34,8 @@ namespace Tidebreak.Screens
             // Close popup
             CloseBtn.Click += (_, _) =>
             {
+                // Play click sound
+                SoundManager.PlayClick();
                 this.RemoveFromRoot();
             };
         }

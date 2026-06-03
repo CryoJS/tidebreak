@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Tidebreak;
 
-class Map // TODO All documentation for methods
+class Map
 {
     // Create constant for empty variables
     public const int EMPTY = -1;
@@ -39,6 +39,7 @@ class Map // TODO All documentation for methods
     public string Name { get; set; }
     public string Author { get; set; }
     public string Description { get; set; }
+    public string Song { get; set; }
     public float Difficulty { get; set; }
     public DateTime CreationDate { get; private set; }
     public DateTime ModifiedDate { get; private set; }
@@ -95,12 +96,13 @@ class Map // TODO All documentation for methods
     public Map(string name, string author, float difficulty = 0.0f, int sizeX = 10, int sizeY = 10, bool locked = false)
     {
         // Initialize map information
-        this.Name = name;
-        this.Author = author;
-        this.Difficulty = difficulty;
-        this.Locked = locked;
-        this.SizeX = sizeX;
-        this.SizeY = sizeY;
+        Name = name;
+        Author = author;
+        Difficulty = difficulty;
+        Song = SoundManager.NO_SONG;
+        Locked = locked;
+        SizeX = sizeX;
+        SizeY = sizeY;
 
         // Update map dates
         CreationDate = DateTime.Now;
@@ -141,6 +143,9 @@ class Map // TODO All documentation for methods
         // Reset flood queue and timer
         floodQueue = new Queue<(int, int)>();
         floodTimer = new Timer(1000 / FloodSpeed, true);
+
+        // Create new flood tiles
+        FloodTiles = new bool[SizeX, SizeY];
 
         // Reset all water tiles to unflooded, also add flood start tiles into queue
         for (int x = 0; x < SizeX; x++)
@@ -209,7 +214,7 @@ class Map // TODO All documentation for methods
                     int type = Tile.GetType(Tiles[nx, ny].Type);
 
                     // Only expand tile if empty (and unflooded)
-                    if (FloodTiles[nx, ny] == Tile.NOT_FLOODED && type != Tile.WALL_JUMP && (type == Tile.EMPTY || type > Tile.PLATFORM_TYPE_AMOUNT))
+                    if (FloodTiles[nx, ny] == Tile.NOT_FLOODED && type != Tile.WALL_JUMP && (type == Tile.EMPTY || type >= Tile.PLATFORM_TYPE_AMOUNT))
                     {
                         // Set the tile to flooded and add it to the queue
                         FloodTiles[nx, ny] = Tile.FLOODED;
@@ -234,13 +239,13 @@ class Map // TODO All documentation for methods
                 BgTiles[x, y].Draw(spriteBatch);
 
                 // Draw expanding water while keeping background and foreground in mind
-                if (FloodTiles[x, y] == Tile.FLOODED && Tiles[x, y].Type != Tile.WALL_JUMP)
-                {
-                    spriteBatch.Draw(Tile.textures[Tile.WATER], Tiles[x, y].Rec, Color.White);
-                }
+                if (FloodTiles[x, y] == Tile.FLOODED && Tiles[x, y].Type != Tile.WALL_JUMP) spriteBatch.Draw(Tile.textures[Tile.WATER], Tiles[x, y].Rec, Color.White);
 
                 // Draw foreground tile last
                 Tiles[x, y].Draw(spriteBatch);
+
+                // If water floods a ladder, should go above it
+                if (FloodTiles[x, y] == Tile.FLOODED && Tiles[x, y].Type == Tile.LADDER) spriteBatch.Draw(Tile.textures[Tile.WATER], Tiles[x, y].Rec, Color.White);
             }
         }
 
@@ -267,10 +272,13 @@ class Map // TODO All documentation for methods
             Name = inFile.ReadLine();
             Author = inFile.ReadLine();
             Description = inFile.ReadLine();
+            Song = inFile.ReadLine();
+
             Difficulty = Convert.ToSingle(inFile.ReadLine());
             CreationDate = Convert.ToDateTime(inFile.ReadLine());
             ModifiedDate = Convert.ToDateTime(inFile.ReadLine());
             Locked = Convert.ToBoolean(inFile.ReadLine());
+            BestTime = Convert.ToSingle(inFile.ReadLine());
 
             SizeX = Convert.ToInt32(inFile.ReadLine());
             SizeY = Convert.ToInt32(inFile.ReadLine());

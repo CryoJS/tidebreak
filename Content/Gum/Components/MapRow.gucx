@@ -253,7 +253,7 @@
       <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="float" Name="DifficultyText.X" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
+      <Value xsi:type="xsd:float">-5</Value>
     </Variable>
     <Variable Type="HorizontalAlignment" Name="DifficultyText.XOrigin" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
@@ -332,6 +332,42 @@
     </Variable>
     <Variable Type="float" Name="Height" SetsValue="true">
       <Value xsi:type="xsd:float">140</Value>
+    </Variable>
+    <Variable Type="IconCategory" Name="IconInstance2.IconCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Star</Value>
+    </Variable>
+    <Variable Type="ColorCategory" Name="IconInstance2.IconColor" SetsValue="true">
+      <Value xsi:type="xsd:string">Primary</Value>
+    </Variable>
+    <Variable Type="float" Name="IconInstance2.IconHeight" SetsValue="true">
+      <Value xsi:type="xsd:float">80</Value>
+    </Variable>
+    <Variable Type="float" Name="IconInstance2.IconWidth" SetsValue="true">
+      <Value xsi:type="xsd:float">80</Value>
+    </Variable>
+    <Variable Type="string" Name="IconInstance2.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">DifficultyBG</Value>
+    </Variable>
+    <Variable Type="float" Name="IconInstance2.Rotation" SetsValue="true">
+      <Value xsi:type="xsd:float">12</Value>
+    </Variable>
+    <Variable Type="float" Name="IconInstance2.X" SetsValue="true">
+      <Value xsi:type="xsd:float">-8</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="IconInstance2.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="IconInstance2.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="IconInstance2.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">-9.333333</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="IconInstance2.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="IconInstance2.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
     </Variable>
     <Variable Type="bool" Name="IconLargeInstance1.HasEvents" SetsValue="true">
       <Value xsi:type="xsd:boolean">false</Value>
@@ -626,6 +662,7 @@
       <Value />
     </VariableList>
   </State>
+  <Instance Name="IconInstance2" BaseType="Elements/Icon" />
   <Instance Name="DifficultyText" BaseType="Text" />
   <Instance Name="IconLargeInstance2" BaseType="Elements/IconLarge" />
   <Instance Name="IconLargeInstance4" BaseType="Elements/IconLarge" />

@@ -20,12 +20,16 @@ namespace Tidebreak.Screens
             // Add logic for closing popup
             CloseBtn.Click += (_, _) =>
             {
+                SoundManager.PlayClick();
                 Close();
             };
 
             // Add logic for saving button setting
             SaveBtn.Click += (_, _) =>
             {
+                // Play click sound
+                SoundManager.PlayClick();
+
                 // Trim input and store
                 InputPriority.Text = InputPriority.Text.Trim();
                 

@@ -70,6 +70,7 @@ namespace Tidebreak.Screens
             // Add logic for button to close screen
             CloseBtn.Click += (_, _) =>
             {
+                SoundManager.PlayClick();
                 this.RemoveFromRoot();
             };
         }

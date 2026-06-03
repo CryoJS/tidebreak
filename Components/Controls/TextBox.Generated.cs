@@ -103,12 +103,24 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public NineSliceRuntime FocusedIndicator { get; protected set; }
     public SpriteRuntime CaretInstance { get; protected set; }
 
+    public float CaretInstanceHeight
+    {
+        get => CaretInstance.Height;
+        set => CaretInstance.Height = value;
+    }
+
     public int PlaceholderFontSize
     {
         get => PlaceholderTextInstance.FontSize;
         set => PlaceholderTextInstance.FontSize = value;
     }
 
+
+    public float SelectionInstanceHeight
+    {
+        get => SelectionInstance.Height;
+        set => SelectionInstance.Height = value;
+    }
 
     public int FontSize
     {

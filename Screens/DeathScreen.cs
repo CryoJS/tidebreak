@@ -46,6 +46,7 @@ namespace Tidebreak.Screens
             // Click logic for restart button
             RestartBtn.Click += (_, _) =>
             {
+                SoundManager.PlayClick();
                 // Play the current map again
                 Game1.PlayMap(Game1.currentMap);
             };
@@ -53,6 +54,7 @@ namespace Tidebreak.Screens
             // Click logic for return to map selection menu button
             MapsBtn.Click += (_, _) =>
             {
+                SoundManager.PlayClick();
                 // Change gamestate
                 Game1.gameState = Game1.SELECT_MAP;
                 
@@ -64,6 +66,8 @@ namespace Tidebreak.Screens
             // Click logic for return to menu button
             MenuBtn.Click += (_, _) =>
             {
+                // Play click sound
+                SoundManager.PlayClick();
                 Game1.ReturnToMenu();
             };
         }

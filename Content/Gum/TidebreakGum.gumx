@@ -62,6 +62,7 @@
   <ScreenReference Name="NewMapScreen" />
   <ScreenReference Name="PauseScreen" />
   <ScreenReference Name="PlayScreen" />
+  <ScreenReference Name="SongSelectScreen" />
   <ScreenReference Name="StopEditScreen" />
   <ScreenReference Name="TitleScreen" />
   <ScreenReference Name="WinScreen" />
@@ -114,6 +115,7 @@
   <ComponentReference Name="Elements/PercentBarIcon" />
   <ComponentReference Name="Elements/VerticalLines" />
   <ComponentReference Name="MapRow" />
+  <ComponentReference Name="SongRow" />
   <ComponentReference Name="Styles" />
   <ComponentReference Name="TileUI" />
   <StandardElementReference Name="Arc" />

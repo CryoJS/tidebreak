@@ -10,6 +10,8 @@ namespace Tidebreak.Screens
             // Send player to level selection
             PlayBtn.Click += (_, _) =>
             {
+                SoundManager.PlayClick();
+
                 // Change gamestate
                 Game1.gameState = Game1.SELECT_MAP;
                 
@@ -23,6 +25,7 @@ namespace Tidebreak.Screens
             // Exit game
             ExitBtn.Click += (_, _) =>
             {
+                SoundManager.PlayClick();
                 Game1.gameState = Game1.EXIT;
             };
         }

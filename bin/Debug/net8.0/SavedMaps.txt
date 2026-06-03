@@ -1,10 +1,12 @@
 Test Map
 Tidebreak Official
 All the features in the game in one place, for testing.
+Mars Stations
 0.0
 2026-04-27 00:00:00
 2026-04-27 00:00:00
 true
+-1
 50
 10
 4
@@ -33,10 +35,12 @@ true
 Laboratory
 Tidebreak Official
 Larger map, for gameplay and editor testing.
+Decaying Silo
 1.0
 2026-04-27 00:00:00
 2026-04-27 00:00:00
 false
+-1
 50
 15
 3

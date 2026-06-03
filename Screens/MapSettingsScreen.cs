@@ -1,8 +1,6 @@
 using System;
-using System.Linq;
 using Gum.Forms;
 using Gum.Forms.Controls;
-using MonoGame.Extended.Content.Tiled;
 using MonoGameGum;
 
 namespace Tidebreak.Screens
@@ -34,6 +32,9 @@ namespace Tidebreak.Screens
             // If user presses save, change settings
             SaveBtn.Click += (_, _) =>
             {
+                // Play click sound
+                SoundManager.PlayClick();
+                
                 // Trim all inputs
                 InputName.Text = InputName.Text.Trim();
                 InputAuthor.Text = InputAuthor.Text.Trim();
@@ -105,6 +106,10 @@ namespace Tidebreak.Screens
             //  If user presses edit, let them edit the map tiles
             EditBtn.Click += (_, _) =>
             {
+                // Play click sound and start level editor music
+                SoundManager.PlayClick();
+                SoundManager.PlayLevelEditorMusic();
+                
                 // Load map into editor
                 Game1.mapEditor.Load(Game1.currentMap);
 
@@ -117,9 +122,17 @@ namespace Tidebreak.Screens
                 Game1.editScreen.AddToRoot();
             };
 
+            // If user presses song select, open song select screen
+            SongBtn.Click += (_, _) =>
+            {
+                SoundManager.PlayClick();
+                new SongSelectScreen().AddToRoot();
+            };
+
             // If user presses exit, close popup
             CloseBtn.Click += (_, _) =>
             {
+                SoundManager.PlayClick();
                 this.RemoveFromRoot();
             };
         }

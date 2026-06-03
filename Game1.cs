@@ -155,8 +155,12 @@ public class Game1 : Game
         // Create player (load player textures and animations)
         player = new Player(Content);
 
-        // Load in all maps
+        // Load in all maps and sounds
         LoadMaps();
+        SoundManager.Load(Content);
+
+        // Play menu music
+        SoundManager.PlayLobbyMusic();
     }
 
     protected override void Update(GameTime gameTime)
@@ -272,6 +276,9 @@ public class Game1 : Game
 
     public static void ReturnToMenu()
     {
+        // Play lobby music
+        SoundManager.PlayLobbyMusic();
+
         // Remove all screens and go to menu (title screen)
         GumService.Default.Root.Children.Clear();
         new TitleScreen().AddToRoot();
@@ -285,6 +292,9 @@ public class Game1 : Game
         // Change gamestate (and map)
         currentMap = nextMap;
         gameState = PLAY_MAP;
+        
+        // Play map song
+        SoundManager.PlayMapSong(currentMap.Song);
         
         // Change screen
         GumService.Default.Root.Children.Clear();

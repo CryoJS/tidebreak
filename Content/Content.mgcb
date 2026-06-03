@@ -13,6 +13,324 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin Audio/Gameplay/Btn0.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Gameplay/Btn0.wav;Audio/Gameplay/Btn0
+
+#begin Audio/Gameplay/Btn1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Gameplay/Btn1.wav
+
+#begin Audio/Gameplay/Btn2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Gameplay/Btn2.wav
+
+#begin Audio/Gameplay/DefeatBg.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Gameplay/DefeatBg.wav;Audio/Gameplay/DefeatBg
+
+#begin Audio/Gameplay/Underwater.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Gameplay/Underwater.wav;Audio/Gameplay/Underwater
+
+#begin Audio/Gameplay/WalljumpOff.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Gameplay/WalljumpOff.wav
+
+#begin Audio/Gameplay/WalljumpOn.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Gameplay/WalljumpOn.wav
+
+#begin Audio/Gameplay/Win.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Gameplay/Win.wav
+
+#begin Audio/Gameplay/ZiplineDuring.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Gameplay/ZiplineDuring.wav;Audio/Gameplay/ZiplineDuring
+
+#begin Audio/Gameplay/ZiplineEnd.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Gameplay/ZiplineEnd.wav
+
+#begin Audio/Gameplay/ZiplineStart.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/Gameplay/ZiplineStart.wav
+
+#begin Audio/Map/Abandoned Facility.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Abandoned Facility.mp3
+
+#begin Audio/Map/Abandoned Junkyard.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Abandoned Junkyard.mp3
+
+#begin Audio/Map/Active Volcanic Mines.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Active Volcanic Mines.mp3
+
+#begin Audio/Map/Beneath The Ruins.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Beneath The Ruins.mp3
+
+#begin Audio/Map/Blue Moon.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Blue Moon.mp3
+
+#begin Audio/Map/Calamity Kingdom.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Calamity Kingdom.mp3
+
+#begin Audio/Map/Casino of Envy.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Casino of Envy.mp3
+
+#begin Audio/Map/Castle Tides.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Castle Tides.mp3
+
+#begin Audio/Map/Cave System.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Cave System.mp3
+
+#begin Audio/Map/Central Mass Array.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Central Mass Array.mp3
+
+#begin Audio/Map/Chaoz Japan.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Chaoz Japan.mp3
+
+#begin Audio/Map/Construction Thrill.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Construction Thrill.mp3
+
+#begin Audio/Map/Cyberpunk District.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Cyberpunk District.mp3
+
+#begin Audio/Map/Dark Sci-Forest.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Dark Sci-Forest.mp3
+
+#begin Audio/Map/Decaying Silo.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Decaying Silo.mp3
+
+#begin Audio/Map/Fallen.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Fallen.mp3
+
+#begin Audio/Map/Familiar Ruins.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Familiar Ruins.mp3
+
+#begin Audio/Map/Flood Island.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Flood Island.mp3
+
+#begin Audio/Map/Gloomy Manor.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Gloomy Manor.mp3
+
+#begin Audio/Map/Havoc Highlands.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Havoc Highlands.mp3
+
+#begin Audio/Map/Ignis Peaks.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Ignis Peaks.mp3
+
+#begin Audio/Map/Lost Desert.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Lost Desert.mp3
+
+#begin Audio/Map/Lost Woods.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Lost Woods.mp3
+
+#begin Audio/Map/Luminance.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Luminance.mp3
+
+#begin Audio/Map/Magmatic Mines.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Magmatic Mines.mp3
+
+#begin Audio/Map/Mars Stations.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Mars Stations.mp3
+
+#begin Audio/Map/Mirage Saloon.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Mirage Saloon.mp3
+
+#begin Audio/Map/Oriental Grove.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Oriental Grove.mp3
+
+#begin Audio/Map/Poisonous Chasm.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Poisonous Chasm.mp3
+
+#begin Audio/Map/Rustic Jungle.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Rustic Jungle.mp3
+
+#begin Audio/Map/Sandswept Ruins.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Sandswept Ruins.mp3
+
+#begin Audio/Map/Sinking Ship.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Sinking Ship.mp3
+
+#begin Audio/Map/Snowy Stronghold.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Snowy Stronghold.mp3
+
+#begin Audio/Map/Splendid China Wall.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Splendid China Wall.mp3
+
+#begin Audio/Map/Sub-Zerosphere.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Sub-Zerosphere.mp3
+
+#begin Audio/Map/Undersea Facility.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Undersea Facility.mp3
+
+#begin Audio/Map/Whirlwind Wasteland.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Whirlwind Wasteland.mp3
+
+#begin Audio/Map/Wildwood Waterways.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Map/Wildwood Waterways.mp3
+
+#begin Audio/Menu/Level Editor.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Menu/Level Editor.mp3
+
+#begin Audio/Menu/Lobby.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Audio/Menu/Lobby.mp3
+
+#begin Audio/UI/Click.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/UI/Click.wav
+
+#begin Audio/UI/Load.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Audio/UI/Load.wav
+
 #begin Images/Sprites/EditorTiles/BarrierTile.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -457,6 +775,66 @@
 /processorParam:TextureFormat=Color
 /build:Images/Sprites/Tiles/Tile24.png;Images/Sprites/Tiles/Tile24
 
+#begin Images/Sprites/Tiles/Tile25.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Tile25.png;Images/Sprites/Tiles/Tile25
+
+#begin Images/Sprites/Tiles/Tile26.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Tile26.png;Images/Sprites/Tiles/Tile26
+
+#begin Images/Sprites/Tiles/Tile27.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Tile27.png;Images/Sprites/Tiles/Tile27
+
+#begin Images/Sprites/Tiles/Tile28.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Tile28.png;Images/Sprites/Tiles/Tile28
+
+#begin Images/Sprites/Tiles/Tile29.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Tile29.png;Images/Sprites/Tiles/Tile29
+
 #begin Images/Sprites/Tiles/Tile3.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -469,6 +847,126 @@
 /processorParam:TextureFormat=Color
 /build:Images/Sprites/Tiles/Tile3.png
 
+#begin Images/Sprites/Tiles/Tile30.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Tile30.png;Images/Sprites/Tiles/Tile30
+
+#begin Images/Sprites/Tiles/Tile31.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Tile31.png;Images/Sprites/Tiles/Tile31
+
+#begin Images/Sprites/Tiles/Tile32.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Tile32.png;Images/Sprites/Tiles/Tile32
+
+#begin Images/Sprites/Tiles/Tile33.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Tile33.png;Images/Sprites/Tiles/Tile33
+
+#begin Images/Sprites/Tiles/Tile34.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Tile34.png;Images/Sprites/Tiles/Tile34
+
+#begin Images/Sprites/Tiles/Tile35.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Tile35.png;Images/Sprites/Tiles/Tile35
+
+#begin Images/Sprites/Tiles/Tile36.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Tile36.png;Images/Sprites/Tiles/Tile36
+
+#begin Images/Sprites/Tiles/Tile37.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Tile37.png;Images/Sprites/Tiles/Tile37
+
+#begin Images/Sprites/Tiles/Tile38.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Tile38.png;Images/Sprites/Tiles/Tile38
+
+#begin Images/Sprites/Tiles/Tile39.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Tile39.png;Images/Sprites/Tiles/Tile39
+
 #begin Images/Sprites/Tiles/Tile4.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -480,6 +978,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Images/Sprites/Tiles/Tile4.png
+
+#begin Images/Sprites/Tiles/Tile40.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Tile40.png;Images/Sprites/Tiles/Tile40
 
 #begin Images/Sprites/Tiles/Tile5.png
 /importer:TextureImporter

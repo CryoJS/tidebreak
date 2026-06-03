@@ -8,6 +8,9 @@ namespace Tidebreak.Screens
     {
         partial void CustomInitialize()
         {
+            // Play map load effect
+            SoundManager.PlayLoad();
+
             // Store best time from current map
             float bestTime = Game1.currentMap.BestTime;
 
@@ -21,13 +24,17 @@ namespace Tidebreak.Screens
             TimeText.SetBinding(nameof(TimeText.Text), nameof(Game1.currentMap.Time));
 
             // Update map best time text
-            if (Math.Round(bestTime) == Map.EMPTY) BestTimeText.Text = Math.Round(bestTime) == Map.EMPTY ? Map.MISSING_BEST_TIME : Game1.FormatTime(bestTime);
+            BestTimeText.Text = Math.Round(bestTime) == Map.EMPTY ? Map.MISSING_BEST_TIME : Game1.FormatTime(bestTime);
 
             // Update button indicator visibility
             BtnIndicator.Visible = Game1.currentMap.Buttons.Count > 0;
 
             // Clicking pause button
-            PauseBtn.Click += (_, _) => TriggerPause();
+            PauseBtn.Click += (_, _) =>
+            {
+                SoundManager.PlayClick();
+                TriggerPause();
+            };
         }
 
         public void Update(KeyboardState kb, KeyboardState prevKb)
@@ -41,8 +48,8 @@ namespace Tidebreak.Screens
             // Update vignette intensity by how much oxygen is left
             Vignette.Alpha2 = (int)(255 * (1 - Math.Max(0, Game1.player.Oxygen) / Player.MAX_OXYGEN));
 
-            // If the user presses escape to pause, pause the game
-            if (kb.IsKeyDown(Keys.Escape) && !prevKb.IsKeyDown(Keys.Escape)) TriggerPause();
+            // If the user presses escape to pause, pause the game (if not dead)
+            if (kb.IsKeyDown(Keys.Escape) && !prevKb.IsKeyDown(Keys.Escape) && !Game1.player.IsDead) TriggerPause();
         }
 
         private void TriggerPause()

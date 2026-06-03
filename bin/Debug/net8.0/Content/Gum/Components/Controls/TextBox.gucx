@@ -22,11 +22,11 @@
     <Variable Type="ColorCategory" Name="CaretInstance.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Primary</Value>
     </Variable>
-    <Variable Type="float" Name="CaretInstance.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">-10</Value>
+    <Variable Type="float" Name="CaretInstance.Height" ExposedAsName="CaretInstanceHeight" SetsValue="true">
+      <Value xsi:type="xsd:float">30</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="CaretInstance.HeightUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">2</Value>
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="string" Name="CaretInstance.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ClipContainer</Value>
@@ -193,11 +193,11 @@
     <Variable Type="ColorCategory" Name="SelectionInstance.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Primary</Value>
     </Variable>
-    <Variable Type="float" Name="SelectionInstance.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">-10</Value>
+    <Variable Type="float" Name="SelectionInstance.Height" ExposedAsName="SelectionInstanceHeight" SetsValue="true">
+      <Value xsi:type="xsd:float">30</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="SelectionInstance.HeightUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">2</Value>
+      <Value xsi:type="xsd:int">0</Value>
     </Variable>
     <Variable Type="string" Name="SelectionInstance.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">ClipContainer</Value>

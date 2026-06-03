@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/EditorTiles/BarrierTile.png</SourceFile>
-  <SourceTime>2026-05-25T19:22:33.0589265-04:00</SourceTime>
+  <SourceTime>2026-05-28T17:50:36.9930492-04:00</SourceTime>
   <DestFile>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/bin/DesktopGL/Images/Sprites/EditorTiles/BarrierTile.xnb</DestFile>
-  <DestTime>2026-05-25T19:29:30.2543452-04:00</DestTime>
+  <DestTime>2026-06-01T21:59:51.0811879-04:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2025-10-20T10:25:32-04:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

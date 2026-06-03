@@ -34,6 +34,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
             return gue;
         });
     }
+    public Icon IconInstance2 { get; protected set; }
     public TextRuntime DifficultyText { get; protected set; }
     public IconLarge IconLargeInstance2 { get; protected set; }
     public IconLarge IconLargeInstance4 { get; protected set; }
@@ -65,6 +66,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     protected override void ReactToVisualChanged()
     {
         base.ReactToVisualChanged();
+        IconInstance2 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Icon>(this.Visual,"IconInstance2");
         DifficultyText = this.Visual?.GetGraphicalUiElementByName("DifficultyText") as global::MonoGameGum.GueDeriving.TextRuntime;
         IconLargeInstance2 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<IconLarge>(this.Visual,"IconLargeInstance2");
         IconLargeInstance4 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<IconLarge>(this.Visual,"IconLargeInstance4");

@@ -44,6 +44,8 @@ namespace Tidebreak.Screens
             // Add close popup button option
             CloseBtn.Click += (_, _) =>
             {
+                // Play click sound
+                SoundManager.PlayClick();
                 this.RemoveFromRoot();
             };
         }

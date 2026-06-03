@@ -4,6 +4,59 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Gameplay/Btn0.wav</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Gameplay/Btn1.wav</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Gameplay/Btn2.wav</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Gameplay/DefeatBg.wav</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Gameplay/Underwater.wav</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Gameplay/WalljumpOff.wav</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Gameplay/WalljumpOn.wav</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Gameplay/Win.wav</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Gameplay/ZiplineDuring.wav</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Gameplay/ZiplineEnd.wav</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Gameplay/ZiplineStart.wav</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Abandoned Facility.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Abandoned Junkyard.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Active Volcanic Mines.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Beneath The Ruins.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Blue Moon.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Calamity Kingdom.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Casino of Envy.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Castle Tides.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Cave System.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Central Mass Array.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Chaoz Japan.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Construction Thrill.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Cyberpunk District.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Dark Sci-Forest.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Decaying Silo.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Fallen.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Familiar Ruins.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Flood Island.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Gloomy Manor.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Havoc Highlands.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Ignis Peaks.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Lost Desert.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Lost Woods.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Luminance.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Magmatic Mines.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Mars Stations.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Mirage Saloon.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Oriental Grove.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Poisonous Chasm.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Rustic Jungle.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Sandswept Ruins.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Sinking Ship.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Snowy Stronghold.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Splendid China Wall.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Sub-Zerosphere.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Undersea Facility.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Whirlwind Wasteland.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Map/Wildwood Waterways.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Menu/Level Editor.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Menu/Lobby.mp3</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/UI/Click.wav</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/UI/Load.wav</File>
     <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/EditorTiles/BarrierTile.png</File>
     <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/EditorTiles/EmptyTile.png</File>
     <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/EditorTiles/FloodTile.png</File>
@@ -41,8 +94,24 @@
     <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile22.png</File>
     <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile23.png</File>
     <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile24.png</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile25.png</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile26.png</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile27.png</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile28.png</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile29.png</File>
     <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile3.png</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile30.png</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile31.png</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile32.png</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile33.png</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile34.png</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile35.png</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile36.png</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile37.png</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile38.png</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile39.png</File>
     <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile4.png</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile40.png</File>
     <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile5.png</File>
     <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile6.png</File>
     <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile7.png</File>
@@ -50,6 +119,59 @@
     <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile9.png</File>
   </SourceFiles>
   <DestFiles>
+    <File>Audio/Gameplay/Btn0</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File>Audio/Gameplay/DefeatBg</File>
+    <File>Audio/Gameplay/Underwater</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File>Audio/Gameplay/ZiplineDuring</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File>Images/Sprites/EditorTiles/FloodTile</File>
@@ -87,8 +209,24 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File>Images/Sprites/Tiles/Tile24</File>
+    <File>Images/Sprites/Tiles/Tile25</File>
+    <File>Images/Sprites/Tiles/Tile26</File>
+    <File>Images/Sprites/Tiles/Tile27</File>
+    <File>Images/Sprites/Tiles/Tile28</File>
+    <File>Images/Sprites/Tiles/Tile29</File>
     <File xsi:nil="true" />
+    <File>Images/Sprites/Tiles/Tile30</File>
+    <File>Images/Sprites/Tiles/Tile31</File>
+    <File>Images/Sprites/Tiles/Tile32</File>
+    <File>Images/Sprites/Tiles/Tile33</File>
+    <File>Images/Sprites/Tiles/Tile34</File>
+    <File>Images/Sprites/Tiles/Tile35</File>
+    <File>Images/Sprites/Tiles/Tile36</File>
+    <File>Images/Sprites/Tiles/Tile37</File>
+    <File>Images/Sprites/Tiles/Tile38</File>
+    <File>Images/Sprites/Tiles/Tile39</File>
     <File xsi:nil="true" />
+    <File>Images/Sprites/Tiles/Tile40</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

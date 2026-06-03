@@ -38,6 +38,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
             return gue;
         });
     }
+    public Icon IconInstance1 { get; protected set; }
     public TextRuntime SettingsHeader { get; protected set; }
     public TextBox InputName { get; protected set; }
     public TextBox InputAuthor { get; protected set; }
@@ -52,6 +53,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public NineSliceRuntime FrameBG1 { get; protected set; }
     public TextRuntime MapName { get; protected set; }
     public ButtonDeny CloseBtn { get; protected set; }
+    public ButtonStandard SongBtn { get; protected set; }
     public ContainerRuntime ContainerInstance { get; protected set; }
     public NineSliceRuntime FrameBG { get; protected set; }
     public Icon IconInstance2 { get; protected set; }
@@ -70,6 +72,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     protected override void ReactToVisualChanged()
     {
         base.ReactToVisualChanged();
+        IconInstance1 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Icon>(this.Visual,"IconInstance1");
         SettingsHeader = this.Visual?.GetGraphicalUiElementByName("SettingsHeader") as global::MonoGameGum.GueDeriving.TextRuntime;
         InputName = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"InputName");
         InputAuthor = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<TextBox>(this.Visual,"InputAuthor");
@@ -84,6 +87,7 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         FrameBG1 = this.Visual?.GetGraphicalUiElementByName("FrameBG1") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
         MapName = this.Visual?.GetGraphicalUiElementByName("MapName") as global::MonoGameGum.GueDeriving.TextRuntime;
         CloseBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonDeny>(this.Visual,"CloseBtn");
+        SongBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandard>(this.Visual,"SongBtn");
         ContainerInstance = this.Visual?.GetGraphicalUiElementByName("ContainerInstance") as global::MonoGameGum.GueDeriving.ContainerRuntime;
         FrameBG = this.Visual?.GetGraphicalUiElementByName("FrameBG") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
         IconInstance2 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Icon>(this.Visual,"IconInstance2");

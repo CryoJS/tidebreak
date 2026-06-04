@@ -46,9 +46,10 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public ButtonConfirm SaveBtn { get; protected set; }
     public ButtonYellow RedoBtn { get; protected set; }
     public ButtonYellow UndoBtn { get; protected set; }
+    public ButtonStandardMini FunctionalBtn { get; protected set; }
     public ButtonStandardMini PlatformBtn { get; protected set; }
     public ButtonStandardMini DecorativeBtn { get; protected set; }
-    public ButtonStandardMini FunctionalBtn { get; protected set; }
+    public ButtonStandardMini ColorsBtn { get; protected set; }
     public ButtonStandardMini UnselectBtn { get; protected set; }
     public NineSliceRuntime FrameTopBG { get; protected set; }
     public ContainerRuntime ContainerInstance { get; protected set; }
@@ -79,9 +80,10 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         SaveBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonConfirm>(this.Visual,"SaveBtn");
         RedoBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonYellow>(this.Visual,"RedoBtn");
         UndoBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonYellow>(this.Visual,"UndoBtn");
+        FunctionalBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandardMini>(this.Visual,"FunctionalBtn");
         PlatformBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandardMini>(this.Visual,"PlatformBtn");
         DecorativeBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandardMini>(this.Visual,"DecorativeBtn");
-        FunctionalBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandardMini>(this.Visual,"FunctionalBtn");
+        ColorsBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandardMini>(this.Visual,"ColorsBtn");
         UnselectBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandardMini>(this.Visual,"UnselectBtn");
         FrameTopBG = this.Visual?.GetGraphicalUiElementByName("FrameTopBG") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
         ContainerInstance = this.Visual?.GetGraphicalUiElementByName("ContainerInstance") as global::MonoGameGum.GueDeriving.ContainerRuntime;

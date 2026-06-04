@@ -2,12 +2,7 @@
   "TreeViewState": {
     "ExpandedNodes": [
       "Screens",
-      "Screens/EditScreen",
-      "Screens/EditScreen/TopLeftContainer",
-      "Screens/EditScreen/TopLeftContainer/EditBgBtn",
-      "Screens/EditScreen/TopLeftContainer/CloseBtn",
-      "Components",
-      "Components/Controls"
+      "Components"
     ]
   }
 }

@@ -20,7 +20,17 @@ namespace Tidebreak.Screens
                 new MapSelectScreen().AddToRoot();
             };
 
-            // TODO settings + credits
+            // Add the about screen when pressing btn
+            AboutBtn.Click += (_, _) =>
+            {
+                new AboutScreen().AddToRoot();
+            };
+
+            // Add the settings screen when pressing btn
+            SettingsBtn.Click += (_, _) =>
+            {
+                new SettingsScreen().AddToRoot();
+            };
 
             // Exit game
             ExitBtn.Click += (_, _) =>

@@ -8,7 +8,7 @@
       <Value xsi:type="xsd:boolean">true</Value>
     </Variable>
     <Variable Type="float" Name="BarContainer.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">250</Value>
+      <Value xsi:type="xsd:float">210</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="BarContainer.HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
@@ -100,6 +100,24 @@
     <Variable Type="float" Name="CloseBtn.Y" SetsValue="true">
       <Value xsi:type="xsd:float">20</Value>
     </Variable>
+    <Variable Type="float" Name="ColorsBtn.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-6</Value>
+    </Variable>
+    <Variable Type="string" Name="ColorsBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">FrameTopBG</Value>
+    </Variable>
+    <Variable Type="string" Name="ColorsBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">Colors</Value>
+    </Variable>
+    <Variable Type="float" Name="ColorsBtn.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">240</Value>
+    </Variable>
+    <Variable Type="float" Name="ColorsBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">760</Value>
+    </Variable>
+    <Variable Type="float" Name="ColorsBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">9</Value>
+    </Variable>
     <Variable Type="bool" Name="ContainerInstance.ExposeChildrenEvents" SetsValue="true">
       <Value xsi:type="xsd:boolean">true</Value>
     </Variable>
@@ -152,7 +170,7 @@
       <Value xsi:type="xsd:float">240</Value>
     </Variable>
     <Variable Type="float" Name="DecorativeBtn.X" SetsValue="true">
-      <Value xsi:type="xsd:float">260</Value>
+      <Value xsi:type="xsd:float">510</Value>
     </Variable>
     <Variable Type="float" Name="DecorativeBtn.Y" SetsValue="true">
       <Value xsi:type="xsd:float">9</Value>
@@ -270,7 +288,7 @@
       <Value xsi:type="xsd:float">240</Value>
     </Variable>
     <Variable Type="float" Name="FunctionalBtn.X" SetsValue="true">
-      <Value xsi:type="xsd:float">510</Value>
+      <Value xsi:type="xsd:float">10</Value>
     </Variable>
     <Variable Type="float" Name="FunctionalBtn.Y" SetsValue="true">
       <Value xsi:type="xsd:float">9</Value>
@@ -348,7 +366,7 @@
       <Value xsi:type="xsd:float">240</Value>
     </Variable>
     <Variable Type="float" Name="PlatformBtn.X" SetsValue="true">
-      <Value xsi:type="xsd:float">10</Value>
+      <Value xsi:type="xsd:float">260</Value>
     </Variable>
     <Variable Type="float" Name="PlatformBtn.Y" SetsValue="true">
       <Value xsi:type="xsd:float">9</Value>
@@ -593,9 +611,10 @@
   <Instance Name="SaveBtn" BaseType="Controls/ButtonConfirm" />
   <Instance Name="RedoBtn" BaseType="Controls/ButtonYellow" />
   <Instance Name="UndoBtn" BaseType="Controls/ButtonYellow" />
+  <Instance Name="FunctionalBtn" BaseType="Controls/ButtonStandardMini" />
   <Instance Name="PlatformBtn" BaseType="Controls/ButtonStandardMini" />
   <Instance Name="DecorativeBtn" BaseType="Controls/ButtonStandardMini" />
-  <Instance Name="FunctionalBtn" BaseType="Controls/ButtonStandardMini" />
+  <Instance Name="ColorsBtn" BaseType="Controls/ButtonStandardMini" />
   <Instance Name="UnselectBtn" BaseType="Controls/ButtonStandardMini" />
   <Instance Name="FrameTopBG" BaseType="NineSlice" />
   <Instance Name="ContainerInstance" BaseType="Container" />

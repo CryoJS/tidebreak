@@ -7,7 +7,7 @@
     <Variable Type="ColorCategory" Name="CheckBoxBackground.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Primary</Value>
     </Variable>
-    <Variable Type="float" Name="CheckBoxBackground.Height" SetsValue="true">
+    <Variable Type="float" Name="CheckBoxBackground.Height" ExposedAsName="CheckBoxBackgroundHeight" SetsValue="true">
       <Value xsi:type="xsd:float">24</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="CheckBoxBackground.HeightUnits" SetsValue="true">
@@ -16,7 +16,7 @@
     <Variable Type="StyleCategory" Name="CheckBoxBackground.StyleCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Bordered</Value>
     </Variable>
-    <Variable Type="float" Name="CheckBoxBackground.Width" SetsValue="true">
+    <Variable Type="float" Name="CheckBoxBackground.Width" ExposedAsName="CheckBoxBackgroundWidth" SetsValue="true">
       <Value xsi:type="xsd:float">24</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="CheckBoxBackground.WidthUnits" SetsValue="true">
@@ -75,6 +75,8 @@
     <Variable Type="ColorCategory" Name="InnerCheck.IconColor" SetsValue="true">
       <Value xsi:type="xsd:string">White</Value>
     </Variable>
+    <Variable Type="float" Name="InnerCheck.IconHeight" ExposedAsName="InnerCheckIconHeight" SetsValue="false" />
+    <Variable Type="float" Name="InnerCheck.IconWidth" ExposedAsName="InnerCheckIconWidth" SetsValue="false" />
     <Variable Type="string" Name="InnerCheck.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">CheckBoxBackground</Value>
     </Variable>
@@ -91,7 +93,7 @@
     <Variable IsFont="true" Type="string" Name="TextInstance.Font" SetsValue="true">
       <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini Square Mono.ttf</Value>
     </Variable>
-    <Variable Type="int" Name="TextInstance.FontSize" SetsValue="true">
+    <Variable Type="int" Name="TextInstance.FontSize" ExposedAsName="TextInstanceFontSize" SetsValue="true">
       <Value xsi:type="xsd:int">40</Value>
     </Variable>
     <Variable Type="float" Name="TextInstance.Height" SetsValue="true">
@@ -103,7 +105,7 @@
     <Variable Type="HorizontalAlignment" Name="TextInstance.HorizontalAlignment" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
     </Variable>
-    <Variable Type="int" Name="TextInstance.OutlineThickness" SetsValue="true">
+    <Variable Type="int" Name="TextInstance.OutlineThickness" ExposedAsName="TextInstanceOutlineThickness" SetsValue="true">
       <Value xsi:type="xsd:int">3</Value>
     </Variable>
     <Variable Type="StyleCategory" Name="TextInstance.StyleCategoryState" SetsValue="true">

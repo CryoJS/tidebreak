@@ -8,8 +8,10 @@ class Tile
     // Create constants for tile types
     public const int TEXTURE_TYPE_AMOUNT = 41;
     public const int PLATFORM_TYPE_AMOUNT = 12; // includes EMPTY
-    public const int DECORATIVE_TYPE_AMOUNT = 16;
     public const int FUNCTIONAL_TYPE_AMOUNT = 8;
+
+    public const int DECOR_TYPE_AMOUNT = 8;
+    public const int COLOR_TYPE_AMOUNT = 16;
 
     public const int BUTTON_START = -5;
     public const int NULL = -4;
@@ -31,7 +33,7 @@ class Tile
 
     public const int LADDER = 12;
     public const int LEAF = 13;
-    public const int SIGN = 14;
+    public const int ALERT_SIGN = 14;
     public const int LEFT_SIGN = 15;
     public const int RIGHT_SIGN = 16;
     public const int FERN = 17;

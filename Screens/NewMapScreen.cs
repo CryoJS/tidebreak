@@ -14,7 +14,9 @@ namespace Tidebreak.Screens
             // Create new map
             CreateBtn.Click += (_, _) =>
             {
+                // Play sfx
                 SoundManager.PlayClick();
+
                 // Trim inputted text
                 MapName.Text = MapName.Text.Trim();
                 Author.Text = Author.Text.Trim();
@@ -22,10 +24,11 @@ namespace Tidebreak.Screens
                 // Only do something if both required textboxes are filled out
                 if (MapName.Text != "" && Author.Text != "")
                 {
-                    // Add map to map list and close popup
+                    // Add map to map list and save
                     Game1.maps.Add(new Map(MapName.Text, Author.Text));
+                    Game1.SaveMaps();
 
-                    // Refresh map select screen
+                    // Close popup and refresh map select screen
                     GumService.Default.Root.Children.Clear();
                     new MapSelectScreen().AddToRoot();
                 }

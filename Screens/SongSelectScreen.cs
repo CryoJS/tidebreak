@@ -110,6 +110,9 @@ namespace Tidebreak.Screens
                 {
                     SoundManager.PlayClick();
                     Game1.currentMap.Song = name;
+
+                    Game1.currentMap.UpdateModifiedDate();
+                    Game1.SaveMaps();
                 };
 
                 // Add finalized song row into list of songs
@@ -119,9 +122,14 @@ namespace Tidebreak.Screens
             // Add logic for no music button
             NoSongBtn.Click += (_, _) =>
             {
+                // Stop music preview
                 SoundManager.PlayClick();
                 SoundManager.StopMusic();
+
+                // Save no song choice
                 Game1.currentMap.Song = SoundManager.NO_SONG;
+                Game1.currentMap.UpdateModifiedDate();
+                Game1.SaveMaps();
             };
 
             // Add logic for button to close popup

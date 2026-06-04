@@ -9,6 +9,13 @@ using Tidebreak;
 
 class Map
 {
+    // Create constants for text file names
+    public const string SAVE_FILE = "SavedMaps.txt";
+    public const string DEFAULT_SAVE_FILE = "DefaultSavedMaps.txt";
+
+    // Create constant for required amount of default maps
+    public const int DEFAULT_MAPS = 2; // TODO change after adding all maps
+
     // Create constant for empty variables
     public const int EMPTY = -1;
     public const string MISSING_BEST_TIME = "No Best Time";
@@ -92,7 +99,6 @@ class Map
 
     public Map() {}
 
-    // TODO: use load map to update these parameters
     public Map(string name, string author, float difficulty = 0.0f, int sizeX = 10, int sizeY = 10, bool locked = false)
     {
         // Initialize map information
@@ -258,7 +264,43 @@ class Map
 
     public void Save(StreamWriter outFile)
     {
-        // TODO
+        // Write core map information
+        outFile.WriteLine(Name);
+        outFile.WriteLine(Author);
+        outFile.WriteLine(Description);
+        outFile.WriteLine(Song);
+
+        outFile.WriteLine(Difficulty);
+        outFile.WriteLine(CreationDate);
+        outFile.WriteLine(ModifiedDate);
+        outFile.WriteLine(Locked);
+        outFile.WriteLine(BestTime);
+
+        outFile.WriteLine(SizeX);
+        outFile.WriteLine(SizeY);
+
+        // Write map behaviour information
+        outFile.WriteLine(Ziplines.Count);
+        outFile.WriteLine(DrownSpeed);
+        outFile.WriteLine(FloodSpeed);
+
+        // Write foreground tiles
+        for (int y = 0; y < SizeY; y++)
+        {
+            for (int x = 0; x < SizeX; x++)
+            {
+                outFile.Write(Tiles[x, y].Type + (x == SizeX - 1 ? "\n" : " "));
+            }
+        }
+
+        // Write background tiles
+        for (int y = 0; y < SizeY; y++)
+        {
+            for (int x = 0; x < SizeX; x++)
+            {
+                outFile.Write(BgTiles[x, y].Type + (x == SizeX - 1 ? "\n" : " "));
+            }
+        }
     }
 
     public void Load(StreamReader inFile, bool newMap = false)
@@ -347,7 +389,12 @@ class Map
             }
         }
 
-        // Load all zipline shapes // REVIEW for loop one line is fine right?
+        // Load all zipline shapes
         foreach (Zipline zipline in Ziplines) zipline.Load();
+    }
+
+    public void UpdateModifiedDate()
+    {
+        ModifiedDate = DateTime.Now;
     }
 }

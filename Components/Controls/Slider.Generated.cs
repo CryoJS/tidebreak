@@ -74,10 +74,28 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public ButtonStandard ThumbInstance { get; protected set; }
     public NineSliceRuntime FocusedIndicator { get; protected set; }
 
+    public float ThumbInstanceHeight
+    {
+        get => ThumbInstance.Visual.Height;
+        set => ThumbInstance.Visual.Height = value;
+    }
+
+    public float ThumbInstanceWidth
+    {
+        get => ThumbInstance.Visual.Width;
+        set => ThumbInstance.Visual.Width = value;
+    }
+
     public float SliderPercent
     {
         get => ThumbInstance.Visual.X;
         set => ThumbInstance.Visual.X = value;
+    }
+
+    public float TrackBackgroundHeight
+    {
+        get => TrackBackground.Height;
+        set => TrackBackground.Height = value;
     }
 
     public Slider(InteractiveGue visual) : base(visual)

@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScreenSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>SettingsScreen</Name>
+  <State>
+    <Name>Default</Name>
+    <Variable Type="bool" Name="ContainerInstance.HasEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="float" Name="ContainerInstance.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-274.33334</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="ContainerInstance.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="string" Name="ContainerInstance.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">FrameBG</Value>
+    </Variable>
+    <Variable Type="float" Name="ContainerInstance.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-200</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="ContainerInstance.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="float" Name="ContainerInstance.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="ContainerInstance.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ContainerInstance.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="ContainerInstance.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">63.666668</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="ContainerInstance.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="ContainerInstance.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="float?" Name="FrameBG.CustomFrameTextureCoordinateWidth" SetsValue="true" />
+    <Variable Type="bool" Name="FrameBG.ExposeChildrenEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="float" Name="FrameBG.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-200</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="FrameBG.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="bool" Name="FrameBG.IsTilingMiddleSections" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable IsFile="true" Type="string" Name="FrameBG.SourceFile" SetsValue="true">
+      <Value xsi:type="xsd:string">UI Assets\FrameBG.png</Value>
+    </Variable>
+    <Variable Type="TextureAddress" Name="FrameBG.TextureAddress" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG.TextureHeight" SetsValue="true">
+      <Value xsi:type="xsd:int">64</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG.TextureLeft" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG.TextureTop" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG.TextureWidth" SetsValue="true">
+      <Value xsi:type="xsd:int">64</Value>
+    </Variable>
+    <Variable Type="bool" Name="FrameBG.Visible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="float" Name="FrameBG.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-200</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="FrameBG.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="bool" Name="FrameBG.Wrap" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="float" Name="FrameBG.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="FrameBG.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="FrameBG.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="FrameBG.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="FrameBG.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="FrameBG.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG1.Blue" SetsValue="true">
+      <Value xsi:type="xsd:int">208</Value>
+    </Variable>
+    <Variable Type="float?" Name="FrameBG1.CustomFrameTextureCoordinateWidth" SetsValue="true" />
+    <Variable Type="bool" Name="FrameBG1.ExposeChildrenEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG1.Green" SetsValue="true">
+      <Value xsi:type="xsd:int">184</Value>
+    </Variable>
+    <Variable Type="float" Name="FrameBG1.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">138.66667</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="FrameBG1.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="bool" Name="FrameBG1.IsTilingMiddleSections" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="string" Name="FrameBG1.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">FrameBG</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG1.Red" SetsValue="true">
+      <Value xsi:type="xsd:int">180</Value>
+    </Variable>
+    <Variable IsFile="true" Type="string" Name="FrameBG1.SourceFile" SetsValue="true">
+      <Value xsi:type="xsd:string">UI Assets\FrameBG.png</Value>
+    </Variable>
+    <Variable Type="TextureAddress" Name="FrameBG1.TextureAddress" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG1.TextureHeight" SetsValue="true">
+      <Value xsi:type="xsd:int">64</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG1.TextureLeft" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG1.TextureTop" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG1.TextureWidth" SetsValue="true">
+      <Value xsi:type="xsd:int">64</Value>
+    </Variable>
+    <Variable Type="bool" Name="FrameBG1.Visible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="float" Name="FrameBG1.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="FrameBG1.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="bool" Name="FrameBG1.Wrap" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="float" Name="FrameBG1.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="FrameBG1.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="FrameBG1.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="FrameBG1.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="FrameBG1.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="FrameBG1.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="float" Name="Fullscreen.CheckBoxBackgroundHeight" SetsValue="true">
+      <Value xsi:type="xsd:float">48</Value>
+    </Variable>
+    <Variable Type="float" Name="Fullscreen.CheckBoxBackgroundWidth" SetsValue="true">
+      <Value xsi:type="xsd:float">48</Value>
+    </Variable>
+    <Variable Type="float" Name="Fullscreen.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">48</Value>
+    </Variable>
+    <Variable Type="float" Name="Fullscreen.InnerCheckIconHeight" SetsValue="true">
+      <Value xsi:type="xsd:float">160</Value>
+    </Variable>
+    <Variable Type="float" Name="Fullscreen.InnerCheckIconWidth" SetsValue="true">
+      <Value xsi:type="xsd:float">160</Value>
+    </Variable>
+    <Variable Type="string" Name="Fullscreen.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ContainerInstance</Value>
+    </Variable>
+    <Variable Type="string" Name="Fullscreen.Text" SetsValue="true">
+      <Value xsi:type="xsd:string"> Fullscreen</Value>
+    </Variable>
+    <Variable Type="int" Name="Fullscreen.TextInstanceFontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">60</Value>
+    </Variable>
+    <Variable Type="int" Name="Fullscreen.TextInstanceOutlineThickness" SetsValue="true">
+      <Value xsi:type="xsd:int">5</Value>
+    </Variable>
+    <Variable Type="float" Name="Fullscreen.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">540</Value>
+    </Variable>
+    <Variable Type="float" Name="Fullscreen.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="Fullscreen.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Fullscreen.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="Fullscreen.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="Fullscreen.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Fullscreen.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable IsFont="true" Type="string" Name="H1.Font" SetsValue="true">
+      <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini.ttf</Value>
+    </Variable>
+    <Variable Type="int" Name="H1.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">80</Value>
+    </Variable>
+    <Variable Type="float" Name="H1.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="H1.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="H1.HorizontalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="bool" Name="H1.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="int" Name="H1.OutlineThickness" SetsValue="true">
+      <Value xsi:type="xsd:int">10</Value>
+    </Variable>
+    <Variable Type="string" Name="H1.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">FrameBG</Value>
+    </Variable>
+    <Variable Type="string" Name="H1.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">Settings</Value>
+    </Variable>
+    <Variable Type="bool" Name="H1.UseFontSmoothing" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="H1.VerticalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="H1.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="H1.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="float" Name="H1.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="H1.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="H1.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="H1.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">10</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="H1.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="H1.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="bool" Name="IconInstance2.HasEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="IconCategory" Name="IconInstance2.IconCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Enter</Value>
+    </Variable>
+    <Variable Type="string" Name="IconInstance2.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ReturnBtn</Value>
+    </Variable>
+    <Variable Type="float" Name="IconInstance2.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="MusicVol.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">79</Value>
+    </Variable>
+    <Variable Type="string" Name="MusicVol.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ContainerInstance</Value>
+    </Variable>
+    <Variable Type="float" Name="MusicVol.TrackBackgroundHeight" SetsValue="true">
+      <Value xsi:type="xsd:float">14</Value>
+    </Variable>
+    <Variable Type="float" Name="MusicVol.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">1000</Value>
+    </Variable>
+    <Variable Type="float" Name="MusicVol.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="MusicVol.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="MusicVol.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="MusicVol.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">165</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="MusicVol.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="MusicVol.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="bool" Name="PreMusicVol.ExposeChildrenEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable IsFont="true" Type="string" Name="PreMusicVol.Font" SetsValue="true">
+      <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini Square Mono.ttf</Value>
+    </Variable>
+    <Variable Type="int" Name="PreMusicVol.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">60</Value>
+    </Variable>
+    <Variable Type="float" Name="PreMusicVol.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="PreMusicVol.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">8</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="PreMusicVol.HorizontalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="bool" Name="PreMusicVol.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="int" Name="PreMusicVol.OutlineThickness" SetsValue="true">
+      <Value xsi:type="xsd:int">5</Value>
+    </Variable>
+    <Variable Type="string" Name="PreMusicVol.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ContainerInstance</Value>
+    </Variable>
+    <Variable Type="string" Name="PreMusicVol.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">Music Volume</Value>
+    </Variable>
+    <Variable Type="bool" Name="PreMusicVol.UseFontSmoothing" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="PreMusicVol.VerticalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="PreMusicVol.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">37</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="PreMusicVol.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">4</Value>
+    </Variable>
+    <Variable Type="float" Name="PreMusicVol.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="PreMusicVol.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="PreMusicVol.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="PreMusicVol.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">100</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="PreMusicVol.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="PreMusicVol.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="bool" Name="PreSfxVol.ExposeChildrenEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable IsFont="true" Type="string" Name="PreSfxVol.Font" SetsValue="true">
+      <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini Square Mono.ttf</Value>
+    </Variable>
+    <Variable Type="int" Name="PreSfxVol.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">60</Value>
+    </Variable>
+    <Variable Type="float" Name="PreSfxVol.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="PreSfxVol.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">8</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="PreSfxVol.HorizontalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="bool" Name="PreSfxVol.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="int" Name="PreSfxVol.OutlineThickness" SetsValue="true">
+      <Value xsi:type="xsd:int">5</Value>
+    </Variable>
+    <Variable Type="string" Name="PreSfxVol.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ContainerInstance</Value>
+    </Variable>
+    <Variable Type="string" Name="PreSfxVol.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">Sound Effect Volume</Value>
+    </Variable>
+    <Variable Type="bool" Name="PreSfxVol.UseFontSmoothing" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="PreSfxVol.VerticalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="PreSfxVol.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">37</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="PreSfxVol.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">4</Value>
+    </Variable>
+    <Variable Type="float" Name="PreSfxVol.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="PreSfxVol.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="PreSfxVol.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="PreSfxVol.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">270</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="PreSfxVol.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="PreSfxVol.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="float" Name="ReturnBtn.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">80</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="ReturnBtn.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="string" Name="ReturnBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">FrameBG</Value>
+    </Variable>
+    <Variable Type="string" Name="ReturnBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string"></Value>
+    </Variable>
+    <Variable Type="float" Name="ReturnBtn.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">80</Value>
+    </Variable>
+    <Variable Type="float" Name="ReturnBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">30</Value>
+    </Variable>
+    <Variable Type="float" Name="ReturnBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">30</Value>
+    </Variable>
+    <Variable Type="float" Name="SaveBtn.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">18.666666</Value>
+    </Variable>
+    <Variable Type="string" Name="SaveBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ContainerInstance</Value>
+    </Variable>
+    <Variable Type="string" Name="SaveBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">Save</Value>
+    </Variable>
+    <Variable Type="float" Name="SaveBtn.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">350</Value>
+    </Variable>
+    <Variable Type="float" Name="SaveBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="SaveBtn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="SaveBtn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="SaveBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="SaveBtn.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="SaveBtn.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">5</Value>
+    </Variable>
+    <Variable Type="float" Name="SfxVol.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">79</Value>
+    </Variable>
+    <Variable Type="string" Name="SfxVol.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ContainerInstance</Value>
+    </Variable>
+    <Variable Type="float" Name="SfxVol.TrackBackgroundHeight" SetsValue="true">
+      <Value xsi:type="xsd:float">14</Value>
+    </Variable>
+    <Variable Type="float" Name="SfxVol.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">1000</Value>
+    </Variable>
+    <Variable Type="float" Name="SfxVol.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="SfxVol.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="SfxVol.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="SfxVol.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">335</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="SfxVol.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="SfxVol.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+  </State>
+  <Instance Name="FrameBG1" BaseType="NineSlice" />
+  <Instance Name="Fullscreen" BaseType="Controls/CheckBox" />
+  <Instance Name="PreMusicVol" BaseType="Text" />
+  <Instance Name="PreSfxVol" BaseType="Text" />
+  <Instance Name="SaveBtn" BaseType="Controls/ButtonConfirm" />
+  <Instance Name="MusicVol" BaseType="Controls/Slider" />
+  <Instance Name="SfxVol" BaseType="Controls/Slider" />
+  <Instance Name="H1" BaseType="Text" />
+  <Instance Name="ReturnBtn" BaseType="Controls/ButtonStandard" />
+  <Instance Name="FrameBG" BaseType="NineSlice" />
+  <Instance Name="IconInstance2" BaseType="Elements/Icon" />
+  <Instance Name="ContainerInstance" BaseType="Container" />
+  <Behaviors />
+</ScreenSave>

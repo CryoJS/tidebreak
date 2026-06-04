@@ -30,6 +30,7 @@ namespace Tidebreak.Screens
 
                 // Save
                 Game1.mapEditor.Save();
+                Game1.SaveMaps();
 
                 // Leave
                 GumService.Default.Root.Children.Clear();

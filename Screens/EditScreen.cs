@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using Gum.Forms.Controls;
 using MonoGameGum;
 using MonoGameGum.ExtensionMethods;
 using Tidebreak.Components;
@@ -11,13 +10,14 @@ namespace Tidebreak.Screens
     {
         // Store sizings and speeds
         private const int DEFAULT_SCROLL_SPEED = 80;
-        private const int TILE_SIZE = 128;
+        private const int TILE_SIZE = 90;
         private const int TILE_OFFSET = 20;
 
         // Store tile UI elements
+        internal static TileUI[] functional = new TileUI[Tile.FUNCTIONAL_TYPE_AMOUNT + 1]; // Also includes extra empty for convenience
         internal static TileUI[] platforms = new TileUI[Tile.PLATFORM_TYPE_AMOUNT];
-        internal static TileUI[] decorative = new TileUI[Tile.DECORATIVE_TYPE_AMOUNT];
-        internal static TileUI[] functional = new TileUI[Tile.FUNCTIONAL_TYPE_AMOUNT];
+        internal static TileUI[] decorative = new TileUI[Tile.DECOR_TYPE_AMOUNT];
+        internal static TileUI[] colors = new TileUI[Tile.COLOR_TYPE_AMOUNT];
 
         // Store selected tile and current used bar
         public static TileUI[] Bar { get; private set; } = null;
@@ -30,30 +30,36 @@ namespace Tidebreak.Screens
             TileList.InnerPanel.WidthUnits = Gum.DataTypes.DimensionUnitType.RelativeToChildren;
             TileList.HorizontalScrollBarInstance.SmallChange = DEFAULT_SCROLL_SPEED;
 
+            // Add all functional tiles
+            functional[0] = CreateTileUI(Tile.EMPTY, functional);
+            functional[1] = CreateTileUI(Tile.WATER, functional);
+            functional[2] = CreateTileUI(Tile.FLOOD, functional);
+            functional[3] = CreateTileUI(Tile.BARRIER, functional);
+            functional[4] = CreateTileUI(Tile.START, functional);
+            functional[5] = CreateTileUI(Tile.END, functional);
+            functional[6] = CreateTileUI(Tile.BUTTON, functional);
+            functional[7] = CreateTileUI(Tile.WALL_JUMP, functional);
+            functional[8] = CreateTileUI(Tile.ZIPLINE, functional);
+
             // Add all platform tiles
             platforms[0] = CreateTileUI(Tile.EMPTY, platforms);
-
-            for (int type = 1; type < Tile.PLATFORM_TYPE_AMOUNT; type++)
-            {
-                platforms[type] = CreateTileUI(type, platforms);
-            }
+            for (int type = 1; type < Tile.PLATFORM_TYPE_AMOUNT; type++) platforms[type] = CreateTileUI(type, platforms);
 
             // Add all decorative tiles
-            for (int type = 0; type < 8; type++) decorative[type] = CreateTileUI(Tile.LADDER + type, decorative);
-            for (int type = 0; type < 16; type++) decorative[8 + type] = CreateTileUI(Tile.COLOR_BLACK + type, decorative);
-
-            // Add all functional tiles
-            functional[0] = CreateTileUI(Tile.WATER, functional);
-            functional[1] = CreateTileUI(Tile.FLOOD, functional);
-            functional[2] = CreateTileUI(Tile.BARRIER, functional);
-            functional[3] = CreateTileUI(Tile.START, functional);
-            functional[4] = CreateTileUI(Tile.END, functional);
-            functional[5] = CreateTileUI(Tile.BUTTON, functional);
-            functional[6] = CreateTileUI(Tile.WALL_JUMP, functional);
-            functional[7] = CreateTileUI(Tile.ZIPLINE, functional);
+            for (int type = 0; type < Tile.DECOR_TYPE_AMOUNT; type++) decorative[type] = CreateTileUI(Tile.LADDER + type, decorative);
+            
+            // Add all color tiles
+            for (int type = 0; type < Tile.COLOR_TYPE_AMOUNT; type++) colors[type] = CreateTileUI(Tile.COLOR_BLACK + type, colors);
 
             // Load platform tiles
             LoadTileBar(platforms);
+
+            // Add functional bar logic
+            FunctionalBtn.Click += (_, _) =>
+            {
+                SoundManager.PlayClick();
+                LoadTileBar(functional);
+            };
 
             // Add platform bar logic
             PlatformBtn.Click += (_, _) =>
@@ -69,11 +75,11 @@ namespace Tidebreak.Screens
                 LoadTileBar(decorative);
             };
 
-            // Add functional bar logic
-            FunctionalBtn.Click += (_, _) =>
+            // Add colors bar logic
+            ColorsBtn.Click += (_, _) =>
             {
                 SoundManager.PlayClick();
-                LoadTileBar(functional);
+                LoadTileBar(colors);
             };
 
             // Ensure options are in sync
@@ -129,7 +135,9 @@ namespace Tidebreak.Screens
             SaveBtn.Click += (_, _) =>
             {
                 SoundManager.PlayClick();
+
                 Game1.mapEditor.Save();
+                Game1.SaveMaps();
             };
 
             // When clicking undo button, undo
@@ -160,6 +168,7 @@ namespace Tidebreak.Screens
                 else
                 {
                     GumService.Default.Root.Children.Clear();
+                    Game1.gameState = Game1.SELECT_MAP;
                     new MapSelectScreen().AddToRoot();
                 }
             };

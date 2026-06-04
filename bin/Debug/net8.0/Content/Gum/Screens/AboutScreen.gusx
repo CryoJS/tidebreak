@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScreenSave xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>AboutScreen</Name>
+  <State>
+    <Name>Default</Name>
+    <Variable Type="string" Name="Controls.HeaderText" SetsValue="true">
+      <Value xsi:type="xsd:string">Controls</Value>
+    </Variable>
+    <Variable Type="float" Name="Controls.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">847</Value>
+    </Variable>
+    <Variable Type="string" Name="Controls.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">SectionList.InnerPanelInstance</Value>
+    </Variable>
+    <Variable Type="string" Name="Controls.PgText" SetsValue="true">
+      <Value xsi:type="xsd:string">[WASD], [Space], [Arrow Keys] to move.
+
+With those you can jump, air dive, slide, and swim too.
+
+You can press [Escape] to pause, and in the pause menu you can press [R] to restart.</Value>
+    </Variable>
+    <Variable Type="string" Name="Credits.HeaderText" SetsValue="true">
+      <Value xsi:type="xsd:string">Credits</Value>
+    </Variable>
+    <Variable Type="float" Name="Credits.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">939</Value>
+    </Variable>
+    <Variable Type="string" Name="Credits.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">SectionList.InnerPanelInstance</Value>
+    </Variable>
+    <Variable Type="string" Name="Credits.PgText" SetsValue="true">
+      <Value xsi:type="xsd:string">Developed by Jason Sun
+
+Inspired by...
+Flood Escape 2 (Roblox)
+Flood Escape Ultimate (Roblox)
+
+Map Music from FE2, FE2CM, FEU
+Some SFX from Valorant
+
+Thank you for playing.</Value>
+    </Variable>
+    <Variable Type="string" Name="Diffs.HeaderText" SetsValue="true">
+      <Value xsi:type="xsd:string">Map Difficulties?</Value>
+    </Variable>
+    <Variable Type="float" Name="Diffs.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">1775</Value>
+    </Variable>
+    <Variable Type="string" Name="Diffs.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">SectionList.InnerPanelInstance</Value>
+    </Variable>
+    <Variable Type="string" Name="Diffs.PgText" SetsValue="true">
+      <Value xsi:type="xsd:string">These are the colored numbers that label each map. 
+
+The first number gives the major difficulty category, second number after the dot is the precise range inside that category.
+
+Minor Ratings (Easy to Hard):
+?.0 -&gt; Baseline
+?.5 -&gt; Mid
+?.9 -&gt; Peak
+
+Difficulties Ratings:
+0 - Other
+1 - Easy
+2 - Medium
+3 - Hard
+4 - Intense
+5 - Crazy
+6 - Merciless
+7 - Extreme</Value>
+    </Variable>
+    <Variable Type="string" Name="Editor.HeaderText" SetsValue="true">
+      <Value xsi:type="xsd:string">Map Editor</Value>
+    </Variable>
+    <Variable Type="string" Name="Editor.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">SectionList.InnerPanelInstance</Value>
+    </Variable>
+    <Variable Type="string" Name="Editor.PgText" SetsValue="true">
+      <Value xsi:type="xsd:string">You can also make your own maps, edit the map settings, and choose music from a selection of dozens of songs.</Value>
+    </Variable>
+    <Variable Type="float?" Name="FrameBG.CustomFrameTextureCoordinateWidth" SetsValue="true" />
+    <Variable Type="bool" Name="FrameBG.ExposeChildrenEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="float" Name="FrameBG.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-200</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="FrameBG.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="bool" Name="FrameBG.IsTilingMiddleSections" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable IsFile="true" Type="string" Name="FrameBG.SourceFile" SetsValue="true">
+      <Value xsi:type="xsd:string">UI Assets\FrameBG.png</Value>
+    </Variable>
+    <Variable Type="TextureAddress" Name="FrameBG.TextureAddress" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG.TextureHeight" SetsValue="true">
+      <Value xsi:type="xsd:int">64</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG.TextureLeft" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG.TextureTop" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="int" Name="FrameBG.TextureWidth" SetsValue="true">
+      <Value xsi:type="xsd:int">64</Value>
+    </Variable>
+    <Variable Type="bool" Name="FrameBG.Visible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="float" Name="FrameBG.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-200</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="FrameBG.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="bool" Name="FrameBG.Wrap" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="float" Name="FrameBG.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="FrameBG.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="FrameBG.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="FrameBG.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="FrameBG.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="FrameBG.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
+    <Variable IsFont="true" Type="string" Name="H1.Font" SetsValue="true">
+      <Value xsi:type="xsd:string">C:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\Content\Gum\Kenney Mini.ttf</Value>
+    </Variable>
+    <Variable Type="int" Name="H1.FontSize" SetsValue="true">
+      <Value xsi:type="xsd:int">80</Value>
+    </Variable>
+    <Variable Type="float" Name="H1.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="H1.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="H1.HorizontalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="bool" Name="H1.IsBold" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="int" Name="H1.OutlineThickness" SetsValue="true">
+      <Value xsi:type="xsd:int">10</Value>
+    </Variable>
+    <Variable Type="string" Name="H1.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">FrameBG</Value>
+    </Variable>
+    <Variable Type="string" Name="H1.Text" SetsValue="true">
+      <Value xsi:type="xsd:string">About</Value>
+    </Variable>
+    <Variable Type="bool" Name="H1.UseFontSmoothing" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="H1.VerticalAlignment" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="float" Name="H1.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="H1.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="float" Name="H1.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="H1.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="H1.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="H1.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">10</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="H1.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="H1.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="bool" Name="IconInstance2.HasEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="IconCategory" Name="IconInstance2.IconCategoryState" SetsValue="true">
+      <Value xsi:type="xsd:string">Enter</Value>
+    </Variable>
+    <Variable Type="string" Name="IconInstance2.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">ReturnBtn</Value>
+    </Variable>
+    <Variable Type="float" Name="IconInstance2.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="float" Name="ReturnBtn.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">80</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="ReturnBtn.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">0</Value>
+    </Variable>
+    <Variable Type="string" Name="ReturnBtn.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">FrameBG</Value>
+    </Variable>
+    <Variable Type="string" Name="ReturnBtn.Text" SetsValue="true">
+      <Value xsi:type="xsd:string"></Value>
+    </Variable>
+    <Variable Type="float" Name="ReturnBtn.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">80</Value>
+    </Variable>
+    <Variable Type="float" Name="ReturnBtn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">30</Value>
+    </Variable>
+    <Variable Type="float" Name="ReturnBtn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">30</Value>
+    </Variable>
+    <Variable Type="bool" Name="SectionList.ClipsChildren" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="float" Name="SectionList.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-156</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="SectionList.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="string" Name="SectionList.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">FrameBG</Value>
+    </Variable>
+    <Variable Type="bool" Name="SectionList.Visible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
+    <Variable Type="float" Name="SectionList.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-60</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="SectionList.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="float" Name="SectionList.X" SetsValue="true">
+      <Value xsi:type="xsd:float">30</Value>
+    </Variable>
+    <Variable Type="float" Name="SectionList.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">120</Value>
+    </Variable>
+    <Variable Type="string" Name="Welcome.HeaderText" SetsValue="true">
+      <Value xsi:type="xsd:string">Welcome!</Value>
+    </Variable>
+    <Variable Type="string" Name="Welcome.Parent" SetsValue="true">
+      <Value xsi:type="xsd:string">SectionList.InnerPanelInstance</Value>
+    </Variable>
+    <Variable Type="string" Name="Welcome.PgText" SetsValue="true">
+      <Value xsi:type="xsd:string">Play maps, escape the flood, ensure you don't drown. Along the way hit buttons, hop off walljumps, and ride on ziplines.</Value>
+    </Variable>
+  </State>
+  <Instance Name="Welcome" BaseType="SectionRow" />
+  <Instance Name="Controls" BaseType="SectionRow" />
+  <Instance Name="Editor" BaseType="SectionRow" />
+  <Instance Name="Diffs" BaseType="SectionRow" />
+  <Instance Name="Credits" BaseType="SectionRow" />
+  <Instance Name="SectionList" BaseType="Controls/ListBox" />
+  <Instance Name="H1" BaseType="Text" />
+  <Instance Name="ReturnBtn" BaseType="Controls/ButtonStandard" />
+  <Instance Name="FrameBG" BaseType="NineSlice" />
+  <Instance Name="IconInstance2" BaseType="Elements/Icon" />
+  <Behaviors />
+</ScreenSave>

@@ -4,8 +4,38 @@
   <BaseType>Container</BaseType>
   <State>
     <Name>Default</Name>
+    <Variable Type="float" Name="Btn.Height" SetsValue="true">
+      <Value xsi:type="xsd:float">-0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="Btn.HeightUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="float" Name="Btn.Width" SetsValue="true">
+      <Value xsi:type="xsd:float">-0</Value>
+    </Variable>
+    <Variable Type="DimensionUnitType" Name="Btn.WidthUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="float" Name="Btn.X" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="HorizontalAlignment" Name="Btn.XOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Btn.XUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">6</Value>
+    </Variable>
+    <Variable Type="float" Name="Btn.Y" SetsValue="true">
+      <Value xsi:type="xsd:float">0</Value>
+    </Variable>
+    <Variable Type="VerticalAlignment" Name="Btn.YOrigin" SetsValue="true">
+      <Value xsi:type="xsd:int">1</Value>
+    </Variable>
+    <Variable Type="PositionUnitType" Name="Btn.YUnits" SetsValue="true">
+      <Value xsi:type="xsd:int">7</Value>
+    </Variable>
     <Variable Type="float" Name="Height" SetsValue="true">
-      <Value xsi:type="xsd:float">128</Value>
+      <Value xsi:type="xsd:float">64</Value>
     </Variable>
     <Variable Type="float" Name="Selection.Height" SetsValue="true">
       <Value xsi:type="xsd:float">-0</Value>
@@ -80,43 +110,13 @@
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
     <Variable Type="float" Name="Width" SetsValue="true">
-      <Value xsi:type="xsd:float">128</Value>
+      <Value xsi:type="xsd:float">64</Value>
     </Variable>
     <Variable Type="float" Name="X" SetsValue="true">
       <Value xsi:type="xsd:float">20</Value>
     </Variable>
     <Variable Type="float" Name="Y" SetsValue="true">
       <Value xsi:type="xsd:float">10</Value>
-    </Variable>
-    <Variable Type="float" Name="Btn.X" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="HorizontalAlignment" Name="Btn.XOrigin" SetsValue="true">
-      <Value xsi:type="xsd:int">1</Value>
-    </Variable>
-    <Variable Type="PositionUnitType" Name="Btn.XUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">6</Value>
-    </Variable>
-    <Variable Type="float" Name="Btn.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="VerticalAlignment" Name="Btn.YOrigin" SetsValue="true">
-      <Value xsi:type="xsd:int">1</Value>
-    </Variable>
-    <Variable Type="PositionUnitType" Name="Btn.YUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">7</Value>
-    </Variable>
-    <Variable Type="float" Name="Btn.Width" SetsValue="true">
-      <Value xsi:type="xsd:float">-0</Value>
-    </Variable>
-    <Variable Type="DimensionUnitType" Name="Btn.WidthUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">2</Value>
-    </Variable>
-    <Variable Type="float" Name="Btn.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">-0</Value>
-    </Variable>
-    <Variable Type="DimensionUnitType" Name="Btn.HeightUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">2</Value>
     </Variable>
   </State>
   <Instance Name="SpriteInstance" BaseType="Sprite" />

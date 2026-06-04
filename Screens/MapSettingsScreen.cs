@@ -93,7 +93,10 @@ namespace Tidebreak.Screens
                         }
                     }
 
-                    // Refresh map selection screen
+                    // Save and refresh map selection screen
+                    Game1.currentMap.UpdateModifiedDate();
+                    Game1.SaveMaps();
+
                     GumService.Default.Root.Children.Clear();
                     new MapSelectScreen().AddToRoot();
                 }

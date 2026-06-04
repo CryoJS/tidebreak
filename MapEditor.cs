@@ -18,11 +18,11 @@ class MapEditor
     // Store move and zoom speed factor constant
     private const float MOVE_SPEED = 2000;
     private const float MAX_MOVE_SPEED = 6000;
-    private const float ZOOM_SPEED = 0.2f;
+    private const float ZOOM_SPEED = 1.2f;
 
     // Store camera zoom constants
-    private const float MIN_ZOOM = 0.1f;
-    private const float MAX_ZOOM = 2f;
+    private const float MIN_ZOOM = 0.02f;
+    private const float MAX_ZOOM = 2;
 
     // Store grid lines thickness
     private const float GRID_THICKNESS = 7f;
@@ -160,13 +160,13 @@ class MapEditor
         if (!ShowFg && !ShowBg) return;
 
         // Only check for tile placing if mouse isn't on the bar
-        if (IsTileClickable(mouse.Position.ToVector2()))
+        if (IsTileClickable(Game1.GameMousePos(mouse)))
         {
             // Check tile place start
             if (mouse.LeftButton == ButtonState.Pressed && prevMouse.LeftButton != ButtonState.Pressed)
             {
                 // Get tile coordinates of mouse position
-                (int tileX, int tileY) = Game1.CalcTile(Camera.ScreenToWorld(mouse.Position.ToVector2()));
+                (int tileX, int tileY) = Game1.CalcTile(Camera.ScreenToWorld(Game1.GameMousePos(mouse)));
 
                 // Check if tile coordinates are within bounds of map
                 if (tileX >= 0 && tileX < map.SizeX && tileY >= 0 && tileY < map.SizeY)
@@ -179,7 +179,7 @@ class MapEditor
             if (StartSelected != NO_TILE_SELECTED && mouse.LeftButton != ButtonState.Pressed && prevMouse.LeftButton == ButtonState.Pressed)
             {
                 // Get tile coordinates of mouse position
-                (int tileX, int tileY) = Game1.CalcTile(Camera.ScreenToWorld(mouse.Position.ToVector2()));
+                (int tileX, int tileY) = Game1.CalcTile(Camera.ScreenToWorld(Game1.GameMousePos(mouse)));
 
                 // Check if tile coordinates are within bounds of map
                 if (tileX >= 0 && tileX < map.SizeX && tileY >= 0 && tileY < map.SizeY)
@@ -281,10 +281,10 @@ class MapEditor
         }
 
         // Draw tile selection box if hovering over a tile
-        if (IsTileClickable(mouse.Position.ToVector2()))
+        if (IsTileClickable(Game1.GameMousePos(mouse)))
         {
             // Store tile coordinates of mouse position
-            (int tileX, int tileY) = Game1.CalcTile(Camera.ScreenToWorld(mouse.Position.ToVector2()));
+            (int tileX, int tileY) = Game1.CalcTile(Camera.ScreenToWorld(Game1.GameMousePos(mouse)));
 
             // Check if tile is within bounds of the map
             if (tileX >= 0 && tileX < map.SizeX && tileY >= 0 && tileY < map.SizeY)
@@ -334,8 +334,15 @@ class MapEditor
         if (kb.IsKeyDown(Keys.W) || kb.IsKeyDown(Keys.Up)) pos.Y -= moveAmount;
         if (kb.IsKeyDown(Keys.S) || kb.IsKeyDown(Keys.Down)) pos.Y += moveAmount;
 
-        // Zoom in and zoom out
-        zoom += (mouse.ScrollWheelValue - prevMouse.ScrollWheelValue) * ZOOM_SPEED * (float)gameTime.ElapsedGameTime.TotalSeconds;
+        // Store scroll change amount
+        int scrollDelta = mouse.ScrollWheelValue - prevMouse.ScrollWheelValue;
+
+        // Zoom in and zoom out if scrolling
+        if (scrollDelta != 0)
+        {
+            if (scrollDelta > 0) zoom *= ZOOM_SPEED;
+            else zoom /= ZOOM_SPEED;
+        }
     }
 
     private bool IsTileClickable(Vector2 mousePos)
@@ -434,8 +441,8 @@ class MapEditor
         // If no selected tile, do nothing
         if (newType == Tile.NULL) return;
 
-        // If the tile is a functional block, then do not place it if trying to be place on bg
-        if (EditBg && EditScreen.Bar == EditScreen.functional) return;
+        // If the tile is a functional block, then do not place it if trying to be place on bg (unless placing empty tile)
+        if (EditBg && EditScreen.Bar == EditScreen.functional && newType != Tile.EMPTY) return;
         
         // Perform zipline place logic
         if (Tile.GetType(newType, true) == Tile.ZIPLINE)
@@ -443,12 +450,20 @@ class MapEditor
             // If trying to place zipline start and end not at same tile, place the zipline
             if (start != end)
             {
+                // Store if start and end are already ziplines or not
+                bool startIsZipline = Tile.GetType(Tiles[start.X, start.Y].Type, true) == Tile.ZIPLINE;
+                bool endIsZipline = Tile.GetType(Tiles[end.X, end.Y].Type, true) == Tile.ZIPLINE;
+
+                // Return if replacing any ziplines (prevents bugs)
+                if (startIsZipline != endIsZipline) return;
+
                 // Add new action
                 AddNewAction();
 
-                // If we are replacing any ziplines, delete them cleanly
-                if (Tile.GetType(Tiles[start.X, start.Y].Type, true) == Tile.ZIPLINE) ChangeTile(start.X, start.Y, Tile.EMPTY);
-                if (Tile.GetType(Tiles[end.X, end.Y].Type, true) == Tile.ZIPLINE) ChangeTile(end.X, end.Y, Tile.EMPTY);
+                // // NOTE: Keeping the below for future, when placing ziplines over ziplines is safer / less janky
+                // // If we are replacing any ziplines, delete them cleanly (check end again)
+                // if (startIsZipline) ChangeTile(start.X, start.Y, Tile.EMPTY);
+                // if (endIsZipline) ChangeTile(end.X, end.Y, Tile.EMPTY);
 
                 // Store the end location, place the start
                 StartSelected = end;
@@ -556,11 +571,11 @@ class MapEditor
             (int type, int x, int y) start = newZiplines.Last();
             newZiplines.RemoveAt(newZiplines.Count - 1);
 
-            // Delete start if unpaired
-            if (newZiplines.Count == 0) 
+            // Delete start if unpaired or not start type
+            if (!Zipline.IsStart(start.type) || newZiplines.Count == 0) 
             {
                 Tiles[start.x, start.y].Type = Tile.EMPTY;
-                break;
+                continue;
             }
 
             // Get end
@@ -601,6 +616,9 @@ class MapEditor
 
         // Set the map to be saved
         unsaved = false;
+
+        // Update modified date
+        map.UpdateModifiedDate();
     }
 
     private void DisplayDebugInfo(int type)

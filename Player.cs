@@ -29,6 +29,8 @@ class Player
     private const float FALL_DEATH_THRESHOLD = 4; // tiles
     private const float CLIMB_DOWN_BUFFER = 200; // ms
     private const float COYOTE_MAX = 0.1f; // seconds
+    private const float WATER_LOWER_CENTER_AMOUNT = 0.25f;
+    private const int X_OVERLAP_THRESHOLD = Game1.TILE_SIZE;
 
     // Store player animation constants
     private const int FRAME_DURATION = 100;     // Duration of each animation frame in milliseconds
@@ -38,8 +40,6 @@ class Player
     private const int TILE_CHECK_SIZE = 2;      // Farthest # of tiles away from player to check for collisions
     private const int TRUE_HEIGHT = PLAYER_HEIGHT * Game1.PIXEL_SCALE;
     private const float HEIGHT_SHRINK_FACTOR = 0.3f;
-    private const float SWIM_OFFSET = (1 - HEIGHT_SHRINK_FACTOR) * TRUE_HEIGHT / 2;
-    private const float SLIDE_OFFSET = (1 - HEIGHT_SHRINK_FACTOR) * TRUE_HEIGHT;
 
     // Store player attribute constants
     public const int MAX_OXYGEN = 100;
@@ -76,6 +76,7 @@ class Player
     public bool IsDead { get; private set; }
     private bool isGrounded; // any ground (ie. ladders)
     private bool onGround; // specifically platforms
+    private bool ceilingAbove;
     private bool isLatching;
     private bool isClimbing;
     private bool onZipline;
@@ -153,6 +154,7 @@ class Player
         IsDead = false;
         isGrounded = false;
         onGround = false;
+        ceilingAbove = false;
         isLatching = false;
         isClimbing = false;
         onZipline = false;
@@ -312,8 +314,9 @@ class Player
         // Slow player down by air resistance
         vel.X = vel.X - Math.Sign(vel.X) * Math.Min(Math.Abs(vel.X), AIR_RESISTANCE * (float)gameTime.ElapsedGameTime.TotalSeconds);
 
-        // If the player presses a jump key, and is on the grounded, update their speed to move up and play jump animation
-        if ((isGrounded || prevInWater || isClimbing) && (kb.IsKeyDown(Keys.W) || kb.IsKeyDown(Keys.Up) || kb.IsKeyDown(Keys.Space)))
+        // If the player presses a jump key, and is on the grounded, update their speed to move up and play jump animation (if no ceiling above)
+        if ((isGrounded || prevInWater || isClimbing) && !isSliding && !ceilingAbove
+            && (kb.IsKeyDown(Keys.W) || kb.IsKeyDown(Keys.Up) || kb.IsKeyDown(Keys.Space)))
         {
             // Update the player's velocity, making them jump
             vel.Y = isGrounded || prevInWater ? JUMP_SPEED : -CLIMB_SPEED;
@@ -368,37 +371,24 @@ class Player
         pos.X += vel.X * (float)gameTime.ElapsedGameTime.TotalSeconds;
         pos.Y += vel.Y * (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-        // If the player is in water, they aren't sliding anymore // FIXME bug when player slides into swim
-        if (!prevInWater && inWater && isSliding) // FIXME bug when player swims up while in ladder
+        // If the player is in water, they aren't sliding anymore
+        if (!prevInWater && inWater && isSliding)
         {
-            // isPrevSliding = isSliding;
-            // isSliding = false;
-        }
-
-        // Ensure player is centered when swimming and grounded when sliding
-        OffsetPosInState(prevInWater, inWater, SWIM_OFFSET);
-        OffsetPosInState(isPrevSliding, isSliding, SLIDE_OFFSET);
-    }
-
-    private void OffsetPosInState(bool prevState, bool state, float offset)
-    {
-        // Offset state only when in a certain state
-        if (!prevState && state)
-        {
-            pos.Y += offset;
-        }
-        else if (prevState && !state)
-        {
-            pos.Y -= offset;
+            isPrevSliding = false;
+            isSliding = false;
         }
     }
 
     private void UpdateRec()
     {
         // Make the height halved when swimming or sliding
-        rec.Height = (int)(TRUE_HEIGHT * (inWater || isSliding ? HEIGHT_SHRINK_FACTOR : 1));
+        int newHeight = (int)(TRUE_HEIGHT * (inWater || isSliding ? HEIGHT_SHRINK_FACTOR : 1));
 
-        // Update x position
+        // If height changed, ensure player always grounded
+        if (newHeight != rec.Height) pos.Y += rec.Height - newHeight;
+
+        // Update height and position
+        rec.Height = newHeight;
         rec.X = (int)pos.X;
         rec.Y = (int)pos.Y;
     }
@@ -420,14 +410,16 @@ class Player
         // Load rectangles for checking collisions
         LoadCollisionRecs();
 
-        // Get the current tile of the map the player is on, and create variables for storing tile type and recs (Math.Floor to always round down to negative infinity)
+        // Get the current tile of the map the player is on (slightly lower point for water tile check), and create variables for storing tile type and recs (Math.Floor to always round down to negative infinity)
         (int tileX, int tileY) = Game1.CalcTile(rec.Center.ToVector2());
+        Point waterTile = Game1.CalcTile(new Vector2(rec.Center.X, rec.Center.Y + rec.Height * WATER_LOWER_CENTER_AMOUNT));
 
         int tileType;
         Rectangle tileRec;
 
         // Reset player state checks
         isGrounded = onGround = false;
+        ceilingAbove = false;
         isClimbing = false;
 
         prevInWater = inWater;
@@ -491,7 +483,8 @@ class Player
                     SoundManager.PlayZiplineEnd();
                 }
             }
-            else if (Tile.GetType(tileType) == Tile.WATER || map.FloodTiles[tileX, tileY] == Tile.FLOODED)
+            else if (waterTile.X >= 0 && waterTile.X < map.SizeX && waterTile.Y >= 0 && waterTile.Y < map.SizeX
+                && (Tile.GetType(map.Tiles[waterTile.X, waterTile.Y].Type) == Tile.WATER || map.FloodTiles[waterTile.X, waterTile.Y] == Tile.FLOODED))
             {
                 // Player is in water
                 inWater = true;
@@ -526,12 +519,17 @@ class Player
                         // Check if player collides up or down
                         if (tileRec.Intersects(top))
                         {
+                            // Update that there is ceiling above
+                            ceilingAbove = true;
+
                             // If the player just exited sliding, keep them in sliding as there is a platform preventing them from standing up
                             if (isPrevSliding && !isSliding)
                             {
-                                // Put player back in sliding, don't allow them to move until they press slide again
-                                OffsetPosInState(isSliding, isSliding = true, SLIDE_OFFSET);
-                                pos = prevPos;
+                                // Put player back in sliding
+                                isSliding = true;
+                                isPrevSliding = true;
+                                
+                                // Update recs
                                 UpdateRec();
                                 LoadCollisionRecs();
                             }
@@ -555,6 +553,9 @@ class Player
                         // Check if player collides left or right
                         if (tileRec.Intersects(left))
                         {
+                            // If sliding and collision isn't very far, don't collide (avoid snagging while sliding)
+                            if (onGround && (isSliding || isPrevSliding) && Math.Min(left.Right, tileRec.Right) - Math.Max(left.Left, tileRec.Left) <= X_OVERLAP_THRESHOLD) continue;
+
                             // Set the player right to the right of the platform, let leftwards speed be blocked by the floor
                             pos.X = tileRec.Right + 1;
                             vel.X = 0;
@@ -570,6 +571,9 @@ class Player
                         }
                         else if (tileRec.Intersects(right))
                         {
+                            // If sliding and collision isn't very far, don't collide (avoid snagging while sliding)
+                            if (onGround && (isSliding || isPrevSliding) && Math.Min(right.Right, tileRec.Right) - Math.Max(right.Left, tileRec.Left) <= X_OVERLAP_THRESHOLD) continue;
+
                             // Set the player right to the left of the platform, let rightwards speed be blocked by the floor
                             pos.X = tileRec.Left - rec.Width;
                             vel.X = 0;
@@ -626,6 +630,38 @@ class Player
                         isGrounded = true;
                     }
                 }
+            }
+        }
+
+        // If just exited water, check if there's a platform above, if so force crawl
+        if (prevInWater && !inWater && !isSliding)
+        {
+            // Store variables to check standing
+            int fullHeight = (int)(TRUE_HEIGHT * 1f);
+            int shrunkHeight = (int)(TRUE_HEIGHT * HEIGHT_SHRINK_FACTOR);
+            Rectangle standTest = new Rectangle(rec.X, (int)pos.Y - (fullHeight - shrunkHeight), rec.Width, fullHeight);
+
+            // Search through all tiles
+            for (int x = Math.Max(0, tileX - TILE_CHECK_SIZE); x <= Math.Min(map.SizeX - 1, tileX + TILE_CHECK_SIZE); x++)
+            {
+                for (int y = Math.Max(0, tileY - TILE_CHECK_SIZE); y <= Math.Min(map.SizeY - 1, tileY + TILE_CHECK_SIZE); y++)
+                {
+                    // If tile does not exist, don't do any logic checks for safety, otherwise store type
+                    if (map.Tiles[x, y] == null) continue;
+                    tileType = map.Tiles[x, y].Type;
+
+                    // If any valid head hitting tiles collide with standing rec, force slide
+                    if (tileType > Tile.WATER && (tileType < Tile.PLATFORM_TYPE_AMOUNT || tileType == Tile.WALL_JUMP)
+                        && standTest.Intersects(map.Tiles[x, y].Rec))
+                    {
+                        // No room to stand, force slide
+                        isSliding = true;
+                        break;
+                    }
+                }
+
+                // Quick exit if already detected player should be forced to slide
+                if (isSliding) break;
             }
         }
 
@@ -767,7 +803,7 @@ class Player
         btnGlow = Math.Max(0, btnGlow - Game1.ExpSmoothing(gameTime, btnGlowSpeed));
         Game1.playScreen.BtnVignette.Alpha2 = (int)(255 * btnGlow);
 
-        // Update animation, unless the frame should be frozen // REVIEW is this good
+        // Update animation, unless the frame should be frozen
         if ((inWater && Math.Abs(vel.X) + Math.Abs(vel.Y) >= DEFAULT_THRESHOLD)
             || (!inWater && (!isSliding || isClimbing || moveInput != 0))
             || IsDead)

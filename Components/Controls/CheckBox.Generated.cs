@@ -88,6 +88,42 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public Icon InnerCheck { get; protected set; }
     public NineSliceRuntime FocusedIndicator { get; protected set; }
 
+    public float CheckBoxBackgroundHeight
+    {
+        get => CheckBoxBackground.Height;
+        set => CheckBoxBackground.Height = value;
+    }
+
+    public float CheckBoxBackgroundWidth
+    {
+        get => CheckBoxBackground.Width;
+        set => CheckBoxBackground.Width = value;
+    }
+
+    public float InnerCheckIconHeight
+    {
+        get => InnerCheck.IconHeight;
+        set => InnerCheck.IconHeight = value;
+    }
+
+    public float InnerCheckIconWidth
+    {
+        get => InnerCheck.IconWidth;
+        set => InnerCheck.IconWidth = value;
+    }
+
+    public int TextInstanceFontSize
+    {
+        get => TextInstance.FontSize;
+        set => TextInstance.FontSize = value;
+    }
+
+    public int TextInstanceOutlineThickness
+    {
+        get => TextInstance.OutlineThickness;
+        set => TextInstance.OutlineThickness = value;
+    }
+
 
     public CheckBox(InteractiveGue visual) : base(visual)
     {

@@ -34,7 +34,7 @@
     </Variable>
     <Variable Type="SliderCategory" Name="SliderCategoryState" SetsValue="false" />
     <Variable Type="State" Name="State" Category="States and Visibility" SetsValue="true" />
-    <Variable Type="float" Name="ThumbInstance.Height" SetsValue="true">
+    <Variable Type="float" Name="ThumbInstance.Height" ExposedAsName="ThumbInstanceHeight" SetsValue="true">
       <Value xsi:type="xsd:float">24</Value>
     </Variable>
     <Variable Type="string" Name="ThumbInstance.Parent" SetsValue="true">
@@ -43,7 +43,7 @@
     <Variable Type="string" Name="ThumbInstance.Text" SetsValue="true">
       <Value xsi:type="xsd:string"></Value>
     </Variable>
-    <Variable Type="float" Name="ThumbInstance.Width" SetsValue="true">
+    <Variable Type="float" Name="ThumbInstance.Width" ExposedAsName="ThumbInstanceWidth" SetsValue="true">
       <Value xsi:type="xsd:float">32</Value>
     </Variable>
     <Variable Type="float" Name="ThumbInstance.X" ExposedAsName="SliderPercent" SetsValue="false" />
@@ -62,7 +62,7 @@
     <Variable Type="ColorCategory" Name="TrackBackground.ColorCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">DarkGray</Value>
     </Variable>
-    <Variable Type="float" Name="TrackBackground.Height" SetsValue="true">
+    <Variable Type="float" Name="TrackBackground.Height" ExposedAsName="TrackBackgroundHeight" SetsValue="true">
       <Value xsi:type="xsd:float">8</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="TrackBackground.HeightUnits" SetsValue="true">

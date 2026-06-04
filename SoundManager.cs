@@ -22,6 +22,10 @@ static class SoundManager
     // Store last seek time
     private static DateTime lastSeek = DateTime.MinValue;
 
+    // Store user volume scalers
+    private static float musicScale = 1f;
+    private static float sfxScale = 1f;
+
     // Store all menu sounds
     private static Song lobbyMusic;
     private static Song levelEditorMusic;
@@ -177,19 +181,21 @@ static class SoundManager
     {
         // Create instance and sets volume if custom volume is set
         SoundEffectInstance instance = sfx.CreateInstance();
-        instance.Volume = volume.TryGetValue(sfx.Name, out float value) ? value : 1f;
+        instance.Volume = (volume.TryGetValue(sfx.Name, out float value) ? value : 1f) * sfxScale;
         instance.Play();
     }
 
     public static void Play(Song song, bool restart = false)
     {
         // Change the volume if custom volume is set, otherwise set it back to default
-        MediaPlayer.Volume = volume.TryGetValue(song.Name, out float value) ? value : DEFAULT_SONG_VOLUME;
+        MediaPlayer.Volume = (volume.TryGetValue(song.Name, out float value) ? value : DEFAULT_SONG_VOLUME) * musicScale;
         if (restart || song != MediaPlayer.Queue.ActiveSong) MediaPlayer.Play(song);
     }
 
     public static void PlayClick() => Play(clickSfx);
+    
     public static void PlayLoad() => Play(loadSfx);
+    
     public static void PlayButton(int index = 0)
     {
         // If index is out of bounds, flip direction and change index (seesaw effect)
@@ -199,24 +205,32 @@ static class SoundManager
         // Play that button sound
         Play(btnSfx[btnIndex]);
     }
+    
     public static void PlayWin() => Play(winSfx);
+    
     public static void PlayDeath() => Play(defeatSfx);
 
     public static void PlayUnderwater()
     {
         if (underwaterInstance.State != SoundState.Playing) underwaterInstance.Play();
     }
+    
     public static void StopUnderwater()
     {
         if (underwaterInstance.State == SoundState.Playing) underwaterInstance.Stop();
     }
+    
     public static void PlayWalljumpOn() => Play(walljumpOnSfx);
+    
     public static void PlayWalljumpOff() => Play(walljumpOffSfx);
+    
     public static void PlayZiplineStart() => Play(ziplineStartSfx);
+    
     public static void PlayZiplineDuring() 
     {
         if (ziplineDuringInstance.State != SoundState.Playing) ziplineDuringInstance.Play();
     }
+    
     public static void PlayZiplineEnd(bool onlyStop = false)
     {
         if (ziplineDuringInstance.State == SoundState.Playing) ziplineDuringInstance.Stop();
@@ -224,6 +238,7 @@ static class SoundManager
     }
 
     public static void PlayLobbyMusic() => Play(lobbyMusic);
+    
     public static void PlayLevelEditorMusic() => Play(levelEditorMusic);
 
     public static void PlayMapSong(string name)
@@ -257,8 +272,31 @@ static class SoundManager
             }
             catch
             {
-                Console.WriteLine("ERROR - Failed to fast forward/rewind, wait a bit and try again");
+                Console.WriteLine("ERROR - Failed to fast forward/rewind, wait and try again");
             }
         }
+    }
+
+    public static void SetMusicScale(float scale)
+    {
+        // Update music scaling to new factor
+        musicScale = scale;
+
+        // Re-apply to currently playing song
+        if (MediaPlayer.Queue.ActiveSong != null)
+        {
+            string name = MediaPlayer.Queue.ActiveSong.Name;
+            MediaPlayer.Volume = (volume.TryGetValue(name, out float vol) ? vol : DEFAULT_SONG_VOLUME) * musicScale;
+        }
+    }
+
+    public static void SetSfxScale(float scale)
+    {
+        // Update sfx scaling to new factor
+        sfxScale = scale;
+
+        // Re-apply to looping instances
+        ziplineDuringInstance.Volume = 0.1f * sfxScale;
+        underwaterInstance.Volume = 0.4f * sfxScale;
     }
 }

@@ -26,14 +26,12 @@ public class Game1 : Game
     // Create random object
     public static Random rng = new Random();
 
-    // Create game state constants // FIXME (can prob remove if not using much?)
+    // Create game state constants
     public const int MENU = 0;
     public const int SELECT_MAP = 1;
-    public const int CREATE_MAP = 2;
-    public const int PLAY_MAP = 3;
-    public const int EDIT_MAP = 4;
-    public const int END_MAP = 5;
-    public const int EXIT = 6;
+    public const int PLAY_MAP = 2;
+    public const int EDIT_MAP = 3;
+    public const int EXIT = 4;
 
     // Create constants for direction (negative is left, positive is right)
     public const int LEFT_DIRECTION = -1;
@@ -56,8 +54,8 @@ public class Game1 : Game
     public static int gameState = MENU;
 
     // Create variables for file IO
-    private static StreamReader inFile;
-    private static StreamWriter outFile;
+    public static StreamReader inFile;
+    public static StreamWriter outFile;
 
     // Create input objects (mouse and keyboard)
     private KeyboardState kb;
@@ -69,6 +67,10 @@ public class Game1 : Game
     // Create variables to store the screen dimensions
     public static int ScreenWidth { get; private set; }
     public static int ScreenHeight { get; private set; }
+
+    // Add variables for game display scaling
+    public static RenderTarget2D gameRenderTarget;
+    public static Rectangle gameDestRect;
 
     // Store cursor textures
     Texture2D cursorImg;
@@ -101,9 +103,8 @@ public class Game1 : Game
 
     protected override void Initialize()
     {
-        // Set the preferred resolution
-        _graphics.PreferredBackBufferWidth = TILE_SPAN_X * TILE_SIZE * PIXEL_SCALE; // Assuming 1792
-        _graphics.PreferredBackBufferHeight = TILE_SPAN_Y * TILE_SIZE * PIXEL_SCALE; // Assuming 1024
+        // Apply default resolution to start
+        Settings.ApplyDefaultRes();
 
         // Set game FPS to target FPS, turn off VSync, and try to ensure equal frame time
         _graphics.SynchronizeWithVerticalRetrace = false;
@@ -159,6 +160,10 @@ public class Game1 : Game
         LoadMaps();
         SoundManager.Load(Content);
 
+        // Load settings and render target using screen dimensions
+        Settings.Load();
+        gameRenderTarget = new RenderTarget2D(GraphicsDevice, ScreenWidth, ScreenHeight);
+
         // Play menu music
         SoundManager.PlayLobbyMusic();
     }
@@ -208,6 +213,8 @@ public class Game1 : Game
 
     protected override void Draw(GameTime gameTime)
     {
+        // Set the proper render target
+        GraphicsDevice.SetRenderTarget(gameRenderTarget);
         GraphicsDevice.Clear(Color.Black);
 
         // Perform update logic based on the current game state
@@ -215,7 +222,7 @@ public class Game1 : Game
         {
             case PLAY_MAP:
                 // Clear screen, start drawing
-                GraphicsDevice.Clear(Color.CornflowerBlue); // TODO let maps have bg color (+ documentation)
+                GraphicsDevice.Clear(Color.CornflowerBlue);
                 CameraSpriteBatchBegin(player.Camera);
 
                 // Draw the map and player
@@ -227,7 +234,7 @@ public class Game1 : Game
 
             case EDIT_MAP:
                 // Clear screen, start drawing
-                GraphicsDevice.Clear(Color.CornflowerBlue); // TODO let maps have bg color (+ documentation)
+                GraphicsDevice.Clear(Color.CornflowerBlue);
                 CameraSpriteBatchBegin(mapEditor.Camera);
                 
                 // Draw the map
@@ -236,8 +243,37 @@ public class Game1 : Game
                 break;
         }
 
+        // Scale render target to fit screen with black bars
+        GraphicsDevice.SetRenderTarget(null);
+        GraphicsDevice.Clear(Color.Black);
+
+        int gameW = TILE_SPAN_X * TILE_SIZE * PIXEL_SCALE;
+        int gameH = TILE_SPAN_Y * TILE_SIZE * PIXEL_SCALE;
+
+        int screenW = GraphicsDevice.PresentationParameters.BackBufferWidth;
+        int screenH = GraphicsDevice.PresentationParameters.BackBufferHeight;
+        float scale = Math.Min((float)screenW / gameW, (float)screenH / gameH); // FIXME review this crazy ah full screen scaling code
+        int drawW = (int)(gameW * scale);
+        int drawH = (int)(gameH * scale);
+        gameDestRect = new Rectangle((screenW - drawW) / 2, (screenH - drawH) / 2, drawW, drawH);
+
+        _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+        _spriteBatch.Draw(gameRenderTarget, gameDestRect, Color.White);
+        _spriteBatch.End();
+
+        // Update Gum's render UI, scaled to match game
+        float uiScale = (float)gameDestRect.Width / ScreenWidth;
+        GumService.Default.Renderer.Camera.Zoom = uiScale;
+        GumService.Default.CanvasWidth = ScreenWidth;
+        GumService.Default.CanvasHeight = ScreenHeight;
+
+        // Offset Gum's camera to account for black bars
+        GumService.Default.Renderer.Camera.X = -gameDestRect.X / uiScale;
+        GumService.Default.Renderer.Camera.Y = -gameDestRect.Y / uiScale;
+
         // Draw the UI made with the GUM library
         GumUI.Draw();
+        GraphicsDevice.SetRenderTarget(null);
 
         // Draw the cursor over everything
         _spriteBatch.Begin();
@@ -252,13 +288,14 @@ public class Game1 : Game
         _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, camera.GetTransformation());
     }
 
-    private static void LoadMaps()
+    private static void LoadMaps(bool loadDefaults = false)
     {
         // Try to load maps, if failed, load defaults
         try
         {
-            // Load the file
-            inFile = new StreamReader("SavedMaps.txt");
+            // Load the file (ensure it's closed first)
+            inFile?.Close();
+            inFile = new StreamReader(loadDefaults ? Map.DEFAULT_SAVE_FILE : Map.SAVE_FILE);
 
             // Load maps until none left
             while (!inFile.EndOfStream)
@@ -266,11 +303,53 @@ public class Game1 : Game
                 maps.Add(new Map());
                 maps.Last().Load(inFile);
             }
+
+            // If too little maps, means defaults haven't loaded, throw error
+            if (maps.Count < Map.DEFAULT_MAPS) throw new();
         }
         catch
         {
-            // TODO load locked/default maps
-            Console.WriteLine("ERROR - Maps failed to load, loading defaults.");
+            // If failed load locked/default maps, send error message
+            if (loadDefaults)
+            {
+                Console.WriteLine("ERROR - Default maps failed to load");
+            }
+            else
+            {
+                Console.WriteLine("ERROR - Saved maps failed to load, loading defaults...");
+                maps.Clear();
+                LoadMaps(true);
+
+                // TODO after done making all maps, enable overwrite w/ defaults
+            }
+        }
+        finally
+        {
+            // Close file if opened
+            inFile?.Close();
+        }
+    }
+
+    public static void SaveMaps()
+    {
+        // Try to load maps, if failed, send error
+        try
+        {
+            // Create a new file
+            outFile = File.CreateText(Map.SAVE_FILE);
+
+            // Save all maps
+            foreach (Map map in maps) map.Save(outFile);
+        }
+        catch
+        {
+            // If failed send error
+            Console.WriteLine("ERROR - Maps failed to save");
+        }
+        finally
+        {
+            // Close file if opened
+            outFile?.Close();
         }
     }
 
@@ -320,6 +399,15 @@ public class Game1 : Game
     public static Point CalcTile(Vector2 pos)
     {
         return new Point((int)Math.Floor(pos.X / (TILE_SIZE * PIXEL_SCALE)), (int)Math.Floor(pos.Y / (TILE_SIZE * PIXEL_SCALE)));
+    }
+
+    public static Vector2 GameMousePos(MouseState mouse)
+    {
+        // Calculate proper mouse position given fullscreen changes
+        return new Vector2(
+            (mouse.Position.X - gameDestRect.X) * ((float)ScreenWidth / gameDestRect.Width),
+            (mouse.Position.Y - gameDestRect.Y) * ((float)ScreenHeight / gameDestRect.Height)
+        );
     }
 
     public static void FloatOnlyHandler(object sender, TextCompositionEventArgs args)

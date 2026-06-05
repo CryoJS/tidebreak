@@ -159,13 +159,13 @@ class Map
             for (int y = 0; y < SizeY; y++)
             {
                 // Find start pos
-                if (Tiles[x, y].Type == Tile.START)
+                if (Tiles[x, y].Type == (int)Tile.Func.Start)
                 {
                     startPos = new Vector2(x + 0.5f, y + 0.5f) * (Game1.TILE_SIZE * Game1.PIXEL_SCALE);
                 }
 
                 // Reset flood, and if the tile is a flood start tile, put it into the queue
-                if (Tiles[x, y].Type == Tile.FLOOD)
+                if (Tiles[x, y].Type == (int)Tile.Func.Flood)
                 {
                     FloodTiles[x, y] = Tile.FLOODED;
                     floodQueue.Enqueue((x, y));
@@ -220,7 +220,7 @@ class Map
                     int type = Tile.GetType(Tiles[nx, ny].Type);
 
                     // Only expand tile if empty (and unflooded)
-                    if (FloodTiles[nx, ny] == Tile.NOT_FLOODED && type != Tile.WALL_JUMP && (type == Tile.EMPTY || type >= Tile.PLATFORM_TYPE_AMOUNT))
+                    if (FloodTiles[nx, ny] == Tile.NOT_FLOODED && !Tile.CanCollide(type))
                     {
                         // Set the tile to flooded and add it to the queue
                         FloodTiles[nx, ny] = Tile.FLOODED;
@@ -245,13 +245,13 @@ class Map
                 BgTiles[x, y].Draw(spriteBatch);
 
                 // Draw expanding water while keeping background and foreground in mind
-                if (FloodTiles[x, y] == Tile.FLOODED && Tiles[x, y].Type != Tile.WALL_JUMP) spriteBatch.Draw(Tile.textures[Tile.WATER], Tiles[x, y].Rec, Color.White);
+                if (FloodTiles[x, y] == Tile.FLOODED && Tiles[x, y].Type != (int)Tile.Func.WallJump) spriteBatch.Draw(Tile.textures[(int)Tile.Func.Water], Tiles[x, y].Rec, Color.White);
 
                 // Draw foreground tile last
                 Tiles[x, y].Draw(spriteBatch);
 
                 // If water floods a ladder, should go above it
-                if (FloodTiles[x, y] == Tile.FLOODED && Tiles[x, y].Type == Tile.LADDER) spriteBatch.Draw(Tile.textures[Tile.WATER], Tiles[x, y].Rec, Color.White);
+                if (FloodTiles[x, y] == Tile.FLOODED && Tiles[x, y].Type == (int)Tile.Decor.Ladder) spriteBatch.Draw(Tile.textures[(int)Tile.Func.Water], Tiles[x, y].Rec, Color.White);
             }
         }
 
@@ -370,7 +370,7 @@ class Map
                         Ziplines[id].End = Tiles[x, y];
                     }
                 }
-                else if (Tiles[x, y].Type <= Tile.BUTTON_START)
+                else if (Tiles[x, y].Type <= (int)Tile.Func.ButtonStart)
                 {
                     // Add button into BST
                     Buttons.Add(new Button(x, y, Button.TypeToPriority(Tiles[x, y].Type)));

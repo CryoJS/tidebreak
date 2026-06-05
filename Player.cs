@@ -438,7 +438,7 @@ class Player
             tileType = map.Tiles[tileX, tileY].Type;
 
             // Check each special tile
-            if (tileType == Tile.END)
+            if (tileType == (int)Tile.Func.End)
             {
                 // If the player reaches the end, then win only if they got all the buttons
                 if (Buttons.IsEmpty())
@@ -447,7 +447,7 @@ class Player
                     return;
                 }
             }
-            else if (Tile.GetType(tileType) == Tile.BUTTON)
+            else if (Tile.GetType(tileType) == (int)Tile.Func.Button)
             {
                 // Check if button is found
                 if (tileX == NextButton.X && tileY == NextButton.Y)
@@ -484,7 +484,7 @@ class Player
                 }
             }
             else if (waterTile.X >= 0 && waterTile.X < map.SizeX && waterTile.Y >= 0 && waterTile.Y < map.SizeX
-                && (Tile.GetType(map.Tiles[waterTile.X, waterTile.Y].Type) == Tile.WATER || map.FloodTiles[waterTile.X, waterTile.Y] == Tile.FLOODED))
+                && (Tile.GetType(map.Tiles[waterTile.X, waterTile.Y].Type) == (int)Tile.Func.Water || map.FloodTiles[waterTile.X, waterTile.Y] == Tile.FLOODED))
             {
                 // Player is in water
                 inWater = true;
@@ -492,7 +492,7 @@ class Player
                 // Play underwater sfx
                 SoundManager.PlayUnderwater();
             }
-            else if (tileType == Tile.LADDER)
+            else if (tileType == (int)Tile.Decor.Ladder)
             {
                 // Player is climbing
                 isClimbing = true;
@@ -514,7 +514,7 @@ class Player
                     tileRec = map.Tiles[x, y].Rec;
 
                     // Check if any collision occurred with a collidable tile
-                    if (Tile.WATER < tileType && (tileType < Tile.PLATFORM_TYPE_AMOUNT || tileType == Tile.WALL_JUMP) && rec.Intersects(tileRec))
+                    if (Tile.CanCollide(tileType) && rec.Intersects(tileRec))
                     {
                         // Check if player collides up or down
                         if (tileRec.Intersects(top))
@@ -561,7 +561,7 @@ class Player
                             vel.X = 0;
 
                             // If the player hits a wall jump, latch onto it (if not swimming)
-                            if (!inWater && tileType == Tile.WALL_JUMP && tileRec.Contains(new Vector2(rec.Left, rec.Center.Y)))
+                            if (!inWater && tileType == (int)Tile.Func.WallJump && tileRec.Contains(new Vector2(rec.Left, rec.Center.Y)))
                             {
                                 isLatching = true;
                                 moveInput = 1;
@@ -579,7 +579,7 @@ class Player
                             vel.X = 0;
 
                             // If the player hits a wall jump, latch onto it (if not swimming)
-                            if (!inWater && tileType == Tile.WALL_JUMP && tileRec.Contains(new Vector2(rec.Right, rec.Center.Y)))
+                            if (!inWater && tileType == (int)Tile.Func.WallJump && tileRec.Contains(new Vector2(rec.Right, rec.Center.Y)))
                             {
                                 isLatching = true;
                                 moveInput = -1;
@@ -604,7 +604,7 @@ class Player
                 Tile tile = map.Tiles[tileX, y];
 
                 // Only check collisions if ladder and colliding with feet while not going up
-                if (tile.Type == Tile.LADDER && tile.Rec.Intersects(bottom) && vel.Y > -DEFAULT_THRESHOLD)
+                if (tile.Type == (int)Tile.Decor.Ladder && tile.Rec.Intersects(bottom) && vel.Y > -DEFAULT_THRESHOLD)
                 {
                     // Check if player is trying to climb down
                     if ((kb.IsKeyDown(Keys.S) && !prevKb.IsKeyDown(Keys.S)) || (kb.IsKeyDown(Keys.Down) && !prevKb.IsKeyDown(Keys.Down)))
@@ -651,8 +651,7 @@ class Player
                     tileType = map.Tiles[x, y].Type;
 
                     // If any valid head hitting tiles collide with standing rec, force slide
-                    if (tileType > Tile.WATER && (tileType < Tile.PLATFORM_TYPE_AMOUNT || tileType == Tile.WALL_JUMP)
-                        && standTest.Intersects(map.Tiles[x, y].Rec))
+                    if (Tile.CanCollide(tileType) && standTest.Intersects(map.Tiles[x, y].Rec))
                     {
                         // No room to stand, force slide
                         isSliding = true;

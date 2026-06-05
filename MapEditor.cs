@@ -62,7 +62,7 @@ class MapEditor
     private GameLine[] horLines;
 
     // Store selected tile to place
-    public static int SelectedTile { get; set; } = Tile.NULL;
+    public static int SelectedTile { get; set; } = (int)Tile.Func.Null;
     private int newType;
 
     public static Point StartSelected { get; set; }
@@ -107,7 +107,7 @@ class MapEditor
                 BgTiles[x, y] = map.BgTiles[x, y].Copy();
 
                 // Keep track of start tile amount
-                if (Tiles[x, y].Type == Tile.START) startCnt++;
+                if (Tiles[x, y].Type == (int)Tile.Func.Start) startCnt++;
             }
         }
 
@@ -185,10 +185,10 @@ class MapEditor
                 if (tileX >= 0 && tileX < map.SizeX && tileY >= 0 && tileY < map.SizeY)
                 {
                     // If no tile is selected, check if they are editing button, otherwise place tiles
-                    if (SelectedTile == Tile.NULL)
+                    if (SelectedTile == (int)Tile.Func.Null)
                     {
                         // Check if they selected a button
-                        if (Tile.GetType(Tiles[StartSelected.X, StartSelected.Y].Type, true) == Tile.BUTTON)
+                        if (Tile.GetType(Tiles[StartSelected.X, StartSelected.Y].Type, true) == (int)Tile.Func.Button)
                         {
                             // If they are editing a button, open the edit button popup for that button, otherwise start editing that button
                             new EditButtonScreen().AddToRoot();
@@ -203,7 +203,7 @@ class MapEditor
                         newType = SelectedTile;
 
                         // If button, calculate new type and only allow placing 1 button at a time
-                        if (SelectedTile == Tile.BUTTON)
+                        if (SelectedTile == (int)Tile.Func.Button)
                         {
                             // Store the rightmost button
                             Button rightmost = buttons.GetRightmost();
@@ -358,12 +358,12 @@ class MapEditor
         // Perform any needed updates for the removed tile
         switch (Tile.GetType(type, true))
         {
-            case Tile.START:
+            case (int)Tile.Func.Start:
                 // Decrement start tile count
                 startCnt--;
                 break;
 
-            case Tile.BUTTON:
+            case (int)Tile.Func.Button:
                 // Remove button from BST
                 buttons.Delete(new Button(x, y, Button.TypeToPriority(type)));
                 break;
@@ -389,7 +389,7 @@ class MapEditor
                 ziplines.RemoveAt(i);
 
                 // Remove the other part of the zipline
-                if (SelectedTile == Tile.ZIPLINE) ChangeTile(other.X, other.Y, Tile.EMPTY, canUndo: canUndo);
+                if (SelectedTile == Tile.ZIPLINE) ChangeTile(other.X, other.Y, (int)Tile.Func.Empty, canUndo: canUndo);
                 else ChangeTile(other.X, other.Y, canUndo: canUndo);
                 break;
         }
@@ -400,12 +400,12 @@ class MapEditor
         // Perform any needed updates for the added tile
         switch (Tile.GetType(type, true))
         {
-            case Tile.START:
+            case (int)Tile.Func.Start:
                 // Increment start tile count
                 startCnt++;
                 break;
 
-            case Tile.BUTTON:
+            case (int)Tile.Func.Button:
                 // Add button to BST
                 buttons.Add(new Button(x, y, Button.TypeToPriority(type)));
                 break;
@@ -439,10 +439,10 @@ class MapEditor
     private void PlaceTiles(Point start, Point end)
     {
         // If no selected tile, do nothing
-        if (newType == Tile.NULL) return;
+        if (newType == (int)Tile.Func.Null) return;
 
         // If the tile is a functional block, then do not place it if trying to be place on bg (unless placing empty tile)
-        if (EditBg && EditScreen.Bar == EditScreen.functional && newType != Tile.EMPTY) return;
+        if (EditBg && EditScreen.Bar == EditScreen.functional && newType != (int)Tile.Func.Empty) return;
         
         // Perform zipline place logic
         if (Tile.GetType(newType, true) == Tile.ZIPLINE)
@@ -459,11 +459,6 @@ class MapEditor
 
                 // Add new action
                 AddNewAction();
-
-                // // NOTE: Keeping the below for future, when placing ziplines over ziplines is safer / less janky
-                // // If we are replacing any ziplines, delete them cleanly (check end again)
-                // if (startIsZipline) ChangeTile(start.X, start.Y, Tile.EMPTY);
-                // if (endIsZipline) ChangeTile(end.X, end.Y, Tile.EMPTY);
 
                 // Store the end location, place the start
                 StartSelected = end;
@@ -574,7 +569,7 @@ class MapEditor
             // Delete start if unpaired or not start type
             if (!Zipline.IsStart(start.type) || newZiplines.Count == 0) 
             {
-                Tiles[start.x, start.y].Type = Tile.EMPTY;
+                Tiles[start.x, start.y].Type = (int)Tile.Func.Empty;
                 continue;
             }
 
@@ -584,7 +579,7 @@ class MapEditor
             // If doesn't pair, this start doesn't belong, delete it
             if (start.type + 1 != end.type) 
             {
-                Tiles[start.x, start.y].Type = Tile.EMPTY;
+                Tiles[start.x, start.y].Type = (int)Tile.Func.Empty;
                 continue;
             }
 
@@ -626,7 +621,7 @@ class MapEditor
         // Display debug info depending on type
         switch (type)
         {
-            case Tile.BUTTON:
+            case (int)Tile.Func.Button:
                 // Display BSTree of buttons
                 Console.WriteLine($"Buttons ({buttons.Count}): {buttons.InOrderTreeDisplay()}");
                 break;

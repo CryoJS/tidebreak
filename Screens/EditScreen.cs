@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Gum.Wireframe;
 using MonoGameGum;
 using MonoGameGum.ExtensionMethods;
 using Tidebreak.Components;
@@ -14,14 +15,14 @@ namespace Tidebreak.Screens
         private const int TILE_OFFSET = 20;
 
         // Store tile UI elements
-        internal static TileUI[] functional = new TileUI[Tile.FUNCTIONAL_TYPE_AMOUNT + 1]; // Also includes extra empty for convenience
-        internal static TileUI[] platforms = new TileUI[Tile.PLATFORM_TYPE_AMOUNT];
-        internal static TileUI[] decorative = new TileUI[Tile.DECOR_TYPE_AMOUNT];
-        internal static TileUI[] colors = new TileUI[Tile.COLOR_TYPE_AMOUNT];
+        internal static TileUI[] functional = new TileUI[Tile.Func.EndIndex - Tile.Func.StartIndex];
+        internal static TileUI[] platforms = new TileUI[Tile.Plat.EndIndex - Tile.Plat.StartIndex + 1];     // Also includes empty for convenience
+        internal static TileUI[] decorative = new TileUI[Tile.Decor.EndIndex - Tile.Decor.StartIndex + 1];  // Also includes empty for convenience
+        internal static TileUI[] colors = new TileUI[Tile.Clr.EndIndex - Tile.Clr.StartIndex + 1];          // Also includes empty for convenience
 
         // Store selected tile and current used bar
         public static TileUI[] Bar { get; private set; } = null;
-        private static int selectedTileUI = Tile.NULL;
+        private static int selectedTileUI = (int)Tile.Func.Null;
 
         partial void CustomInitialize()
         {
@@ -31,25 +32,40 @@ namespace Tidebreak.Screens
             TileList.HorizontalScrollBarInstance.SmallChange = DEFAULT_SCROLL_SPEED;
 
             // Add all functional tiles
-            functional[0] = CreateTileUI(Tile.EMPTY, functional);
-            functional[1] = CreateTileUI(Tile.WATER, functional);
-            functional[2] = CreateTileUI(Tile.FLOOD, functional);
-            functional[3] = CreateTileUI(Tile.BARRIER, functional);
-            functional[4] = CreateTileUI(Tile.START, functional);
-            functional[5] = CreateTileUI(Tile.END, functional);
-            functional[6] = CreateTileUI(Tile.BUTTON, functional);
-            functional[7] = CreateTileUI(Tile.WALL_JUMP, functional);
-            functional[8] = CreateTileUI(Tile.ZIPLINE, functional);
+            for (int type = (int)Tile.Func.StartIndex; type < (int)Tile.Func.EndIndex; type++)
+            {
+                // Ensure pressed button variant is ignored and proper indexing skip is accounted for
+                if (type != (int)Tile.Func.PressedButton)
+                {
+                    functional[type - (int)Tile.Func.StartIndex - (type < (int)Tile.Func.PressedButton ? 0 : 1)] = CreateTileUI(type, functional);
+                }
+            }
+            
+            // Add zipline
+            functional[(int)Tile.Func.EndIndex - 1] = CreateTileUI(Tile.ZIPLINE, functional);
+
+            // Add empty to all bars
+            platforms[0] = CreateTileUI((int)Tile.Func.Empty, platforms);
+            decorative[0] = CreateTileUI((int)Tile.Func.Empty, platforms);
+            colors[0] = CreateTileUI((int)Tile.Func.Empty, platforms);
 
             // Add all platform tiles
-            platforms[0] = CreateTileUI(Tile.EMPTY, platforms);
-            for (int type = 1; type < Tile.PLATFORM_TYPE_AMOUNT; type++) platforms[type] = CreateTileUI(type, platforms);
+            for (int type = (int)Tile.Plat.StartIndex; type < (int)Tile.Plat.EndIndex; type++)
+            {
+                platforms[type - (int)Tile.Plat.StartIndex + 1] = CreateTileUI(type, platforms);
+            }
 
             // Add all decorative tiles
-            for (int type = 0; type < Tile.DECOR_TYPE_AMOUNT; type++) decorative[type] = CreateTileUI(Tile.LADDER + type, decorative);
+            for (int type = (int)Tile.Decor.StartIndex; type < (int)Tile.Decor.EndIndex; type++)
+            {
+                decorative[type - (int)Tile.Decor.StartIndex + 1] = CreateTileUI(type, decorative);
+            }
             
             // Add all color tiles
-            for (int type = 0; type < Tile.COLOR_TYPE_AMOUNT; type++) colors[type] = CreateTileUI(Tile.COLOR_BLACK + type, colors);
+            for (int type = (int)Tile.Clr.StartIndex; type < (int)Tile.Clr.EndIndex; type++)
+            {
+                colors[type - (int)Tile.Clr.StartIndex + 1] = CreateTileUI(type, colors);
+            }
 
             // Load platform tiles
             LoadTileBar(platforms);
@@ -93,14 +109,14 @@ namespace Tidebreak.Screens
                 SoundManager.PlayClick();
                 
                 // Remove previously selected tile if it exists
-                if (Bar != null && selectedTileUI != Tile.NULL) Bar[selectedTileUI].Selection.Visible = false;
+                if (Bar != null && selectedTileUI != (int)Tile.Func.Null) Bar[selectedTileUI].Selection.Visible = false;
 
                 // Change to no selection
                 Bar = null;
-                selectedTileUI = Tile.NULL;
+                selectedTileUI = (int)Tile.Func.Null;
 
                 // Set map editor selected tile to null
-                MapEditor.SelectedTile = Tile.NULL;
+                MapEditor.SelectedTile = (int)Tile.Func.Null;
             };
 
             // Add show foreground toggle logic
@@ -199,7 +215,7 @@ namespace Tidebreak.Screens
                 SoundManager.PlayClick();
 
                 // Remove previously selected tile if it exists
-                if (Bar != null && selectedTileUI != Tile.NULL) Bar[selectedTileUI].Selection.Visible = false;
+                if (Bar != null && selectedTileUI != (int)Tile.Func.Null) Bar[selectedTileUI].Selection.Visible = false;
                 
                 // Change to new selection
                 Bar = tiles;
@@ -217,8 +233,8 @@ namespace Tidebreak.Screens
         private void LoadTileBar(TileUI[] tiles)
         {
             // Remove all children
-            var children = TileList.InnerPanelInstance.Children.ToArray(); // REVIEW can i do one line for loop, also can i use var?
-            foreach (var child in children) child.Parent = null;
+            GraphicalUiElement[] children = TileList.InnerPanelInstance.Children.ToArray();
+            foreach (GraphicalUiElement child in children) child.Parent = null;
 
             // Load tiles into bar
             foreach (TileUI tile in tiles) TileList.AddChild(tile);

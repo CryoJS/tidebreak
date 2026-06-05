@@ -145,13 +145,7 @@ public class Game1 : Game
         cursorPressedImg = Content.Load<Texture2D>($"Images/Sprites/Icons/CursorPressed");
 
         // Load all tile textures
-        for (int i = 0; i < Tile.TEXTURE_TYPE_AMOUNT; i++)
-        {
-            Tile.textures[i] = Content.Load<Texture2D>($"Images/Sprites/Tiles/Tile{i}");
-        }
-
-        // Load editor only tile textures
-        Tile.LoadEditorOnlyTiles(Content);
+        Tile.LoadTextures(Content);
 
         // Create player (load player textures and animations)
         player = new Player(Content);
@@ -162,7 +156,10 @@ public class Game1 : Game
 
         // Load settings and render target using screen dimensions
         Settings.Load();
-        gameRenderTarget = new RenderTarget2D(GraphicsDevice, ScreenWidth, ScreenHeight);
+        // Create render target at the game's native resolution (not the window size)
+        int gameW = TILE_SPAN_X * TILE_SIZE * PIXEL_SCALE;
+        int gameH = TILE_SPAN_Y * TILE_SIZE * PIXEL_SCALE;
+        gameRenderTarget = new RenderTarget2D(GraphicsDevice, gameW, gameH);
 
         // Play menu music
         SoundManager.PlayLobbyMusic();

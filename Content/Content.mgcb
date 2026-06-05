@@ -331,66 +331,6 @@
 /processorParam:Quality=Best
 /build:Audio/UI/Load.wav
 
-#begin Images/Sprites/EditorTiles/BarrierTile.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Images/Sprites/EditorTiles/BarrierTile.png
-
-#begin Images/Sprites/EditorTiles/EmptyTile.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Images/Sprites/EditorTiles/EmptyTile.png
-
-#begin Images/Sprites/EditorTiles/FloodTile.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Images/Sprites/EditorTiles/FloodTile.png;Images/Sprites/EditorTiles/FloodTile
-
-#begin Images/Sprites/EditorTiles/SelectTile.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Images/Sprites/EditorTiles/SelectTile.png;Images/Sprites/EditorTiles/SelectTile
-
-#begin Images/Sprites/EditorTiles/ZiplineTile.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Images/Sprites/EditorTiles/ZiplineTile.png
-
 #begin Images/Sprites/Icons/Cursor.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -559,7 +499,7 @@
 /processorParam:TextureFormat=Color
 /build:Images/Sprites/Player/HeroSwimming.png;Images/Sprites/Player/HeroSwimming
 
-#begin Images/Sprites/Tiles/Tile0.png
+#begin Images/Sprites/Tiles/Color/Black.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -569,9 +509,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile0.png
+/build:Images/Sprites/Tiles/Color/Black.png
 
-#begin Images/Sprites/Tiles/Tile1.png
+#begin Images/Sprites/Tiles/Color/Blue.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -581,9 +521,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile1.png
+/build:Images/Sprites/Tiles/Color/Blue.png
 
-#begin Images/Sprites/Tiles/Tile10.png
+#begin Images/Sprites/Tiles/Color/Cyan.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -593,9 +533,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile10.png
+/build:Images/Sprites/Tiles/Color/Cyan.png
 
-#begin Images/Sprites/Tiles/Tile11.png
+#begin Images/Sprites/Tiles/Color/Green.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -605,9 +545,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile11.png
+/build:Images/Sprites/Tiles/Color/Green.png
 
-#begin Images/Sprites/Tiles/Tile12.png
+#begin Images/Sprites/Tiles/Color/Grey.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -617,9 +557,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile12.png
+/build:Images/Sprites/Tiles/Color/Grey.png
 
-#begin Images/Sprites/Tiles/Tile13.png
+#begin Images/Sprites/Tiles/Color/Indigo.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -629,9 +569,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile13.png
+/build:Images/Sprites/Tiles/Color/Indigo.png
 
-#begin Images/Sprites/Tiles/Tile14.png
+#begin Images/Sprites/Tiles/Color/Lime.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -641,9 +581,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile14.png
+/build:Images/Sprites/Tiles/Color/Lime.png
 
-#begin Images/Sprites/Tiles/Tile15.png
+#begin Images/Sprites/Tiles/Color/Magenta.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -653,9 +593,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile15.png
+/build:Images/Sprites/Tiles/Color/Magenta.png
 
-#begin Images/Sprites/Tiles/Tile16.png
+#begin Images/Sprites/Tiles/Color/Orange.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -665,9 +605,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile16.png
+/build:Images/Sprites/Tiles/Color/Orange.png
 
-#begin Images/Sprites/Tiles/Tile17.png
+#begin Images/Sprites/Tiles/Color/Pink.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -677,9 +617,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile17.png
+/build:Images/Sprites/Tiles/Color/Pink.png
 
-#begin Images/Sprites/Tiles/Tile18.png
+#begin Images/Sprites/Tiles/Color/Purple.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -689,9 +629,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile18.png
+/build:Images/Sprites/Tiles/Color/Purple.png
 
-#begin Images/Sprites/Tiles/Tile19.png
+#begin Images/Sprites/Tiles/Color/Red.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -701,9 +641,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile19.png
+/build:Images/Sprites/Tiles/Color/Red.png
 
-#begin Images/Sprites/Tiles/Tile2.png
+#begin Images/Sprites/Tiles/Color/Sky.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -713,9 +653,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile2.png
+/build:Images/Sprites/Tiles/Color/Sky.png
 
-#begin Images/Sprites/Tiles/Tile20.png
+#begin Images/Sprites/Tiles/Color/Teal.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -725,9 +665,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile20.png
+/build:Images/Sprites/Tiles/Color/Teal.png
 
-#begin Images/Sprites/Tiles/Tile21.png
+#begin Images/Sprites/Tiles/Color/White.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -737,9 +677,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile21.png
+/build:Images/Sprites/Tiles/Color/White.png
 
-#begin Images/Sprites/Tiles/Tile22.png
+#begin Images/Sprites/Tiles/Color/Yellow.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -749,9 +689,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile22.png
+/build:Images/Sprites/Tiles/Color/Yellow.png
 
-#begin Images/Sprites/Tiles/Tile23.png
+#begin Images/Sprites/Tiles/Decoration/AlertSign.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -761,9 +701,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile23.png
+/build:Images/Sprites/Tiles/Decoration/AlertSign.png
 
-#begin Images/Sprites/Tiles/Tile24.png
+#begin Images/Sprites/Tiles/Decoration/Cactus.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -773,9 +713,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile24.png;Images/Sprites/Tiles/Tile24
+/build:Images/Sprites/Tiles/Decoration/Cactus.png
 
-#begin Images/Sprites/Tiles/Tile25.png
+#begin Images/Sprites/Tiles/Decoration/Fern.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -785,9 +725,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile25.png;Images/Sprites/Tiles/Tile25
+/build:Images/Sprites/Tiles/Decoration/Fern.png
 
-#begin Images/Sprites/Tiles/Tile26.png
+#begin Images/Sprites/Tiles/Decoration/Ladder.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -797,9 +737,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile26.png;Images/Sprites/Tiles/Tile26
+/build:Images/Sprites/Tiles/Decoration/Ladder.png
 
-#begin Images/Sprites/Tiles/Tile27.png
+#begin Images/Sprites/Tiles/Decoration/Leaf.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -809,9 +749,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile27.png;Images/Sprites/Tiles/Tile27
+/build:Images/Sprites/Tiles/Decoration/Leaf.png
 
-#begin Images/Sprites/Tiles/Tile28.png
+#begin Images/Sprites/Tiles/Decoration/LeftSign.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -821,9 +761,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile28.png;Images/Sprites/Tiles/Tile28
+/build:Images/Sprites/Tiles/Decoration/LeftSign.png
 
-#begin Images/Sprites/Tiles/Tile29.png
+#begin Images/Sprites/Tiles/Decoration/RightSign.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -833,9 +773,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile29.png;Images/Sprites/Tiles/Tile29
+/build:Images/Sprites/Tiles/Decoration/RightSign.png
 
-#begin Images/Sprites/Tiles/Tile3.png
+#begin Images/Sprites/Tiles/Decoration/Tree.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -845,9 +785,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile3.png
+/build:Images/Sprites/Tiles/Decoration/Tree.png
 
-#begin Images/Sprites/Tiles/Tile30.png
+#begin Images/Sprites/Tiles/Editor/SelectTile.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -857,9 +797,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile30.png;Images/Sprites/Tiles/Tile30
+/build:Images/Sprites/Tiles/Editor/SelectTile.png
 
-#begin Images/Sprites/Tiles/Tile31.png
+#begin Images/Sprites/Tiles/Editor/ZiplineTile.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -869,9 +809,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile31.png;Images/Sprites/Tiles/Tile31
+/build:Images/Sprites/Tiles/Editor/ZiplineTile.png
 
-#begin Images/Sprites/Tiles/Tile32.png
+#begin Images/Sprites/Tiles/Functional/Barrier.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -881,9 +821,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile32.png;Images/Sprites/Tiles/Tile32
+/build:Images/Sprites/Tiles/Functional/Barrier.png
 
-#begin Images/Sprites/Tiles/Tile33.png
+#begin Images/Sprites/Tiles/Functional/Button.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -893,9 +833,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile33.png;Images/Sprites/Tiles/Tile33
+/build:Images/Sprites/Tiles/Functional/Button.png
 
-#begin Images/Sprites/Tiles/Tile34.png
+#begin Images/Sprites/Tiles/Functional/Empty.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -905,9 +845,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile34.png;Images/Sprites/Tiles/Tile34
+/build:Images/Sprites/Tiles/Functional/Empty.png
 
-#begin Images/Sprites/Tiles/Tile35.png
+#begin Images/Sprites/Tiles/Functional/End.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -917,9 +857,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile35.png;Images/Sprites/Tiles/Tile35
+/build:Images/Sprites/Tiles/Functional/End.png
 
-#begin Images/Sprites/Tiles/Tile36.png
+#begin Images/Sprites/Tiles/Functional/Flood.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -929,9 +869,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile36.png;Images/Sprites/Tiles/Tile36
+/build:Images/Sprites/Tiles/Functional/Flood.png
 
-#begin Images/Sprites/Tiles/Tile37.png
+#begin Images/Sprites/Tiles/Functional/PressedButton.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -941,9 +881,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile37.png;Images/Sprites/Tiles/Tile37
+/build:Images/Sprites/Tiles/Functional/PressedButton.png
 
-#begin Images/Sprites/Tiles/Tile38.png
+#begin Images/Sprites/Tiles/Functional/Start.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -953,9 +893,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile38.png;Images/Sprites/Tiles/Tile38
+/build:Images/Sprites/Tiles/Functional/Start.png
 
-#begin Images/Sprites/Tiles/Tile39.png
+#begin Images/Sprites/Tiles/Functional/WallJump.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -965,9 +905,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile39.png;Images/Sprites/Tiles/Tile39
+/build:Images/Sprites/Tiles/Functional/WallJump.png
 
-#begin Images/Sprites/Tiles/Tile4.png
+#begin Images/Sprites/Tiles/Functional/Water.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -977,9 +917,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile4.png
+/build:Images/Sprites/Tiles/Functional/Water.png
 
-#begin Images/Sprites/Tiles/Tile40.png
+#begin Images/Sprites/Tiles/Platform/Crate.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -989,9 +929,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile40.png;Images/Sprites/Tiles/Tile40
+/build:Images/Sprites/Tiles/Platform/Crate.png
 
-#begin Images/Sprites/Tiles/Tile5.png
+#begin Images/Sprites/Tiles/Platform/Dirt.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1001,9 +941,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile5.png
+/build:Images/Sprites/Tiles/Platform/Dirt.png
 
-#begin Images/Sprites/Tiles/Tile6.png
+#begin Images/Sprites/Tiles/Platform/Gold.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1013,9 +953,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile6.png
+/build:Images/Sprites/Tiles/Platform/Gold.png
 
-#begin Images/Sprites/Tiles/Tile7.png
+#begin Images/Sprites/Tiles/Platform/Grass.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1025,9 +965,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile7.png
+/build:Images/Sprites/Tiles/Platform/Grass.png
 
-#begin Images/Sprites/Tiles/Tile8.png
+#begin Images/Sprites/Tiles/Platform/Metal.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1037,9 +977,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile8.png
+/build:Images/Sprites/Tiles/Platform/Metal.png
 
-#begin Images/Sprites/Tiles/Tile9.png
+#begin Images/Sprites/Tiles/Platform/Pike.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1049,5 +989,65 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Tile9.png
+/build:Images/Sprites/Tiles/Platform/Pike.png
+
+#begin Images/Sprites/Tiles/Platform/Plank.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/Plank.png
+
+#begin Images/Sprites/Tiles/Platform/Sand.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/Sand.png
+
+#begin Images/Sprites/Tiles/Platform/Snow.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/Snow.png
+
+#begin Images/Sprites/Tiles/Platform/Stone.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/Stone.png
+
+#begin Images/Sprites/Tiles/Platform/Trunk.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/Trunk.png
 

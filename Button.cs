@@ -41,11 +41,11 @@ class Button : IComparable<Button>
 
     public static int TypeToPriority(int type)
     {
-        return -(type - Tile.BUTTON_START);
+        return -(type - (int)Tile.Func.ButtonStart);
     }
 
     public static int PriorityToType(int priority)
     {
-        return Tile.BUTTON_START - priority;
+        return (int)Tile.Func.ButtonStart - priority;
     }
 }

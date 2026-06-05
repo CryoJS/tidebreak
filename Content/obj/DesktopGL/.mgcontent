@@ -57,11 +57,6 @@
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/Menu/Lobby.mp3</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/UI/Click.wav</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Audio/UI/Load.wav</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/EditorTiles/BarrierTile.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/EditorTiles/EmptyTile.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/EditorTiles/FloodTile.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/EditorTiles/SelectTile.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/EditorTiles/ZiplineTile.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Icons/Cursor.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Icons/CursorPressed.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Icons/Gem.png</File>
@@ -76,47 +71,52 @@
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroRunning.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroSliding.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Player/HeroSwimming.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile0.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile1.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile10.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile11.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile12.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile13.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile14.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile15.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile16.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile17.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile18.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile19.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile2.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile20.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile21.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile22.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile23.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile24.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile25.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile26.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile27.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile28.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile29.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile3.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile30.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile31.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile32.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile33.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile34.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile35.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile36.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile37.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile38.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile39.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile4.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile40.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile5.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile6.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile7.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile8.png</File>
-    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Tile9.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Color/Black.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Color/Blue.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Color/Cyan.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Color/Green.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Color/Grey.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Color/Indigo.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Color/Lime.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Color/Magenta.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Color/Orange.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Color/Pink.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Color/Purple.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Color/Red.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Color/Sky.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Color/Teal.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Color/White.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Color/Yellow.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/AlertSign.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/Cactus.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/Fern.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/Ladder.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/Leaf.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/LeftSign.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/RightSign.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/Tree.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Editor/SelectTile.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Editor/ZiplineTile.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/Barrier.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/Button.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/Empty.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/End.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/Flood.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/PressedButton.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/Start.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/WallJump.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/Water.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Crate.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Dirt.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Gold.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Grass.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Metal.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Pike.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Plank.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Sand.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Snow.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Stone.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Trunk.png</File>
   </SourceFiles>
   <DestFiles>
     <File>Audio/Gameplay/Btn0</File>
@@ -174,11 +174,6 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
-    <File>Images/Sprites/EditorTiles/FloodTile</File>
-    <File>Images/Sprites/EditorTiles/SelectTile</File>
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File>Images/Sprites/Player/HeroClimbing</File>
     <File>Images/Sprites/Player/HeroDying</File>
@@ -208,25 +203,30 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
-    <File>Images/Sprites/Tiles/Tile24</File>
-    <File>Images/Sprites/Tiles/Tile25</File>
-    <File>Images/Sprites/Tiles/Tile26</File>
-    <File>Images/Sprites/Tiles/Tile27</File>
-    <File>Images/Sprites/Tiles/Tile28</File>
-    <File>Images/Sprites/Tiles/Tile29</File>
     <File xsi:nil="true" />
-    <File>Images/Sprites/Tiles/Tile30</File>
-    <File>Images/Sprites/Tiles/Tile31</File>
-    <File>Images/Sprites/Tiles/Tile32</File>
-    <File>Images/Sprites/Tiles/Tile33</File>
-    <File>Images/Sprites/Tiles/Tile34</File>
-    <File>Images/Sprites/Tiles/Tile35</File>
-    <File>Images/Sprites/Tiles/Tile36</File>
-    <File>Images/Sprites/Tiles/Tile37</File>
-    <File>Images/Sprites/Tiles/Tile38</File>
-    <File>Images/Sprites/Tiles/Tile39</File>
     <File xsi:nil="true" />
-    <File>Images/Sprites/Tiles/Tile40</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

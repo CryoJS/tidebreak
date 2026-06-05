@@ -338,7 +338,7 @@ class MapEditor
         int scrollDelta = mouse.ScrollWheelValue - prevMouse.ScrollWheelValue;
 
         // Zoom in and zoom out if scrolling
-        if (scrollDelta != 0)
+        if (IsTileClickable(Game1.GameMousePos(mouse)) && scrollDelta != 0)
         {
             if (scrollDelta > 0) zoom *= ZOOM_SPEED;
             else zoom /= ZOOM_SPEED;

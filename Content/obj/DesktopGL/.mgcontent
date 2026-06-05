@@ -89,11 +89,20 @@
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Color/Yellow.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/AlertSign.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/Cactus.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/Chain.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/ChainBottom.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/ChainBottomRope.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/ChainTop.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/Fern.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/Hook.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/HookRope.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/Ladder.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/Leaf.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/LeftSign.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/RightSign.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/Rod.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/Rope.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/RopeTop.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/Tree.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Editor/SelectTile.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Editor/ZiplineTile.png</File>
@@ -106,17 +115,68 @@
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/Start.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/WallJump.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/Water.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Barrel.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Beam1.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Beam2.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Beam3.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Box1.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Box2.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Concrete.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Conveyor1.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Conveyor2.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Conveyor3.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Crate.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Dirt.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/DryGrass.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Gold.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Grass.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Marble.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/MarbleBrick.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/MarblePike.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Metal.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Panel1.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Panel2.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Panel3.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Panel4.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Pike.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/PipeBL.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/PipeBR.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/PipeDown.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/PipeLeft.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/PipeRight.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/PipeTL.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/PipeTR.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/PipeUp.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/PipeX.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/PipeX2.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/PipeY.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/PipeY2.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Plank.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Sand.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/SandBrick.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/SandPike.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/SmallMarbleBrick.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/SmallSandBrick.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/SmallStoneBrick.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/SmoothMarble.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/SmoothSand.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/SmoothStone.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Snow.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/SpillPipe1.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/SpillPipe2.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Stone.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/StoneBrick.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/StonePike.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/SupportBL.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/SupportBLW.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/SupportBR.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/SupportBRW.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/SupportTL.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/SupportTR.png</File>
     <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Trunk.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Truss1.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Truss2.png</File>
+    <File>C:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Platform/Truss3.png</File>
   </SourceFiles>
   <DestFiles>
     <File>Audio/Gameplay/Btn0</File>
@@ -204,6 +264,20 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
+    <File>Images/Sprites/Tiles/Decoration/Chain</File>
+    <File>Images/Sprites/Tiles/Decoration/ChainBottom</File>
+    <File>Images/Sprites/Tiles/Decoration/ChainBottomRope</File>
+    <File>Images/Sprites/Tiles/Decoration/ChainTop</File>
+    <File xsi:nil="true" />
+    <File>Images/Sprites/Tiles/Decoration/Hook</File>
+    <File>Images/Sprites/Tiles/Decoration/HookRope</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File>Images/Sprites/Tiles/Decoration/Rod</File>
+    <File>Images/Sprites/Tiles/Decoration/Rope</File>
+    <File>Images/Sprites/Tiles/Decoration/RopeTop</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
@@ -216,21 +290,67 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
+    <File>Images/Sprites/Tiles/Platform/Barrel</File>
+    <File>Images/Sprites/Tiles/Platform/Beam1</File>
+    <File>Images/Sprites/Tiles/Platform/Beam2</File>
+    <File>Images/Sprites/Tiles/Platform/Beam3</File>
+    <File>Images/Sprites/Tiles/Platform/Box1</File>
+    <File>Images/Sprites/Tiles/Platform/Box2</File>
+    <File>Images/Sprites/Tiles/Platform/Concrete</File>
+    <File>Images/Sprites/Tiles/Platform/Conveyor1</File>
+    <File>Images/Sprites/Tiles/Platform/Conveyor2</File>
+    <File>Images/Sprites/Tiles/Platform/Conveyor3</File>
+    <File>Images/Sprites/Tiles/Platform/Crate</File>
+    <File>Images/Sprites/Tiles/Platform/Dirt</File>
+    <File>Images/Sprites/Tiles/Platform/DryGrass</File>
+    <File>Images/Sprites/Tiles/Platform/Gold</File>
+    <File>Images/Sprites/Tiles/Platform/Grass</File>
+    <File>Images/Sprites/Tiles/Platform/Marble</File>
+    <File>Images/Sprites/Tiles/Platform/MarbleBrick</File>
+    <File>Images/Sprites/Tiles/Platform/MarblePike</File>
+    <File>Images/Sprites/Tiles/Platform/Metal</File>
+    <File>Images/Sprites/Tiles/Platform/Panel1</File>
+    <File>Images/Sprites/Tiles/Platform/Panel2</File>
+    <File>Images/Sprites/Tiles/Platform/Panel3</File>
+    <File>Images/Sprites/Tiles/Platform/Panel4</File>
+    <File>Images/Sprites/Tiles/Platform/Pike</File>
+    <File>Images/Sprites/Tiles/Platform/PipeBL</File>
+    <File>Images/Sprites/Tiles/Platform/PipeBR</File>
+    <File>Images/Sprites/Tiles/Platform/PipeDown</File>
+    <File>Images/Sprites/Tiles/Platform/PipeLeft</File>
+    <File>Images/Sprites/Tiles/Platform/PipeRight</File>
+    <File>Images/Sprites/Tiles/Platform/PipeTL</File>
+    <File>Images/Sprites/Tiles/Platform/PipeTR</File>
+    <File>Images/Sprites/Tiles/Platform/PipeUp</File>
+    <File>Images/Sprites/Tiles/Platform/PipeX</File>
+    <File>Images/Sprites/Tiles/Platform/PipeX2</File>
+    <File>Images/Sprites/Tiles/Platform/PipeY</File>
+    <File>Images/Sprites/Tiles/Platform/PipeY2</File>
+    <File>Images/Sprites/Tiles/Platform/Plank</File>
+    <File>Images/Sprites/Tiles/Platform/Sand</File>
+    <File>Images/Sprites/Tiles/Platform/SandBrick</File>
+    <File>Images/Sprites/Tiles/Platform/SandPike</File>
+    <File>Images/Sprites/Tiles/Platform/SmallMarbleBrick</File>
+    <File>Images/Sprites/Tiles/Platform/SmallSandBrick</File>
+    <File>Images/Sprites/Tiles/Platform/SmallStoneBrick</File>
+    <File>Images/Sprites/Tiles/Platform/SmoothMarble</File>
+    <File>Images/Sprites/Tiles/Platform/SmoothSand</File>
+    <File>Images/Sprites/Tiles/Platform/SmoothStone</File>
+    <File>Images/Sprites/Tiles/Platform/Snow</File>
+    <File>Images/Sprites/Tiles/Platform/SpillPipe1</File>
+    <File>Images/Sprites/Tiles/Platform/SpillPipe2</File>
+    <File>Images/Sprites/Tiles/Platform/Stone</File>
+    <File>Images/Sprites/Tiles/Platform/StoneBrick</File>
+    <File>Images/Sprites/Tiles/Platform/StonePike</File>
+    <File>Images/Sprites/Tiles/Platform/SupportBL</File>
+    <File>Images/Sprites/Tiles/Platform/SupportBLW</File>
+    <File>Images/Sprites/Tiles/Platform/SupportBR</File>
+    <File>Images/Sprites/Tiles/Platform/SupportBRW</File>
+    <File>Images/Sprites/Tiles/Platform/SupportTL</File>
+    <File>Images/Sprites/Tiles/Platform/SupportTR</File>
+    <File>Images/Sprites/Tiles/Platform/Trunk</File>
+    <File>Images/Sprites/Tiles/Platform/Truss1</File>
+    <File>Images/Sprites/Tiles/Platform/Truss2</File>
+    <File>Images/Sprites/Tiles/Platform/Truss3</File>
   </DestFiles>
 </SourceFileCollection>

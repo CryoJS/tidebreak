@@ -1,6 +1,6 @@
 using System;
-using System.Linq;
-using Gum.Wireframe;
+using Gum.Forms.Controls;
+using Microsoft.Xna.Framework.Input;
 using MonoGameGum;
 using MonoGameGum.ExtensionMethods;
 using Tidebreak.Components;
@@ -10,15 +10,15 @@ namespace Tidebreak.Screens
     partial class EditScreen
     {
         // Store sizings and speeds
-        private const int DEFAULT_SCROLL_SPEED = 80;
+        private const int DEFAULT_SCROLL_SPEED = 1;
         private const int TILE_SIZE = 90;
         private const int TILE_OFFSET = 20;
 
         // Store tile UI elements
-        internal static TileUI[] functional = new TileUI[Tile.Func.EndIndex - Tile.Func.StartIndex];
-        internal static TileUI[] platforms = new TileUI[Tile.Plat.EndIndex - Tile.Plat.StartIndex + 1];     // Also includes empty for convenience
-        internal static TileUI[] decorative = new TileUI[Tile.Decor.EndIndex - Tile.Decor.StartIndex + 1];  // Also includes empty for convenience
-        internal static TileUI[] colors = new TileUI[Tile.Clr.EndIndex - Tile.Clr.StartIndex + 1];          // Also includes empty for convenience
+        internal static TileUI[] functional = new TileUI[(int)Tile.Func.EndIndex - Tile.FUNC_START];
+        internal static TileUI[] platforms = new TileUI[(int)Tile.Plat.EndIndex - Tile.PLAT_START + 1];     // Also includes empty for convenience
+        internal static TileUI[] decorative = new TileUI[(int)Tile.Decor.EndIndex - Tile.DECOR_START + 1];  // Also includes empty for convenience
+        internal static TileUI[] colors = new TileUI[(int)Tile.Clr.EndIndex - Tile.CLR_START + 1];          // Also includes empty for convenience
 
         // Store selected tile and current used bar
         public static TileUI[] Bar { get; private set; } = null;
@@ -32,12 +32,12 @@ namespace Tidebreak.Screens
             TileList.HorizontalScrollBarInstance.SmallChange = DEFAULT_SCROLL_SPEED;
 
             // Add all functional tiles
-            for (int type = (int)Tile.Func.StartIndex; type < (int)Tile.Func.EndIndex; type++)
+            for (int type = (int)Tile.FUNC_START; type < (int)Tile.Func.EndIndex; type++)
             {
                 // Ensure pressed button variant is ignored and proper indexing skip is accounted for
                 if (type != (int)Tile.Func.PressedButton)
                 {
-                    functional[type - (int)Tile.Func.StartIndex - (type < (int)Tile.Func.PressedButton ? 0 : 1)] = CreateTileUI(type, functional);
+                    functional[type - (int)Tile.FUNC_START - (type < (int)Tile.Func.PressedButton ? 0 : 1)] = CreateTileUI(type, functional);
                 }
             }
             
@@ -46,29 +46,29 @@ namespace Tidebreak.Screens
 
             // Add empty to all bars
             platforms[0] = CreateTileUI((int)Tile.Func.Empty, platforms);
-            decorative[0] = CreateTileUI((int)Tile.Func.Empty, platforms);
-            colors[0] = CreateTileUI((int)Tile.Func.Empty, platforms);
+            decorative[0] = CreateTileUI((int)Tile.Func.Empty, decorative);
+            colors[0] = CreateTileUI((int)Tile.Func.Empty, colors);
 
             // Add all platform tiles
-            for (int type = (int)Tile.Plat.StartIndex; type < (int)Tile.Plat.EndIndex; type++)
+            for (int type = Tile.PLAT_START; type < (int)Tile.Plat.EndIndex; type++)
             {
-                platforms[type - (int)Tile.Plat.StartIndex + 1] = CreateTileUI(type, platforms);
+                platforms[type - Tile.PLAT_START + 1] = CreateTileUI(type, platforms);
             }
 
             // Add all decorative tiles
-            for (int type = (int)Tile.Decor.StartIndex; type < (int)Tile.Decor.EndIndex; type++)
+            for (int type = Tile.DECOR_START; type < (int)Tile.Decor.EndIndex; type++)
             {
-                decorative[type - (int)Tile.Decor.StartIndex + 1] = CreateTileUI(type, decorative);
+                decorative[type - Tile.DECOR_START + 1] = CreateTileUI(type, decorative);
             }
             
             // Add all color tiles
-            for (int type = (int)Tile.Clr.StartIndex; type < (int)Tile.Clr.EndIndex; type++)
+            for (int type = Tile.CLR_START; type < (int)Tile.Clr.EndIndex; type++)
             {
-                colors[type - (int)Tile.Clr.StartIndex + 1] = CreateTileUI(type, colors);
+                colors[type - Tile.CLR_START + 1] = CreateTileUI(type, colors);
             }
 
-            // Load platform tiles
-            LoadTileBar(platforms);
+            // Load functional tiles as default open
+            LoadTileBar(functional);
 
             // Add functional bar logic
             FunctionalBtn.Click += (_, _) =>
@@ -190,6 +190,12 @@ namespace Tidebreak.Screens
             };
         }
 
+        public void Update(MouseState mouse, MouseState prevMouse)
+        {
+            // Update scroll value by scroll amount
+            TileList.HorizontalScrollBarValue -= (mouse.ScrollWheelValue - prevMouse.ScrollWheelValue) * DEFAULT_SCROLL_SPEED;
+        }
+
         private TileUI CreateTileUI(int tileType, TileUI[] tiles)
         {
             // Create new tile
@@ -233,8 +239,10 @@ namespace Tidebreak.Screens
         private void LoadTileBar(TileUI[] tiles)
         {
             // Remove all children
-            GraphicalUiElement[] children = TileList.InnerPanelInstance.Children.ToArray();
-            foreach (GraphicalUiElement child in children) child.Parent = null;
+            TileList.InnerPanelInstance.Children.Clear();
+
+            // Rendering issue, scroll bar causes game area to be black
+            TileList.HorizontalScrollBarVisibility = ScrollBarVisibility.Hidden;
 
             // Load tiles into bar
             foreach (TileUI tile in tiles) TileList.AddChild(tile);

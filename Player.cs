@@ -483,7 +483,7 @@ class Player
                     SoundManager.PlayZiplineEnd();
                 }
             }
-            else if (waterTile.X >= 0 && waterTile.X < map.SizeX && waterTile.Y >= 0 && waterTile.Y < map.SizeX
+            else if (waterTile.X >= 0 && waterTile.X < map.SizeX && waterTile.Y >= 0 && waterTile.Y < map.SizeY
                 && (Tile.GetType(map.Tiles[waterTile.X, waterTile.Y].Type) == (int)Tile.Func.Water || map.FloodTiles[waterTile.X, waterTile.Y] == Tile.FLOODED))
             {
                 // Player is in water

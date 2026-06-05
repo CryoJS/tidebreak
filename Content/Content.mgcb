@@ -715,6 +715,54 @@
 /processorParam:TextureFormat=Color
 /build:Images/Sprites/Tiles/Decoration/Cactus.png
 
+#begin Images/Sprites/Tiles/Decoration/Chain.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Decoration/Chain.png;Images/Sprites/Tiles/Decoration/Chain
+
+#begin Images/Sprites/Tiles/Decoration/ChainBottom.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Decoration/ChainBottom.png;Images/Sprites/Tiles/Decoration/ChainBottom
+
+#begin Images/Sprites/Tiles/Decoration/ChainBottomRope.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Decoration/ChainBottomRope.png;Images/Sprites/Tiles/Decoration/ChainBottomRope
+
+#begin Images/Sprites/Tiles/Decoration/ChainTop.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Decoration/ChainTop.png;Images/Sprites/Tiles/Decoration/ChainTop
+
 #begin Images/Sprites/Tiles/Decoration/Fern.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -726,6 +774,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Images/Sprites/Tiles/Decoration/Fern.png
+
+#begin Images/Sprites/Tiles/Decoration/Hook.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Decoration/Hook.png;Images/Sprites/Tiles/Decoration/Hook
+
+#begin Images/Sprites/Tiles/Decoration/HookRope.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Decoration/HookRope.png;Images/Sprites/Tiles/Decoration/HookRope
 
 #begin Images/Sprites/Tiles/Decoration/Ladder.png
 /importer:TextureImporter
@@ -774,6 +846,42 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Images/Sprites/Tiles/Decoration/RightSign.png
+
+#begin Images/Sprites/Tiles/Decoration/Rod.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Decoration/Rod.png;Images/Sprites/Tiles/Decoration/Rod
+
+#begin Images/Sprites/Tiles/Decoration/Rope.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Decoration/Rope.png;Images/Sprites/Tiles/Decoration/Rope
+
+#begin Images/Sprites/Tiles/Decoration/RopeTop.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Decoration/RopeTop.png;Images/Sprites/Tiles/Decoration/RopeTop
 
 #begin Images/Sprites/Tiles/Decoration/Tree.png
 /importer:TextureImporter
@@ -919,6 +1027,126 @@
 /processorParam:TextureFormat=Color
 /build:Images/Sprites/Tiles/Functional/Water.png
 
+#begin Images/Sprites/Tiles/Platform/Barrel.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/Barrel.png;Images/Sprites/Tiles/Platform/Barrel
+
+#begin Images/Sprites/Tiles/Platform/Beam1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/Beam1.png;Images/Sprites/Tiles/Platform/Beam1
+
+#begin Images/Sprites/Tiles/Platform/Beam2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/Beam2.png;Images/Sprites/Tiles/Platform/Beam2
+
+#begin Images/Sprites/Tiles/Platform/Beam3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/Beam3.png;Images/Sprites/Tiles/Platform/Beam3
+
+#begin Images/Sprites/Tiles/Platform/Box1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/Box1.png;Images/Sprites/Tiles/Platform/Box1
+
+#begin Images/Sprites/Tiles/Platform/Box2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/Box2.png;Images/Sprites/Tiles/Platform/Box2
+
+#begin Images/Sprites/Tiles/Platform/Concrete.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/Concrete.png;Images/Sprites/Tiles/Platform/Concrete
+
+#begin Images/Sprites/Tiles/Platform/Conveyor1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/Conveyor1.png;Images/Sprites/Tiles/Platform/Conveyor1
+
+#begin Images/Sprites/Tiles/Platform/Conveyor2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/Conveyor2.png;Images/Sprites/Tiles/Platform/Conveyor2
+
+#begin Images/Sprites/Tiles/Platform/Conveyor3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/Conveyor3.png;Images/Sprites/Tiles/Platform/Conveyor3
+
 #begin Images/Sprites/Tiles/Platform/Crate.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -929,7 +1157,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Platform/Crate.png
+/build:Images/Sprites/Tiles/Platform/Crate.png;Images/Sprites/Tiles/Platform/Crate
 
 #begin Images/Sprites/Tiles/Platform/Dirt.png
 /importer:TextureImporter
@@ -941,7 +1169,19 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Platform/Dirt.png
+/build:Images/Sprites/Tiles/Platform/Dirt.png;Images/Sprites/Tiles/Platform/Dirt
+
+#begin Images/Sprites/Tiles/Platform/DryGrass.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/DryGrass.png;Images/Sprites/Tiles/Platform/DryGrass
 
 #begin Images/Sprites/Tiles/Platform/Gold.png
 /importer:TextureImporter
@@ -953,7 +1193,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Platform/Gold.png
+/build:Images/Sprites/Tiles/Platform/Gold.png;Images/Sprites/Tiles/Platform/Gold
 
 #begin Images/Sprites/Tiles/Platform/Grass.png
 /importer:TextureImporter
@@ -965,7 +1205,43 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Platform/Grass.png
+/build:Images/Sprites/Tiles/Platform/Grass.png;Images/Sprites/Tiles/Platform/Grass
+
+#begin Images/Sprites/Tiles/Platform/Marble.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/Marble.png;Images/Sprites/Tiles/Platform/Marble
+
+#begin Images/Sprites/Tiles/Platform/MarbleBrick.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/MarbleBrick.png;Images/Sprites/Tiles/Platform/MarbleBrick
+
+#begin Images/Sprites/Tiles/Platform/MarblePike.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/MarblePike.png;Images/Sprites/Tiles/Platform/MarblePike
 
 #begin Images/Sprites/Tiles/Platform/Metal.png
 /importer:TextureImporter
@@ -977,7 +1253,55 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Platform/Metal.png
+/build:Images/Sprites/Tiles/Platform/Metal.png;Images/Sprites/Tiles/Platform/Metal
+
+#begin Images/Sprites/Tiles/Platform/Panel1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/Panel1.png;Images/Sprites/Tiles/Platform/Panel1
+
+#begin Images/Sprites/Tiles/Platform/Panel2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/Panel2.png;Images/Sprites/Tiles/Platform/Panel2
+
+#begin Images/Sprites/Tiles/Platform/Panel3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/Panel3.png;Images/Sprites/Tiles/Platform/Panel3
+
+#begin Images/Sprites/Tiles/Platform/Panel4.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/Panel4.png;Images/Sprites/Tiles/Platform/Panel4
 
 #begin Images/Sprites/Tiles/Platform/Pike.png
 /importer:TextureImporter
@@ -989,7 +1313,151 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Platform/Pike.png
+/build:Images/Sprites/Tiles/Platform/Pike.png;Images/Sprites/Tiles/Platform/Pike
+
+#begin Images/Sprites/Tiles/Platform/PipeBL.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/PipeBL.png;Images/Sprites/Tiles/Platform/PipeBL
+
+#begin Images/Sprites/Tiles/Platform/PipeBR.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/PipeBR.png;Images/Sprites/Tiles/Platform/PipeBR
+
+#begin Images/Sprites/Tiles/Platform/PipeDown.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/PipeDown.png;Images/Sprites/Tiles/Platform/PipeDown
+
+#begin Images/Sprites/Tiles/Platform/PipeLeft.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/PipeLeft.png;Images/Sprites/Tiles/Platform/PipeLeft
+
+#begin Images/Sprites/Tiles/Platform/PipeRight.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/PipeRight.png;Images/Sprites/Tiles/Platform/PipeRight
+
+#begin Images/Sprites/Tiles/Platform/PipeTL.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/PipeTL.png;Images/Sprites/Tiles/Platform/PipeTL
+
+#begin Images/Sprites/Tiles/Platform/PipeTR.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/PipeTR.png;Images/Sprites/Tiles/Platform/PipeTR
+
+#begin Images/Sprites/Tiles/Platform/PipeUp.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/PipeUp.png;Images/Sprites/Tiles/Platform/PipeUp
+
+#begin Images/Sprites/Tiles/Platform/PipeX.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/PipeX.png;Images/Sprites/Tiles/Platform/PipeX
+
+#begin Images/Sprites/Tiles/Platform/PipeX2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/PipeX2.png;Images/Sprites/Tiles/Platform/PipeX2
+
+#begin Images/Sprites/Tiles/Platform/PipeY.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/PipeY.png;Images/Sprites/Tiles/Platform/PipeY
+
+#begin Images/Sprites/Tiles/Platform/PipeY2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/PipeY2.png;Images/Sprites/Tiles/Platform/PipeY2
 
 #begin Images/Sprites/Tiles/Platform/Plank.png
 /importer:TextureImporter
@@ -1001,7 +1469,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Platform/Plank.png
+/build:Images/Sprites/Tiles/Platform/Plank.png;Images/Sprites/Tiles/Platform/Plank
 
 #begin Images/Sprites/Tiles/Platform/Sand.png
 /importer:TextureImporter
@@ -1013,7 +1481,103 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Platform/Sand.png
+/build:Images/Sprites/Tiles/Platform/Sand.png;Images/Sprites/Tiles/Platform/Sand
+
+#begin Images/Sprites/Tiles/Platform/SandBrick.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/SandBrick.png;Images/Sprites/Tiles/Platform/SandBrick
+
+#begin Images/Sprites/Tiles/Platform/SandPike.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/SandPike.png;Images/Sprites/Tiles/Platform/SandPike
+
+#begin Images/Sprites/Tiles/Platform/SmallMarbleBrick.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/SmallMarbleBrick.png;Images/Sprites/Tiles/Platform/SmallMarbleBrick
+
+#begin Images/Sprites/Tiles/Platform/SmallSandBrick.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/SmallSandBrick.png;Images/Sprites/Tiles/Platform/SmallSandBrick
+
+#begin Images/Sprites/Tiles/Platform/SmallStoneBrick.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/SmallStoneBrick.png;Images/Sprites/Tiles/Platform/SmallStoneBrick
+
+#begin Images/Sprites/Tiles/Platform/SmoothMarble.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/SmoothMarble.png;Images/Sprites/Tiles/Platform/SmoothMarble
+
+#begin Images/Sprites/Tiles/Platform/SmoothSand.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/SmoothSand.png;Images/Sprites/Tiles/Platform/SmoothSand
+
+#begin Images/Sprites/Tiles/Platform/SmoothStone.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/SmoothStone.png;Images/Sprites/Tiles/Platform/SmoothStone
 
 #begin Images/Sprites/Tiles/Platform/Snow.png
 /importer:TextureImporter
@@ -1025,7 +1589,31 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Platform/Snow.png
+/build:Images/Sprites/Tiles/Platform/Snow.png;Images/Sprites/Tiles/Platform/Snow
+
+#begin Images/Sprites/Tiles/Platform/SpillPipe1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/SpillPipe1.png;Images/Sprites/Tiles/Platform/SpillPipe1
+
+#begin Images/Sprites/Tiles/Platform/SpillPipe2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/SpillPipe2.png;Images/Sprites/Tiles/Platform/SpillPipe2
 
 #begin Images/Sprites/Tiles/Platform/Stone.png
 /importer:TextureImporter
@@ -1037,7 +1625,103 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Platform/Stone.png
+/build:Images/Sprites/Tiles/Platform/Stone.png;Images/Sprites/Tiles/Platform/Stone
+
+#begin Images/Sprites/Tiles/Platform/StoneBrick.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/StoneBrick.png;Images/Sprites/Tiles/Platform/StoneBrick
+
+#begin Images/Sprites/Tiles/Platform/StonePike.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/StonePike.png;Images/Sprites/Tiles/Platform/StonePike
+
+#begin Images/Sprites/Tiles/Platform/SupportBL.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/SupportBL.png;Images/Sprites/Tiles/Platform/SupportBL
+
+#begin Images/Sprites/Tiles/Platform/SupportBLW.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/SupportBLW.png;Images/Sprites/Tiles/Platform/SupportBLW
+
+#begin Images/Sprites/Tiles/Platform/SupportBR.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/SupportBR.png;Images/Sprites/Tiles/Platform/SupportBR
+
+#begin Images/Sprites/Tiles/Platform/SupportBRW.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/SupportBRW.png;Images/Sprites/Tiles/Platform/SupportBRW
+
+#begin Images/Sprites/Tiles/Platform/SupportTL.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/SupportTL.png;Images/Sprites/Tiles/Platform/SupportTL
+
+#begin Images/Sprites/Tiles/Platform/SupportTR.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/SupportTR.png;Images/Sprites/Tiles/Platform/SupportTR
 
 #begin Images/Sprites/Tiles/Platform/Trunk.png
 /importer:TextureImporter
@@ -1049,5 +1733,41 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Images/Sprites/Tiles/Platform/Trunk.png
+/build:Images/Sprites/Tiles/Platform/Trunk.png;Images/Sprites/Tiles/Platform/Trunk
+
+#begin Images/Sprites/Tiles/Platform/Truss1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/Truss1.png;Images/Sprites/Tiles/Platform/Truss1
+
+#begin Images/Sprites/Tiles/Platform/Truss2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/Truss2.png;Images/Sprites/Tiles/Platform/Truss2
+
+#begin Images/Sprites/Tiles/Platform/Truss3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Platform/Truss3.png;Images/Sprites/Tiles/Platform/Truss3
 

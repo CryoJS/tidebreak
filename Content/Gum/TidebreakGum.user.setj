@@ -2,7 +2,11 @@
   "TreeViewState": {
     "ExpandedNodes": [
       "Screens",
-      "Components"
+      "Screens/EditScreen",
+      "Screens/EditScreen/BarContainer",
+      "Components",
+      "Components/Controls",
+      "Components/Controls/ScrollViewer"
     ]
   }
 }

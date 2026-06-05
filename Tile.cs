@@ -15,12 +15,13 @@ class Tile
     public const bool FLOODED = true;
 
     // Create constants for core functional tiles (NOTE: StartIndex has to be placed after starting tile, so string conversion chooses real tile)
+    public const int FUNC_START = (int)Func.Flood;
+
     public enum Func
     {
         ButtonStart = -2, // Button priority helper value
         Null = -1,
         Flood = 0,
-        StartIndex = Flood,
         Barrier,
         Empty,
         Water,
@@ -33,28 +34,81 @@ class Tile
     }
 
     // Create constants for platform tiles
+    public const int PLAT_START = (int)Plat.Grass;
+    
     public enum Plat
     {
         Grass = 100,
-        StartIndex = Grass,
         Snow,
-        Sand,
+        DryGrass,
         Dirt,
-        Stone,
         Metal,
         Gold,
         Plank,
         Pike,
         Crate,
         Trunk,
+        Stone,
+        SmoothStone,
+        StonePike,
+        StoneBrick,
+        SmallStoneBrick,
+        Sand,
+        SmoothSand,
+        SandPike,
+        SandBrick,
+        SmallSandBrick,
+        Marble,
+        SmoothMarble,
+        MarblePike,
+        MarbleBrick,
+        SmallMarbleBrick,
+        Concrete,
+        Box1,
+        Box2,
+        Beam1,
+        Beam2,
+        Beam3,
+        Conveyor1,
+        Conveyor2,
+        Conveyor3,
+        Panel1,
+        Panel2,
+        Panel3,
+        Panel4,
+        PipeX,
+        PipeX2,
+        PipeY,
+        PipeY2,
+        PipeUp,
+        PipeDown,
+        PipeLeft,
+        PipeRight,
+        PipeTL,
+        PipeTR,
+        PipeBL,
+        PipeBR,
+        SpillPipe1,
+        SpillPipe2,
+        Truss1,
+        Truss2,
+        Truss3,
+        SupportTL,
+        SupportTR,
+        SupportBL,
+        SupportBLW,
+        SupportBR,
+        SupportBRW,
+        Barrel,
         EndIndex
     }
 
     // Create constants for decoration tiles
+    public const int DECOR_START = (int)Decor.Ladder;
+
     public enum Decor
     {
         Ladder = 500,
-        StartIndex = Ladder,
         Leaf,
         AlertSign,
         LeftSign,
@@ -62,14 +116,24 @@ class Tile
         Fern,
         Cactus,
         Tree,
+        Rod,
+        ChainTop,
+        Chain,
+        ChainBottom,
+        Hook,
+        RopeTop,
+        Rope,
+        ChainBottomRope,
+        HookRope,
         EndIndex
     }
 
     // Create constant for color tiles
+    public const int CLR_START = (int)Clr.Black;
+
     public enum Clr
     {
         Black = 900,
-        StartIndex = Black,
         Grey,
         White,
         Red,
@@ -107,32 +171,32 @@ class Tile
 
     public static bool CanCollide(int type)
     {
-        return (type >= (int)Func.StartIndex && type < (int)Func.EndIndex)
+        return (type >= PLAT_START && type < (int)Plat.EndIndex)
             || type == (int)Func.WallJump;
     }
 
     public static void LoadTextures(ContentManager content)
     {
         // Load all functional tiles
-        for (Func type = Func.StartIndex; type < Func.EndIndex; type++)
+        for (Func type = (Func)FUNC_START; type < Func.EndIndex; type++)
         {
             textures[(int)type] = content.Load<Texture2D>($"Images/Sprites/Tiles/Functional/{type}");
         }
 
         // Load all platform tiles
-        for (Plat type = Plat.StartIndex; type < Plat.EndIndex; type++)
+        for (Plat type = (Plat)PLAT_START; type < Plat.EndIndex; type++)
         {
             textures[(int)type] = content.Load<Texture2D>($"Images/Sprites/Tiles/Platform/{type}");
         }
 
         // Load all decoration tiles
-        for (Decor type = Decor.StartIndex; type < Decor.EndIndex; type++)
+        for (Decor type = (Decor)DECOR_START; type < Decor.EndIndex; type++)
         {
             textures[(int)type] = content.Load<Texture2D>($"Images/Sprites/Tiles/Decoration/{type}");
         }
 
         // Load all color tiles
-        for (Clr type = Clr.StartIndex; type < Clr.EndIndex; type++)
+        for (Clr type = (Clr)CLR_START; type < Clr.EndIndex; type++)
         {
             textures[(int)type] = content.Load<Texture2D>($"Images/Sprites/Tiles/Color/{type}");
         }

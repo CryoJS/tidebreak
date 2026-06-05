@@ -73,7 +73,9 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public ContainerRuntime ClipContainer { get; protected set; }
     public NineSliceRuntime FocusedIndicator { get; protected set; }
 
+#pragma warning disable CS0114 // Member hides inherited member; missing override keyword
     public string Placeholder
+#pragma warning restore CS0114 // Member hides inherited member; missing override keyword
     {
         get => PlaceholderTextInstance.Text;
         set => PlaceholderTextInstance.Text = value;

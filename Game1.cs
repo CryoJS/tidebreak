@@ -14,6 +14,7 @@ using Tidebreak.Screens;
 using MonoGameGum.GueDeriving;
 using MonoGameAndGum.Renderables;
 using Gum.Forms.Controls;
+using Gum.Wireframe;
 
 namespace Tidebreak;
 
@@ -38,12 +39,15 @@ public class Game1 : Game
     public const int RIGHT_DIRECTION = 1;
 
     // Create game display constants
-    public const int TILE_SPAN_X = 14;     // Tiles spanning horizontally
-    public const int TILE_SPAN_Y = 8;      // Tiles spanning vertically
-    public const int TILE_SIZE = 16;       // Pixel size of each tile (before scaling)
+    public const int TILE_SPAN_X = 14;                  // Tiles spanning horizontally
+    public const int TILE_SPAN_Y = 8;                   // Tiles spanning vertically
+    public const int TILE_SIZE = 16;                    // Pixel size of each tile (before scaling)
 
-    public const int PIXEL_SCALE = 8;      // This scale value gets closest to full HD 1920x1080
-    public const int TARGET_FPS = 240;     // Target high frame rate, important for platformer games
+    int GAME_W = TILE_SPAN_X * TILE_SIZE * PIXEL_SCALE; // Game width (pixels)
+    int GAME_H = TILE_SPAN_Y * TILE_SIZE * PIXEL_SCALE; // Game height (pixels)
+
+    public const int PIXEL_SCALE = 8;                   // This scale value gets closest to full HD 1920x1080
+    public const int TARGET_FPS = 240;                  // Target high frame rate, important for platformer games
 
     // Create string limit constants
     public const int MAX_LENGTH_LONG = 80;
@@ -71,6 +75,12 @@ public class Game1 : Game
     // Add variables for game display scaling
     public static RenderTarget2D gameRenderTarget;
     public static Rectangle gameDestRect;
+    private float scale;
+
+    private int screenW;
+    private int screenH;
+    private int drawW;
+    private int drawH;
 
     // Store cursor textures
     Texture2D cursorImg;
@@ -130,8 +140,7 @@ public class Game1 : Game
         ShapeRenderer.Self.Initialize();
 
         // Initialize the starting screen
-        TitleScreen startingScreen = new TitleScreen();
-        startingScreen.AddToRoot();
+        new TitleScreen().AddToRoot();
 
         base.Initialize();
     }
@@ -156,10 +165,9 @@ public class Game1 : Game
 
         // Load settings and render target using screen dimensions
         Settings.Load();
+
         // Create render target at the game's native resolution (not the window size)
-        int gameW = TILE_SPAN_X * TILE_SIZE * PIXEL_SCALE;
-        int gameH = TILE_SPAN_Y * TILE_SIZE * PIXEL_SCALE;
-        gameRenderTarget = new RenderTarget2D(GraphicsDevice, gameW, gameH);
+        gameRenderTarget = new RenderTarget2D(GraphicsDevice, GAME_W, GAME_H);
 
         // Play menu music
         SoundManager.PlayLobbyMusic();
@@ -197,6 +205,7 @@ public class Game1 : Game
 
             case EDIT_MAP:
                 mapEditor.Update(gameTime, kb, prevKb, mouse, prevMouse);
+                editScreen?.Update(mouse, prevMouse);
                 break;
 
             case EXIT:
@@ -210,7 +219,7 @@ public class Game1 : Game
 
     protected override void Draw(GameTime gameTime)
     {
-        // Set the proper render target
+        // Set the proper render target and clear
         GraphicsDevice.SetRenderTarget(gameRenderTarget);
         GraphicsDevice.Clear(Color.Black);
 
@@ -244,33 +253,35 @@ public class Game1 : Game
         GraphicsDevice.SetRenderTarget(null);
         GraphicsDevice.Clear(Color.Black);
 
-        int gameW = TILE_SPAN_X * TILE_SIZE * PIXEL_SCALE;
-        int gameH = TILE_SPAN_Y * TILE_SIZE * PIXEL_SCALE;
+        // Store current screen dimensions
+        screenW = GraphicsDevice.PresentationParameters.BackBufferWidth;
+        screenH = GraphicsDevice.PresentationParameters.BackBufferHeight;
 
-        int screenW = GraphicsDevice.PresentationParameters.BackBufferWidth;
-        int screenH = GraphicsDevice.PresentationParameters.BackBufferHeight;
-        float scale = Math.Min((float)screenW / gameW, (float)screenH / gameH); // FIXME review this crazy ah full screen scaling code
-        int drawW = (int)(gameW * scale);
-        int drawH = (int)(gameH * scale);
+        // Calculate scaling (fit until no more space), then scale screen
+        scale = Math.Min((float)screenW / GAME_W, (float)screenH / GAME_H);
+
+        drawW = (int)(GAME_W * scale);
+        drawH = (int)(GAME_H * scale);
+
+        // Use new drawing sizes to update game's draw rec
         gameDestRect = new Rectangle((screenW - drawW) / 2, (screenH - drawH) / 2, drawW, drawH);
 
+        // Draw the game w/ the scaled up rec
         _spriteBatch.Begin(samplerState: SamplerState.PointClamp);
         _spriteBatch.Draw(gameRenderTarget, gameDestRect, Color.White);
         _spriteBatch.End();
 
         // Update Gum's render UI, scaled to match game
-        float uiScale = (float)gameDestRect.Width / ScreenWidth;
-        GumService.Default.Renderer.Camera.Zoom = uiScale;
+        GumService.Default.Renderer.Camera.Zoom = scale;
         GumService.Default.CanvasWidth = ScreenWidth;
         GumService.Default.CanvasHeight = ScreenHeight;
 
         // Offset Gum's camera to account for black bars
-        GumService.Default.Renderer.Camera.X = -gameDestRect.X / uiScale;
-        GumService.Default.Renderer.Camera.Y = -gameDestRect.Y / uiScale;
+        GumService.Default.Renderer.Camera.X = -gameDestRect.X / scale;
+        GumService.Default.Renderer.Camera.Y = -gameDestRect.Y / scale;
 
         // Draw the UI made with the GUM library
         GumUI.Draw();
-        GraphicsDevice.SetRenderTarget(null);
 
         // Draw the cursor over everything
         _spriteBatch.Begin();

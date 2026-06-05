@@ -52,7 +52,6 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public ButtonStandardMini ColorsBtn { get; protected set; }
     public ButtonStandardMini UnselectBtn { get; protected set; }
     public NineSliceRuntime FrameTopBG { get; protected set; }
-    public ContainerRuntime ContainerInstance { get; protected set; }
     public ScrollViewer TileList { get; protected set; }
     public NineSliceRuntime BarContainer { get; protected set; }
     public Icon IconInstance2 { get; protected set; }
@@ -86,7 +85,6 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         ColorsBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandardMini>(this.Visual,"ColorsBtn");
         UnselectBtn = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ButtonStandardMini>(this.Visual,"UnselectBtn");
         FrameTopBG = this.Visual?.GetGraphicalUiElementByName("FrameTopBG") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
-        ContainerInstance = this.Visual?.GetGraphicalUiElementByName("ContainerInstance") as global::MonoGameGum.GueDeriving.ContainerRuntime;
         TileList = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<ScrollViewer>(this.Visual,"TileList");
         BarContainer = this.Visual?.GetGraphicalUiElementByName("BarContainer") as global::MonoGameGum.GueDeriving.NineSliceRuntime;
         IconInstance2 = global::Gum.Forms.GraphicalUiElementFormsExtensions.TryGetFrameworkElementByName<Icon>(this.Visual,"IconInstance2");

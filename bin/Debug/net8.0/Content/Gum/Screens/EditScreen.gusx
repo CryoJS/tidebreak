@@ -118,45 +118,6 @@
     <Variable Type="float" Name="ColorsBtn.Y" SetsValue="true">
       <Value xsi:type="xsd:float">9</Value>
     </Variable>
-    <Variable Type="bool" Name="ContainerInstance.ExposeChildrenEvents" SetsValue="true">
-      <Value xsi:type="xsd:boolean">true</Value>
-    </Variable>
-    <Variable Type="bool" Name="ContainerInstance.HasEvents" SetsValue="true">
-      <Value xsi:type="xsd:boolean">false</Value>
-    </Variable>
-    <Variable Type="float" Name="ContainerInstance.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">-140</Value>
-    </Variable>
-    <Variable Type="DimensionUnitType" Name="ContainerInstance.HeightUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">2</Value>
-    </Variable>
-    <Variable Type="string" Name="ContainerInstance.Parent" SetsValue="true">
-      <Value xsi:type="xsd:string">BarContainer</Value>
-    </Variable>
-    <Variable Type="float" Name="ContainerInstance.Width" SetsValue="true">
-      <Value xsi:type="xsd:float">-80</Value>
-    </Variable>
-    <Variable Type="DimensionUnitType" Name="ContainerInstance.WidthUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">2</Value>
-    </Variable>
-    <Variable Type="float" Name="ContainerInstance.X" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
-    </Variable>
-    <Variable Type="HorizontalAlignment" Name="ContainerInstance.XOrigin" SetsValue="true">
-      <Value xsi:type="xsd:int">1</Value>
-    </Variable>
-    <Variable Type="PositionUnitType" Name="ContainerInstance.XUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">6</Value>
-    </Variable>
-    <Variable Type="float" Name="ContainerInstance.Y" SetsValue="true">
-      <Value xsi:type="xsd:float">-40</Value>
-    </Variable>
-    <Variable Type="VerticalAlignment" Name="ContainerInstance.YOrigin" SetsValue="true">
-      <Value xsi:type="xsd:int">2</Value>
-    </Variable>
-    <Variable Type="PositionUnitType" Name="ContainerInstance.YUnits" SetsValue="true">
-      <Value xsi:type="xsd:int">5</Value>
-    </Variable>
     <Variable Type="float" Name="DecorativeBtn.Height" SetsValue="true">
       <Value xsi:type="xsd:float">-6</Value>
     </Variable>
@@ -452,14 +413,26 @@
     <Variable Type="PositionUnitType" Name="SaveBtn.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">1</Value>
     </Variable>
+    <Variable Type="bool" Name="TileList.BackgroundVisible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
     <Variable Type="bool" Name="TileList.ClipsChildren" SetsValue="true">
       <Value xsi:type="xsd:boolean">true</Value>
     </Variable>
+    <Variable Type="bool" Name="TileList.HasEvents" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
     <Variable Type="float" Name="TileList.Height" SetsValue="true">
-      <Value xsi:type="xsd:float">-70</Value>
+      <Value xsi:type="xsd:float">-67</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="TileList.HeightUnits" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
+    </Variable>
+    <Variable Type="bool" Name="TileList.IgnoredByParentSize" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
+    <Variable Type="bool" Name="TileList.IsRenderTarget" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
     </Variable>
     <Variable Type="string" Name="TileList.Parent" SetsValue="true">
       <Value xsi:type="xsd:string">BarContainer</Value>
@@ -470,8 +443,11 @@
     <Variable Type="ScrollViewerCategory" Name="TileList.ScrollViewerCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Enabled</Value>
     </Variable>
+    <Variable Type="bool" Name="TileList.Visible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
     <Variable Type="float" Name="TileList.Width" SetsValue="true">
-      <Value xsi:type="xsd:float">0</Value>
+      <Value xsi:type="xsd:float">-19</Value>
     </Variable>
     <Variable Type="DimensionUnitType" Name="TileList.WidthUnits" SetsValue="true">
       <Value xsi:type="xsd:int">2</Value>
@@ -617,7 +593,6 @@
   <Instance Name="ColorsBtn" BaseType="Controls/ButtonStandardMini" />
   <Instance Name="UnselectBtn" BaseType="Controls/ButtonStandardMini" />
   <Instance Name="FrameTopBG" BaseType="NineSlice" />
-  <Instance Name="ContainerInstance" BaseType="Container" />
   <Instance Name="TileList" BaseType="Controls/ScrollViewer" />
   <Instance Name="BarContainer" BaseType="NineSlice" />
   <Instance Name="IconInstance2" BaseType="Elements/Icon" />

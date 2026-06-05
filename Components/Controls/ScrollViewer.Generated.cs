@@ -103,10 +103,10 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
     public ContainerRuntime InnerPanelInstance { get; protected set; }
     public NineSliceRuntime FocusedIndicator { get; protected set; }
 
-    public int BackgroundRed
+    public int BackgroundBlue
     {
-        get => Background.Red;
-        set => Background.Red = value;
+        get => Background.Blue;
+        set => Background.Blue = value;
     }
 
     public int BackgroundGreen
@@ -115,10 +115,16 @@ if(element == null) throw new System.InvalidOperationException("Could not find a
         set => Background.Green = value;
     }
 
-    public int BackgroundBlue
+    public int BackgroundRed
     {
-        get => Background.Blue;
-        set => Background.Blue = value;
+        get => Background.Red;
+        set => Background.Red = value;
+    }
+
+    public bool BackgroundVisible
+    {
+        get => Background.Visible;
+        set => Background.Visible = value;
     }
 
     public ScrollViewer(InteractiveGue visual) : base(visual)

@@ -32,6 +32,7 @@
     <Variable Type="TextureAddress" Name="Background.TextureAddress" SetsValue="true">
       <Value xsi:type="xsd:int">0</Value>
     </Variable>
+    <Variable Type="bool" Name="Background.Visible" ExposedAsName="BackgroundVisible" SetsValue="false" />
     <Variable Type="float" Name="Background.Width" SetsValue="true">
       <Value xsi:type="xsd:float">0</Value>
     </Variable>
@@ -115,10 +116,16 @@
     <Variable Type="PositionUnitType" Name="FocusedIndicator.YUnits" SetsValue="true">
       <Value xsi:type="xsd:int">5</Value>
     </Variable>
+    <Variable Type="bool" Name="HorizontalScrollBarInstance.IsRenderTarget" SetsValue="true">
+      <Value xsi:type="xsd:boolean">false</Value>
+    </Variable>
     <Variable Type="OrientationCategory" Name="HorizontalScrollBarInstance.OrientationCategoryState" SetsValue="true">
       <Value xsi:type="xsd:string">Horizontal</Value>
     </Variable>
     <Variable Type="string" Name="HorizontalScrollBarInstance.Parent" SetsValue="true" />
+    <Variable Type="bool" Name="HorizontalScrollBarInstance.Visible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
     <Variable Type="float" Name="HorizontalScrollBarInstance.Width" SetsValue="true">
       <Value xsi:type="xsd:float">-24</Value>
     </Variable>
@@ -168,6 +175,9 @@
       <Value xsi:type="xsd:float">-24</Value>
     </Variable>
     <Variable Type="string" Name="VerticalScrollBarInstance.Parent" SetsValue="true" />
+    <Variable Type="bool" Name="VerticalScrollBarInstance.Visible" SetsValue="true">
+      <Value xsi:type="xsd:boolean">true</Value>
+    </Variable>
     <Variable Type="float" Name="VerticalScrollBarInstance.X" SetsValue="true">
       <Value xsi:type="xsd:float">-0</Value>
     </Variable>

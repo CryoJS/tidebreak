@@ -33,8 +33,8 @@ class Camera
         return camera.GetZoom();
     }
 
-    // REVIEW can i use arrow func, also do i need to document stuff like this?
     public Vector2 WorldToScreen(Vector2 pos) => camera.WorldToScreen(pos);
+
     public Vector2 ScreenToWorld(Vector2 pos) => camera.ScreenToWorld(pos);
 
     public void SetPos(Vector2 newPos)

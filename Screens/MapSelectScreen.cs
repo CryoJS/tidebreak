@@ -1,3 +1,10 @@
+// Author:          Jason Sun
+// File Name:       MapSelectScreen.cs
+// Project Name:    Tidebreak
+// Creation Date:   May 10, 2026
+// Modified Date:   June 7, 2026
+// Description:     GUI screen for displaying all saved maps to play/edit
+
 using MonoGameGum;
 using Tidebreak.Components;
 
@@ -8,7 +15,10 @@ namespace Tidebreak.Screens
         // Store default scroll speed
         private const int DEFAULT_SCROLL_SPEED = 50;
 
-        partial void CustomInitialize() // REVIEW do i need to add documentation for custum initialize functions that are used for ui screens (and other functions i make in here)
+        /// <summary>
+        /// Sets up screen on creation
+        /// </summary>
+        partial void CustomInitialize()
         {
             // Play lobby music
             SoundManager.PlayLobbyMusic();

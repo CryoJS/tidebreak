@@ -14,7 +14,6 @@ using Tidebreak.Screens;
 using MonoGameGum.GueDeriving;
 using MonoGameAndGum.Renderables;
 using Gum.Forms.Controls;
-using Gum.Wireframe;
 
 namespace Tidebreak;
 
@@ -43,8 +42,8 @@ public class Game1 : Game
     public const int TILE_SPAN_Y = 8;                   // Tiles spanning vertically
     public const int TILE_SIZE = 16;                    // Pixel size of each tile (before scaling)
 
-    int GAME_W = TILE_SPAN_X * TILE_SIZE * PIXEL_SCALE; // Game width (pixels)
-    int GAME_H = TILE_SPAN_Y * TILE_SIZE * PIXEL_SCALE; // Game height (pixels)
+    public const int GAME_W = TILE_SPAN_X * TILE_SIZE * PIXEL_SCALE; // Game width (pixels)
+    public const int GAME_H = TILE_SPAN_Y * TILE_SIZE * PIXEL_SCALE; // Game height (pixels)
 
     public const int PIXEL_SCALE = 8;                   // This scale value gets closest to full HD 1920x1080
     public const int TARGET_FPS = 240;                  // Target high frame rate, important for platformer games

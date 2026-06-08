@@ -484,7 +484,7 @@ class Player
                 }
             }
             else if (waterTile.X >= 0 && waterTile.X < map.SizeX && waterTile.Y >= 0 && waterTile.Y < map.SizeY
-                && (Tile.GetType(map.Tiles[waterTile.X, waterTile.Y].Type) == (int)Tile.Func.Water || map.FloodTiles[waterTile.X, waterTile.Y] == Tile.FLOODED))
+                && (Tile.IsSwimmable(map.Tiles[waterTile.X, waterTile.Y].Type) || map.FloodTiles[waterTile.X, waterTile.Y] != Tile.NOT_FLOODED))
             {
                 // Player is in water
                 inWater = true;

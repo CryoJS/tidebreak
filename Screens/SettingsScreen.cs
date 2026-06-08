@@ -1,3 +1,10 @@
+// Author:          Jason Sun
+// File Name:       SettingsScreen.cs
+// Project Name:    Tidebreak
+// Creation Date:   June 2, 2026
+// Modified Date:   June 7, 2026
+// Description:     GUI screen for editing player settings
+
 using Gum.Forms.Controls;
 using MonoGameGum;
 using System;
@@ -6,6 +13,9 @@ namespace Tidebreak.Screens
 {
     partial class SettingsScreen
     {
+        /// <summary>
+        /// Sets up screen on creation
+        /// </summary>
         partial void CustomInitialize()
         {
             // Disable save btn

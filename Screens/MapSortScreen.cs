@@ -1,5 +1,10 @@
-using System;
-using System.ComponentModel;
+// Author:          Jason Sun
+// File Name:       MapSortScreen.cs
+// Project Name:    Tidebreak
+// Creation Date:   May 30, 2026
+// Modified Date:   June 7, 2026
+// Description:     GUI screen for the game's popup menu for sorting maps in the map selection screen
+
 using System.Linq;
 using Gum.Forms.Controls;
 using MonoGameGum;
@@ -17,6 +22,9 @@ namespace Tidebreak.Screens
             "Best Time"
         ];
 
+        /// <summary>
+        /// Sets up screen on creation
+        /// </summary>
         partial void CustomInitialize()
         {
             // Set item type and add sorting options

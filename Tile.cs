@@ -7,12 +7,14 @@ using Tidebreak;
 
 class Tile
 {
+    // Store some draw padding amount
+    private const int DRAW_PAD = 2;
+
     // Create constant for zipline tile type
     public const int ZIPLINE = 1000; // Zipline start and end tiles are from here and onwards in pairs
 
     // Create constants for if tile is floodable or not
-    public const bool NOT_FLOODED = false;
-    public const bool FLOODED = true;
+    public const int NOT_FLOODED = -1;
 
     // Create constants for core functional tiles (NOTE: StartIndex has to be placed after starting tile, so string conversion chooses real tile)
     public const int FUNC_START = (int)Func.Flood;
@@ -30,6 +32,12 @@ class Tile
         Button,
         PressedButton,
         WallJump,
+        Acid,
+        FloodAcid,
+        Lava,
+        FloodLava,
+        Quicksand,
+        FloodQuicksand,
         EndIndex,
     }
 
@@ -169,10 +177,54 @@ class Tile
         Rec = new Rectangle(posX * Game1.TILE_SIZE * Game1.PIXEL_SCALE, posY * Game1.TILE_SIZE * Game1.PIXEL_SCALE, Game1.TILE_SIZE * Game1.PIXEL_SCALE, Game1.TILE_SIZE * Game1.PIXEL_SCALE);
     }
 
+    public Tile Copy()
+    {
+        return new Tile(Pos.X, Pos.Y, Type);
+    }
+
     public static bool CanCollide(int type)
     {
         return (type >= PLAT_START && type < (int)Plat.EndIndex)
             || type == (int)Func.WallJump;
+    }
+
+    public static bool IsFlood(int type)
+    {
+        return type is (int)Func.Flood or (int)Func.FloodAcid or (int)Func.FloodLava or (int)Func.FloodQuicksand;
+    }
+
+    public static bool IsSwimmable(int type)
+    {
+        return type is (int)Func.Water or (int)Func.Acid or (int)Func.Lava or (int)Func.Quicksand;
+    }
+
+    public static int GetType(int type, bool isEditing = false)
+    {
+        // Perform button logic if button or flood
+        if (type <= (int)Func.ButtonStart)
+        {
+            if (isEditing || Game1.player == null) return (int)Func.Button;
+            return (Game1.player.Buttons.Find(new Button(0, 0, Button.TypeToPriority(type))) != null) ? (int)Func.Button : (int)Func.PressedButton;
+        }
+        else if (type >= ZIPLINE)
+        {
+            return ZIPLINE;
+        }
+        else if (!isEditing)
+        {
+            if (type == (int)Func.Flood) return (int)Func.Water;
+            if (type == (int)Func.FloodAcid) return (int)Func.Acid;
+            if (type == (int)Func.FloodLava) return (int)Func.Lava;
+            if (type == (int)Func.FloodQuicksand) return (int)Func.Quicksand;
+        }
+
+        return type;
+    }
+
+    public static Texture2D GetTexture(int type)
+    {
+        if (type == ZIPLINE) return ziplineImg;
+        return textures[type];
     }
 
     public static void LoadTextures(ContentManager content)
@@ -206,29 +258,10 @@ class Tile
         ziplineImg = content.Load<Texture2D>("Images/Sprites/Tiles/Editor/ZiplineTile");
     }
 
-    public static int GetType(int type, bool isEditing = false)
+    public static void LoadEditorOnlyTiles(ContentManager content)
     {
-        // Perform button logic if button or flood
-        if (type <= (int)Func.ButtonStart)
-        {
-            if (isEditing || Game1.player == null) return (int)Func.Button;
-            return (Game1.player.Buttons.Find(new Button(0, 0, Button.TypeToPriority(type))) != null) ? (int)Func.Button : (int)Func.PressedButton;
-        }
-        else if (type >= ZIPLINE)
-        {
-            return ZIPLINE;
-        }
-        else if (!isEditing && type == (int)Func.Flood)
-        {
-            return (int)Func.Water;
-        }
-
-        return type;
-    }
-
-    public Tile Copy()
-    {
-        return new Tile(Pos.X, Pos.Y, Type);
+        SelectImg = content.Load<Texture2D>("Images/Sprites/EditorTiles/SelectTile");
+        ziplineImg = content.Load<Texture2D>("Images/Sprites/EditorTiles/ZiplineTile");
     }
 
     public void Draw(SpriteBatch spriteBatch, bool editing = false)
@@ -240,19 +273,28 @@ class Tile
             && (editing || (type != (int)Func.Start && type != (int)Func.End && type != (int)Func.Barrier && type != (int)Func.Flood))
             && (type < ZIPLINE))
         {
+            // Store camera being used to draw
+            Camera cam = editing ? Game1.mapEditor.Camera : Game1.player?.Camera;
+
+            // Only draw if camera exists (to be safe)
+            if (cam != null)
+            {
+                // Store the zoom and center of the camera, and calculate dimensions of view
+                float zoom = cam.GetZoom();
+                Vector2 center = cam.GetPos();
+
+                float viewW = Game1.GAME_W * DRAW_PAD / zoom;
+                float viewH = Game1.GAME_H * DRAW_PAD / zoom;
+
+                // Calculate the rectangle that the player can see
+                Rectangle viewRect = new Rectangle((int)Math.Floor(center.X - viewW / 2), (int)Math.Floor(center.Y - viewH / 2), (int)Math.Ceiling(viewW), (int)Math.Ceiling(viewH));
+
+                // If the tile is outside of the viewer's sight, don't draw
+                if (!viewRect.Intersects(Rec)) return;
+            }
+
+            // Draw tile
             spriteBatch.Draw(GetTexture(type), Rec, Color.White);
         }
-    }
-
-    public static void LoadEditorOnlyTiles(ContentManager content)
-    {
-        SelectImg = content.Load<Texture2D>("Images/Sprites/EditorTiles/SelectTile");
-        ziplineImg = content.Load<Texture2D>("Images/Sprites/EditorTiles/ZiplineTile");
-    }
-
-    public static Texture2D GetTexture(int type)
-    {
-        if (type == ZIPLINE) return ziplineImg;
-        return textures[type];
     }
 }

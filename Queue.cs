@@ -2,7 +2,7 @@ using System;
 
 class Queue<Value>
 {
-    // Store data about the collection // REVIEW can i implement queue but with integrated linked list and therefore renamed head tail to front back?
+    // Store data about the collection
     private QueueNode<Value> front = null;
     private QueueNode<Value> back = null;
     public int Count { get; private set; }

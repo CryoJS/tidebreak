@@ -919,6 +919,18 @@
 /processorParam:TextureFormat=Color
 /build:Images/Sprites/Tiles/Editor/ZiplineTile.png
 
+#begin Images/Sprites/Tiles/Functional/Acid.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Functional/Acid.png;Images/Sprites/Tiles/Functional/Acid
+
 #begin Images/Sprites/Tiles/Functional/Barrier.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -979,6 +991,54 @@
 /processorParam:TextureFormat=Color
 /build:Images/Sprites/Tiles/Functional/Flood.png
 
+#begin Images/Sprites/Tiles/Functional/FloodAcid.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Functional/FloodAcid.png;Images/Sprites/Tiles/Functional/FloodAcid
+
+#begin Images/Sprites/Tiles/Functional/FloodLava.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Functional/FloodLava.png;Images/Sprites/Tiles/Functional/FloodLava
+
+#begin Images/Sprites/Tiles/Functional/FloodQuicksand.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Functional/FloodQuicksand.png;Images/Sprites/Tiles/Functional/FloodQuicksand
+
+#begin Images/Sprites/Tiles/Functional/Lava.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Functional/Lava.png;Images/Sprites/Tiles/Functional/Lava
+
 #begin Images/Sprites/Tiles/Functional/PressedButton.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -990,6 +1050,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Images/Sprites/Tiles/Functional/PressedButton.png
+
+#begin Images/Sprites/Tiles/Functional/Quicksand.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Images/Sprites/Tiles/Functional/Quicksand.png;Images/Sprites/Tiles/Functional/Quicksand
 
 #begin Images/Sprites/Tiles/Functional/Start.png
 /importer:TextureImporter

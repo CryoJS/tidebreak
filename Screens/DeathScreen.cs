@@ -1,3 +1,10 @@
+// Author:          Jason Sun
+// File Name:       DeathScreen.cs
+// Project Name:    Tidebreak
+// Creation Date:   May 12, 2026
+// Modified Date:   June 7, 2026
+// Description:     The GUI screen popup when the player dies
+
 using MonoGameGum;
 
 namespace Tidebreak.Screens
@@ -38,6 +45,9 @@ namespace Tidebreak.Screens
             "You must've tried to inhale water. It's not good for u BTW."
         };
 
+        /// <summary>
+        /// Sets up screen on creation
+        /// </summary>
         partial void CustomInitialize()
         {
             // Set a random death message

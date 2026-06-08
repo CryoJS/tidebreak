@@ -1,11 +1,20 @@
+// Author:          Jason Sun
+// File Name:       EditButtonScreen.cs
+// Project Name:    Tidebreak
+// Creation Date:   May 27, 2026
+// Modified Date:   June 7, 2026
+// Description:     GUI screen for the popup when user edits a button's priority in the map editor
+
 using System;
 using Gum.Forms.Controls;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Tidebreak.Screens
 {
     partial class EditButtonScreen
     {
+        /// <summary>
+        /// Sets up screen on creation
+        /// </summary>
         partial void CustomInitialize()
         {
             // Store priority input
@@ -53,7 +62,9 @@ namespace Tidebreak.Screens
             };
         }
 
-        // NOTE: Remove popup and let editor know can resume editing
+        /// <summary>
+        /// Closes popup: Remove the UI and lets the editor know that the user can resume editing
+        /// </summary>
         private void Close()
         {
             this.RemoveFromRoot();

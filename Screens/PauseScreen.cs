@@ -1,3 +1,10 @@
+// Author:          Jason Sun
+// File Name:       PauseScreen.cs
+// Project Name:    Tidebreak
+// Creation Date:   May 11, 2026
+// Modified Date:   June 7, 2026
+// Description:     GUI screen for the pause menu when playing a map
+
 using Gum.Forms.Controls;
 using Microsoft.Xna.Framework.Input;
 using MonoGameGum;
@@ -6,6 +13,9 @@ namespace Tidebreak.Screens
 {
     partial class PauseScreen
     {
+        /// <summary>
+        /// Sets up screen on creation
+        /// </summary>
         partial void CustomInitialize()
         {
             // Clicking continue
@@ -50,6 +60,11 @@ namespace Tidebreak.Screens
             };
         }
 
+        /// <summary>
+        /// Checks for user input if the player wants to restart or unpause
+        /// </summary>
+        /// <param name="kb">Keyboard state this frame</param>
+        /// <param name="prevKb">keyboard state one frame ago</param>
         public void Update(KeyboardState kb, KeyboardState prevKb)
         {
             // If the user presses escape to unpause, unpause the game (can't be dead)

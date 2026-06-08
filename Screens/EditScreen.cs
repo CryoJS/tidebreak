@@ -1,5 +1,13 @@
+// Author:          Jason Sun
+// File Name:       EditScreen.cs
+// Project Name:    Tidebreak
+// Creation Date:   June 5, 2026
+// Modified Date:   June 7, 2026
+// Description:     GUI screen for the game's map editor
+
 using System;
 using Gum.Forms.Controls;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using MonoGameGum;
 using MonoGameGum.ExtensionMethods;
@@ -24,6 +32,9 @@ namespace Tidebreak.Screens
         public static TileUI[] Bar { get; private set; } = null;
         private static int selectedTileUI = (int)Tile.Func.Null;
 
+        /// <summary>
+        /// Sets up screen on creation
+        /// </summary>
         partial void CustomInitialize()
         {
             // Configure tile viewer
@@ -190,12 +201,29 @@ namespace Tidebreak.Screens
             };
         }
 
+        /// <summary>
+        /// Updates the edit screen every frame
+        /// </summary>
+        /// <param name="mouse">Mouse state this frame</param>
+        /// <param name="prevMouse">Mouse state one frame ago</param>
         public void Update(MouseState mouse, MouseState prevMouse)
         {
-            // Update scroll value by scroll amount
-            TileList.HorizontalScrollBarValue -= (mouse.ScrollWheelValue - prevMouse.ScrollWheelValue) * DEFAULT_SCROLL_SPEED;
+            // Store actual mouse position
+            Vector2 pos = Game1.GameMousePos(mouse);
+
+            // Update scroll value by scroll amount, only if mouse is inside
+            if (Game1.editScreen.BarContainer.IsPointInside(pos.X, pos.Y))
+            {
+                TileList.HorizontalScrollBarValue -= (mouse.ScrollWheelValue - prevMouse.ScrollWheelValue) * DEFAULT_SCROLL_SPEED;
+            }
         }
 
+        /// <summary>
+        /// Creates a tile UI for the map editor tile selection hotbar
+        /// </summary>
+        /// <param name="tileType">The type of tile</param>
+        /// <param name="tiles">The hotbar the tile is being put into</param>
+        /// <returns>The tile UI for the hotbar</returns>
         private TileUI CreateTileUI(int tileType, TileUI[] tiles)
         {
             // Create new tile
@@ -236,6 +264,10 @@ namespace Tidebreak.Screens
             return tile;
         }
 
+        /// <summary>
+        /// Loads the hotbar with the correct tiles (for when the user clicks to change hotbar categories)
+        /// </summary>
+        /// <param name="tiles">The hotbar of tiles</param>
         private void LoadTileBar(TileUI[] tiles)
         {
             // Remove all children

@@ -1,10 +1,19 @@
-using Gum.Forms.Controls;
+// Author:          Jason Sun
+// File Name:       TitleScreen.cs
+// Project Name:    Tidebreak
+// Creation Date:   May 10, 2026
+// Modified Date:   June 7, 2026
+// Description:     GUI screen for the game's title screen
+
 using MonoGameGum;
 
 namespace Tidebreak.Screens
 {
     partial class TitleScreen
     {
+        /// <summary>
+        /// Sets up screen on creation
+        /// </summary>
         partial void CustomInitialize()
         {
             // Send player to level selection

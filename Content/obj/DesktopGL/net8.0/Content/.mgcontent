@@ -106,12 +106,18 @@
     <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Decoration/Tree.png</File>
     <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Editor/SelectTile.png</File>
     <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Editor/ZiplineTile.png</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/Acid.png</File>
     <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/Barrier.png</File>
     <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/Button.png</File>
     <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/Empty.png</File>
     <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/End.png</File>
     <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/Flood.png</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/FloodAcid.png</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/FloodLava.png</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/FloodQuicksand.png</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/Lava.png</File>
     <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/PressedButton.png</File>
+    <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/Quicksand.png</File>
     <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/Start.png</File>
     <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/WallJump.png</File>
     <File>c:/Users/Vast/Desktop/Projects/ISC-grade-12/Assignments/FinalProject/Tidebreak/Content/Images/Sprites/Tiles/Functional/Water.png</File>
@@ -281,12 +287,18 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
+    <File>Images/Sprites/Tiles/Functional/Acid</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
+    <File>Images/Sprites/Tiles/Functional/FloodAcid</File>
+    <File>Images/Sprites/Tiles/Functional/FloodLava</File>
+    <File>Images/Sprites/Tiles/Functional/FloodQuicksand</File>
+    <File>Images/Sprites/Tiles/Functional/Lava</File>
     <File xsi:nil="true" />
+    <File>Images/Sprites/Tiles/Functional/Quicksand</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

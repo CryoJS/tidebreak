@@ -1,3 +1,10 @@
+// Author:          Jason Sun
+// File Name:       PlayScreen.cs
+// Project Name:    Tidebreak
+// Creation Date:   May 10, 2026
+// Modified Date:   June 7, 2026
+// Description:     GUI screen (HUD) when playing a map
+
 using System;
 using Microsoft.Xna.Framework.Input;
 using MonoGameGum;
@@ -6,6 +13,9 @@ namespace Tidebreak.Screens
 {
     partial class PlayScreen
     {
+        /// <summary>
+        /// Sets up screen on creation
+        /// </summary>
         partial void CustomInitialize()
         {
             // Play map load effect
@@ -37,6 +47,11 @@ namespace Tidebreak.Screens
             };
         }
 
+        /// <summary>
+        /// Updates HUD display with latest player and map data
+        /// </summary>
+        /// <param name="kb">Keyboard state this frame</param>
+        /// <param name="prevKb">keyboard state one frame ago</param>
         public void Update(KeyboardState kb, KeyboardState prevKb)
         {
             // Update current map time
@@ -52,6 +67,9 @@ namespace Tidebreak.Screens
             if (kb.IsKeyDown(Keys.Escape) && !prevKb.IsKeyDown(Keys.Escape) && !Game1.player.IsDead) TriggerPause();
         }
 
+        /// <summary>
+        /// Opens the pause screen and pauses the game
+        /// </summary>
         private void TriggerPause()
         {
             // Add pause menu options screen popup

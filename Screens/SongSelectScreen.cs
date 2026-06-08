@@ -1,8 +1,14 @@
+// Author:          Jason Sun
+// File Name:       SongSelectScreen.cs
+// Project Name:    Tidebreak
+// Creation Date:   June 2, 2026
+// Modified Date:   June 7, 2026
+// Description:     GUI screen for the song selection menu (when editing map settings)
+
 using System;
 using Gum.Forms.Controls;
 using Microsoft.Xna.Framework.Media;
 using Tidebreak.Components;
-using Tidebreak.Components.Elements;
 using static Tidebreak.Components.Elements.Icon;
 
 namespace Tidebreak.Screens
@@ -22,6 +28,9 @@ namespace Tidebreak.Screens
         // Store current active song row for
         private SongRow activeSongRow = null;
 
+        /// <summary>
+        /// Sets up screen on creation
+        /// </summary>
         partial void CustomInitialize()
         {
             // Stop playing music if we were (and any sfx)

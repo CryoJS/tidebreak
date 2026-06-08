@@ -1758,3 +1758,9 @@ c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\b
 c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Images\Sprites\Tiles\Platform\Truss2.xnb
 c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Images\Sprites\Tiles\Platform\Truss3.xnb
 c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Images\Sprites\Tiles\Platform\SandBrick.xnb
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Images\Sprites\Tiles\Functional\Acid.xnb
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Images\Sprites\Tiles\Functional\FloodAcid.xnb
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Images\Sprites\Tiles\Functional\FloodLava.xnb
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Images\Sprites\Tiles\Functional\FloodQuicksand.xnb
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Images\Sprites\Tiles\Functional\Lava.xnb
+c:\Users\Vast\Desktop\Projects\ISC-grade-12\Assignments\FinalProject\Tidebreak\bin\Debug\net8.0\Content\Images\Sprites\Tiles\Functional\Quicksand.xnb

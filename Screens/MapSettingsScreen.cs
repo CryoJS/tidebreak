@@ -1,3 +1,10 @@
+// Author:          Jason Sun
+// File Name:       MapSettingsScreen.cs
+// Project Name:    Tidebreak
+// Creation Date:   May 12, 2026
+// Modified Date:   June 7, 2026
+// Description:     GUI screen for editing the settings of a map
+
 using System;
 using Gum.Forms;
 using Gum.Forms.Controls;
@@ -7,8 +14,15 @@ namespace Tidebreak.Screens
 {
     partial class MapSettingsScreen
     {
+        /// <summary>
+        /// Sets up screen on creation
+        /// </summary>
         partial void CustomInitialize()
         {
+            // Ensure all text have max length
+            InputName.MaxLength = Game1.MAX_LENGTH;
+            InputAuthor.MaxLength = Game1.MAX_LENGTH;
+
             // Ensure description has text wrapping and max length
             InputDesc.TextWrapping = TextWrapping.Wrap;
             InputDesc.MaxLength = Game1.MAX_LENGTH_LONG;
@@ -102,6 +116,7 @@ namespace Tidebreak.Screens
                 }
                 catch
                 {
+                    // If failed display error message
                     Console.WriteLine("ERROR - Invalid map settings");
                 }
             };

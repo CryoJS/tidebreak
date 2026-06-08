@@ -84,7 +84,7 @@ class Map
     // Store tiles in the map
     public Tile[,] Tiles { get; set; }
     public Tile[,] BgTiles { get; set; }
-    public bool[,] FloodTiles { get; set; }
+    public int[,] FloodTiles { get; set; }
 
     // Store ziplines in the map
     private int ziplineCnt = 0;
@@ -151,7 +151,7 @@ class Map
         floodTimer = new Timer(1000 / FloodSpeed, true);
 
         // Create new flood tiles
-        FloodTiles = new bool[SizeX, SizeY];
+        FloodTiles = new int[SizeX, SizeY];
 
         // Reset all water tiles to unflooded, also add flood start tiles into queue
         for (int x = 0; x < SizeX; x++)
@@ -165,9 +165,9 @@ class Map
                 }
 
                 // Reset flood, and if the tile is a flood start tile, put it into the queue
-                if (Tiles[x, y].Type == (int)Tile.Func.Flood)
+                if (Tile.IsFlood(Tiles[x, y].Type))
                 {
-                    FloodTiles[x, y] = Tile.FLOODED;
+                    FloodTiles[x, y] = Tiles[x, y].Type;
                     floodQueue.Enqueue((x, y));
                 }
                 else
@@ -223,7 +223,7 @@ class Map
                     if (FloodTiles[nx, ny] == Tile.NOT_FLOODED && !Tile.CanCollide(type))
                     {
                         // Set the tile to flooded and add it to the queue
-                        FloodTiles[nx, ny] = Tile.FLOODED;
+                        FloodTiles[nx, ny] = FloodTiles[x, y];
                         floodQueue.Enqueue((nx, ny));
                     }
                 }
@@ -245,13 +245,13 @@ class Map
                 BgTiles[x, y].Draw(spriteBatch);
 
                 // Draw expanding water while keeping background and foreground in mind
-                if (FloodTiles[x, y] == Tile.FLOODED && Tiles[x, y].Type != (int)Tile.Func.WallJump) spriteBatch.Draw(Tile.textures[(int)Tile.Func.Water], Tiles[x, y].Rec, Color.White);
+                if (Tile.IsFlood(FloodTiles[x, y]) && Tiles[x, y].Type != (int)Tile.Func.WallJump) spriteBatch.Draw(Tile.textures[Tile.GetType(FloodTiles[x, y])], Tiles[x, y].Rec, Color.White);
 
                 // Draw foreground tile last
                 Tiles[x, y].Draw(spriteBatch);
 
                 // If water floods a ladder, should go above it
-                if (FloodTiles[x, y] == Tile.FLOODED && Tiles[x, y].Type == (int)Tile.Decor.Ladder) spriteBatch.Draw(Tile.textures[(int)Tile.Func.Water], Tiles[x, y].Rec, Color.White);
+                if (Tile.IsFlood(FloodTiles[x, y]) && Tiles[x, y].Type == (int)Tile.Decor.Ladder) spriteBatch.Draw(Tile.textures[Tile.GetType(FloodTiles[x, y])], Tiles[x, y].Rec, Color.White);
             }
         }
 
@@ -334,7 +334,7 @@ class Map
         // Create tile arrays
         Tiles = new Tile[SizeX, SizeY];
         BgTiles = new Tile[SizeX, SizeY];
-        FloodTiles = new bool[SizeX, SizeY];
+        FloodTiles = new int[SizeX, SizeY];
 
         // Create the list to store ziplines
         Ziplines = new Zipline[ziplineCnt].ToList();

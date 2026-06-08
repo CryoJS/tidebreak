@@ -1,12 +1,22 @@
-using System;
+// Author:          Jason Sun
+// File Name:       WinScreen.cs
+// Project Name:    Tidebreak
+// Creation Date:   May 12, 2026
+// Modified Date:   June 7, 2026
+// Description:     GUI screen for the popup when winning a map
+
 using MonoGameGum;
 
 namespace Tidebreak.Screens
 {
     partial class WinScreen
     {
+        // Store the prefixed message before displaying time
         private const string TIME_MESSAGE = "Time taken: ";
         
+        /// <summary>
+        /// Sets up screen on creation
+        /// </summary>
         partial void CustomInitialize()
         {
             // Store current map

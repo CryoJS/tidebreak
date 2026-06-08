@@ -1,19 +1,22 @@
-using Gum.Converters;
-using Gum.DataTypes;
-using Gum.Forms.Controls;
-using Gum.Managers;
-using Gum.Wireframe;
-using Microsoft.Xna.Framework;
-using RenderingLibrary.Graphics;
+// Author:          Jason Sun
+// File Name:       MapDetailsScreen.cs
+// Project Name:    Tidebreak
+// Creation Date:   May 12, 2026
+// Modified Date:   June 7, 2026
+// Description:     GUI screen for when you open the details of a map
 
-using System.Linq;
+using Gum.Forms.Controls;
 
 namespace Tidebreak.Screens
 {
     partial class MapDetailsScreen
     {
+        // Store the message for when there is no best time for the map
         private const string NO_BEST_TIME = "None";
 
+        /// <summary>
+        /// Sets up screen on creation
+        /// </summary>
         partial void CustomInitialize()
         {
             // Only update all text if map selected is not null

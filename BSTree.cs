@@ -1,3 +1,10 @@
+// Author:          Jason Sun
+// File Name:       .cs
+// Project Name:    Tidebreak
+// Creation Date:   , 2026
+// Modified Date:   June 7, 2026
+// Description:     GUI screen for the game's 
+
 using System;
 
 class BSTree<Value> where Value : IComparable<Value>

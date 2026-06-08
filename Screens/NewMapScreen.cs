@@ -1,3 +1,10 @@
+// Author:          Jason Sun
+// File Name:       NewMapScreen.cs
+// Project Name:    Tidebreak
+// Creation Date:   May 12, 2026
+// Modified Date:   June 7, 2026
+// Description:     GUI screen for the popup when creating a new map
+
 using Gum.Forms.Controls;
 using MonoGameGum;
 
@@ -5,6 +12,9 @@ namespace Tidebreak.Screens
 {
     partial class NewMapScreen
     {
+        /// <summary>
+        /// Sets up screen on creation
+        /// </summary>
         partial void CustomInitialize()
         {
             // Configure max # of chars

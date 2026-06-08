@@ -53,7 +53,7 @@ static class SoundManager
     private static SoundEffectInstance ziplineDuringInstance;
     private static SoundEffectInstance underwaterInstance;
 
-    // Store all map sounds // REVIEW im allowed to use dicts right?
+    // Store all map sounds
     private static Dictionary<string, Song> MapSongs = new Dictionary<string, Song>();
 
     // Store all map song names

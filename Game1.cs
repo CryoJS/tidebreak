@@ -5,6 +5,15 @@
 // Modified Date:   June 8, 2026
 // Description:     The main class that handles and drives the game
 
+// Course Concepts Used:
+// 2D Arrays/Lists      -> Map.cs stores the map as a 2D array of tiles
+// File I/O             -> Map.cs/Settings.cs read/write maps to SavedMaps.txt and DefaultMap.txt
+// OOP                  -> All classes use encapsulation for organization, access safety, and scalability
+// Recursion            -> MapEditor.cs → ChangeTile() recursively removes zipline pairs; BSTree.cs → Copy() recursively copies subtrees
+// Stacks/Queues        -> Stack.cs handles undo/redo in the map editor; Queue.cs handles BFS flood detection
+// Linked Lists/Trees   -> Queue.cs built on a doubly linked list; BSTree.cs is a BST used to store buttons ordered by priority
+// Sorting/Searching    -> MergeSort.cs → Sort() used in ReloadZiplines() and MapSortScreen.cs to sort ziplines/maps
+
 using System;
 using System.Collections.Generic;
 using System.IO;

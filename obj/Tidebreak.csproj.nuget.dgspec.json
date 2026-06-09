@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\Vast\\Desktop\\Projects\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj": {}
+    "C:\\Users\\Vast\\Desktop\\Projects\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj": {}
   },
   "projects": {
-    "c:\\Users\\Vast\\Desktop\\Projects\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj": {
+    "C:\\Users\\Vast\\Desktop\\Projects\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\Vast\\Desktop\\Projects\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj",
+        "projectUniqueName": "C:\\Users\\Vast\\Desktop\\Projects\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj",
         "projectName": "Tidebreak",
-        "projectPath": "c:\\Users\\Vast\\Desktop\\Projects\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj",
+        "projectPath": "C:\\Users\\Vast\\Desktop\\Projects\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\Tidebreak.csproj",
         "packagesPath": "C:\\Users\\Vast\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\Vast\\Desktop\\Projects\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\obj\\",
+        "outputPath": "C:\\Users\\Vast\\Desktop\\Projects\\ISC-grade-12\\Assignments\\FinalProject\\Tidebreak\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Vast\\AppData\\Roaming\\NuGet\\NuGet.Config"

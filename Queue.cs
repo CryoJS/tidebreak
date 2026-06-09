@@ -1,3 +1,10 @@
+// Author:          Jason Sun
+// File Name:       Queue.cs
+// Project Name:    Tidebreak
+// Creation Date:   April 27, 2026
+// Modified Date:   June 8, 2026
+// Description:     A queue collection built with a doubly linked list
+
 using System;
 
 class Queue<Value>
@@ -7,16 +14,27 @@ class Queue<Value>
     private QueueNode<Value> back = null;
     public int Count { get; private set; }
 
+    /// <summary>
+    /// Constructs a queue object, resetting count
+    /// </summary>
     public Queue()
     {
         Count = 0;
     }
 
+    /// <summary>
+    /// Checks if the queue is empty or not
+    /// </summary>
+    /// <returns>True is empty, false if not</returns>
     public bool IsEmpty()
     {
         return Count == 0;
     }
 
+    /// <summary>
+    /// Adds a value into the back of the queue
+    /// </summary>
+    /// <param name="val">Value to put into queue</param>
     public void Enqueue(Value val)
     {
         // If empty, new button is front and back, otherwise add after back
@@ -35,6 +53,10 @@ class Queue<Value>
         Count++;
     }
 
+    /// <summary>
+    /// Deletes the front value and returns it
+    /// </summary>
+    /// <returns>The front value</returns>
     public Value Dequeue()
     {
         // Only remove from queue if it is not empty

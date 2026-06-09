@@ -1,9 +1,9 @@
 // Author:          Jason Sun
-// File Name:       .cs
+// File Name:       BSTree.cs
 // Project Name:    Tidebreak
-// Creation Date:   , 2026
-// Modified Date:   June 7, 2026
-// Description:     GUI screen for the game's 
+// Creation Date:   May 13, 2026
+// Modified Date:   June 8, 2026
+// Description:     Binary search tree collection, can store anything
 
 using System;
 
@@ -13,16 +13,27 @@ class BSTree<Value> where Value : IComparable<Value>
     private BSTreeNode<Value> root;
     public int Count { get; private set; }
 
+    /// <summary>
+    /// Constructs BSTree, setting count to 0
+    /// </summary>
     public BSTree()
     {
         Count = 0;
     }
 
+    /// <summary>
+    /// Checks if the BSTree is empty
+    /// </summary>
+    /// <returns>Boolean, true is empty, false is not</returns>
     public bool IsEmpty()
     {
         return Count == 0;
     }
 
+    /// <summary>
+    /// Gets the leftmost node in the tree, moves to left child continuously starting from root
+    /// </summary>
+    /// <returns>Leftmost node in the tree</returns>
     public Value GetLeftmost()
     {
         // If the tree is empty, return null (for objects, but default since template Value is used)
@@ -36,6 +47,10 @@ class BSTree<Value> where Value : IComparable<Value>
         return cur.val;
     }
 
+    /// <summary>
+    /// Gets the rightmost node in the tree, moves to right child continuously starting from root
+    /// </summary>
+    /// <returns>Rightmost node in the tree</returns>
     public Value GetRightmost()
     {
         // If the tree is empty, return null (for objects, but default since template Value is used)
@@ -49,6 +64,11 @@ class BSTree<Value> where Value : IComparable<Value>
         return cur.val;
     }
 
+    /// <summary>
+    /// Add's a value to the BSTree
+    /// </summary>
+    /// <param name="val">The value to addd</param>
+    /// <returns>True if success, false if failed to add</returns>
     public bool Add(Value val)
     {
         // If BST is empty, create new root
@@ -103,6 +123,11 @@ class BSTree<Value> where Value : IComparable<Value>
         return true;
     }
 
+    /// <summary>
+    /// Finds the node given the value that the BST is ordered by
+    /// </summary>
+    /// <param name="val">The value of the node to find</param>
+    /// <returns>The node with the given value, or null if not found</returns>
     public BSTreeNode<Value> Find(Value val)
     {
         // Explore tree starting from root
@@ -117,6 +142,10 @@ class BSTree<Value> where Value : IComparable<Value>
         return null;
     }
 
+    /// <summary>
+    /// Deletes a node with the given value
+    /// </summary>
+    /// <param name="val">Value of node to delete</param>
     public void Delete(Value val)
     {
         // Store node we want to delete
@@ -187,6 +216,10 @@ class BSTree<Value> where Value : IComparable<Value>
         Count--;
     }
 
+    /// <summary>
+    /// Copies the BST
+    /// </summary>
+    /// <returns>A deep copy of the BST</returns>
     public BSTree<Value> Copy()
     {
         // Create a new (empty) BST to store the copy
@@ -197,6 +230,11 @@ class BSTree<Value> where Value : IComparable<Value>
         return copy;
     }
 
+    /// <summary>
+    /// Recursively copies an entire subtree, helper function for Copy()
+    /// </summary>
+    /// <param name="copy">The final BST copy</param>
+    /// <param name="node">The current node, root of current subtree to copy</param>
     private void CopyNode(BSTree<Value> copy, BSTreeNode<Value> node)
     {
         // If node is empty no copying done
@@ -208,6 +246,10 @@ class BSTree<Value> where Value : IComparable<Value>
         CopyNode(copy, node.Right);
     }
 
+    /// <summary>
+    /// Displays the subtree (in-order traversal)
+    /// </summary>
+    /// <returns>Returns a string of all the nodes printed out (in-order)</returns>
     public string InOrderTreeDisplay()
     {
         // If no root, BST is empty, otherwise display
@@ -215,6 +257,11 @@ class BSTree<Value> where Value : IComparable<Value>
         return GetDisplayList(root);
     }
 
+    /// <summary>
+    /// Recursively displays the left subtree, the self node, the right subtree 
+    /// </summary>
+    /// <param name="root">The root of the subtree to display</param>
+    /// <returns>The in-order display of the given subtree</returns>
     private string GetDisplayList(BSTreeNode<Value> root)
     {
         // Display left subtree, then display root value, then display right subtree

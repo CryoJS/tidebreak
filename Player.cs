@@ -1,3 +1,10 @@
+// Author:          Jason Sun
+// File Name:       Player.cs
+// Project Name:    Tidebreak
+// Creation Date:   April 27, 2026
+// Modified Date:   June 8, 2026
+// Description:     Stores player data and handles movement, collision, and animation logic
+
 using System;
 using GameUtility;
 using Microsoft.Xna.Framework;
@@ -117,6 +124,10 @@ class Player
     private static Texture2D[] imgs = new Texture2D[ANIM_STATE_AMOUNT];
     private static Animation[] anims = new Animation[ANIM_STATE_AMOUNT];
 
+    /// <summary>
+    /// Creates a player object
+    /// </summary>
+    /// <param name="content">Content manager to load animation textures with</param>
     public Player(ContentManager content)
     {
         // Load player animation spreadsheets
@@ -139,6 +150,11 @@ class Player
         anims[(int)animStates.Dying] = new Animation(imgs[(int)animStates.Dying], 23, 1, 23, 0, Animation.NO_IDLE, 1, 23 * FRAME_DURATION, pos, Game1.PIXEL_SCALE, Game1.PIXEL_SCALE, false, "PlayerDeath");
     }
 
+    /// <summary>
+    /// Changes the state of the player
+    /// </summary>
+    /// <param name="newState">The new state</param>
+    /// <param name="activate">If animation should be activated or not</param>
     private void SetState(animStates newState, bool activate = true)
     {
         if (state != newState)
@@ -148,6 +164,9 @@ class Player
         }
     }
 
+    /// <summary>
+    /// Resets the player's map data
+    /// </summary>
     public void ResetPlayer()
     {
         // Reset default states for safety
@@ -171,6 +190,9 @@ class Player
         anims[(int)animStates.Dying].Activate(true);
     }
 
+    /// <summary>
+    /// Loads the win screen
+    /// </summary>
     private void LoadWin()
     {
         // Play win sound and pause the game
@@ -181,6 +203,9 @@ class Player
         new WinScreen().AddToRoot();
     }
 
+    /// <summary>
+    /// Starts the player death animation
+    /// </summary>
     private void StartPlayerDeath()
     {
         if (!IsDead)
@@ -190,6 +215,13 @@ class Player
         }
     }
 
+    /// <summary>
+    /// Updates the player
+    /// </summary>
+    /// <param name="gameTime">Current game time</param>
+    /// <param name="kb">Keyboard state this frame</param>
+    /// <param name="prevKb">Previous keyboard last frame</param>
+    /// <param name="map">Map the player is in/playing</param>
     public void Update(GameTime gameTime, KeyboardState kb, KeyboardState prevKb, Map map)
     {
         // Move player, check collisions, update player attributes
@@ -209,16 +241,30 @@ class Player
         Camera.Update(gameTime, rec.Center.ToVector2(), onZipline);
     }
 
+    /// <summary>
+    /// Draws the player
+    /// </summary>
+    /// <param name="spriteBatch">Sprite batch to draw with</param>
     public void Draw(SpriteBatch spriteBatch)
     {
         anims[(int)state].Draw(spriteBatch, Color.White, direction);
     }
 
+    /// <summary>
+    /// Centers the player's position
+    /// </summary>
+    /// <param name="newPos">New position to center on</param>
     public void CenterPos(Vector2 newPos)
     {
         pos = newPos - new Vector2(rec.Width, rec.Height) / 2;
     }
 
+    /// <summary>
+    /// Checks all player movement possibilities/controls
+    /// </summary>
+    /// <param name="gameTime">Current game time</param>
+    /// <param name="kb">Keyboard state this frame</param>
+    /// <param name="prevKb">Previous keyboard last frame</param>
     private void MoveChecks(GameTime gameTime, KeyboardState kb, KeyboardState prevKb)
     {
         // If player is hanging on a zipline, move on zipline
@@ -355,6 +401,12 @@ class Player
         }
     }
 
+    /// <summary>
+    /// Handles player movement
+    /// </summary>
+    /// <param name="gameTime">Current game time</param>
+    /// <param name="kb">Keyboard state this frame</param>
+    /// <param name="prevKb">Previous keyboard last frame</param>
     private void Move(GameTime gameTime, KeyboardState kb, KeyboardState prevKb)
     {
         // If the player is dead, do not let them move
@@ -379,6 +431,9 @@ class Player
         }
     }
 
+    /// <summary>
+    /// Updates player's rectangle
+    /// </summary>
     private void UpdateRec()
     {
         // Make the height halved when swimming or sliding
@@ -393,6 +448,9 @@ class Player
         rec.Y = (int)pos.Y;
     }
 
+    /// <summary>
+    /// Loads the player rectangles for collision (top, bottom, left, right)
+    /// </summary>
     private void LoadCollisionRecs()
     {
         // Set up player collision direction / body part collision rectangles
@@ -402,6 +460,13 @@ class Player
         right = new Rectangle((int)(rec.X + 0.5 * rec.Width), (int)(rec.Y + 0.05 * rec.Height), (int)(0.5 * rec.Width), (int)(0.9 * rec.Height));
     }
 
+    /// <summary>
+    /// Checks player collisions
+    /// </summary>
+    /// <param name="gameTime">Current game time</param>
+    /// <param name="map">Map the player is in/playing</param>
+    /// <param name="kb">Keyboard state this frame</param>
+    /// <param name="prevKb">Previous keyboard last frame</param>
     private void CheckCollisions(GameTime gameTime, Map map, KeyboardState kb, KeyboardState prevKb)
     {
         // If the player falls out of the world, they die
@@ -676,6 +741,11 @@ class Player
         }
     }
 
+    /// <summary>
+    /// Updates players oxygen level
+    /// </summary>
+    /// <param name="gameTime">Current game time</param>
+    /// <param name="map">Map the player is in/playing</param>
     private void UpdateOxygen(GameTime gameTime, Map map)
     {
         // If in water, lose oxygen, otherwise gain oxygen
@@ -692,6 +762,9 @@ class Player
         if (Oxygen < 0) StartPlayerDeath();
     }
 
+    /// <summary>
+    /// Perform checks for animation update
+    /// </summary>
     private void UpdateAnimsChecks()
     {
         // Perform game over logic
@@ -790,6 +863,10 @@ class Player
         SetState(animStates.Idle);
     }
 
+    /// <summary>
+    /// Update player's current animation
+    /// </summary>
+    /// <param name="gameTime"></param>
     private void UpdateAnims(GameTime gameTime)
     {
         // Check which animation should be done

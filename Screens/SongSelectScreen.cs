@@ -120,7 +120,7 @@ namespace Tidebreak.Screens
                     SoundManager.PlayClick();
                     Game1.currentMap.Song = name;
 
-                    Game1.currentMap.UpdateModifiedDate();
+                    Game1.currentMap.UpdateModified();
                     Game1.SaveMaps();
                 };
 
@@ -137,7 +137,7 @@ namespace Tidebreak.Screens
 
                 // Save no song choice
                 Game1.currentMap.Song = SoundManager.NO_SONG;
-                Game1.currentMap.UpdateModifiedDate();
+                Game1.currentMap.UpdateModified();
                 Game1.SaveMaps();
             };
 

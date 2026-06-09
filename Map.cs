@@ -1,3 +1,10 @@
+// Author:          Jason Sun
+// File Name:       Map.cs
+// Project Name:    Tidebreak
+// Creation Date:   April 27, 2026
+// Modified Date:   June 8, 2026
+// Description:     Map (aka level) data and all logic
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -55,11 +62,15 @@ class Map
     // Sort a list of maps by a given property
     public static void Sort(List<Map> maps, Comparison<Map> comparison) => MergeSort.Sort(maps, comparison);
 
-    // Create the comparisons for the allowed options (properties) to sort by // REVIEW do i need to document all of these comparators as functions cuz they are just fields technically?
+    // Create the comparisons for the allowed options (properties) to sort by
     public static readonly Comparison<Map> SortByName         = (a, b) => a.Name.CompareTo(b.Name);
     public static readonly Comparison<Map> SortByDifficulty   = (a, b) => a.Difficulty.CompareTo(b.Difficulty);
     public static readonly Comparison<Map> SortByCreationDate = (a, b) => a.CreationDate.CompareTo(b.CreationDate);
     public static readonly Comparison<Map> SortByModifiedDate = (a, b) => a.ModifiedDate.CompareTo(b.ModifiedDate);
+
+    /// <summary>
+    /// Compare maps by best time, ensuring that maps with no best time are sorted last (treated as a best time of infinite)
+    /// </summary>
     public static readonly Comparison<Map> SortByBestTime     = (a, b) => {
         // If best time is empty, sort it last (put it at the end)
         if (a.BestTime == b.BestTime) return 0;
@@ -97,8 +108,20 @@ class Map
     private Queue<(int, int)> floodQueue;
     private Timer floodTimer; // Current timer for water spread
 
+    /// <summary>
+    /// Constructs a map object
+    /// </summary>
     public Map() {}
 
+    /// <summary>
+    /// Constructs a map object
+    /// </summary>
+    /// <param name="name">Map title/name</param>
+    /// <param name="author">Map author</param>
+    /// <param name="difficulty">Map difficulty rating</param>
+    /// <param name="sizeX">Map size X</param>
+    /// <param name="sizeY">Map size Y</param>
+    /// <param name="locked">if the map is locked (unable to edit)</param>
     public Map(string name, string author, float difficulty = 0.0f, int sizeX = 10, int sizeY = 10, bool locked = false)
     {
         // Initialize map information
@@ -131,6 +154,10 @@ class Map
         }
     }
 
+    /// <summary>
+    /// Starts the map
+    /// </summary>
+    /// <param name="player">Player object</param>
     public void Start(Player player)
     {
         // Reset player data
@@ -183,6 +210,10 @@ class Map
         player.Camera.ResetZoom();
     }
 
+    /// <summary>
+    /// Updates the map
+    /// </summary>
+    /// <param name="gameTime">Current map time</param>
     public void Update(GameTime gameTime)
     {
         // Store current tile and adj tile coordinates
@@ -220,7 +251,7 @@ class Map
                     int type = Tile.GetType(Tiles[nx, ny].Type);
 
                     // Only expand tile if empty (and unflooded)
-                    if (FloodTiles[nx, ny] == Tile.NOT_FLOODED && !Tile.CanCollide(type))
+                    if (FloodTiles[nx, ny] == Tile.NOT_FLOODED && !Tile.CanCollide(type) && type != (int)Tile.Func.Barrier)
                     {
                         // Set the tile to flooded and add it to the queue
                         FloodTiles[nx, ny] = FloodTiles[x, y];
@@ -234,6 +265,10 @@ class Map
         }
     }
 
+    /// <summary>
+    /// Draws the map
+    /// </summary>
+    /// <param name="spriteBatch">Current map time</param>
     public void Draw(SpriteBatch spriteBatch)
     {
         // Draw each tile, background tile first, 
@@ -262,6 +297,10 @@ class Map
         }
     }
 
+    /// <summary>
+    /// Saves the current map to a file
+    /// </summary>
+    /// <param name="outFile">File to save to</param>
     public void Save(StreamWriter outFile)
     {
         // Write core map information
@@ -303,6 +342,11 @@ class Map
         }
     }
 
+    /// <summary>
+    /// Loads the current map from file
+    /// </summary>
+    /// <param name="inFile">File to load from</param>
+    /// <param name="newMap">If this is a new map or not</param>
     public void Load(StreamReader inFile, bool newMap = false)
     {
         // Create a variable for storing lines
@@ -393,8 +437,15 @@ class Map
         foreach (Zipline zipline in Ziplines) zipline.Load();
     }
 
-    public void UpdateModifiedDate()
+    /// <summary>
+    /// Update the data after map is modified (date and best time)
+    /// </summary>
+    public void UpdateModified()
     {
+        // Update modified date
         ModifiedDate = DateTime.Now;
+
+        // Reset best time
+        BestTime = EMPTY;
     }
 }

@@ -1,3 +1,10 @@
+// Author:          Jason Sun
+// File Name:       SoundManager.cs
+// Project Name:    Tidebreak
+// Creation Date:   April 27, 2026
+// Modified Date:   June 8, 2026
+// Description:     Manages all the sounds in the game to be easily used around the game
+
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework.Audio;
@@ -102,6 +109,10 @@ static class SoundManager
     // Store all volume of all songs and sfx
     private static Dictionary<string, float> volume = new Dictionary<string, float>();
 
+    /// <summary>
+    /// Loads all the game sounds
+    /// </summary>
+    /// <param name="content">Content manager to load with</param>
     public static void Load(ContentManager content)
     {
         // Set songs to repeat
@@ -177,6 +188,10 @@ static class SoundManager
         underwaterInstance.Volume = 0.4f;
     }
 
+    /// <summary>
+    /// Plays a sound effect
+    /// </summary>
+    /// <param name="sfx">Sound effect</param>
     public static void Play(SoundEffect sfx)
     {
         // Create instance and sets volume if custom volume is set
@@ -185,6 +200,11 @@ static class SoundManager
         instance.Play();
     }
 
+    /// <summary>
+    /// Start to play a song
+    /// </summary>
+    /// <param name="song">Song to play</param>
+    /// <param name="restart">If forcing restart if same song</param>
     public static void Play(Song song, bool restart = false)
     {
         // Change the volume if custom volume is set, otherwise set it back to default
@@ -192,10 +212,19 @@ static class SoundManager
         if (restart || song != MediaPlayer.Queue.ActiveSong) MediaPlayer.Play(song);
     }
 
+    /// <summary>
+    /// Plays a click sfx
+    /// </summary>
     public static void PlayClick() => Play(clickSfx);
     
+    /// <summary>
+    /// Plays a load sfx
+    /// </summary>
     public static void PlayLoad() => Play(loadSfx);
     
+    /// <summary>
+    /// Plays a button sfx (bouncing around to different sound effects)
+    /// </summary>
     public static void PlayButton(int index = 0)
     {
         // If index is out of bounds, flip direction and change index (seesaw effect)
@@ -206,41 +235,79 @@ static class SoundManager
         Play(btnSfx[btnIndex]);
     }
     
+    /// <summary>
+    /// Plays a win sfx
+    /// </summary>
     public static void PlayWin() => Play(winSfx);
     
+    /// <summary>
+    /// Plays a death sfx
+    /// </summary>
     public static void PlayDeath() => Play(defeatSfx);
 
+    /// <summary>
+    /// Plays underwater sfx
+    /// </summary>
     public static void PlayUnderwater()
     {
         if (underwaterInstance.State != SoundState.Playing) underwaterInstance.Play();
     }
     
+    /// <summary>
+    /// Stops playing underwater sfx
+    /// </summary>
     public static void StopUnderwater()
     {
         if (underwaterInstance.State == SoundState.Playing) underwaterInstance.Stop();
     }
     
+    /// <summary>
+    /// Plays wall jump on sfx
+    /// </summary>
     public static void PlayWalljumpOn() => Play(walljumpOnSfx);
     
+    /// <summary>
+    /// Plays wall jump off sfx
+    /// </summary>
     public static void PlayWalljumpOff() => Play(walljumpOffSfx);
     
+    /// <summary>
+    /// Play zipline attach sfx
+    /// </summary>
     public static void PlayZiplineStart() => Play(ziplineStartSfx);
     
+    /// <summary>
+    /// Play zipline sliding sfx
+    /// </summary>
     public static void PlayZiplineDuring() 
     {
         if (ziplineDuringInstance.State != SoundState.Playing) ziplineDuringInstance.Play();
     }
     
+    /// <summary>
+    /// Play zipline detatch sfx
+    /// </summary>
+    /// <param name="onlyStop">To only stop and not play detach</param>
     public static void PlayZiplineEnd(bool onlyStop = false)
     {
         if (ziplineDuringInstance.State == SoundState.Playing) ziplineDuringInstance.Stop();
         if (!onlyStop) Play(ziplineEndSfx);
     }
 
+    /// <summary>
+    /// Play lobby music
+    /// </summary>
     public static void PlayLobbyMusic() => Play(lobbyMusic);
     
+    /// <summary>
+    /// Play level editor music
+    /// </summary>
     public static void PlayLevelEditorMusic() => Play(levelEditorMusic);
 
+    /// <summary>
+    /// Play map song music
+    /// </summary>
+    /// <param name="name">Name of the song of the map</param>
     public static void PlayMapSong(string name)
     {
         // If song exists, play it
@@ -254,8 +321,16 @@ static class SoundManager
         StopMusic();
     }
 
+    /// <summary>
+    /// Stop playing map music
+    /// </summary>
     public static void StopMusic() => MediaPlayer.Stop();
 
+    /// <summary>
+    /// Play a map song at certain position
+    /// </summary>
+    /// <param name="name"></param>
+    /// <param name="position"></param>
     public static void SeekMapSong(string name, TimeSpan position)
     {
         // Quit if spamming seek, otherwise move on and store current date
@@ -277,6 +352,10 @@ static class SoundManager
         }
     }
 
+    /// <summary>
+    /// Set a new song volume scaling
+    /// </summary>
+    /// <param name="scale">New scaling for song volume</param>
     public static void SetMusicScale(float scale)
     {
         // Update music scaling to new factor
@@ -290,6 +369,10 @@ static class SoundManager
         }
     }
 
+    /// <summary>
+    /// Set a new sound effect volume scaling
+    /// </summary>
+    /// <param name="scale">New scaling for sfx volume</param>
     public static void SetSfxScale(float scale)
     {
         // Update sfx scaling to new factor

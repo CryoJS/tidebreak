@@ -1,13 +1,36 @@
+// Author:          Jason Sun
+// File Name:       MergeSort.cs
+// Project Name:    Tidebreak
+// Creation Date:   April 27, 2026
+// Modified Date:   June 8, 2026
+// Description:     Sorts a collection with the Merge Sort algorithm
+
 using System;
 using System.Collections.Generic;
 
 static class MergeSort
 {
+    /// <summary>
+    /// Sorts a given list with a custom comparator using merge sort
+    /// </summary>
+    /// <typeparam name="Value">Values to sort (inside list)</typeparam>
+    /// <param name="list">List to sort</param>
+    /// <param name="comparison">Custom comparator</param>
+    /// <returns>New sorted list</returns>
     public static List<Value> Sort<Value>(List<Value> list, Comparison<Value> comparison)
     {
         return MergeSortRange(list, 0, list.Count - 1, comparison);
     }
 
+    /// <summary>
+    /// Recursively sorts a list by sorting halves, then merging them
+    /// </summary>
+    /// <typeparam name="Value">Value in list to sort</typeparam>
+    /// <param name="vals">List of values to sort</param>
+    /// <param name="left">Left index of the current range</param>
+    /// <param name="right">RIght index of the current range</param>
+    /// <param name="comparison">Custom comparator</param>
+    /// <returns>The sorted range</returns>
     private static List<Value> MergeSortRange<Value>(List<Value> vals, int left, int right, Comparison<Value> comparison)
     {
         // If list is empty or has one element, already sorted, return the list itself
@@ -19,6 +42,14 @@ static class MergeSort
         return Merge(MergeSortRange(vals, left, mid, comparison), MergeSortRange(vals, mid + 1, right, comparison), comparison);
     }
 
+    /// <summary>
+    /// Merges two sorted lists to one sorted list
+    /// </summary>
+    /// <typeparam name="Value">Value in lists to merge</typeparam>
+    /// <param name="left">A list of values</param>
+    /// <param name="right">Another list of values</param>
+    /// <param name="comparison">Comparator to sort by</param>
+    /// <returns>New merged sorted list</returns>
     private static List<Value> Merge<Value>(List<Value> left, List<Value> right, Comparison<Value> comparison)
     {
         // If either list is empty, return the other

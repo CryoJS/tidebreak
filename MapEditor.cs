@@ -1,3 +1,10 @@
+// Author:          Jason Sun
+// File Name:       MapEditor.cs
+// Project Name:    Tidebreak
+// Creation Date:   April 27, 2026
+// Modified Date:   June 8, 2026
+// Description:     Handles the entire map editor's needed data, movement, and logic
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,8 +82,15 @@ class MapEditor
     private bool unsaved;
     private bool ziplineEdited;
 
+    /// <summary>
+    /// Create a map editor object
+    /// </summary>
     public MapEditor() {}
 
+    /// <summary>
+    /// Loads the map (prepares it for editing)
+    /// </summary>
+    /// <param name="map">Map to load</param>
     public void Load(Map map)
     {
         // Store given map
@@ -143,6 +157,14 @@ class MapEditor
         StartSelected = NO_TILE_SELECTED;
     }
 
+    /// <summary>
+    /// Updates the map editor
+    /// </summary>
+    /// <param name="gameTime">Current game time</param>
+    /// <param name="kb">Current keyboard state</param>
+    /// <param name="prevKb">Keyboard state in the previous frame</param>
+    /// <param name="mouse">Current mouse state</param>
+    /// <param name="prevMouse">Mouse state in the previous frame</param>
     public void Update(GameTime gameTime, KeyboardState kb, KeyboardState prevKb, MouseState mouse, MouseState prevMouse)
     {
         // Move camera
@@ -256,6 +278,11 @@ class MapEditor
         Game1.editScreen.SaveBtn.IsEnabled = Game1.editScreen.SaveBtn.IsEnabled = startCnt > 0 && unsaved;
     }
 
+    /// <summary>
+    /// Draws the map in editor view
+    /// </summary>
+    /// <param name="spriteBatch">Sprite batch to draw with</param>
+    /// <param name="mouse">Current mouse state</param>
     public void Draw(SpriteBatch spriteBatch, MouseState mouse)
     {
         // Draw each tile, background tile first, 
@@ -323,6 +350,13 @@ class MapEditor
         }
     }
 
+    /// <summary>
+    /// Handles move logic for the player
+    /// </summary>
+    /// <param name="gameTime">Current game time</param>
+    /// <param name="kb">Current keyboard state</param>
+    /// <param name="mouse">Current mouse state</param>
+    /// <param name="prevMouse">Mouse state in the previous frame</param>
     private void Move(GameTime gameTime, KeyboardState kb, MouseState mouse, MouseState prevMouse)
     {
         // Calculate move amount
@@ -345,6 +379,11 @@ class MapEditor
         }
     }
 
+    /// <summary>
+    /// Checks if the clicking position is at a valid (visible) tile
+    /// </summary>
+    /// <param name="mousePos">Current mouse state</param>
+    /// <returns>If tile is clickable</returns>
     private bool IsTileClickable(Vector2 mousePos)
     {
         return IsEditing
@@ -353,6 +392,13 @@ class MapEditor
             && !Game1.editScreen.TopRightContainer.IsPointInside(mousePos.X, mousePos.Y);
     }
 
+    /// <summary>
+    /// Handle extra remove logic
+    /// </summary>
+    /// <param name="type">Tile type</param>
+    /// <param name="x">Tile x position</param>
+    /// <param name="y">Tile y position</param>
+    /// <param name="canUndo">If it's for the undo stack (true) or redo stack (false)</param>
     private void ExtraRemove(int type, int x, int y, bool canUndo)
     {
         // Perform any needed updates for the removed tile
@@ -395,6 +441,12 @@ class MapEditor
         }
     }
 
+    /// <summary>
+    /// Handles any extra add logic
+    /// </summary>
+    /// <param name="type">Tile type</param>
+    /// <param name="x">Tile x position</param>
+    /// <param name="y">Tile y position</param>
     private void ExtraAdd(int type, int x, int y)
     {
         // Perform any needed updates for the added tile
@@ -417,6 +469,14 @@ class MapEditor
         }
     }
 
+    /// <summary>
+    /// Changes a tile with a new tile
+    /// </summary>
+    /// <param name="x">Tile x position</param>
+    /// <param name="y">Tile y position</param>
+    /// <param name="overwriteType">Overwrite new type of tile</param>
+    /// <param name="newEditBg">Overwrite if editing bg or not</param>
+    /// <param name="canUndo">If action is undo-able or not (or instead for redo stack)</param>
     private void ChangeTile(int x, int y, int? overwriteType = null, bool? newEditBg = null, bool canUndo = true)
     {
         // Store new type and current tile
@@ -436,6 +496,11 @@ class MapEditor
         ExtraAdd(type, x, y);
     }
 
+    /// <summary>
+    /// Places a selection of tiles
+    /// </summary>
+    /// <param name="start">Start selection (top left)</param>
+    /// <param name="end">End selection (bottom right)</param>
     private void PlaceTiles(Point start, Point end)
     {
         // If no selected tile, do nothing
@@ -481,6 +546,9 @@ class MapEditor
         }
     }
 
+    /// <summary>
+    /// Adds a new action (to store in undo stack)
+    /// </summary>
     private void AddNewAction()
     {
         // Add new action to stack and clear redo stack
@@ -491,6 +559,10 @@ class MapEditor
         unsaved = true;
     }
 
+    /// <summary>
+    /// Undos the last action group using the undo stack
+    /// </summary>
+    /// <param name="redo">If redo (undo-ing an undo)</param>
     public void Undo(bool redo = false)
     {
         // Store stack, if nothing to undo, do nothing
@@ -516,12 +588,19 @@ class MapEditor
         unsaved = true;
     }
 
+    /// <summary>
+    /// Handles redo by calling Undo() for the undo stack with the redo stack
+    /// </summary>
     public void Redo()
     {
         // Call same undo logic but on redo stack (undo-ing an undo)
         Undo(true);
     }
 
+    /// <summary>
+    /// Updates a change in button settings (priority value)
+    /// </summary>
+    /// <param name="newPriority">New priority to change to</param>
     public void ChangeButtonSettings(int newPriority)
     {
         // If priority is the same as any existing buttons, do nothing
@@ -535,6 +614,9 @@ class MapEditor
         ChangeTile(StartSelected.X, StartSelected.Y);
     }
 
+    /// <summary>
+    /// Recalculates and pairs zipline objects
+    /// </summary>
     private void ReloadZiplines()
     {
         // If ziplines have not been touched, don't do anything, otherwise reset
@@ -593,6 +675,9 @@ class MapEditor
         }
     }
 
+    /// <summary>
+    /// Saves the changes made to the map
+    /// </summary>
     public void Save()
     {
         // Save the changed tiles back to the map
@@ -613,9 +698,13 @@ class MapEditor
         unsaved = false;
 
         // Update modified date
-        map.UpdateModifiedDate();
+        map.UpdateModified();
     }
 
+    /// <summary>
+    /// Displays any debug info for various objects in the map editor (for testing)
+    /// </summary>
+    /// <param name="type">Type of object to debug</param>
     private void DisplayDebugInfo(int type)
     {
         // Display debug info depending on type

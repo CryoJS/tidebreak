@@ -1,15 +1,31 @@
+// Author:          Jason Sun
+// File Name:       ButtonIndicator.cs
+// Project Name:    Tidebreak
+// Creation Date:   May 14, 2026
+// Modified Date:   June 8, 2026
+// Description:     Manages the arrow that points to the next needed button
+
 using System;
 using Microsoft.Xna.Framework;
 using Tidebreak;
 
 class ButtonIndicator
 {
+    // Store arrow placement and breakpoints for transparency transition (getting closer to button = more transparent)
     private const float RADIUS = 200;
     private const float INNER_DIST = 600;
     private const float OUTER_DIST = 3000;
 
+    /// <summary>
+    /// Creates the button indicator
+    /// </summary>
     public ButtonIndicator() {}
 
+    /// <summary>
+    /// Updates button indicator's position and transparency
+    /// </summary>
+    /// <param name="player">Player object currently playing a map</param>
+    /// <param name="camera">Camera object displaying the world</param>
     public void Update(Player player, Camera camera)
     {
         // Only show indicator if there is a next button

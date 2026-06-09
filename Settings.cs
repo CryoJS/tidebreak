@@ -1,3 +1,10 @@
+// Author:          Jason Sun
+// File Name:       Settings.cs
+// Project Name:    Tidebreak
+// Creation Date:   April 27, 2026
+// Modified Date:   June 8, 2026
+// Description:     Handles saving and loading user settings
+
 using System;
 using System.IO;
 using Microsoft.Xna.Framework.Graphics;
@@ -22,6 +29,9 @@ static class Settings
     public static float MusicVolume { get; set; }
     public static float SfxVolume { get; set; }
 
+    /// <summary>
+    /// Loads the user settings from file
+    /// </summary>
     public static void Load()
     {
         // Try to load maps, if failed, load defaults
@@ -57,6 +67,9 @@ static class Settings
         }
     }
 
+    /// <summary>
+    /// Saves user settings to file
+    /// </summary>
     public static void Save()
     {
         try
@@ -81,6 +94,9 @@ static class Settings
         }
     }
 
+    /// <summary>
+    /// Applies current settings
+    /// </summary>
     public static void Apply()
     {
         // Apply fullscreen (borderless) if toggled on
@@ -110,6 +126,9 @@ static class Settings
         SoundManager.SetSfxScale(SfxVolume);
     }
 
+    /// <summary>
+    /// Applies default resolution settings (windowed) to the game
+    /// </summary>
     public static void ApplyDefaultRes()
     {
         // Set the preferred resolution

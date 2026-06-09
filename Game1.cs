@@ -1,4 +1,9 @@
-﻿// NOTE Open MGCB Pipeline Tool: dotnet mgcb-editor ./Content/Content.mgcb
+﻿// Author:          Jason Sun
+// File Name:       Game1.cs
+// Project Name:    Tidebreak
+// Creation Date:   April 27, 2026
+// Modified Date:   June 8, 2026
+// Description:     The main class that handles and drives the game
 
 using System;
 using System.Collections.Generic;
@@ -19,6 +24,7 @@ namespace Tidebreak;
 
 public class Game1 : Game
 {
+    // Create fundamental objects for the game
     public static GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
     GumService GumUI => GumService.Default;
@@ -103,6 +109,9 @@ public class Game1 : Game
     // Store if the game is paused
     internal static bool paused;
 
+    /// <summary>
+    /// Constructs the game
+    /// </summary>
     public Game1()
     {
         _graphics = new GraphicsDeviceManager(this);
@@ -110,6 +119,9 @@ public class Game1 : Game
         IsMouseVisible = true;
     }
 
+    /// <summary>
+    /// Initializes the game
+    /// </summary>
     protected override void Initialize()
     {
         // Apply default resolution to start
@@ -144,6 +156,9 @@ public class Game1 : Game
         base.Initialize();
     }
 
+    /// <summary>
+    /// Loads all the content for the game
+    /// </summary>
     protected override void LoadContent()
     {
         _spriteBatch = new SpriteBatch(GraphicsDevice);
@@ -172,6 +187,10 @@ public class Game1 : Game
         SoundManager.PlayLobbyMusic();
     }
 
+    /// <summary>
+    /// Updates the game
+    /// </summary>
+    /// <param name="gameTime">Current game time</param>
     protected override void Update(GameTime gameTime)
     {
         // Update player keyboard
@@ -203,19 +222,26 @@ public class Game1 : Game
                 break;
 
             case EDIT_MAP:
+                // Update the map editor and UI
                 mapEditor.Update(gameTime, kb, prevKb, mouse, prevMouse);
                 editScreen?.Update(mouse, prevMouse);
                 break;
 
             case EXIT:
+                // Close the game
                 Exit();
                 break;
         }
 
+        // Update the UI and game
         GumUI.Update(gameTime);
         base.Update(gameTime);
     }
 
+    /// <summary>
+    /// Draws the game
+    /// </summary>
+    /// <param name="gameTime">Current game time</param>
     protected override void Draw(GameTime gameTime)
     {
         // Set the proper render target and clear
@@ -287,14 +313,23 @@ public class Game1 : Game
         _spriteBatch.Draw(mouse.LeftButton == ButtonState.Pressed ? cursorPressedImg : cursorImg, mouse.Position.ToVector2(), Color.White);
         _spriteBatch.End();
 
+        // Draws the game
         base.Draw(gameTime);
     }
 
+    /// <summary>
+    /// Begins a sprite batch with camera
+    /// </summary>
+    /// <param name="camera">Camera that follows player</param>
     private void CameraSpriteBatchBegin(Camera camera)
     {
         _spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, camera.GetTransformation());
     }
 
+    /// <summary>
+    /// Loads all the saved maps from file
+    /// </summary>
+    /// <param name="loadDefaults">If loading defaults (due to failure) or not</param>
     private static void LoadMaps(bool loadDefaults = false)
     {
         // Try to load maps, if failed, load defaults
@@ -337,6 +372,9 @@ public class Game1 : Game
         }
     }
 
+    /// <summary>
+    /// Saves all the maps to the file
+    /// </summary>
     public static void SaveMaps()
     {
         // Try to load maps, if failed, send error
@@ -360,6 +398,9 @@ public class Game1 : Game
         }
     }
 
+    /// <summary>
+    /// Returns to game menu
+    /// </summary>
     public static void ReturnToMenu()
     {
         // Play lobby music
@@ -373,6 +414,10 @@ public class Game1 : Game
         gameState = MENU;
     }
 
+    /// <summary>
+    /// Starts a map to play it
+    /// </summary>
+    /// <param name="nextMap">The map to play</param>
     internal static void PlayMap(Map nextMap)
     {
         // Change gamestate (and map)
@@ -390,24 +435,45 @@ public class Game1 : Game
         currentMap.Start(player);
     }
 
+    /// <summary>
+    /// Formats time into a string
+    /// </summary>
+    /// <param name="seconds">Total seconds</param>
+    /// <param name="includeMs">If milliseconds are included in the formatted string</param>
+    /// <returns>Formatting string displaying elapsed time</returns>
     public static string FormatTime(float seconds, bool includeMs = true)
     {
         if (includeMs) return TimeSpan.FromSeconds(seconds).ToString(@"mm\:ss\:fff");
         return TimeSpan.FromSeconds(seconds).ToString(@"mm\:ss");
     }
 
+    /// <summary>
+    /// Calculates the delta % for a value to change with exponential lerping
+    /// </summary>
+    /// <param name="gameTime">Current game time</param>
+    /// <param name="speed">Speed to approach value</param>
+    /// <returns>Delta % for a value to change</returns>
     public static float ExpSmoothing(GameTime gameTime, float speed)
     {
         // Calculate % value to get exponentially closer if farther with no affect from frame rate (source: https://www.rorydriscoll.com/2016/03/07/frame-rate-independent-damping-using-lerp/)
         return 1 - MathF.Exp(-speed * (float)gameTime.ElapsedGameTime.TotalSeconds);
     }
 
-    // NOTE: Takes world position
+    /// <summary>
+    /// Calculate tile position from game position
+    /// </summary>
+    /// <param name="pos">Game position</param>
+    /// <returns>Tile position</returns>
     public static Point CalcTile(Vector2 pos)
     {
         return new Point((int)Math.Floor(pos.X / (TILE_SIZE * PIXEL_SCALE)), (int)Math.Floor(pos.Y / (TILE_SIZE * PIXEL_SCALE)));
     }
 
+    /// <summary>
+    /// Finds the proper mouse coordinates on the screen after scaling the game up
+    /// </summary>
+    /// <param name="mouse">Mouse with position to scale</param>
+    /// <returns>The position of scaled mouse</returns>
     public static Vector2 GameMousePos(MouseState mouse)
     {
         // Calculate proper mouse position given fullscreen changes
@@ -417,6 +483,11 @@ public class Game1 : Game
         );
     }
 
+    /// <summary>
+    /// Ensures only floats are allowed in input box
+    /// </summary>
+    /// <param name="sender">The text input using this handler</param>
+    /// <param name="args">Any needed arguments, gives new text value</param>
     public static void FloatOnlyHandler(object sender, TextCompositionEventArgs args)
     {
         // Store current input and calculate new input
@@ -427,6 +498,11 @@ public class Game1 : Game
         args.Handled = !float.TryParse(newText, out _);
     }
 
+    /// <summary>
+    /// Ensures only integers are allowed in input box
+    /// </summary>
+    /// <param name="sender">The text input using this handler</param>
+    /// <param name="args">Any needed arguments, gives new text value</param>
     public static void IntegerOnlyHandler(object sender, TextCompositionEventArgs args)
     {
         args.Handled = args.Text.Any(c => !char.IsDigit(c));
